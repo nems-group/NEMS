@@ -68,11 +68,23 @@
 			path = Temp;
 			sourceTree = "<group>";
 		};
+		CE74A4952097825800459A35 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2D5297EB209665DF00ADE9E5 /* MessageHandler.swift */,
+				2DF48D5F20950235007770B5 /* Message.swift */,
+				2D5297E82096582600ADE9E5 /* MessageDelegate.swift */,
+				2D5297ED20967C7F00ADE9E5 /* test.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		CEF95B322089805400DD523C = {
 			isa = PBXGroup;
 			children = (
 				CEF95B3D2089805500DD523C /* NEMS */,
 				CEF95B3C2089805500DD523C /* Products */,
+				CE74A4952097825800459A35 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +106,6 @@
 				CEF95B53208D385700DD523C /* ModelStore */,
 				CEF95B50208D37F800DD523C /* ViewControllers */,
 				CEF95B52208D382F00DD523C /* swift */,
-				2D5297EA2096655B00ADE9E5 /* Protocols */,
 				CEF95B51208D381400DD523C /* Others */,
 			);
 			path = NEMS;
@@ -306,6 +317,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -359,6 +371,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
