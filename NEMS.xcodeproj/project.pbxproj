@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE30209787C6003DA062 /* MessageHandler.swift */; };
+		2DC6BE33209787CF003DA062 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE32209787CF003DA062 /* Message.swift */; };
+		2DC6BE36209787F8003DA062 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE35209787F8003DA062 /* MessageDelegate.swift */; };
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
 		CE1CD55120904C430022E8E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CD55020904C430022E8E7 /* Info.plist */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DC6BE30209787C6003DA062 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		2DC6BE32209787CF003DA062 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2DC6BE35209787F8003DA062 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = NEMS/Protocols/MessageDelegate.swift; sourceTree = SOURCE_ROOT; };
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
@@ -52,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DC6BE34209787E5003DA062 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2DC6BE35209787F8003DA062 /* MessageDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		CE6772AB2092DE3D0099295E /* Temp */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +97,7 @@
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				CEF95B422089805500DD523C /* Main.storyboard */,
 				CEF95B452089805600DD523C /* Assets.xcassets */,
+				2DC6BE34209787E5003DA062 /* Protocols */,
 				CEF95B53208D385700DD523C /* ModelStore */,
 				CEF95B50208D37F800DD523C /* ViewControllers */,
 				CEF95B52208D382F00DD523C /* swift */,
@@ -123,6 +138,8 @@
 		CEF95B53208D385700DD523C /* ModelStore */ = {
 			isa = PBXGroup;
 			children = (
+				2DC6BE32209787CF003DA062 /* Message.swift */,
+				2DC6BE30209787C6003DA062 /* MessageHandler.swift */,
 				CEF95B60208D9B2A00DD523C /* ModelStore.swift */,
 				CEF95B62208D9BF600DD523C /* Location.swift */,
 			);
@@ -203,12 +220,15 @@
 			files = (
 				CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */,
 				CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */,
+				2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */,
 				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
 				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
 				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
+				2DC6BE33209787CF003DA062 /* Message.swift in Sources */,
+				2DC6BE36209787F8003DA062 /* MessageDelegate.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				CEF95B63208D9BF600DD523C /* Location.swift in Sources */,
 			);
