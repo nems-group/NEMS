@@ -572,6 +572,9 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messagesTableView" destination="bnb-06-mns" id="xO8-hn-w1T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUt-Oy-78u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

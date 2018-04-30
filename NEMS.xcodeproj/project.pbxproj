@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D5297E92096582600ADE9E5 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5297E82096582600ADE9E5 /* MessageDelegate.swift */; };
+		2D5297EC209665DF00ADE9E5 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5297EB209665DF00ADE9E5 /* MessageHandler.swift */; };
+		2D5297EE20967C7F00ADE9E5 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D5297ED20967C7F00ADE9E5 /* test.plist */; };
+		2DF48D6020950235007770B5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF48D5F20950235007770B5 /* Message.swift */; };
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
 		CE1CD55120904C430022E8E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CD55020904C430022E8E7 /* Info.plist */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D5297E82096582600ADE9E5 /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
+		2D5297EB209665DF00ADE9E5 /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		2D5297ED20967C7F00ADE9E5 /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		2DF48D5F20950235007770B5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D5297EA2096655B00ADE9E5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2D5297E82096582600ADE9E5 /* MessageDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		CEF95B322089805400DD523C = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +91,7 @@
 				CEF95B53208D385700DD523C /* ModelStore */,
 				CEF95B50208D37F800DD523C /* ViewControllers */,
 				CEF95B52208D382F00DD523C /* swift */,
+				2D5297EA2096655B00ADE9E5 /* Protocols */,
 				CEF95B51208D381400DD523C /* Others */,
 			);
 			path = NEMS;
@@ -114,6 +131,9 @@
 			children = (
 				CEF95B60208D9B2A00DD523C /* ModelStore.swift */,
 				CEF95B62208D9BF600DD523C /* LocationData.swift */,
+				2DF48D5F20950235007770B5 /* Message.swift */,
+				2D5297EB209665DF00ADE9E5 /* MessageHandler.swift */,
+				2D5297ED20967C7F00ADE9E5 /* test.plist */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -179,6 +199,7 @@
 				CE1CD55120904C430022E8E7 /* Info.plist in Resources */,
 				CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */,
 				CEF95B462089805600DD523C /* Assets.xcassets in Resources */,
+				2D5297EE20967C7F00ADE9E5 /* test.plist in Resources */,
 				CEF95B442089805500DD523C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,11 +213,14 @@
 			files = (
 				CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */,
 				CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */,
+				2D5297EC209665DF00ADE9E5 /* MessageHandler.swift in Sources */,
 				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
 				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
 				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
 				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
+				2DF48D6020950235007770B5 /* Message.swift in Sources */,
+				2D5297E92096582600ADE9E5 /* MessageDelegate.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				CEF95B63208D9BF600DD523C /* LocationData.swift in Sources */,
 			);
@@ -344,7 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,7 +387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
