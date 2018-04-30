@@ -20,9 +20,9 @@ class LocalData {
         "state":"CA",
         "zip":"94133",
         "phone":"415-391-9686",
-        "clinicHours":[],
-        "pharmacyHours":[],
-        "description":"Address \n1520 Stockton Street \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686   Transportation\\nSF MUNI Bus Lines: 8, 8AX, 8BX, 10, 12, 30, 39, 41, 45 Buses \\n\\nClinic Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM \\nClosed Sun \\n\\nPharmacy Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM\\nClosed Sun \\n",
+        "clinicHours":"",
+        "pharmacyHours":"",
+        "description":"Address \\n1520 Stockton Street \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686   Transportation\\nSF MUNI Bus Lines: 8, 8AX, 8BX, 10, 12, 30, 39, 41, 45 Buses \\n\\nClinic Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM \\nClosed Sun \\n\\nPharmacy Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM\\nClosed Sun \\n",
         "image":"locationsStockton",
         "latitude":"37.799934",
         "longitude":"-122.408724"
