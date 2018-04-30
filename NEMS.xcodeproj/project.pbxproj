@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
 		CE1CD55120904C430022E8E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CD55020904C430022E8E7 /* Info.plist */; };
+		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
 		CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B402089805500DD523C /* NotificationViewController.swift */; };
 		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
@@ -18,13 +19,14 @@
 		CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B56208D38C800DD523C /* MessageVC.swift */; };
 		CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B58208D3FB100DD523C /* LocationVC.swift */; };
 		CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B60208D9B2A00DD523C /* ModelStore.swift */; };
-		CEF95B63208D9BF600DD523C /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B62208D9BF600DD523C /* LocationData.swift */; };
+		CEF95B63208D9BF600DD523C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B62208D9BF600DD523C /* Location.swift */; };
 		CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B64208EE9E300DD523C /* PtPortalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF95B402089805500DD523C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +37,7 @@
 		CEF95B56208D38C800DD523C /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
 		CEF95B58208D3FB100DD523C /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		CEF95B60208D9B2A00DD523C /* ModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
-		CEF95B62208D9BF600DD523C /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		CEF95B62208D9BF600DD523C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CEF95B64208EE9E300DD523C /* PtPortalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PtPortalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE6772AB2092DE3D0099295E /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				CE6772AC2092DE620099295E /* LocalData.swift */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
 		CEF95B322089805400DD523C = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		CEF95B3D2089805500DD523C /* NEMS */ = {
 			isa = PBXGroup;
 			children = (
+				CE6772AB2092DE3D0099295E /* Temp */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				CEF95B422089805500DD523C /* Main.storyboard */,
 				CEF95B452089805600DD523C /* Assets.xcassets */,
@@ -113,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF95B60208D9B2A00DD523C /* ModelStore.swift */,
-				CEF95B62208D9BF600DD523C /* LocationData.swift */,
+				CEF95B62208D9BF600DD523C /* Location.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -195,10 +206,11 @@
 				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
 				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
+				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
 				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
-				CEF95B63208D9BF600DD523C /* LocationData.swift in Sources */,
+				CEF95B63208D9BF600DD523C /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

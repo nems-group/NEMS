@@ -15,12 +15,13 @@ class LocationDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("text: \(textView.text)")
         if let location = ModelStore.shared.selectedLocation {
-            imageView.image = location.image
+            imageView.image = UIImage(named: location.image!)
             textView.text = location.description
         }
     }
 
 
 }
+

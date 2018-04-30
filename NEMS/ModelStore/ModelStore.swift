@@ -10,10 +10,21 @@ import Foundation
 
 class ModelStore {
     static let shared = ModelStore()
-    
+
     //**** Location values
-    var allLocations: [LocationData] = [LocationData]()
+    var allLocations: [Location] = [Location]()
     
-    var selectedLocation:LocationData!
+    var selectedLocation:Location!
     
+//    let json = """
+//        {
+//            "name": "Durian",
+//            "points": 600,
+//            "description": "A fruit with a distinctive scent."
+//        }
+//        """.data(using: .utf8)!
+//
+//        let decoder = JSONDecoder()
+//        //let product = try decoder.decode(GroceryProduct.self, from: json)
+
 }
