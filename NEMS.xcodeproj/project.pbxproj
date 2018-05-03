@@ -13,9 +13,6 @@
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
 		CE1CD55120904C430022E8E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CD55020904C430022E8E7 /* Info.plist */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
-		CE74A4992097859300459A35 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74A4982097859300459A35 /* Message.swift */; };
-		CE74A49B2097859D00459A35 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74A49A2097859D00459A35 /* MessageHandler.swift */; };
-		CE74A49F209785F700459A35 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74A49E209785F700459A35 /* MessageDelegate.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
 		CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B402089805500DD523C /* NotificationViewController.swift */; };
 		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
@@ -32,13 +29,10 @@
 /* Begin PBXFileReference section */
 		2DC6BE30209787C6003DA062 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 		2DC6BE32209787CF003DA062 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		2DC6BE35209787F8003DA062 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = NEMS/Protocols/MessageDelegate.swift; sourceTree = SOURCE_ROOT; };
+		2DC6BE35209787F8003DA062 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = "NEMS/New Group/MessageDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
-		CE74A4982097859300459A35 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		CE74A49A2097859D00459A35 /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
-		CE74A49E209785F700459A35 /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF95B402089805500DD523C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +63,8 @@
 			children = (
 				2DC6BE35209787F8003DA062 /* MessageDelegate.swift */,
 			);
-			path = Protocols;
+			name = Protocols;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		CE6772AB2092DE3D0099295E /* Temp */ = {
@@ -78,15 +73,6 @@
 				CE6772AC2092DE620099295E /* LocalData.swift */,
 			);
 			path = Temp;
-			sourceTree = "<group>";
-		};
-		CE74A4A02097860500459A35 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				CE74A49E209785F700459A35 /* MessageDelegate.swift */,
-			);
-			name = Protocols;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		CEF95B322089805400DD523C = {
@@ -108,7 +94,6 @@
 		CEF95B3D2089805500DD523C /* NEMS */ = {
 			isa = PBXGroup;
 			children = (
-				CE74A4A02097860500459A35 /* Protocols */,
 				CE6772AB2092DE3D0099295E /* Temp */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				CEF95B422089805500DD523C /* Main.storyboard */,
@@ -154,8 +139,8 @@
 		CEF95B53208D385700DD523C /* ModelStore */ = {
 			isa = PBXGroup;
 			children = (
-				CE74A4982097859300459A35 /* Message.swift */,
-				CE74A49A2097859D00459A35 /* MessageHandler.swift */,
+				2DC6BE32209787CF003DA062 /* Message.swift */,
+				2DC6BE30209787C6003DA062 /* MessageHandler.swift */,
 				CEF95B60208D9B2A00DD523C /* ModelStore.swift */,
 				CEF95B62208D9BF600DD523C /* Location.swift */,
 			);
@@ -241,14 +226,11 @@
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
 				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
-				CE74A4992097859300459A35 /* Message.swift in Sources */,
 				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
 				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
 				2DC6BE33209787CF003DA062 /* Message.swift in Sources */,
 				2DC6BE36209787F8003DA062 /* MessageDelegate.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
-				CE74A49F209785F700459A35 /* MessageDelegate.swift in Sources */,
-				CE74A49B2097859D00459A35 /* MessageHandler.swift in Sources */,
 				CEF95B63208D9BF600DD523C /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
