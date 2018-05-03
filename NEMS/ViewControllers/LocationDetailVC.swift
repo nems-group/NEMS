@@ -18,7 +18,9 @@ class LocationDetailVC: UIViewController {
         print("text: \(textView.text)")
         if let location = ModelStore.shared.selectedLocation {
             imageView.image = UIImage(named: location.image!)
-            textView.text = location.description
+            //textView.text = location.description
+            textView.attributedText = NSAttributedString(string: location.description!)
+            //textView.attributedText.attributedSubstring(from: <#T##NSRange#>).
         }
     }
 

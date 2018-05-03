@@ -11,6 +11,7 @@ import UIKit
 class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let n = messages?.count else {
+            print("no rows")
             return 1
         }
         return n
@@ -24,7 +25,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             return cell
         }
         cell.textLabel?.text = m.subject
-        print(cell)
+        //print(cell)
         return cell
     }
     
@@ -38,6 +39,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
+        dump(messages)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +51,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     override func viewDidAppear(_ animated: Bool) {
         self.messages = messageHandler.loadMessages(fromPath: MessageHandler.pathForArchivedLog)
         
-        messagesTableView.reloadData()
+       // messagesTableView.reloadData()
     }
     
     /*

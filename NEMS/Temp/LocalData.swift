@@ -22,7 +22,7 @@ class LocalData {
         "phone":"415-391-9686",
         "clinicHours":"",
         "pharmacyHours":"",
-        "description":"Address \\n1520 Stockton Street \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686   Transportation\\nSF MUNI Bus Lines: 8, 8AX, 8BX, 10, 12, 30, 39, 41, 45 Buses \\n\\nClinic Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM \\nClosed Sun \\n\\nPharmacy Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM\\nClosed Sun \\n",
+        "description":"Address \\n1520 Stockton Street \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686\\n\\nTransportation\\nSF MUNI Bus Lines: 8, 8AX, 8BX, 10, 12, 30, 39, 41, 45 Buses \\n\\nClinic Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM \\nClosed Sun \\n\\nPharmacy Hours \\nMon - Fri 8:00 AM - 6:00 PM \\nSat 8:30 AM - 12:00 PM, 1:00 PM - 5:00 PM\\nClosed Sun \\n",
         "image":"locationsStockton",
         "latitude":"37.799934",
         "longitude":"-122.408724"
@@ -35,7 +35,7 @@ class LocalData {
         "phone":"415-391-9686",
         "clinicHours":"",
         "pharmacyHours":"",
-        "description":"Our 728 Pacific Clinic in San Francisco Chinatown opened in Spring 2017. Currently offers Dental services and Health Education activities only.",
+        "description":"Address \\n728 Pacific Avenue, 2nd Floor \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686 \\n\\nTransportation\\nSF MUNI Bus Lines: 8X, 8AX, 8BX, 10, 12, 30, 45 Buses \\n\\nClinic Hours \\nMon, Tue, Wed, Fri \\n8:30 - 12:00 and 1:00 - 5:00 \\nClosed Thu, Sat and Sun",
         "transportation":"SF MUNI Bus Lines: 8X, 8AX, 8BX, 10, 12, 30, 45 Buses",
         "image":"locationsPacific",
         "latitude":"37.7971004",
