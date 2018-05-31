@@ -287,7 +287,7 @@
                                             <constraint firstAttribute="width" secondItem="xF7-W4-EF4" secondAttribute="height" multiplier="1:1" id="hEy-ek-wTG"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8N1-cJ-9dk">
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8N1-cJ-9dk">
                                         <rect key="frame" x="21" y="27" width="174" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Patient Portal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11H-c8-U8n">
