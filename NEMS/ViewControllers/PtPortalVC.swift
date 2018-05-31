@@ -12,12 +12,17 @@ import WebKit
 class PtPortalVC: UIViewController, WKUIDelegate {
     
     var webView: WKWebView!
+    var uiWebView: UIWebView!
     
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
-        view = webView
+
+        //view = webView
+        
+        uiWebView = UIWebView(frame: .zero)
+        view = uiWebView
     }
     
     override func viewDidLoad() {
@@ -26,19 +31,27 @@ class PtPortalVC: UIViewController, WKUIDelegate {
         let myURL = URL(string: "https://www.nextmd.com/m")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
+        
+        uiWebView.loadRequest(myRequest)
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        //webViewDidFinishLoad(webView: uiWebView)
+    }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func webViewDidFinishLoad(webView: UIWebView) {
+        //doesn't work, still need a way to find the username and password field in PP websit.
+        // fill data
+        let savedUsername = "USERNAME"
+        let savedPassword = "PASSWORD"
+        print("savedUsername: \(savedUsername)")
+        
+        let fillForm = String(format: "document.getElementById('#loginTxtUsrName').value = '\(savedUsername)';document.getElementById('divUserPwd').value = '\(savedPassword)';")
+        webView.stringByEvaluatingJavaScript(from: fillForm)
+        
     }
-    */
 
 }

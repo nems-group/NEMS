@@ -10,6 +10,7 @@ import UIKit
 
 class LocalData {
     static let shared = LocalData()
+    //google map api key: AIzaSyAsiyeO2Zws6WAUOc6YkoL8Nv3g4M-C6FM
     
     let json = """
     {
@@ -38,8 +39,8 @@ class LocalData {
         "description":"Address \\n728 Pacific Avenue, 2nd Floor \\nSan Francisco, CA 94133 \\nPhone: 415-391-9686 \\n\\nTransportation\\nSF MUNI Bus Lines: 8X, 8AX, 8BX, 10, 12, 30, 45 Buses \\n\\nClinic Hours \\nMon, Tue, Wed, Fri \\n8:30 - 12:00 and 1:00 - 5:00 \\nClosed Thu, Sat and Sun",
         "transportation":"SF MUNI Bus Lines: 8X, 8AX, 8BX, 10, 12, 30, 45 Buses",
         "image":"locationsPacific",
-        "latitude":"37.7971004",
-        "longitude":"-122.4097"
+        "latitude":"37.7968603",
+        "longitude":"-122.407556"
         }
         ]
     }

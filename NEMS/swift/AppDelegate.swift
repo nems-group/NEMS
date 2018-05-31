@@ -8,11 +8,15 @@
 
 import UIKit
 import UserNotifications
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    //Google Map API Key
+    let googleAPIKey = "AIzaSyAsiyeO2Zws6WAUOc6YkoL8Nv3g4M-C6FM"
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping(UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
@@ -30,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         UNUserNotificationCenter.current().delegate = self
+        GMSServices.provideAPIKey(googleAPIKey)
+        GMSPlacesClient.provideAPIKey(googleAPIKey)
         
         //step 1, set what kind notification will show.
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in

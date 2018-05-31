@@ -13,6 +13,7 @@
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
 		CE1CD55120904C430022E8E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CD55020904C430022E8E7 /* Info.plist */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
+		CEE129EF20A7939500814608 /* GMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE129EE20A7939500814608 /* GMapVC.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
 		CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B402089805500DD523C /* NotificationViewController.swift */; };
 		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
@@ -24,15 +25,19 @@
 		CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B60208D9B2A00DD523C /* ModelStore.swift */; };
 		CEF95B63208D9BF600DD523C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B62208D9BF600DD523C /* Location.swift */; };
 		CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B64208EE9E300DD523C /* PtPortalVC.swift */; };
+		F71DB809A1FD4C5628B0E010 /* libPods-NEMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2DC6BE30209787C6003DA062 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 		2DC6BE32209787CF003DA062 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2DC6BE35209787F8003DA062 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = "NEMS/New Group/MessageDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
+		CEE129EE20A7939500814608 /* GMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapVC.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF95B402089805500DD523C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		CEF95B60208D9B2A00DD523C /* ModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
 		CEF95B62208D9BF600DD523C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CEF95B64208EE9E300DD523C /* PtPortalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PtPortalVC.swift; sourceTree = "<group>"; };
+		F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,12 +58,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71DB809A1FD4C5628B0E010 /* libPods-NEMS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		298500F33D807C72A540BA37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */,
+				F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2DC6BE34209787E5003DA062 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +81,14 @@
 			);
 			name = Protocols;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		880A1E6427B6213692ACE871 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE6772AB2092DE3D0099295E /* Temp */ = {
@@ -80,6 +104,8 @@
 			children = (
 				CEF95B3D2089805500DD523C /* NEMS */,
 				CEF95B3C2089805500DD523C /* Products */,
+				298500F33D807C72A540BA37 /* Pods */,
+				880A1E6427B6213692ACE871 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +142,7 @@
 				CEF95B58208D3FB100DD523C /* LocationVC.swift */,
 				CEF95B64208EE9E300DD523C /* PtPortalVC.swift */,
 				CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */,
+				CEE129EE20A7939500814608 /* GMapVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -154,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF95B4D2089805600DD523C /* Build configuration list for PBXNativeTarget "NEMS" */;
 			buildPhases = (
+				DD8B4D882ACA8EA35A601546 /* [CP] Check Pods Manifest.lock */,
 				CEF95B372089805500DD523C /* Sources */,
 				CEF95B382089805500DD523C /* Frameworks */,
 				CEF95B392089805500DD523C /* Resources */,
+				EA43BF34DBD9731C01ED4EBB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,12 +243,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DD8B4D882ACA8EA35A601546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NEMS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA43BF34DBD9731C01ED4EBB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NEMS/Pods-NEMS-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NEMS/Pods-NEMS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEF95B372089805500DD523C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */,
+				CEE129EF20A7939500814608 /* GMapVC.swift in Sources */,
 				CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */,
 				2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */,
 				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
@@ -375,16 +446,14 @@
 		};
 		CEF95B4E2089805600DD523C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MacSOTest.NEMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -394,16 +463,14 @@
 		};
 		CEF95B4F2089805600DD523C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MacSOTest.NEMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
