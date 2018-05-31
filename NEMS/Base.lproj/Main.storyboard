@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -276,7 +276,7 @@
                                     <outletCollection property="gestureRecognizers" destination="h7N-wd-a8A" appends="YES" id="6Y6-Oj-kkn"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-D0-sp5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-D0-sp5" customClass="UIControl">
                                 <rect key="frame" x="16" y="556" width="343" height="90"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pt portal icon" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-W4-EF4">
@@ -320,7 +320,7 @@
                                     <constraint firstAttribute="width" secondItem="6yE-D0-sp5" secondAttribute="height" multiplier="343:90" id="bSx-4z-f2s"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="wyt-Xf-hdC" appends="YES" id="bco-Dm-pvD"/>
+                                    <action selector="patientPortalLaunch:" destination="Bwn-e3-gDQ" eventType="touchUpInside" id="qDC-YC-zCg"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -364,11 +364,6 @@
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="h7N-wd-a8A" userLabel="Pharmacy Tap Gesture Recognizer"/>
-                <tapGestureRecognizer id="wyt-Xf-hdC" userLabel="Pt Portal Tap Gesture Recognizer">
-                    <connections>
-                        <segue destination="m38-af-TFT" kind="show" id="0iR-uh-d2H"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="150.67466266866569"/>
         </scene>
