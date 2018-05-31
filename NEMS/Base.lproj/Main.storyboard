@@ -87,9 +87,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backContainer" translatesAutoresizingMaskIntoConstraints="NO" id="gAu-hU-mDS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-Yp-opc">
                                 <rect key="frame" x="16" y="214" width="343" height="90"/>
                                 <subviews>
@@ -101,13 +98,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SeX-Ba-SJR" secondAttribute="height" multiplier="137:36" id="vI9-Kb-NLh"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No unread messages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80r-DS-zTh">
                                                 <rect key="frame" x="0.0" y="36" width="157" height="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -132,7 +129,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.63921568627450975" green="0.13725490196078433" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="LJv-IS-dtZ" firstAttribute="centerY" secondItem="gZG-Yp-opc" secondAttribute="centerY" id="8Ph-Zf-poe"/>
@@ -159,13 +156,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="RIR-EP-WNU" secondAttribute="height" multiplier="137:36" id="WJ4-Fq-GGf"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12 locations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlt-yP-40J">
                                                 <rect key="frame" x="0.0" y="36" width="157" height="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -190,7 +187,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.13725490200000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RWL-I7-RcH" secondAttribute="trailing" constant="21" id="6vx-4K-UAz"/>
@@ -226,7 +223,7 @@
                                                     <constraint firstAttribute="width" secondItem="lFZ-iP-mLt" secondAttribute="height" multiplier="67:18" id="iVs-IB-Njo"/>
                                                     <constraint firstAttribute="width" constant="134" id="wuD-s3-X3b"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -237,7 +234,7 @@
                                                     <constraint firstAttribute="width" secondItem="Fgn-t1-pGd" secondAttribute="height" multiplier="92:17" id="fFD-yj-eTY"/>
                                                     <constraint firstAttribute="height" constant="17" id="s1Q-Ie-bRe"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -254,7 +251,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.13725490200000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="lUY-rd-zWH" firstAttribute="leading" secondItem="ZvS-gb-srV" secondAttribute="leading" constant="21" id="3Sz-Se-fj3"/>
@@ -285,7 +282,7 @@
                                         <subviews>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Patient Portal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11H-c8-U8n">
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="36"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -301,7 +298,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.13725490200000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="8N1-cJ-9dk" firstAttribute="centerY" secondItem="6yE-D0-sp5" secondAttribute="centerY" id="5bS-Qr-9oT"/>
@@ -333,20 +330,16 @@
                             <constraint firstItem="obh-k0-Kxq" firstAttribute="trailing" secondItem="gZG-Yp-opc" secondAttribute="trailing" constant="16" id="GRq-h0-nzK"/>
                             <constraint firstItem="9ne-GJ-Adu" firstAttribute="top" secondItem="obh-k0-Kxq" secondAttribute="top" constant="14" id="Jzk-Gr-nWp"/>
                             <constraint firstItem="LEo-1n-aoP" firstAttribute="width" secondItem="LEo-1n-aoP" secondAttribute="height" multiplier="343:90" id="PKQ-if-p9R"/>
-                            <constraint firstItem="gAu-hU-mDS" firstAttribute="bottom" secondItem="obh-k0-Kxq" secondAttribute="bottom" id="QTz-Ty-n54"/>
                             <constraint firstItem="ZvS-gb-srV" firstAttribute="leading" secondItem="LEo-1n-aoP" secondAttribute="leading" id="QYq-vq-4Ao"/>
                             <constraint firstItem="gZG-Yp-opc" firstAttribute="top" secondItem="9ne-GJ-Adu" secondAttribute="bottom" constant="55" id="Upw-Mr-1ZC"/>
                             <constraint firstItem="LEo-1n-aoP" firstAttribute="top" secondItem="gZG-Yp-opc" secondAttribute="bottom" constant="24" id="X6X-2M-fSl"/>
                             <constraint firstItem="obh-k0-Kxq" firstAttribute="trailing" secondItem="ZvS-gb-srV" secondAttribute="trailing" constant="16" id="YzV-Ui-M9k"/>
-                            <constraint firstItem="gAu-hU-mDS" firstAttribute="trailing" secondItem="obh-k0-Kxq" secondAttribute="trailing" id="cun-PC-5Pn"/>
                             <constraint firstItem="ZvS-gb-srV" firstAttribute="top" secondItem="LEo-1n-aoP" secondAttribute="bottom" constant="24" id="fBo-dU-tVP"/>
                             <constraint firstItem="9ne-GJ-Adu" firstAttribute="leading" secondItem="obh-k0-Kxq" secondAttribute="leading" constant="20" id="lEc-E5-TVF"/>
                             <constraint firstItem="6yE-D0-sp5" firstAttribute="top" secondItem="ZvS-gb-srV" secondAttribute="bottom" constant="24" id="ldX-O9-4Es"/>
                             <constraint firstItem="LEo-1n-aoP" firstAttribute="leading" secondItem="gZG-Yp-opc" secondAttribute="leading" id="luV-0W-8uh"/>
                             <constraint firstItem="obh-k0-Kxq" firstAttribute="trailing" secondItem="6yE-D0-sp5" secondAttribute="trailing" constant="16" id="qm1-aP-vhr"/>
-                            <constraint firstItem="gAu-hU-mDS" firstAttribute="top" secondItem="obh-k0-Kxq" secondAttribute="top" id="sCc-hX-jXm"/>
                             <constraint firstItem="ZvS-gb-srV" firstAttribute="width" secondItem="ZvS-gb-srV" secondAttribute="height" multiplier="343:90" id="u7H-T0-BOT"/>
-                            <constraint firstItem="gAu-hU-mDS" firstAttribute="leading" secondItem="obh-k0-Kxq" secondAttribute="leading" id="xMH-Ar-DVq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="obh-k0-Kxq"/>
                     </view>
@@ -366,37 +359,6 @@
                 <tapGestureRecognizer id="h7N-wd-a8A" userLabel="Pharmacy Tap Gesture Recognizer"/>
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="150.67466266866569"/>
-        </scene>
-        <!--Pt PortalVC-->
-        <scene sceneID="4xq-EZ-nIX">
-            <objects>
-                <viewController id="m38-af-TFT" customClass="PtPortalVC" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5ad-ii-8z8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-V9-Brl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="C7m-V9-Brl" firstAttribute="leading" secondItem="5ad-ii-8z8" secondAttribute="leading" id="Aqz-oz-veX"/>
-                            <constraint firstItem="C7m-V9-Brl" firstAttribute="top" secondItem="5ad-ii-8z8" secondAttribute="top" id="Kbl-CW-yyF"/>
-                            <constraint firstItem="C7m-V9-Brl" firstAttribute="trailing" secondItem="0rL-cw-MvR" secondAttribute="trailing" id="PCZ-Bk-tim"/>
-                            <constraint firstItem="C7m-V9-Brl" firstAttribute="bottom" secondItem="0rL-cw-MvR" secondAttribute="bottom" id="nzb-3k-Oax"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="0rL-cw-MvR"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qV0-9p-e2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1973.5999999999999" y="864.91754122938539"/>
         </scene>
         <!--Location-->
         <scene sceneID="Nis-fc-o8u">
@@ -758,7 +720,6 @@ Closed Sun 
     <resources>
         <image name="Logo" width="797" height="289"/>
         <image name="RX Icon" width="83" height="83"/>
-        <image name="backContainer" width="1" height="529"/>
         <image name="locations icons" width="76" height="76"/>
         <image name="messages icon" width="76" height="76"/>
         <image name="patient portal icon" width="76" height="76"/>
