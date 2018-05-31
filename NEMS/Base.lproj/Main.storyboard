@@ -90,13 +90,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backContainer" translatesAutoresizingMaskIntoConstraints="NO" id="gAu-hU-mDS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nemsLogoNEW800x200" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ne-GJ-Adu">
-                                <rect key="frame" x="20" y="78" width="335" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="7P8-Oz-D6r"/>
-                                    <constraint firstAttribute="width" secondItem="9ne-GJ-Adu" secondAttribute="height" multiplier="343:85" constant="8.1411764705882206" id="Mmp-96-ePY"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-Yp-opc">
                                 <rect key="frame" x="16" y="214" width="343" height="90"/>
                                 <subviews>
@@ -130,7 +123,7 @@
                                             <constraint firstAttribute="trailing" secondItem="80r-DS-zTh" secondAttribute="trailing" id="xvH-Ki-lHh"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-IS-dtZ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messages icon" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-IS-dtZ">
                                         <rect key="frame" x="267" y="18" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LJv-IS-dtZ" secondAttribute="height" multiplier="1:1" id="380-FU-X7X"/>
@@ -188,7 +181,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Nlt-yP-40J" secondAttribute="bottom" id="t9H-ka-acO"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location3" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-I7-RcH">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locations icons" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-I7-RcH">
                                         <rect key="frame" x="267" y="18" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="Ary-ZB-1TF"/>
@@ -215,7 +208,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvS-gb-srV">
                                 <rect key="frame" x="16" y="442" width="343" height="90"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rx2" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-jj-C4X">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RX Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-jj-C4X">
                                         <rect key="frame" x="267" y="18" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="HgN-QT-Jnd"/>
@@ -279,7 +272,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-D0-sp5" customClass="UIControl">
                                 <rect key="frame" x="16" y="556" width="343" height="90"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pt portal icon" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-W4-EF4">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patient portal icon" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-W4-EF4">
                                         <rect key="frame" x="267" y="18" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="E4K-vJ-kT3"/>
@@ -323,6 +316,13 @@
                                     <action selector="patientPortalLaunch:" destination="Bwn-e3-gDQ" eventType="touchUpInside" id="qDC-YC-zCg"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ne-GJ-Adu">
+                                <rect key="frame" x="20" y="78" width="335" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="7P8-Oz-D6r"/>
+                                    <constraint firstAttribute="width" secondItem="9ne-GJ-Adu" secondAttribute="height" multiplier="343:85" constant="8.1411764705882206" id="Mmp-96-ePY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -756,11 +756,11 @@ Closed Sun 
         </scene>
     </scenes>
     <resources>
-        <image name="Rx2" width="225" height="225"/>
+        <image name="Logo" width="797" height="289"/>
+        <image name="RX Icon" width="83" height="83"/>
         <image name="backContainer" width="1" height="529"/>
-        <image name="location3" width="259" height="194"/>
-        <image name="message" width="121" height="121"/>
-        <image name="nemsLogoNEW800x200" width="800" height="202"/>
-        <image name="pt portal icon" width="356" height="356"/>
+        <image name="locations icons" width="76" height="76"/>
+        <image name="messages icon" width="76" height="76"/>
+        <image name="patient portal icon" width="76" height="76"/>
     </resources>
 </document>
