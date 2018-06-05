@@ -9,6 +9,22 @@
 import UIKit
 
 class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+    var messages: [Message]?
+    
+    static var urlForMessage: URL? {
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"), let dictionary = NSDictionary(contentsOfFile: path) {
+            //print(path)
+            //print(dictionary)
+               if let urlPath = dictionary.object(forKey: "MessagesURL") as? String {
+                    let url = URL(string: urlPath)
+                    //print(url)
+                    return url
+            }
+        }
+        print("couldn't get plist")
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let n = messages?.count else {
             print("no rows")
@@ -20,8 +36,9 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
+        print(messages)
+        
         guard let m = messages?[indexPath.row] else {
-            print("cell")
             return cell
         }
         cell.textLabel?.text = m.subject
@@ -29,7 +46,6 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         return cell
     }
     
-    var messages: [Message]?
     
     @IBOutlet weak var messagesTableView: UITableView!
     
@@ -39,13 +55,27 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        dump(messages)
+        messageHandler.delegate = self
+        guard let url = MessageVC.urlForMessage else {
+            return
+        }
+        messageHandler.retrieveMessages(fromURL: url, sender: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
+    }
+    
+    func saveMessages(message: [Message]?) {
+        guard let messages = message else {
+            return
+        }
+        self.messages = messages
+        DispatchQueue.main.async {
+            self.messagesTableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

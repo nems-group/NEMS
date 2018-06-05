@@ -13,7 +13,7 @@ class MessageHandler {
     static let baseDocPath = FileManager().urls(for: .documentDirectory , in: .userDomainMask).first!
     static let pathForArchivedLog = baseDocPath.appendingPathComponent("messageLog.plist")
     
-    let delegate: MessageDelegate? = nil
+    var delegate: MessageDelegate?
     
     func saveMessages(_ sender: MessageDelegate) -> Bool {
         
@@ -22,6 +22,31 @@ class MessageHandler {
         return false
     }
     
+    func retrieveMessages(fromURL path: URL, sender: MessageDelegate) {
+        let session = URLSession(configuration: .default)
+        
+        let dataTask = session.dataTask(with: path) { (data, response, error) in
+            print(error)
+            if let data = data {
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: [String: Any]] else {
+                        return
+                    }
+                    guard let messages = self.loadMessage(fromDictionary: json) else {
+                        return
+                    }
+                    sender.saveMessages(message: messages)
+                    return
+                } catch {
+                    dump(error)
+                }
+            }
+        }
+        dataTask.resume()
+        
+    }
+    
+
     
     func loadMessages(fromPath path: URL) -> [Message]? {
         let dict =  NSDictionary(contentsOf: path) // make a dictionary of the url path that is passeds
