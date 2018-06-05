@@ -12,6 +12,7 @@
 		2DC6BE33209787CF003DA062 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE32209787CF003DA062 /* Message.swift */; };
 		2DC6BE36209787F8003DA062 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE35209787F8003DA062 /* MessageDelegate.swift */; };
 		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
+		CE57CE2120C0E8D800D779C9 /* PharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEE129EF20A7939500814608 /* GMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE129EE20A7939500814608 /* GMapVC.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyVC.swift; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		CEE129EE20A7939500814608 /* GMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapVC.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				CEF95B64208EE9E300DD523C /* PtPortalVC.swift */,
 				CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */,
 				CEE129EE20A7939500814608 /* GMapVC.swift */,
+				CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				2DC6BE33209787CF003DA062 /* Message.swift in Sources */,
 				2DC6BE36209787F8003DA062 /* MessageDelegate.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
+				CE57CE2120C0E8D800D779C9 /* PharmacyVC.swift in Sources */,
 				CEF95B63208D9BF600DD523C /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,7 +473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

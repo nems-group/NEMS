@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
         @IBAction func patientPortalLaunch(_ sender: Any) {
                 openPatientPortal()
             }
+    
         func openPatientPortal() {
                 UIApplication.shared.open(URL(string: "https://www.nextmd.com")!)
             }

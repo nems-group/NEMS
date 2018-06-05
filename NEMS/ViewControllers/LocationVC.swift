@@ -80,7 +80,7 @@ class LocationVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         marker.position = CLLocationCoordinate2D(latitude: Double(ModelStore.shared.selectedLocation.latitude!)!, longitude: Double(ModelStore.shared.selectedLocation.longitude!)!)
         marker.title = ModelStore.shared.selectedLocation.name
         marker.icon = #imageLiteral(resourceName: "NEMS_icon")
-        marker.groundAnchor = CGPoint(x:0, y:0.8)
+        marker.groundAnchor = CGPoint(x:0.5, y:0.8)
         marker.map = gmsView
         
     }
