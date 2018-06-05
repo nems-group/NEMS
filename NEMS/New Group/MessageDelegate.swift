@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol MessageDelegate {
+protocol MessageDelegate: class {
     var messages: [Message]? { get set }
     
-    
+    func saveMessages(message: [Message]?) -> ()
 }
