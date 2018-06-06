@@ -8,16 +8,21 @@
 
 import Foundation
 
-struct Message {
+struct Message: Codable {
 
     var subject: String
     var messageText: String
     var locations: String?
+    var readInd: Bool
+    var messageID: UUID
+    
     
     init(subject: String, messageText: String, location: String?) {
         self.subject = subject
         self.messageText = messageText
         self.locations = location
+        self.readInd = false
+        self.messageID = UUID()
     }
     
 }

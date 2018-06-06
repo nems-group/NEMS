@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3793E120C7AA1D00C0F130 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */; };
+		2D3793E520C7B45F00C0F130 /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3793E420C7B45F00C0F130 /* MessageTableView.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE30209787C6003DA062 /* MessageHandler.swift */; };
 		2DC6BE33209787CF003DA062 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE32209787CF003DA062 /* Message.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		2D3793E420C7B45F00C0F130 /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DC6BE30209787C6003DA062 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 		2DC6BE32209787CF003DA062 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D3793E420C7B45F00C0F130 /* MessageTableView.swift */,
+				2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */,
 				CEF95B402089805500DD523C /* NotificationViewController.swift */,
 				CEF95B54208D38A500DD523C /* MainViewController.swift */,
 				CEF95B56208D38C800DD523C /* MessageVC.swift */,
@@ -298,6 +304,8 @@
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
 				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
+				2D3793E120C7AA1D00C0F130 /* MessageTableViewCell.swift in Sources */,
+				2D3793E520C7B45F00C0F130 /* MessageTableView.swift in Sources */,
 				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
 				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
 				2DC6BE33209787CF003DA062 /* Message.swift in Sources */,
