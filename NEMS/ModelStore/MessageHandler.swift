@@ -7,26 +7,40 @@
 //
 
 import Foundation
+import UIKit
 
 class MessageHandler {
-
-    static let baseDocPath = FileManager().urls(for: .documentDirectory , in: .userDomainMask).first!
-    static let pathForArchivedLog = baseDocPath.appendingPathComponent("messageLog.plist")
     
     var delegate: MessageDelegate?
+    private var messages: [Message]?
+
+    static let baseDocPath = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let pathForDocArchivedLog = baseDocPath.appendingPathComponent("messageLog.json")
+    static var onlineURLforMessage: URL? {
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"), let dictionary = NSDictionary(contentsOfFile: path) {
+            if let urlPath = dictionary.object(forKey: "MessagesURL") as? String {
+                let url = URL(string: urlPath)
+                //print(url)
+                return url
+            }
+        }
+        print("couldn't get plist")
+        return nil
+    }
+    let coder = NSCoder()
     
-    func saveMessages(_ sender: MessageDelegate) -> Bool {
-        
-        // MARK: To-Do
-        
-        return false
+    func downloadMessages(sender: MessageDelegate) {
+        guard let url = MessageHandler.onlineURLforMessage else {
+            return
+        }
+        retrieveMessages(fromURL: url) {
+            sender.messages = self.messages
+        }
     }
     
-    func retrieveMessages(fromURL path: URL, sender: MessageDelegate) {
+    func retrieveMessages(fromURL path: URL, completionHander completetion: @escaping () -> Void) {
         let session = URLSession(configuration: .default)
-        
         let dataTask = session.dataTask(with: path) { (data, response, error) in
-            print(error)
             if let data = data {
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: [String: Any]] else {
@@ -35,7 +49,8 @@ class MessageHandler {
                     guard let messages = self.loadMessage(fromDictionary: json) else {
                         return
                     }
-                    sender.saveMessages(message: messages)
+                    self.messages = messages
+                    completetion()
                     return
                 } catch {
                     dump(error)
@@ -46,16 +61,14 @@ class MessageHandler {
         
     }
     
-
-    
-    func loadMessages(fromPath path: URL) -> [Message]? {
+    func loadMessages(fromPath path: URL) {
         let dict =  NSDictionary(contentsOf: path) // make a dictionary of the url path that is passeds
         guard let dictionary = dict, let d = dictionary as? [String: [String: Any]] else {
-            return nil
+            return
         }
-        
-        let result = loadMessage(fromDictionary: d)
-        return result
+        let loadedMessage = loadMessage(fromDictionary: d)
+        self.messages = loadedMessage
+        return
         
     }
     
@@ -90,5 +103,30 @@ class MessageHandler {
         //print(messages)
         return messages
         
+    }
+    
+    func cacheMessage() {
+        guard let messages = self.messages else {
+            return
+        }
+        self.coder.encode(messages)
+    }
+    
+    func retrieveCachedMessages() {
+        self.messages = coder.decodeObject() as? [Message]
+    }
+    
+    
+    func readMessage(id: UUID, sender: MessageDelegate) {
+        guard let messages = sender.messages else {
+            return
+        }
+        var index = 0
+        for message in messages {
+            if message.messageID == id {
+                sender.messages![index].readInd = true
+            }
+        index+=1
+        }
     }
 }

@@ -10,23 +10,12 @@ import UIKit
 
 class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
     var messages: [Message]?
+    var messageHandler = MessageHandler()
     
-    static var urlForMessage: URL? {
-        if let path = Bundle.main.path(forResource: "Info", ofType: "plist"), let dictionary = NSDictionary(contentsOfFile: path) {
-            //print(path)
-            //print(dictionary)
-               if let urlPath = dictionary.object(forKey: "MessagesURL") as? String {
-                    let url = URL(string: urlPath)
-                    //print(url)
-                    return url
-            }
-        }
-        print("couldn't get plist")
-        return nil
-    }
+    @IBOutlet weak var messagesTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let n = messages?.count else {
+        guard let n = self.messages?.count else {
             print("no rows")
             return 1
         }
@@ -34,32 +23,33 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
+            return UITableViewCell()
+        }
         
-        print(messages)
-        
-        guard let m = messages?[indexPath.row] else {
+        guard let m = self.messages?[indexPath.row] else {
             return cell
         }
-        cell.textLabel?.text = m.subject
+        cell.subject.text = m.subject
+        cell.messageBody.text = m.messageText
+        cell.messageID = m.messageID
+        cell.index = indexPath
         //print(cell)
         return cell
     }
     
+
     
-    @IBOutlet weak var messagesTableView: UITableView!
-    
-    var messageHandler = MessageHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        messageHandler.delegate = self
-        guard let url = MessageVC.urlForMessage else {
-            return
+        if (messages) != nil {
+            print("not nil")
+        } else {
+            messageHandler.downloadMessages(sender: self)
         }
-        messageHandler.retrieveMessages(fromURL: url, sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,22 +58,24 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         
     }
     
-    func saveMessages(message: [Message]?) {
-        guard let messages = message else {
-            return
-        }
-        self.messages = messages
-        DispatchQueue.main.async {
-            self.messagesTableView.reloadData()
-        }
-    }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.messages = messageHandler.loadMessages(fromPath: MessageHandler.pathForArchivedLog)
         
-       // messagesTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {
+            print("couldn't make it MessageTableViewCell")
+            return
+        }
+        guard let id = cell.messageID else {
+            return
+        }
+        messageHandler.readMessage(id: id, sender: self)
+        
+        print("read message \(id)")
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -93,5 +85,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    
 }
