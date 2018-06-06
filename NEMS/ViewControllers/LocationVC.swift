@@ -147,7 +147,7 @@ class LocationVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             
             let destination = "\(endLoc.coordinate.latitude),\(endLoc.coordinate.longitude)"
             let url = URL(string: "https://www.google.com/maps/dir/?api=1&origin=\(origin)&destination=\(destination)&travelmode=driving")!
-            UIApplication.shared.openURL(url)  //this line launch Google map app
+            UIApplication.shared.open(url, options: [:])  //this line launch Google map app
 
         } else { print("Location Services is Disabled on the Device")}
     
