@@ -45,11 +45,8 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        if (messages) != nil {
-            print("not nil")
-        } else {
-            messageHandler.downloadMessages(sender: self)
-        }
+        messageHandler.downloadMessagesBack(sender: self, -3, .month)
+        
     }
 
     override func didReceiveMemoryWarning() {

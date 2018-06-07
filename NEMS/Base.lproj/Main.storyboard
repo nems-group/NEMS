@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +32,7 @@
                                 </constraints>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhG-SZ-9zj">
-                                <rect key="frame" x="155" y="169" width="66" height="21"/>
+                                <rect key="frame" x="154.5" y="169" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -84,7 +82,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rx Scan Location" translatesAutoresizingMaskIntoConstraints="NO" id="T7V-S6-vF0">
-                                <rect key="frame" x="76" y="137.5" width="222" height="133"/>
+                                <rect key="frame" x="76.5" y="137.5" width="222" height="133"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,7 +149,7 @@
                                         </constraints>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messages icon" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-IS-dtZ">
-                                        <rect key="frame" x="267" y="18" width="55" height="55"/>
+                                        <rect key="frame" x="267" y="17.5" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LJv-IS-dtZ" secondAttribute="height" multiplier="1:1" id="380-FU-X7X"/>
                                             <constraint firstAttribute="width" constant="55" id="9JV-yW-XBy"/>
@@ -209,7 +207,7 @@
                                         </constraints>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locations icons" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-I7-RcH">
-                                        <rect key="frame" x="267" y="18" width="55" height="55"/>
+                                        <rect key="frame" x="267" y="17.5" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="Ary-ZB-1TF"/>
                                             <constraint firstAttribute="width" secondItem="RWL-I7-RcH" secondAttribute="height" multiplier="1:1" id="Iqw-va-cLR"/>
@@ -236,7 +234,7 @@
                                 <rect key="frame" x="16" y="442" width="343" height="90"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RX Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-jj-C4X">
-                                        <rect key="frame" x="267" y="18" width="55" height="55"/>
+                                        <rect key="frame" x="267" y="17.5" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="HgN-QT-Jnd"/>
                                             <constraint firstAttribute="width" secondItem="fkP-jj-C4X" secondAttribute="height" multiplier="1:1" id="dXx-3T-AhV"/>
@@ -244,7 +242,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lUY-rd-zWH">
-                                        <rect key="frame" x="21" y="19" width="134" height="53"/>
+                                        <rect key="frame" x="21" y="18.5" width="134" height="53"/>
                                         <subviews>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pharmacy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFZ-iP-mLt">
                                                 <rect key="frame" x="0.0" y="0.0" width="134" height="36"/>
@@ -300,7 +298,7 @@
                                 <rect key="frame" x="16" y="556" width="343" height="90"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patient portal icon" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-W4-EF4">
-                                        <rect key="frame" x="267" y="18" width="55" height="55"/>
+                                        <rect key="frame" x="267" y="17.5" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="E4K-vJ-kT3"/>
                                             <constraint firstAttribute="width" constant="55" id="NSQ-3p-31V"/>
@@ -741,7 +739,7 @@ Closed Sun
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-wc-UKm">
-                                                    <rect key="frame" x="15" y="34.5" width="345" height="22"/>
+                                                    <rect key="frame" x="15" y="34" width="345" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

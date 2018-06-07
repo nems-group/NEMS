@@ -16,7 +16,19 @@ class MainViewController: UIViewController, MessageDelegate {
     var messages: [Message]? {
         didSet {
             DispatchQueue.main.async {
-                self.messageReadCount.text = "\(self.messages?.count ?? 0) unread messages"
+                guard let messages = self.messages else {
+                    return
+                }
+                var count: Int = 0
+                for message in messages {
+                    if message.readInd == false {
+                        count += 1
+                    }
+                }
+                self.messageReadCount.text = "\( { (count) -> String in  if count == 0 { return "No" } else { return String(count) } }(count)) unread messages" as String
+                let returnValue = JSON.writeToDrive(self.messages)
+                print(MessageHandler.pathForDocArchivedLog)
+                print(returnValue)
             }
         }
     }
@@ -25,7 +37,8 @@ class MainViewController: UIViewController, MessageDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
-        self.messageHandler?.downloadMessages(sender: self)
+        self.messageHandler?.downloadMessagesBack(sender: self, 3, .month)
+        
         
         
     }
