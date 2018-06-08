@@ -44,7 +44,6 @@ class JSON {
         encoder.outputFormatting = .prettyPrinted
         do {
             let json = try encoder.encode(data)
-            let finder = FileManager.default
             try json.write(to: MessageHandler.pathForDocArchivedLog)
             return true
         } catch {
@@ -59,5 +58,15 @@ class JSON {
             value = writeToDrive(data)
         }
         return value
+    }
+    
+    class func loadJSONfromDrive(url path: URL) -> (json: [[String: Any]]?,success: Bool) {
+        let data = path.dataRepresentation
+        let json = JSON.downloadArray(data)
+        if json != nil {
+            return (json,true)
+        } else {
+            return (json,false)
+        }
     }
 }

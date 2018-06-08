@@ -10,9 +10,13 @@ import Foundation
 
 class ModelStore {
     static let shared = ModelStore()
-
+    static let jsonDecoder = JSONDecoder()
+    static let jsonEncoder = JSONEncoder()
     //**** Location values
     var allLocations: [Location] = [Location]()
+    
+    //**** Messsage stack
+    var messageStack: [MessageStack]?
     
     var selectedLocation:Location!
     

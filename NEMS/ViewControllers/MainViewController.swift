@@ -8,36 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MessageDelegate {
+class MainViewController: UIViewController {
+    
     
     @IBOutlet weak var messageReadCount: UITextField!
     
-    
-    var messages: [Message]? {
-        didSet {
-            DispatchQueue.main.async {
-                guard let messages = self.messages else {
-                    return
-                }
-                var count: Int = 0
-                for message in messages {
-                    if message.readInd == false {
-                        count += 1
-                    }
-                }
-                self.messageReadCount.text = "\( { (count) -> String in  if count == 0 { return "No" } else { return String(count) } }(count)) unread messages" as String
-                let returnValue = JSON.writeToDrive(self.messages)
-                print(MessageHandler.pathForDocArchivedLog)
-                print(returnValue)
-            }
-        }
-    }
     var messageHandler: MessageHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.messageHandler = MessageHandler()
-        self.messageHandler?.downloadMessagesBack(sender: self, 3, .month)
         
         
         
@@ -52,13 +31,5 @@ class MainViewController: UIViewController, MessageDelegate {
         func openPatientPortal() {
             UIApplication.shared.open(URL(string: "https://www.nextmd.com")!,options: [:])
             }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MessageViewController" {
-            guard let messageVC = segue.destination as? MessageVC else {
-                return
-            }
-            messageVC.messages = self.messages
-            
-        }
-    }
+   
 }

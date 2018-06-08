@@ -8,39 +8,36 @@
 
 import Foundation
 
-struct Message: Codable {
+struct MessageStack: Codable {
+    var timestamp: String
+    var messages: [Message]
+    
+    struct Message: Codable {
+        
+        var subject: String
+        var messageBody: String
+        var locations: [String]
+        var readInd: Bool = false
+        var messageID: UUID
+        
+            private enum CodingKeys: String, CodingKey {
+                case subject
+                case messageBody
+                case locations
+                case readInd
+                case messageID
+            }
+        
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                self.subject = try container.decode(String.self, forKey: .subject)
+                self.messageBody = try container.decode(String.self, forKey: .messageBody)
+                self.locations = try container.decode([String].self, forKey: .locations)
+                self.messageID = try container.decode(UUID.self, forKey: .messageID)
+                self.readInd = false
+            }
+        
+    }
 
-    var subject: String
-    var messageText: String
-    var locations: [String]?
-    var readInd: Bool
-    var messageID: UUID
-    var timestamp: String?
-    
-    init(subject: String, messageText: String, location: [String]?, uuid: UUID?, timestamp: String?) {
-        self.subject = subject
-        self.messageText = messageText
-        self.locations = location
-        self.timestamp = timestamp
-        self.readInd = false
-        if let uuid = uuid {
-            self.messageID = uuid
-            return
-        } else {
-            self.messageID = UUID()
-        }
-    }
-    
-    init(subject: String, messageText: String, location: [String]?, timestamp: String?) {
-        self.subject = subject
-        self.messageText = messageText
-        self.locations = location
-        self.readInd = false
-        self.messageID = UUID()
-        self.timestamp = timestamp
-    }
-    
-    
-    
 }
 
