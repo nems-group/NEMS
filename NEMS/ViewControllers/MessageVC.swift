@@ -8,21 +8,35 @@
 
 import UIKit
 
-class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+    
 
     var messageHandler = MessageHandler()
     
     @IBOutlet weak var messagesTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let stacks = ModelStore.shared.messageStack else {
+            print("no stack")
+            return 0
+        }
+        print(stacks.count)
+        print(section)
+        var count = 0
+        if stacks.count-1 >= section {
+            print(stacks.count)
+            print(section)
+            let stack = stacks[section]
+            
+            for _ in stack.messages {
+                count+=1
+            }
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
-            return UITableViewCell()
-        }
-        
+        let cell = buildCell(tableView, cellForRowAt: indexPath)
         return cell
     }
     
@@ -33,7 +47,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        messageHandler.downloadMessages(forDateAfter: "2018-01-01")
+        messageHandler.downloadMessages(delegate: self)
         //messageHandler.downloadMessagesBack(3, .month)
         
     }
@@ -54,13 +68,33 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print("couldn't make it MessageTableViewCell")
             return
         }
+        
         guard let id = cell.messageID else {
+            print("no cell id")
             return
         }
-        messageHandler.readMessage(id: id)
+        let result = messageHandler.readMessage(id: id)
+        if result {
+            print("read message \(id)")
+            readRow(tableView, indexPath: indexPath)
+            
+        }
         
-        print("read message \(id)")
-        
+    }
+    
+    func readRow(_ tableView: UITableView, indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {
+            print("couldn't make it MessageTableViewCell")
+            return
+        }
+        cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
+    }
+    
+    func refresh() {
+        DispatchQueue.main.async {
+            self.messagesTableView.reloadData()
+        }
+        print("refresh")
     }
     /*
     // MARK: - Navigation
@@ -73,5 +107,32 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     */
     
     
+    func buildCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
+            return UITableViewCell()
+        }
+            
+        guard let stacks = ModelStore.shared.messageStack else {
+            print("no stack")
+            return cell
+        }
+        
+        let stackIndexLimit = stacks.count-1
+        
+        if indexPath.section <= stackIndexLimit {
+            let stack = stacks[indexPath.section]
+            let messageIndexLimit = stack.messages.count-1
+            
+            if indexPath.row <= messageIndexLimit {
+                cell.subject.text = stack.messages[indexPath.row].subject
+                cell.messageBody?.text = stack.messages[indexPath.row].messageBody
+                cell.messageID = stack.messages[indexPath.row].messageID
+                cell.index = indexPath
+                
+            }
+            
+        }
+        return cell
+    }
     
 }

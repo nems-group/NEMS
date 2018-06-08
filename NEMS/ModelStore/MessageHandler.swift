@@ -11,6 +11,8 @@ import UIKit
 
 class MessageHandler {
     
+    
+    
     static let query = MessageQuery.self
     
     
@@ -30,55 +32,56 @@ class MessageHandler {
         return nil
     }
     
-    static var newMessageFromDateBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("newMessages")
+    static var newMessagesFromDateBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("newMessages")
+    static var allMessagesFromBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("allMessages")
     
     
-    
-    func downloadMessages(forDateAfter: String) {
-        guard var url = MessageHandler.newMessageFromDateBaseURL else {
+    func downloadMessages(forDateAfter: String, delegate: MessageDelegate) {
+        guard var url = MessageHandler.newMessagesFromDateBaseURL else {
             return
         }
         url = url.appendingPathComponent(forDateAfter)
         print(url)
-        retrieveMessages(fromURL: url)
+        retrieveMessages(fromURL: url) {
+            delegate.refresh()
+        }
     }
     
     
     
-    func downloadMessages() {
-        guard let url = MessageHandler.onlineURLforMessage else {
+    func downloadMessages(delegate: MessageDelegate) {
+        guard let url = MessageHandler.allMessagesFromBaseURL else {
             return
         }
-        retrieveMessages(fromURL: url)
+        retrieveMessages(fromURL: url) {
+            delegate.refresh()
+        }
     }
     
-    func retrieveMessages(fromURL path: URL) {
+    func retrieveMessages(fromURL path: URL, completionHandler completetion: @escaping () -> Void) {
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: path) { (data, response, error) in
             guard let response = response else {
                 return
             }
-            guard let r = response as? HTTPURLResponse else {
+            guard let res = response as? HTTPURLResponse else {
                 print("no http url response so sad")
                 return
             }
-            print(r.statusCode)
-            if let data = data {
-                    
-                
-                do {
-                    
-                    let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
-                    ModelStore.shared.messageStack = json
-                    print(ModelStore.shared.messageStack)
-                    return
-                } catch {
-                    print(error)
+            if res.statusCode == 200 {
+                if let data = data {
+                    do {
+                        let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
+                        ModelStore.shared.messageStack = json
+                        completetion()
+                        return
+                    } catch {
+                        print(error)
+                    }
                 }
             }
         }
         dataTask.resume()
-        
     }
     
     func loadMessages(fromPath path: URL) -> Bool {
@@ -93,54 +96,84 @@ class MessageHandler {
         }
     }
     
-    func readMessage(id: UUID) {
+    func readMessage(id: UUID) -> Bool {
         guard let messageStacks = ModelStore.shared.messageStack else {
-            return
+            return false
         }
         for stack in messageStacks {
             var index = 0
             for message in stack.messages {
                 if message.messageID == id {
+                    
+                    // MARK: TODO - Need to find update the model store when read
                     print(id, "needs to be read")
                     index += 1
                 }
             }
+            if index > 0 {
+                return true
+            }
         }
+        return false
     }
     
-    func downloadTodaysMessages() {
-        guard let today = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
+    func downloadTodaysMessages(delegate: MessageDelegate) {
+        guard let todayDate = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
             return
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        let dateString = formatter.string(from: today)
-        guard let messages = ModelStore.shared.messageStack?.first?.messages else {
+        let todayString = formatter.string(from: todayDate)
+        guard let stacks = ModelStore.shared.messageStack else {
+            print("no messages found in model so lets download anyways")
+            downloadMessages(forDateAfter: todayString, delegate: delegate)
             return
         }
-        if (messages) != nil {
-            print("not nil")
-        } else {
-            downloadMessages(forDateAfter: dateString)
+        guard let mostRecentDateString = MessageQuery.getMostRecentDate(messageStacks: stacks) else {
+            downloadMessages(forDateAfter: todayString, delegate: delegate)
+            return
         }
+        guard let mostRecentDate = formatter.date(from: mostRecentDateString) else {
+            downloadMessages(forDateAfter: todayString, delegate: delegate)
+            return
+        }
+        
+        if mostRecentDate < todayDate {
+            print("getting older missed messages too")
+            downloadMessages(forDateAfter: mostRecentDateString, delegate: delegate)
+            return
+        }
+        return
     }
     
-//    func downloadMessagesBack(_ numberOf: Int, _ dateCompenent: Calendar.Component) {
-//        guard let today = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
-//            return
-//        }
-//        print(today)
-//        let negativeNumber = -abs(numberOf)
-//        guard let refDate = Calendar.current.date(byAdding: dateCompenent, value: negativeNumber, to: today) else {
-//            return
-//        }
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        let dateString = formatter.string(from: refDate)
-//        if (messages) != nil {
-//            print("not nil")
-//        } else {
-//            downloadMessages(forDateAfter: dateString)
-//        }
-//    }
+    func downloadMessagesBack(_ numberOf: Int, _ dateCompenent: Calendar.Component, delegate: MessageDelegate) {
+        guard let today = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
+            return
+        }
+        print(today)
+        let negativeNumber = -abs(numberOf)
+        guard let refDate = Calendar.current.date(byAdding: dateCompenent, value: negativeNumber, to: today) else {
+            return
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: refDate)
+        downloadMessages(forDateAfter: dateString, delegate: delegate)
+    }
+    
+    func saveToDrive() -> Bool {
+        let path = MessageHandler.pathForDocArchivedLog
+        guard let encodable = ModelStore.shared.messageStack else {
+            print("no encodable to save")
+            return false
+        }
+        do {
+            let json = try ModelStore.jsonEncoder.encode(encodable)
+            try json.write(to: path)
+            return true
+        } catch {
+            print(error)
+            return false
+        }
+    }
 }
