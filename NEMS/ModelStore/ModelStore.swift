@@ -16,7 +16,7 @@ class ModelStore {
     var allLocations: [Location] = [Location]()
     
     //**** Messsage stack
-    var messageStack: [MessageStack]?
+    var messageStack: [MessageStack] = [MessageStack]()
     
     var selectedLocation:Location!
     

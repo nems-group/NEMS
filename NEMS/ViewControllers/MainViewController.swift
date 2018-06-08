@@ -20,7 +20,8 @@ class MainViewController: UIViewController, MessageDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
-        messageHandler?.downloadMessages(delegate: self)
+        self.messageHandler?.delegate = self
+        messageHandler?.downloadMessages()
         
         
     }
@@ -40,10 +41,7 @@ class MainViewController: UIViewController, MessageDelegate {
    
     func refresh() {
         var count = 0
-        guard let stacks = ModelStore.shared.messageStack else {
-            print("message stack is nil")
-            return
-        }
+        let stacks = ModelStore.shared.messageStack
         for stack in stacks {
             let messages = stack.messages
             for message in messages {

@@ -16,10 +16,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     @IBOutlet weak var messagesTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let stacks = ModelStore.shared.messageStack else {
-            print("no stack")
-            return 0
-        }
+        let stacks = ModelStore.shared.messageStack
         print(stacks.count)
         print(section)
         var count = 0
@@ -47,8 +44,8 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        messageHandler.downloadMessages(delegate: self)
-        //messageHandler.downloadMessagesBack(3, .month)
+        messageHandler.delegate = self
+        messageHandler.sync()
         
     }
 
@@ -73,7 +70,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             print("no cell id")
             return
         }
-        let result = messageHandler.readMessage(id: id)
+        let result = messageHandler.readMessage(id: id, messageStacks: &ModelStore.shared.messageStack)
         if result {
             print("read message \(id)")
             readRow(tableView, indexPath: indexPath)
@@ -88,6 +85,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             return
         }
         cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
+        cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
     }
     
     func refresh() {
@@ -112,10 +110,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             return UITableViewCell()
         }
             
-        guard let stacks = ModelStore.shared.messageStack else {
-            print("no stack")
-            return cell
-        }
+        let stacks = ModelStore.shared.messageStack
         
         let stackIndexLimit = stacks.count-1
         

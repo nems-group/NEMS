@@ -31,7 +31,7 @@ class MessageQuery {
             
             let formatter = DateFormatter()
             guard let comparingDate = formatter.date(from: cD), let fetchDate = formatter.date(from: fD) else {
-                print("couldn't make date")
+                print("couldn't make a query date")
                 return nil
             }
             
