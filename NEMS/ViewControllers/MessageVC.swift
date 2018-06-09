@@ -21,7 +21,11 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             return 1
         }
         return stack.count
+        
     }
+    
+    
+   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -59,7 +63,23 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         
     }
         
-
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let stacks = messageHandler.dataSource?.messageStack else {
+            return nil
+        }
+        if stacks.count-1 >= section {
+            let timestamp = stacks[section].timestamp
+            let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            guard let date = formatter.date(from: timestamp) else {
+                return nil
+            }
+                formatter.dateFormat = "MMM d, yyyy"
+            let header = formatter.string(from: date)
+            return header
+        }
+        return "No Date"
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
