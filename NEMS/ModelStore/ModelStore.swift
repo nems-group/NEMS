@@ -31,4 +31,7 @@ class ModelStore {
 //        let decoder = JSONDecoder()
 //        //let product = try decoder.decode(GroceryProduct.self, from: json)
 
+    deinit {
+        print("deinit")
+    }
 }

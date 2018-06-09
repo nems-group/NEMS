@@ -10,18 +10,18 @@ import UIKit
 
 class MainViewController: UIViewController, MessageDelegate {
     
-    
-    
+    var messageHandler: MessageHandler!
     
     @IBOutlet weak var messageReadCount: UITextField!
     
-    var messageHandler: MessageHandler?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
-        messageHandler?.downloadMessages()
+        self.messageHandler?.dataSource = ModelStore.shared
+        self.messageHandler?.start()
         
         
     }
@@ -41,11 +41,15 @@ class MainViewController: UIViewController, MessageDelegate {
    
     func refresh() {
         var count = 0
-        let stacks = ModelStore.shared.messageStack
+        guard let stacks = messageHandler?.dataSource?.messageStack else {
+            print("no stack")
+            return
+        }
         for stack in stacks {
             let messages = stack.messages
             for message in messages {
                 if message.readInd == false {
+                    print("unread")
                     count+=1
                 }
             }
@@ -55,5 +59,12 @@ class MainViewController: UIViewController, MessageDelegate {
                 self.messageReadCount.text = "\(count) unread messages"
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(MessageHandler.pathForDocArchivedLog)
+        print("viewDidAppear(_:)")
+        messageHandler.sync()
+        return
     }
 }

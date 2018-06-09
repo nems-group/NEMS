@@ -12,13 +12,14 @@ import UIKit
 class MessageHandler {
     
     weak var delegate: MessageDelegate?
+    weak var dataSource: ModelStore?
     
     static let query = MessageQuery.self
     
     
     //private var messages: [Message]?
 
-    static let baseDocPath = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let baseDocPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let pathForDocArchivedLog = baseDocPath.appendingPathComponent("messageLog.json")
     static var onlineURLforMessage: URL? {
         if let path = Bundle.main.path(forResource: "Info", ofType: "plist"), let dictionary = NSDictionary(contentsOfFile: path) {
@@ -37,34 +38,46 @@ class MessageHandler {
     
     
     func downloadMessages(forDateAfter: String) {
+        print("downloadMessages(forDateAfter:)")
         guard var url = MessageHandler.newMessagesFromDateBaseURL else {
             return
         }
         url = url.appendingPathComponent(forDateAfter)
         print(url)
-        retrieveMessages(fromURL: url) {
-            guard let delegate = self.delegate else {
-                return
-            }
-            delegate.refresh()
-        }
+        retrieveMessages(fromURL: url)
     }
     
+    func start() {
+        print("start()")
+        //check local
+        let local = loadFromDrive()
+        
+        if local {
+            
+            let saved = self.saveToDrive()
+            if saved {
+                // MARK: To-Do what to do if saved?
+            }
+            //no lets compare the dates
+        }
+        
+        if !local {
+            print("no local")
+            downloadMessages()
+        }
+    }
     
     
     func downloadMessages() {
+        print("downloadMessages()")
         guard let url = MessageHandler.allMessagesFromBaseURL else {
             return
         }
-        retrieveMessages(fromURL: url) {
-            guard let delegate = self.delegate else {
-                return
-            }
-            delegate.refresh()
-        }
+        retrieveMessages(fromURL: url)
     }
     
-    func retrieveMessages(fromURL path: URL, completionHandler completetion: @escaping () -> Void) {
+    func retrieveMessages(fromURL path: URL) {
+        print("retrieveMessages(fromURL:)")
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: path) { (data, response, error) in
             guard let response = response else {
@@ -78,12 +91,16 @@ class MessageHandler {
                 if let data = data {
                     do {
                         let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
-                        ModelStore.shared.messageStack = json
+                        guard let model = self.dataSource else {
+                            return
+                        }
+                        model.messageStack = json
                         let saved = self.saveToDrive()
                         if (saved) {
                             print("saved to drive")
                         }
-                        completetion()
+                        print("sync retrieve message call")
+                        self.sync()
                         return
                     } catch {
                         print(error)
@@ -94,14 +111,16 @@ class MessageHandler {
         dataTask.resume()
     }
     
-    func loadMessages(fromPath path: URL, completionHandler completion: () -> Void) -> Bool {
+    func loadMessages(fromPath path: URL) -> Bool {
+        print("loadMessages(fromPath:)")
         let option = NSData.ReadingOptions.uncached
         
         do {
             let data = try Data(contentsOf: path, options: option)
             let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
-            ModelStore.shared.messageStack = json
-            completion()
+            self.dataSource?.messageStack = json
+            print("sync loadMessage(fromPath) call")
+            sync()
             return true
         } catch {
             print(error)
@@ -109,19 +128,29 @@ class MessageHandler {
         }
     }
     
-    func readMessage(id: UUID, messageStacks: inout [MessageStack]) -> Bool {
+    func readMessage(id: UUID) -> Bool {
+        print("readMessage(id:)")
         var stackIndex = 0
-        for stack in messageStacks {
+        guard let stacks = self.dataSource?.messageStack else {
+            print("could not read because model is nil")
+            return false
+        }
+        for stack in stacks {
             var messageStackIndex = 0
             for message in stack.messages {
                 
                 if message.messageID == id {
-                    print( messageStacks[stackIndex].messages[messageStackIndex].readInd )
-                    print(id, "needs to be read")
-                    messageStacks[stackIndex].messages[messageStackIndex].readInd = true
-                    print( messageStacks[stackIndex].messages[messageStackIndex].readInd )
-                    //ModelStore.shared.messageStack[stackIndex].messages[messageStackIndex].readInd = true
-                    return true
+                    //print( messageStacks[stackIndex].messages[messageStackIndex].readInd )
+                   print(id, "needs to be read")
+                   self.dataSource?.messageStack[stackIndex].messages[messageStackIndex].readInd = true
+                   let saved = saveToDrive()
+                    //debugPrint(self.dataSource?.messageStack)
+                   
+                    if saved {
+                       
+                        return true
+                    }
+                    return false
                 }
                 messageStackIndex+=1
             }
@@ -131,13 +160,16 @@ class MessageHandler {
     }
     
     func downloadTodaysMessages() {
+        print("downloadTodaysMessage()")
         guard let todayDate = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
             return
         }
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let todayString = formatter.string(from: todayDate)
-        let stacks = ModelStore.shared.messageStack
+        guard let stacks = self.dataSource?.messageStack else {
+            return
+        }
         guard let mostRecentDateString = MessageQuery.getMostRecentDate(messageStacks: stacks) else {
             downloadMessages(forDateAfter: todayString)
             return
@@ -156,10 +188,10 @@ class MessageHandler {
     }
     
     func downloadMessagesBack(_ numberOf: Int, _ dateCompenent: Calendar.Component) {
+        print("downloadMessagesBack(_:_:)")
         guard let today = Calendar.current.date(byAdding: .day, value: 0, to: Date()) else {
             return
         }
-        print(today)
         let negativeNumber = -abs(numberOf)
         guard let refDate = Calendar.current.date(byAdding: dateCompenent, value: negativeNumber, to: today) else {
             return
@@ -171,13 +203,17 @@ class MessageHandler {
     }
     
     func saveToDrive() -> Bool {
-        let path = MessageHandler.pathForDocArchivedLog
-        let encodable = ModelStore.shared.messageStack
-        if encodable.count > 0 {
+        print("saveToDrive()")
+        let path = MessageHandler.pathForDocArchivedLog.path
+        let finder = FileManager.default
+        guard let model = self.dataSource else {
+            return false
+        }
+        let encodable = model.messageStack
+            if encodable.count > 0 {
             do {
                 let json = try ModelStore.jsonEncoder.encode(encodable)
-                try json.write(to: path)
-                print(path)
+                finder.createFile(atPath: path, contents: json, attributes: nil)
                 return true
             } catch {
                 print(error)
@@ -187,17 +223,25 @@ class MessageHandler {
         return false
     }
     
-    func loadFromDrive(completionHandler completition: () -> Void) -> Bool {
+    func loadFromDrive() -> Bool {
+        print("loadFromDrive()")
         let path = MessageHandler.pathForDocArchivedLog
-        let loaded = loadMessages(fromPath: path) { completition() }
-        return loaded
+        let option = NSData.ReadingOptions.uncached
+        
+        do {
+            let data = try Data(contentsOf: path, options: option)
+            let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
+            self.dataSource?.messageStack = json
+            sync()
+            return true
+        } catch {
+            print(error)
+            return false
+        }
     }
 
     func sync() {
-        
-        loadFromDrive() {
-            print("loaded from drive, now lets get most recent messages")
-            downloadTodaysMessages()
-        }
+        print("sync()")
+        self.delegate?.refresh()
     }
 }

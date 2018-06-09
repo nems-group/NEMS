@@ -11,24 +11,32 @@ import UIKit
 class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
     
 
-    var messageHandler = MessageHandler()
+    var messageHandler: MessageHandler!
+
     
     @IBOutlet weak var messagesTableView: UITableView!
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let stack = messageHandler.dataSource?.messageStack else {
+            return 1
+        }
+        return stack.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let stacks = ModelStore.shared.messageStack
-        print(stacks.count)
-        print(section)
+        
         var count = 0
+        
+        guard let stacks = messageHandler.dataSource?.messageStack else {
+            return 0
+        }
         if stacks.count-1 >= section {
-            print(stacks.count)
-            print(section)
             let stack = stacks[section]
-            
             for _ in stack.messages {
                 count+=1
             }
         }
+        
         return count
     }
     
@@ -44,10 +52,14 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         super.viewDidLoad()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
-        messageHandler.delegate = self
-        messageHandler.sync()
+        messageHandler = MessageHandler()
+        messageHandler?.delegate = self
+        messageHandler?.dataSource = ModelStore.shared
+        messageHandler?.start()
         
     }
+        
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,7 +82,10 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
             print("no cell id")
             return
         }
-        let result = messageHandler.readMessage(id: id, messageStacks: &ModelStore.shared.messageStack)
+        guard let result = messageHandler?.readMessage(id: id) else {
+            print("read message failed because messageHandler is nil")
+            return
+        }
         if result {
             print("read message \(id)")
             readRow(tableView, indexPath: indexPath)
@@ -89,10 +104,11 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     }
     
     func refresh() {
+        
         DispatchQueue.main.async {
+            print("refresh")
             self.messagesTableView.reloadData()
         }
-        print("refresh")
     }
     /*
     // MARK: - Navigation
@@ -109,8 +125,10 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
             return UITableViewCell()
         }
-            
-        let stacks = ModelStore.shared.messageStack
+        print("build cell")
+        guard let stacks = messageHandler.dataSource?.messageStack else {
+            return cell
+        }
         
         let stackIndexLimit = stacks.count-1
         
@@ -123,6 +141,10 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
                 cell.messageBody?.text = stack.messages[indexPath.row].messageBody
                 cell.messageID = stack.messages[indexPath.row].messageID
                 cell.index = indexPath
+                if stack.messages[indexPath.row].readInd == true {
+                    cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
+                    cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
+                }
                 
             }
             

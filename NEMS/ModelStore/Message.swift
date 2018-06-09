@@ -34,7 +34,7 @@ struct MessageStack: Codable {
                 self.messageBody = try container.decode(String.self, forKey: .messageBody)
                 self.locations = try container.decode([String].self, forKey: .locations)
                 self.messageID = try container.decode(UUID.self, forKey: .messageID)
-                self.readInd = false
+                self.readInd = try container.decodeIfPresent(Bool.self, forKey: .readInd) ?? false
             }
         
     }

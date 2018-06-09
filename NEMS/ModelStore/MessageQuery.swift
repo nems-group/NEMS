@@ -12,33 +12,18 @@ class MessageQuery {
     
     class func getMostRecentDate(messageStacks: [MessageStack]) -> String? {
         
-        var comparingDateString: String?
-        var fetchDateString: String?
-        for stack in messageStacks {
-            let timestamp = stack.timestamp
-            if comparingDateString == nil {
-                comparingDateString = timestamp
-            } else {
-                fetchDateString = timestamp
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let newStack = messageStacks.max { (message1, message2) -> Bool in
+            guard let date1 = formatter.date(from: message1.timestamp), let date2 = formatter.date(from: message2.timestamp) else {
+                return false
             }
-            if fetchDateString == nil {
-                fetchDateString = timestamp
-            }
-            
-            guard let fD = fetchDateString, let cD = comparingDateString else {
-                return nil
-            }
-            
-            let formatter = DateFormatter()
-            guard let comparingDate = formatter.date(from: cD), let fetchDate = formatter.date(from: fD) else {
-                print("couldn't make a query date")
-                return nil
-            }
-            
-            let result = comparingDate.compare(fetchDate)
-            print("result \(result)")
-            
+            return date1.timeIntervalSince1970 > date2.timeIntervalSince1970
         }
-        return nil
+        guard let maxStack = newStack else {
+            return nil
+        }
+        print(maxStack.timestamp)
+        return maxStack.timestamp
     }
 }
