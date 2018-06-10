@@ -16,6 +16,7 @@ class MainViewController: UIViewController, MessageDelegate {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
@@ -58,13 +59,22 @@ class MainViewController: UIViewController, MessageDelegate {
             DispatchQueue.main.async {
                 self.messageReadCount.text = "\(count) unread messages"
             }
+        } else {
+            DispatchQueue.main.async {
+                self.messageReadCount.text = "No unread messages"
+            }
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(MessageHandler.pathForDocArchivedLog)
-        print("viewDidAppear(_:)")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         messageHandler.sync()
         return
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

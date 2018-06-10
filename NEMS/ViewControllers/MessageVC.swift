@@ -88,9 +88,6 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {

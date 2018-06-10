@@ -16,8 +16,6 @@ class MessageHandler {
     
     static let query = MessageQuery.self
     
-    
-    //private var messages: [Message]?
 
     static let baseDocPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let pathForDocArchivedLog = baseDocPath.appendingPathComponent("messageLog.json")
@@ -36,7 +34,6 @@ class MessageHandler {
     
     static var newMessagesFromDateBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("newMessages")
     static var allMessagesFromBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("allMessages")
-    
     
     func downloadMessages(forDateAfter: String) {
         print("downloadMessages(forDateAfter:)")
@@ -59,7 +56,29 @@ class MessageHandler {
             if saved {
                 // MARK: To-Do what to do if saved?
             }
-            //no lets compare the dates
+            //now lets compare the dates
+            guard let dataSource = self.dataSource else {
+                print("error getting data source")
+                return
+            }
+            
+            guard let result = MessageQuery.getMostRecentDate(messageStacks: dataSource.messageStack) else {
+                print("nil date")
+                return
+            }
+            
+            guard let resultDate = result.toDate(format: "yyyy-MM-dd'T'HH:mm:ssZ") else {
+                print("couldn't convert to date")
+                return
+            }
+            
+            if resultDate < Date() {
+                print("get all new messages")
+                downloadMessages(forDateAfter: result)
+            } else {
+                print("way to go you're up today")
+            }
+            
         }
         
         if !local {
