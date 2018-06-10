@@ -732,32 +732,42 @@ Closed Sun
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUu-R9-V06">
-                                                    <rect key="frame" x="15" y="0.0" width="73" height="24"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-wc-UKm">
+                                                    <rect key="frame" x="35" y="34" width="325" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-wc-UKm">
-                                                    <rect key="frame" x="15" y="34" width="345" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unread-Ind" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-wa-euP">
+                                                    <rect key="frame" x="11" y="22.5" width="16" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="6hA-oo-TNe"/>
+                                                        <constraint firstAttribute="height" constant="16" id="wNg-bc-Qho"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUu-R9-V06">
+                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RUu-R9-V06" firstAttribute="top" secondItem="qEe-rG-n7c" secondAttribute="top" id="Bkk-FZ-Xw8"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RUu-R9-V06" secondAttribute="trailing" constant="15" id="CBH-J7-Z9g"/>
-                                                <constraint firstItem="fJ9-wc-UKm" firstAttribute="leading" secondItem="qEe-rG-n7c" secondAttribute="leading" constant="15" id="Hy4-f6-3Xb"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="RUu-R9-V06" secondAttribute="trailing" constant="15" id="CBH-J7-Z9g"/>
+                                                <constraint firstItem="D0f-wa-euP" firstAttribute="leading" secondItem="qEe-rG-n7c" secondAttribute="leading" constant="11" id="DTZ-7o-YZQ"/>
+                                                <constraint firstItem="fJ9-wc-UKm" firstAttribute="leading" secondItem="qEe-rG-n7c" secondAttribute="leading" constant="35" id="Hy4-f6-3Xb"/>
                                                 <constraint firstItem="fJ9-wc-UKm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RUu-R9-V06" secondAttribute="bottom" constant="7" id="O7k-tc-xj4"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fJ9-wc-UKm" secondAttribute="trailing" constant="15" id="QOG-NV-YjG"/>
-                                                <constraint firstItem="RUu-R9-V06" firstAttribute="leading" secondItem="qEe-rG-n7c" secondAttribute="leading" constant="15" id="TdR-K8-Fps"/>
+                                                <constraint firstItem="D0f-wa-euP" firstAttribute="centerY" secondItem="qEe-rG-n7c" secondAttribute="centerY" id="Yq4-Qr-2OD"/>
                                                 <constraint firstAttribute="bottom" secondItem="fJ9-wc-UKm" secondAttribute="bottom" constant="4.5" id="b1L-h8-i9y"/>
+                                                <constraint firstItem="RUu-R9-V06" firstAttribute="leading" secondItem="qEe-rG-n7c" secondAttribute="leading" constant="35" id="niL-l6-GpB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageBody" destination="fJ9-wc-UKm" id="L7q-jb-XUt"/>
                                             <outlet property="subject" destination="RUu-R9-V06" id="eqw-IV-ymJ"/>
+                                            <outlet property="unreadInd" destination="D0f-wa-euP" id="Gxg-4V-gxA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -784,7 +794,7 @@ Closed Sun
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUt-Oy-78u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="-333.25123152709364"/>
+            <point key="canvasLocation" x="2997.5999999999999" y="-333.28335832083962"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QjD-ZE-Msn">
@@ -808,6 +818,7 @@ Closed Sun
         <image name="RX Icon" width="83" height="83"/>
         <image name="Rx Scan" width="700" height="632"/>
         <image name="Rx Scan Location" width="222" height="133"/>
+        <image name="Unread-Ind" width="120" height="120"/>
         <image name="locations icons" width="76" height="76"/>
         <image name="messages icon" width="76" height="76"/>
         <image name="patient portal icon" width="76" height="76"/>

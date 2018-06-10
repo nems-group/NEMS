@@ -12,6 +12,7 @@ class MessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var messageBody: UILabel!
+    @IBOutlet weak var unreadInd: UIImageView!
     var messageID: UUID?
     var index: IndexPath?
     

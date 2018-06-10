@@ -121,6 +121,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         }
         cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
         cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
+        cell.unreadInd.isHidden = true
     }
     
     func refresh() {
@@ -164,6 +165,7 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
                 if stack.messages[indexPath.row].readInd == true {
                     cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
                     cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
+                    cell.unreadInd.isHidden = true
                 }
                 
             }

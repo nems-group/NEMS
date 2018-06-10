@@ -33,6 +33,7 @@ class MessageHandler {
         return nil
     }
     
+    
     static var newMessagesFromDateBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("newMessages")
     static var allMessagesFromBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("allMessages")
     
@@ -81,12 +82,14 @@ class MessageHandler {
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: path) { (data, response, error) in
             guard let response = response else {
+                
                 return
             }
             guard let res = response as? HTTPURLResponse else {
                 print("no http url response so sad")
                 return
             }
+            
             if res.statusCode == 200 {
                 if let data = data {
                     do {

@@ -50,7 +50,7 @@ class MainViewController: UIViewController, MessageDelegate {
             for message in messages {
                 if message.readInd == false {
                     print("unread")
-                    count+=1
+                    count = count + 1
                 }
             }
         }
