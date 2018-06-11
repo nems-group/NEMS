@@ -1,14 +1,14 @@
 //
-//  MessageVC.swift
-//  NotificationTutorial
+//  InboxViewController.swift
 //
-//  Created by User on 4/22/18.
-//  Copyright © 2018 User. All rights reserved.
+//
+//  Created by Scott Eremia-Roden on 06/01/18.
+//  Copyright © 2018 Scott Eremia-Roden. All rights reserved.
 //
 
 import UIKit
 
-class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
     
 
     var messageHandler: MessageHandler!
@@ -137,8 +137,10 @@ class MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, M
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refresh()
+    }
     func buildCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
             return UITableViewCell()

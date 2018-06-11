@@ -705,11 +705,33 @@ Closed Sun
         <!--History-->
         <scene sceneID="QKa-sj-lTK">
             <objects>
-                <viewController id="qgh-dN-xCP" sceneMemberID="viewController">
+                <viewController id="qgh-dN-xCP" customClass="HistoriesViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bBc-Co-9Jh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sjs-6b-mos">
+                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Cme-Mj-YNL">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cme-Mj-YNL" id="cZr-Yh-stv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yrB-LO-WhE" firstAttribute="trailing" secondItem="Sjs-6b-mos" secondAttribute="trailing" id="IiA-4Q-wwi"/>
+                            <constraint firstItem="yrB-LO-WhE" firstAttribute="bottom" secondItem="Sjs-6b-mos" secondAttribute="bottom" id="kPg-gk-uan"/>
+                            <constraint firstItem="yrB-LO-WhE" firstAttribute="top" secondItem="Sjs-6b-mos" secondAttribute="top" id="uZ1-Kv-ySm"/>
+                            <constraint firstItem="Sjs-6b-mos" firstAttribute="leading" secondItem="yrB-LO-WhE" secondAttribute="leading" id="zxb-j8-oBR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yrB-LO-WhE"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="recent" id="Agi-Yl-mYU"/>
@@ -721,11 +743,33 @@ Closed Sun
         <!--Favorites-->
         <scene sceneID="nda-fB-dzR">
             <objects>
-                <viewController id="s8k-qi-ugk" sceneMemberID="viewController">
+                <viewController title="Favorites" id="s8k-qi-ugk" customClass="FavoritesViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MWF-ir-KKc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqj-fS-BvZ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xZJ-fR-kVn">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xZJ-fR-kVn" id="a1q-02-Rl2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vdd-xI-AKB" firstAttribute="trailing" secondItem="Kqj-fS-BvZ" secondAttribute="trailing" id="0h2-uy-2TT"/>
+                            <constraint firstItem="Vdd-xI-AKB" firstAttribute="bottom" secondItem="Kqj-fS-BvZ" secondAttribute="bottom" id="ZFs-q0-7Fr"/>
+                            <constraint firstItem="Kqj-fS-BvZ" firstAttribute="leading" secondItem="Vdd-xI-AKB" secondAttribute="leading" id="aax-X6-fie"/>
+                            <constraint firstItem="Kqj-fS-BvZ" firstAttribute="top" secondItem="Vdd-xI-AKB" secondAttribute="top" id="wid-jP-3Lw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vdd-xI-AKB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="cLF-4c-N3u"/>
@@ -757,7 +801,7 @@ Closed Sun
         <!--Messages-->
         <scene sceneID="hCc-aM-pql">
             <objects>
-                <viewController storyboardIdentifier="messageVC_ID" id="kMf-2C-unq" customClass="MessageVC" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="messageVC_ID" id="kMf-2C-unq" customClass="InboxViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k51-iT-JtL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
