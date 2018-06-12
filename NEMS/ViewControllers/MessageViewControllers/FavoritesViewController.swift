@@ -8,24 +8,20 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+class FavoritesViewController: InboxViewController {
     
-    var messageHander: MessageHandler!
+    //@IBOutlet weak var favoriteTableView: UITableView!
     
-    
-    func refresh() {
-        // MARK: To-Do refresh
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.inboxView = .favorite
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // MARK: To-Do tableView number of rows
-        return 0
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // MARK: To-Do cellForRowAtPath
-        return UITableViewCell()
-    }
+    
+  
+    
+    
     
 
 

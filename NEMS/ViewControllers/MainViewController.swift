@@ -42,19 +42,13 @@ class MainViewController: UIViewController, MessageDelegate {
    
     func refresh() {
         var count = 0
-        guard let stacks = messageHandler?.dataSource?.messageStack else {
-            print("no stack")
+        guard let stacks = self.messageHandler.dataSource?.messageStacks else {
+            DispatchQueue.main.async {
+                self.messageReadCount.text = "Failed to get number of messages"
+            }
             return
         }
-        for stack in stacks {
-            let messages = stack.messages
-            for message in messages {
-                if message.readInd == false {
-                    print("unread")
-                    count = count + 1
-                }
-            }
-        }
+        count = MessageQuery.getNumberOfMessages(messageStacks: stacks).unread
         if count > 0 {
             DispatchQueue.main.async {
                 self.messageReadCount.text = "\(count) unread messages"

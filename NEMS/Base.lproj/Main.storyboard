@@ -711,16 +711,53 @@ Closed Sun
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sjs-6b-mos">
-                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Cme-Mj-YNL">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="61" id="h4N-FB-5Ai" customClass="MessageTableViewCell" customModule="NEMS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cme-Mj-YNL" id="cZr-Yh-stv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h4N-FB-5Ai" id="roB-Er-Ya4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWt-Na-eLH">
+                                                    <rect key="frame" x="35" y="34.333333333333336" width="325" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unread-Ind" translatesAutoresizingMaskIntoConstraints="NO" id="5B8-o7-zG1">
+                                                    <rect key="frame" x="11" y="22.333333333333332" width="16" height="15.999999999999996"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="LEH-Mf-VON"/>
+                                                        <constraint firstAttribute="height" constant="16" id="OW8-1S-7RE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lw-ED-HIL">
+                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hWt-Na-eLH" secondAttribute="bottom" constant="4.5" id="6fC-lr-7Et"/>
+                                                <constraint firstItem="hWt-Na-eLH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7Lw-ED-HIL" secondAttribute="bottom" constant="7" id="I89-fV-CRM"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="7Lw-ED-HIL" secondAttribute="trailing" constant="15" id="S6f-iX-19h"/>
+                                                <constraint firstItem="7Lw-ED-HIL" firstAttribute="top" secondItem="roB-Er-Ya4" secondAttribute="top" id="TaE-VY-CAa"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hWt-Na-eLH" secondAttribute="trailing" constant="15" id="oQF-Mj-p7R"/>
+                                                <constraint firstItem="5B8-o7-zG1" firstAttribute="centerY" secondItem="roB-Er-Ya4" secondAttribute="centerY" id="qLr-Th-YRR"/>
+                                                <constraint firstItem="7Lw-ED-HIL" firstAttribute="leading" secondItem="roB-Er-Ya4" secondAttribute="leading" constant="35" id="qjH-ID-DvC"/>
+                                                <constraint firstItem="hWt-Na-eLH" firstAttribute="leading" secondItem="roB-Er-Ya4" secondAttribute="leading" constant="35" id="r5d-Pq-8ck"/>
+                                                <constraint firstItem="5B8-o7-zG1" firstAttribute="leading" secondItem="roB-Er-Ya4" secondAttribute="leading" constant="11" id="z77-K5-odB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageBody" destination="hWt-Na-eLH" id="AWk-N9-jxd"/>
+                                            <outlet property="subject" destination="7Lw-ED-HIL" id="vNx-eU-xbV"/>
+                                            <outlet property="unreadInd" destination="5B8-o7-zG1" id="4Aa-UQ-nZQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -735,10 +772,14 @@ Closed Sun
                         <viewLayoutGuide key="safeArea" id="yrB-LO-WhE"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="recent" id="Agi-Yl-mYU"/>
+                    <connections>
+                        <outlet property="messagesTableView" destination="Sjs-6b-mos" id="rqL-1r-ggh"/>
+                        <outlet property="tabBar" destination="Agi-Yl-mYU" id="g1x-fa-M1X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTb-kb-HLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6025" y="-588"/>
+            <point key="canvasLocation" x="6024.8000000000002" y="-588.17733990147781"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="nda-fB-dzR">
@@ -749,16 +790,53 @@ Closed Sun
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqj-fS-BvZ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xZJ-fR-kVn">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="61" id="FX5-2e-llV" customClass="MessageTableViewCell" customModule="NEMS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xZJ-fR-kVn" id="a1q-02-Rl2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FX5-2e-llV" id="ks6-AL-pIl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LF9-SX-bni">
+                                                    <rect key="frame" x="35" y="34.333333333333336" width="325" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unread-Ind" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-Lb-jqF">
+                                                    <rect key="frame" x="11" y="22.333333333333332" width="16" height="15.999999999999996"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="coQ-6F-p1g"/>
+                                                        <constraint firstAttribute="height" constant="16" id="qIG-6K-jXs"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-bR-w4S">
+                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="LF9-SX-bni" secondAttribute="bottom" constant="4.5" id="3KM-w8-LPD"/>
+                                                <constraint firstItem="dgZ-Lb-jqF" firstAttribute="leading" secondItem="ks6-AL-pIl" secondAttribute="leading" constant="11" id="7Xi-Nu-4dd"/>
+                                                <constraint firstItem="dgZ-Lb-jqF" firstAttribute="centerY" secondItem="ks6-AL-pIl" secondAttribute="centerY" id="HIC-Nc-HIX"/>
+                                                <constraint firstItem="dNf-bR-w4S" firstAttribute="leading" secondItem="ks6-AL-pIl" secondAttribute="leading" constant="35" id="Kf4-9h-w4e"/>
+                                                <constraint firstItem="dNf-bR-w4S" firstAttribute="top" secondItem="ks6-AL-pIl" secondAttribute="top" id="O3F-DK-suf"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dNf-bR-w4S" secondAttribute="trailing" constant="15" id="OwX-Qe-6qJ"/>
+                                                <constraint firstItem="LF9-SX-bni" firstAttribute="leading" secondItem="ks6-AL-pIl" secondAttribute="leading" constant="35" id="c1g-eP-QEy"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LF9-SX-bni" secondAttribute="trailing" constant="15" id="dHr-ko-R21"/>
+                                                <constraint firstItem="LF9-SX-bni" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dNf-bR-w4S" secondAttribute="bottom" constant="7" id="gwY-Bc-gW7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageBody" destination="LF9-SX-bni" id="SUm-ku-8x1"/>
+                                            <outlet property="subject" destination="dNf-bR-w4S" id="qzE-2z-aZz"/>
+                                            <outlet property="unreadInd" destination="dgZ-Lb-jqF" id="bGF-EH-gyz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -773,10 +851,14 @@ Closed Sun
                         <viewLayoutGuide key="safeArea" id="Vdd-xI-AKB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="cLF-4c-N3u"/>
+                    <connections>
+                        <outlet property="messagesTableView" destination="Kqj-fS-BvZ" id="sER-NU-6JM"/>
+                        <outlet property="tabBar" destination="cLF-4c-N3u" id="Dio-qf-UV8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIy-fw-8EB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5218" y="-1117"/>
+            <point key="canvasLocation" x="5216.8000000000002" y="-1117.2413793103449"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w6y-cT-E9t">
@@ -798,17 +880,16 @@ Closed Sun
             </objects>
             <point key="canvasLocation" x="2998" y="-695"/>
         </scene>
-        <!--Messages-->
+        <!--Inbox-->
         <scene sceneID="hCc-aM-pql">
             <objects>
-                <viewController storyboardIdentifier="messageVC_ID" id="kMf-2C-unq" customClass="InboxViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="messageVC_ID" title="Inbox" id="kMf-2C-unq" customClass="InboxViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k51-iT-JtL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-06-mns">
-                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-06-mns">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="61" id="pVM-w6-lfR" customClass="MessageTableViewCell" customModule="NEMS" customModuleProvider="target">
@@ -861,6 +942,12 @@ Closed Sun
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="efO-ue-8Ld" firstAttribute="bottom" secondItem="bnb-06-mns" secondAttribute="bottom" id="2ZQ-lc-Z8r"/>
+                            <constraint firstItem="bnb-06-mns" firstAttribute="top" secondItem="efO-ue-8Ld" secondAttribute="top" id="UDX-gy-4yX"/>
+                            <constraint firstItem="efO-ue-8Ld" firstAttribute="trailing" secondItem="bnb-06-mns" secondAttribute="trailing" id="ZAT-YV-cfz"/>
+                            <constraint firstItem="bnb-06-mns" firstAttribute="leading" secondItem="efO-ue-8Ld" secondAttribute="leading" id="tWV-7M-jpt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="efO-ue-8Ld"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" image="new-messages" id="tb0-pc-np0"/>
@@ -871,11 +958,12 @@ Closed Sun
                     </navigationItem>
                     <connections>
                         <outlet property="messagesTableView" destination="bnb-06-mns" id="xO8-hn-w1T"/>
+                        <outlet property="tabBar" destination="tb0-pc-np0" id="VyO-hl-POI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUt-Oy-78u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4761" y="-250"/>
+            <point key="canvasLocation" x="4760.8000000000002" y="-250.49261083743843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QjD-ZE-Msn">

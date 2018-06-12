@@ -11,3 +11,7 @@ import Foundation
 protocol MessageDelegate: class {
     func refresh()
 }
+
+protocol MessageCellBuilderDelegate: MessageDelegate {
+    var inboxView: InboxView { get set }
+}

@@ -8,33 +8,13 @@
 
 import UIKit
 
-class HistoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+class HistoriesViewController: InboxViewController {
     
-    var messageHander: MessageHandler!
     
-    override func viewDidAppear(_ animated: Bool) {
-        //
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.inboxView = .archived
     }
-    
-    override func viewDidLoad() {
-        //
-    }
-    
-    
-    func refresh() {
-        // MARK: To-Do refresh
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // MARK: To-Do tableView number of rows
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // MARK: To-Do cellForRowAtPath
-        return UITableViewCell()
-    }
-    
     
     
 }

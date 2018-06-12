@@ -8,45 +8,39 @@
 
 import UIKit
 
-class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageDelegate {
+class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageCellBuilderDelegate {
     
 
     var messageHandler: MessageHandler!
+    var inboxView: InboxView = .inbox
 
+    @IBOutlet weak var tabBar: UITabBarItem!
     
     @IBOutlet weak var messagesTableView: UITableView!
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let stack = messageHandler.dataSource?.messageStack else {
-            return 1
+        guard let stack = MessageQuery.getMessagesFiltered(by: inboxView, messageStack: messageHandler.dataSource?.messageStacks) else {
+            return 0
         }
+        
         return stack.count
         
     }
     
     
+    
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        var count = 0
-        
-        guard let stacks = messageHandler.dataSource?.messageStack else {
+        guard let filteredStacks = MessageQuery.getMessagesFiltered(by: inboxView, messageStack: messageHandler.dataSource?.messageStacks) else {
             return 0
         }
-        if stacks.count-1 >= section {
-            let stack = stacks[section]
-            for _ in stack.messages {
-                count+=1
-            }
-        }
-        
-        return count
+        let numberOfRows = MessageQuery.numberOfMessagesInStack(stackNumber: section, messageStack: filteredStacks)
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = buildCell(tableView, cellForRowAt: indexPath)
-        return cell
+        return MessageViewCell.buildCells(tableView, cellForRowAt: indexPath, messageHandler: messageHandler, inboxView: inboxView)
     }
     
 
@@ -57,6 +51,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         messageHandler = MessageHandler()
+        messageHandler.loadedOnce = 1
         messageHandler?.delegate = self
         messageHandler?.dataSource = ModelStore.shared
         messageHandler?.start()
@@ -64,21 +59,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
         
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let stacks = messageHandler.dataSource?.messageStack else {
-            return nil
-        }
-        if stacks.count-1 >= section {
-            let timestamp = stacks[section].timestamp
-            let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            guard let date = formatter.date(from: timestamp) else {
-                return nil
-            }
-                formatter.dateFormat = "MMM d, yyyy"
-            let header = formatter.string(from: date)
-            return header
-        }
-        return "No Date"
+        return MessageViewCell.buildHeaders(tableView, titleForHeaderInSection: section, messageHandler: messageHandler, inboxView: inboxView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +71,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // MARK: To-do probably going to change this later, and do the "read" on a seperate view
         guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {
             print("couldn't make it MessageTableViewCell")
             return
@@ -116,16 +98,33 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("couldn't make it MessageTableViewCell")
             return
         }
+        
         cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
         cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
         cell.unreadInd.isHidden = true
+        self.refresh()
     }
     
     func refresh() {
         
         DispatchQueue.main.async {
             print("refresh")
+            guard let messageStacks = self.messageHandler.dataSource?.messageStacks else {
+                return
+            }
+            switch self.inboxView {
+                case .inbox: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).unread.description
+                case .favorite: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).favorited.description
+                case .archived: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).archived.description
+            }
+            
+            print(self.tabBar)
+            
+            if self.tabBar.badgeValue == "0" {
+                self.tabBar.badgeValue = nil
+            }
             self.messagesTableView.reloadData()
+            
         }
     }
     /*
@@ -141,36 +140,6 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewWillAppear(animated)
         self.refresh()
     }
-    func buildCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
-            return UITableViewCell()
-        }
-        print("build cell")
-        guard let stacks = messageHandler.dataSource?.messageStack else {
-            return cell
-        }
-        
-        let stackIndexLimit = stacks.count-1
-        
-        if indexPath.section <= stackIndexLimit {
-            let stack = stacks[indexPath.section]
-            let messageIndexLimit = stack.messages.count-1
-            
-            if indexPath.row <= messageIndexLimit {
-                cell.subject.text = stack.messages[indexPath.row].subject
-                cell.messageBody?.text = stack.messages[indexPath.row].messageBody
-                cell.messageID = stack.messages[indexPath.row].messageID
-                cell.index = indexPath
-                if stack.messages[indexPath.row].readInd == true {
-                    cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
-                    cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
-                    cell.unreadInd.isHidden = true
-                }
-                
-            }
-            
-        }
-        return cell
-    }
+    
     
 }

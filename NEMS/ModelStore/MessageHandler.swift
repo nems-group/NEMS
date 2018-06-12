@@ -13,6 +13,8 @@ class MessageHandler {
     
     weak var delegate: MessageDelegate?
     weak var dataSource: ModelStore?
+    var inboxType: InboxView?
+    var loadedOnce: Int = 0
     
     static let query = MessageQuery.self
     
@@ -32,6 +34,10 @@ class MessageHandler {
     }
     
     
+    
+    
+    
+    
     static var newMessagesFromDateBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("newMessages")
     static var allMessagesFromBaseURL = MessageHandler.onlineURLforMessage?.appendingPathComponent("allMessages")
     
@@ -48,43 +54,59 @@ class MessageHandler {
     func start() {
         print("start()")
         //check local
-        let local = loadFromDrive()
         
-        if local {
-            
-            let saved = self.saveToDrive()
-            if saved {
-                // MARK: To-Do what to do if saved?
-            }
-            //now lets compare the dates
-            guard let dataSource = self.dataSource else {
-                print("error getting data source")
-                return
-            }
-            
-            guard let result = MessageQuery.getMostRecentDate(messageStacks: dataSource.messageStack) else {
-                print("nil date")
-                return
-            }
-            
-            guard let resultDate = result.toDate(format: "yyyy-MM-dd'T'HH:mm:ssZ") else {
-                print("couldn't convert to date")
-                return
-            }
-            
-            if resultDate < Date() {
-                print("get all new messages")
-                downloadMessages(forDateAfter: result)
-            } else {
-                print("way to go you're up today")
-            }
-            
-        }
         
-        if !local {
-            print("no local")
-            downloadMessages()
-        }
+        let local = loadFromDrive() // local document directory
+        
+            if local {
+                
+                let saved = self.saveToDrive()
+                if saved {
+                    // MARK: To-Do what to do if saved?
+                }
+                //now lets compare the dates
+                guard let dataSource = self.dataSource else {
+                    print("error getting data source")
+                    return
+                }
+                
+                guard let result = MessageQuery.getMostRecentDate(messageStacks: dataSource.messageStacks) else {
+                    print("nil date")
+                    return
+                }
+                
+                guard let resultDate = result.toDate(format: "yyyy-MM-dd'T'HH:mm:ssZ") else {
+                    print("couldn't convert to date")
+                    return
+                }
+                
+                if resultDate < Date() {
+                    print("get all new messages")
+                    
+                    if loadedOnce == 0 {
+                        if let localJSON = Bundle.main.url(forResource: "messageJSON", withExtension: "json") {
+                            let result = loadMessages(fromPath: localJSON)
+                            if result {
+                                print("loaded local temp json")
+                                self.saveToDrive()
+                                return
+                            }
+                        
+                    }
+                    downloadMessages(forDateAfter: result)
+                    }
+                } else {
+                    print("way to go you're up to date today")
+                }
+                
+            }
+            
+            if !local {
+                print("no local")
+                downloadMessages()
+            }
+            
+        
     }
     
     
@@ -116,7 +138,7 @@ class MessageHandler {
                         guard let model = self.dataSource else {
                             return
                         }
-                        model.messageStack = json
+                        model.messageStacks = json
                         let saved = self.saveToDrive()
                         if (saved) {
                             print("saved to drive")
@@ -140,7 +162,7 @@ class MessageHandler {
         do {
             let data = try Data(contentsOf: path, options: option)
             let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
-            self.dataSource?.messageStack = json
+            self.dataSource?.messageStacks = json
             print("sync loadMessage(fromPath) call")
             sync()
             return true
@@ -153,7 +175,7 @@ class MessageHandler {
     func readMessage(id: UUID) -> Bool {
         print("readMessage(id:)")
         var stackIndex = 0
-        guard let stacks = self.dataSource?.messageStack else {
+        guard let stacks = self.dataSource?.messageStacks else {
             print("could not read because model is nil")
             return false
         }
@@ -164,13 +186,14 @@ class MessageHandler {
                 if message.messageID == id {
                     //print( messageStacks[stackIndex].messages[messageStackIndex].readInd )
                    print(id, "needs to be read")
-                   self.dataSource?.messageStack[stackIndex].messages[messageStackIndex].readInd = true
+                   self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = true
                    let saved = saveToDrive()
                     //debugPrint(self.dataSource?.messageStack)
-                   
                     if saved {
-                       
+                        print("start refresh")
+                        delegate?.refresh()
                         return true
+                        
                     }
                     return false
                 }
@@ -189,7 +212,7 @@ class MessageHandler {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let todayString = formatter.string(from: todayDate)
-        guard let stacks = self.dataSource?.messageStack else {
+        guard let stacks = self.dataSource?.messageStacks else {
             return
         }
         guard let mostRecentDateString = MessageQuery.getMostRecentDate(messageStacks: stacks) else {
@@ -228,10 +251,11 @@ class MessageHandler {
         print("saveToDrive()")
         let path = MessageHandler.pathForDocArchivedLog.path
         let finder = FileManager.default
+        
         guard let model = self.dataSource else {
             return false
         }
-        let encodable = model.messageStack
+        let encodable = model.messageStacks
             if encodable.count > 0 {
             do {
                 let json = try ModelStore.jsonEncoder.encode(encodable)
@@ -253,7 +277,7 @@ class MessageHandler {
         do {
             let data = try Data(contentsOf: path, options: option)
             let json = try ModelStore.jsonDecoder.decode([MessageStack].self, from: data)
-            self.dataSource?.messageStack = json
+            self.dataSource?.messageStacks = json
             sync()
             return true
         } catch {
@@ -267,3 +291,6 @@ class MessageHandler {
         self.delegate?.refresh()
     }
 }
+
+
+
