@@ -17,32 +17,32 @@ enum InboxView {
 class MessageViewCell {
     
     weak var delegate: MessageHandler?
-    weak var inboxView: MessageCellBuilderDelegate?
+    weak var inboxDelegate: InboxViewController?
     
-    class func buildCells(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, messageHandler: MessageHandler, inboxView: InboxView) -> UITableViewCell {
+    func buildCells(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableViewCell else {
             return UITableViewCell()
         }
+        //ensure the unread features style stay.
+        cell.unreadInd.isHidden = false
+        cell.subject.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
         
-        let filteredStack: [MessageStack]? = {
-            switch inboxView {
-                case .inbox: return MessageQuery.getMessagesFiltered(by: .inbox, messageStack: ModelStore.shared.messageStacks)
-                case .archived: return MessageQuery.getMessagesFiltered(by: .archived, messageStack: ModelStore.shared.messageStacks)
-            case .favorite: return MessageQuery.getMessagesFiltered(by: .favorite, messageStack: ModelStore.shared.messageStacks)
-            }
-        }()
-        guard let filteredStacks = filteredStack else {
-            
+        guard let inboxView = inboxDelegate?.inboxView, let messageStacks = self.delegate?.dataSource?.messageStacks else {
             return cell
         }
-        print(filteredStacks.count)
+        guard let filteredStacks = MessageQuery.getMessagesFiltered(by: inboxView, messageStack: messageStacks) else {
+            return cell
+        }
         
-        let max = MessageQuery.safeIndexOfMessageStack(messageStack: filteredStacks).max
-        let stackIndexLimit = max
+        let stackIndexLimit = MessageQuery.safeIndexOfMessageStack(messageStack: filteredStacks).max
         
         if indexPath.section <= stackIndexLimit {
             let stack = filteredStacks[indexPath.section]
+            print(filteredStacks[indexPath.section].timestamp)
+            print(filteredStacks[indexPath.section].messages.count)
+            print(indexPath.row)
             let messageIndexLimit = stack.messages.count-1
             
             if indexPath.row <= messageIndexLimit {
@@ -65,8 +65,11 @@ class MessageViewCell {
         return cell
     }
     
-    class func buildHeaders(_ tableView: UITableView, titleForHeaderInSection section: Int, messageHandler: MessageHandler, inboxView: InboxView) -> String? {
-        guard let stacks = MessageQuery.getMessagesFiltered(by: inboxView, messageStack: messageHandler.dataSource?.messageStacks) else {
+    func buildHeaders(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let inboxView = self.inboxDelegate?.inboxView, let messageStacks = self.delegate?.dataSource?.messageStacks else {
+            return nil
+        }
+        guard let stacks = MessageQuery.getMessagesFiltered(by: inboxView, messageStack: messageStacks) else {
             return nil
         }
         let max = MessageQuery.safeIndexOfMessageStack(messageStack: stacks).max
@@ -86,5 +89,34 @@ class MessageViewCell {
             return header
         }
         return "No Date"
+    }
+    
+    func getBadgeCounts() {
+        guard let messageStacks = inboxDelegate?.messageHandler.dataSource?.messageStacks else {
+            return
+        }
+        guard let viewControllers = inboxDelegate?.tabBarController?.viewControllers else {
+            return
+        }
+        for view in viewControllers {
+            if view.title == "Favorites" {
+                view.tabBarItem.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).favorited.description
+                if view.tabBarItem.badgeValue == "0" {
+                    view.tabBarItem.badgeValue = nil
+                }
+            }
+            if view.title == "History" {
+                view.tabBarItem.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).archived.description
+                if view.tabBarItem.badgeValue == "0" {
+                    view.tabBarItem.badgeValue = nil
+                }
+            }
+            if view.title == "Inbox" {
+                view.tabBarItem.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).unread.description
+                if view.tabBarItem.badgeValue == "0" {
+                    view.tabBarItem.badgeValue = nil
+                }
+            }
+        }
     }
 }

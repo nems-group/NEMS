@@ -28,20 +28,20 @@ class MessageQuery {
     
     class func getMessagesFiltered(by filter: InboxView, messageStack: [MessageStack]?) -> [MessageStack]? {
         var filteredStack = [MessageStack]()
-        var filteredMessages = [MessageStack.Message]()
+        
         guard let messageStack = messageStack else {
             return nil
         }
-        var counter = 1
+        
         for stack in messageStack {
             
-            
+            var filteredMessages = [MessageStack.Message]()
             for message in stack.messages {
                 
                 switch filter {
                     case .inbox:
                         if message.readInd == false {
-                            
+                           
                             
                             let message = MessageStack.Message(subject: message.subject, messageBody: message.messageBody, locations: message.locations, readInd: message.readInd, messageID: message.messageID, favorited: message.favorited)
                             filteredMessages.append(message)

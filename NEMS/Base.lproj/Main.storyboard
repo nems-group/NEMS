@@ -705,7 +705,7 @@ Closed Sun
         <!--History-->
         <scene sceneID="QKa-sj-lTK">
             <objects>
-                <viewController id="qgh-dN-xCP" customClass="HistoriesViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="History" id="qgh-dN-xCP" customClass="HistoriesViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bBc-Co-9Jh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

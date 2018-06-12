@@ -8,10 +8,11 @@
 
 import UIKit
 
-class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageCellBuilderDelegate {
+class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageCellBuilderDelegate, UITabBarDelegate {
     
 
     var messageHandler: MessageHandler!
+    var messageViewCell: MessageViewCell!
     var inboxView: InboxView = .inbox
 
     @IBOutlet weak var tabBar: UITabBarItem!
@@ -40,7 +41,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return MessageViewCell.buildCells(tableView, cellForRowAt: indexPath, messageHandler: messageHandler, inboxView: inboxView)
+        return messageViewCell.buildCells(tableView, cellForRowAt: indexPath)
     }
     
 
@@ -53,13 +54,16 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         messageHandler = MessageHandler()
         messageHandler.loadedOnce = 1
         messageHandler?.delegate = self
+        messageViewCell = MessageViewCell()
+        messageViewCell.delegate = self.messageHandler
+        messageViewCell.inboxDelegate = self
         messageHandler?.dataSource = ModelStore.shared
         messageHandler?.start()
         
     }
         
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return MessageViewCell.buildHeaders(tableView, titleForHeaderInSection: section, messageHandler: messageHandler, inboxView: inboxView)
+        return messageViewCell.buildHeaders(tableView, titleForHeaderInSection: section)
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,20 +113,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         DispatchQueue.main.async {
             print("refresh")
-            guard let messageStacks = self.messageHandler.dataSource?.messageStacks else {
-                return
-            }
-            switch self.inboxView {
-                case .inbox: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).unread.description
-                case .favorite: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).favorited.description
-                case .archived: self.tabBar.badgeValue = MessageQuery.getNumberOfMessages(messageStacks: messageStacks).archived.description
-            }
-            
-            print(self.tabBar)
-            
-            if self.tabBar.badgeValue == "0" {
-                self.tabBar.badgeValue = nil
-            }
+            self.messageViewCell.getBadgeCounts()
             self.messagesTableView.reloadData()
             
         }
@@ -138,8 +129,11 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.messageViewCell.getBadgeCounts()
         self.refresh()
     }
+    
+    
     
     
 }
