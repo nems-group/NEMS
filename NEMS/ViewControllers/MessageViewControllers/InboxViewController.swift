@@ -14,6 +14,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     var messageHandler: MessageHandler!
     var messageViewCell: MessageViewCell!
     var inboxView: InboxView = .inbox
+    var selectedUUID: UUID?
 
     @IBOutlet weak var tabBar: UITabBarItem!
     
@@ -85,7 +86,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("no cell id")
             return
         }
-        guard let result = messageHandler?.readMessage(id: id) else {
+        guard let result = messageHandler?.updateMessage(id: id, action: .read) else {
             print("read message failed because messageHandler is nil")
             return
         }
@@ -94,6 +95,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
             readRow(tableView, indexPath: indexPath)
             
         }
+        self.selectedUUID = id
         
     }
     
@@ -134,6 +136,14 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "messageDetail" {
+            guard let viewController = segue.destination as? MessageDetailViewController else {
+                return
+            }
+            viewController.delegate = self
+            
+        }
+    }
     
 }

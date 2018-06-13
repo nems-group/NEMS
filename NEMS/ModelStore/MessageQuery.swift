@@ -8,7 +8,12 @@
 
 import Foundation
 
+enum MessageQueryError: Error {
+    case noMatchingIDfound
+}
+
 class MessageQuery {
+    
     
     class func getMostRecentDate(messageStacks: [MessageStack]) -> String? {
         
@@ -129,5 +134,16 @@ class MessageQuery {
         return (unreadNum, favoritedNum, archivedNum)
     }
     
+    
+    class func retrieveMessageDetails(id: UUID, messageStacks: [MessageStack]) throws -> MessageStack.Message {
+        for stack in messageStacks {
+            for message in stack.messages {
+                if message.messageID == id {
+                    return message
+                }
+            }
+        }
+        throw MessageQueryError.noMatchingIDfound
+    }
 }
 

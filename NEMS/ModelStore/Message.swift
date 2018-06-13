@@ -20,6 +20,7 @@ struct MessageStack: Codable {
         var readInd: Bool = false
         var messageID: UUID
         var favorited: Bool = false
+        var base64Image: String?
         
             private enum CodingKeys: String, CodingKey {
                 case subject
@@ -28,6 +29,7 @@ struct MessageStack: Codable {
                 case readInd
                 case messageID
                 case favorited
+                case base64Image
             }
         
             init(from decoder: Decoder) throws {
@@ -38,6 +40,7 @@ struct MessageStack: Codable {
                 self.messageID = try container.decode(UUID.self, forKey: .messageID)
                 self.readInd = try container.decodeIfPresent(Bool.self, forKey: .readInd) ?? false
                 self.favorited = try container.decodeIfPresent(Bool.self, forKey: .favorited) ?? false
+                self.base64Image = try container.decodeIfPresent(String.self, forKey: .base64Image)
 
             }
         

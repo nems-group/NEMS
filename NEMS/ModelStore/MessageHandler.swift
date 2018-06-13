@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+enum MessageAction {
+    case read
+    case favorite
+    case unread
+    case unfavorite
+}
+
 class MessageHandler {
     
     weak var delegate: MessageDelegate?
@@ -172,7 +179,7 @@ class MessageHandler {
         }
     }
     
-    func readMessage(id: UUID) -> Bool {
+    func updateMessage(id: UUID, action: MessageAction) -> Bool {
         print("readMessage(id:)")
         var stackIndex = 0
         guard let stacks = self.dataSource?.messageStacks else {
@@ -186,7 +193,13 @@ class MessageHandler {
                 if message.messageID == id {
                     //print( messageStacks[stackIndex].messages[messageStackIndex].readInd )
                    print(id, "needs to be read")
-                   self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = true
+                    switch action {
+                    case .read: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = true
+                    case .favorite: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = true; self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].favorited = true
+                    case .unread: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = false
+                    case .unfavorite: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].favorited = false
+                    }
+                   
                    let saved = saveToDrive()
                     //debugPrint(self.dataSource?.messageStack)
                     if saved {
@@ -290,6 +303,8 @@ class MessageHandler {
         print("sync()")
         self.delegate?.refresh()
     }
+    
+    
 }
 
 

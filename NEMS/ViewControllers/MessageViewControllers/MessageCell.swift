@@ -28,6 +28,7 @@ class MessageViewCell {
         //ensure the unread features style stay.
         cell.unreadInd.isHidden = false
         cell.subject.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
+        cell.messageBody.font = UIFont(name: "HelveticaNeue-Bold", size: 14.0)
         
         guard let inboxView = inboxDelegate?.inboxView, let messageStacks = self.delegate?.dataSource?.messageStacks else {
             return cell
@@ -54,8 +55,8 @@ class MessageViewCell {
                 
                 if stack.messages[indexPath.row].readInd == true {
                     
-                    cell.subject.font = UIFont(name: "Helvetica Neue-Regular", size: 20.0)
-                    cell.messageBody.font = UIFont(name: "Helvetica Neue-Regular", size: 11.0)
+                    cell.subject.font = UIFont(name: "HelveticaNeue", size: 14.0)
+                    cell.messageBody.font = UIFont(name: "HelveticaNeue", size: 11.0)
                     cell.unreadInd.isHidden = true
                 }
                 
