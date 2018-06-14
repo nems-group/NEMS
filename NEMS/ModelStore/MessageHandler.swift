@@ -14,6 +14,7 @@ enum MessageAction {
     case favorite
     case unread
     case unfavorite
+    case delete
 }
 
 class MessageHandler {
@@ -198,6 +199,7 @@ class MessageHandler {
                     case .favorite: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = true; self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].favorited = true
                     case .unread: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].readInd = false
                     case .unfavorite: self.dataSource?.messageStacks[stackIndex].messages[messageStackIndex].favorited = false
+                    case .delete: self.dataSource?.messageStacks[stackIndex].messages.remove(at: messageStackIndex)
                     }
                    
                    let saved = saveToDrive()

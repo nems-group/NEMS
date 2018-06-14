@@ -146,4 +146,47 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let closeAction = UIContextualAction(style: .destructive, title:  "Read", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {
+                print("couldn't make it MessageTableViewCell")
+                return
+            }
+            guard let id = cell.messageID else {
+                return
+            }
+            let _ = self.messageHandler.updateMessage(id: id, action: .read)
+            print("OK, marked as Read")
+            success(true)
+        })
+        closeAction.image = UIImage(named: "tick")
+        closeAction.backgroundColor = .purple
+        
+        return UISwipeActionsConfiguration(actions: [closeAction])
+        
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let modifyAction = UIContextualAction(style: .destructive, title:  "Delete Message", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            guard let cell = tableView.cellForRow(at: indexPath) as? MessageTableViewCell else {
+                print("couldn't make it MessageTableViewCell")
+                return
+            }
+            guard let id = cell.messageID else {
+                return
+            }
+            let _ = self.messageHandler.updateMessage(id: id, action: .delete)
+            
+            
+            print("Delete: \(id)")
+            success(true)
+        })
+        
+        modifyAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
 }
