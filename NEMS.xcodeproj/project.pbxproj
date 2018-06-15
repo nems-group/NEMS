@@ -7,55 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D19980F20CA66030053B39D /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D19980E20CA66030053B39D /* MessageDelegate.swift */; };
-		2D3793E120C7AA1D00C0F130 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */; };
-		2D3793E520C7B45F00C0F130 /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3793E420C7B45F00C0F130 /* MessageTableView.swift */; };
+		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
+		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
+		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
+		2D9EA61320D4667200DE5037 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60B20D4667200DE5037 /* Message.swift */; };
+		2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60C20D4667200DE5037 /* MessageQuery.swift */; };
+		2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60D20D4667200DE5037 /* MessageHandler.swift */; };
+		2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60E20D4667200DE5037 /* StringToDate.swift */; };
+		2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */; };
+		2D9EA61820D4667200DE5037 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61020D4667200DE5037 /* Location.swift */; };
+		2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */; };
+		2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */; };
+		2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */; };
+		2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */; };
+		2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */; };
+		2D9EA63120D4668C00DE5037 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61E20D4668C00DE5037 /* MainViewController.swift */; };
+		2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61F20D4668C00DE5037 /* LocationVC.swift */; };
+		2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62020D4668C00DE5037 /* QRScannerController.swift */; };
+		2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */; };
+		2D9EA63520D4668C00DE5037 /* PharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */; };
+		2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */; };
+		2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62420D4668C00DE5037 /* GMapVC.swift */; };
+		2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62620D4668C00DE5037 /* InboxViewController.swift */; };
+		2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62720D4668C00DE5037 /* FavoritesViewController.swift */; };
+		2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62820D4668C00DE5037 /* MessageDetailViewController.swift */; };
+		2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */; };
+		2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62A20D4668C00DE5037 /* MessageCell.swift */; };
+		2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
-		2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE30209787C6003DA062 /* MessageHandler.swift */; };
-		2DC6BE33209787CF003DA062 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6BE32209787CF003DA062 /* Message.swift */; };
-		2DD6E4D620C9D7F7002FB9D1 /* MessageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6E4D520C9D7F7002FB9D1 /* MessageQuery.swift */; };
-		CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */; };
-		CE57CE2120C0E8D800D779C9 /* PharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
-		CEE129EF20A7939500814608 /* GMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE129EE20A7939500814608 /* GMapVC.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
-		CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B402089805500DD523C /* NotificationViewController.swift */; };
 		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
 		CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B472089805600DD523C /* LaunchScreen.storyboard */; };
-		CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B54208D38A500DD523C /* MainViewController.swift */; };
-		CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B58208D3FB100DD523C /* LocationVC.swift */; };
-		CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B60208D9B2A00DD523C /* ModelStore.swift */; };
-		CEF95B63208D9BF600DD523C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B62208D9BF600DD523C /* Location.swift */; };
-		CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B64208EE9E300DD523C /* PtPortalVC.swift */; };
 		F71DB809A1FD4C5628B0E010 /* libPods-NEMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D19980E20CA66030053B39D /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
-		2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		2D3793E420C7B45F00C0F130 /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
+		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = messageJSON.json; path = "../../../Chrome Downloads/NEMS-master/NEMS/Temp/messageJSON.json"; sourceTree = "<group>"; };
+		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/JSON.swift"; sourceTree = "<group>"; };
+		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelStore.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/ModelStore.swift"; sourceTree = "<group>"; };
+		2D9EA60B20D4667200DE5037 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/Message.swift"; sourceTree = "<group>"; };
+		2D9EA60C20D4667200DE5037 /* MessageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageQuery.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageQuery.swift"; sourceTree = "<group>"; };
+		2D9EA60D20D4667200DE5037 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageHandler.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageHandler.swift"; sourceTree = "<group>"; };
+		2D9EA60E20D4667200DE5037 /* StringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringToDate.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/StringToDate.swift"; sourceTree = "<group>"; };
+		2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageDelegate.swift"; sourceTree = "<group>"; };
+		2D9EA61020D4667200DE5037 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/Location.swift"; sourceTree = "<group>"; };
+		2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewCell.swift"; sourceTree = "<group>"; };
+		2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationDetailVC.swift"; sourceTree = "<group>"; };
+		2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableView.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableView.swift"; sourceTree = "<group>"; };
+		2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/QRCodeViewController.swift"; sourceTree = "<group>"; };
+		2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PtPortalVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/PtPortalVC.swift"; sourceTree = "<group>"; };
+		2D9EA61E20D4668C00DE5037 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MainViewController.swift"; sourceTree = "<group>"; };
+		2D9EA61F20D4668C00DE5037 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationVC.swift"; sourceTree = "<group>"; };
+		2D9EA62020D4668C00DE5037 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRScannerController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/QRScannerController.swift"; sourceTree = "<group>"; };
+		2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/NotificationViewController.swift"; sourceTree = "<group>"; };
+		2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PharmacyVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/PharmacyVC.swift"; sourceTree = "<group>"; };
+		2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewController.swift"; sourceTree = "<group>"; };
+		2D9EA62420D4668C00DE5037 /* GMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/GMapVC.swift"; sourceTree = "<group>"; };
+		2D9EA62620D4668C00DE5037 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		2D9EA62720D4668C00DE5037 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		2D9EA62820D4668C00DE5037 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSwipes.swift; sourceTree = "<group>"; };
+		2D9EA62A20D4668C00DE5037 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoriesViewController.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2DC6BE30209787C6003DA062 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
-		2DC6BE32209787CF003DA062 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		2DD6E4D520C9D7F7002FB9D1 /* MessageQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageQuery.swift; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
-		CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyVC.swift; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
-		CEE129EE20A7939500814608 /* GMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapVC.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEF95B402089805500DD523C /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		CEF95B432089805500DD523C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEF95B482089805600DD523C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CEF95B54208D38A500DD523C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		CEF95B56208D38C800DD523C /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
-		CEF95B58208D3FB100DD523C /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
-		CEF95B60208D9B2A00DD523C /* ModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
-		CEF95B62208D9BF600DD523C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		CEF95B64208EE9E300DD523C /* PtPortalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PtPortalVC.swift; sourceTree = "<group>"; };
 		F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +103,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2D9EA62520D4668C00DE5037 /* MessageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D9EA62620D4668C00DE5037 /* InboxViewController.swift */,
+				2D9EA62720D4668C00DE5037 /* FavoritesViewController.swift */,
+				2D9EA62820D4668C00DE5037 /* MessageDetailViewController.swift */,
+				2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */,
+				2D9EA62A20D4668C00DE5037 /* MessageCell.swift */,
+				2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */,
+			);
+			name = MessageViewControllers;
+			path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageViewControllers";
+			sourceTree = "<group>";
+		};
 		2DC6BE34209787E5003DA062 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6772AC2092DE620099295E /* LocalData.swift */,
+				2D9EA5F720D4662D00DE5037 /* messageJSON.json */,
 			);
 			path = Temp;
 			sourceTree = "<group>";
@@ -141,16 +179,19 @@
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D3793E420C7B45F00C0F130 /* MessageTableView.swift */,
-				2D3793E020C7AA1D00C0F130 /* MessageTableViewCell.swift */,
-				CEF95B402089805500DD523C /* NotificationViewController.swift */,
-				CEF95B54208D38A500DD523C /* MainViewController.swift */,
-				CEF95B56208D38C800DD523C /* MessageVC.swift */,
-				CEF95B58208D3FB100DD523C /* LocationVC.swift */,
-				CEF95B64208EE9E300DD523C /* PtPortalVC.swift */,
-				CE1CD54E2090477B0022E8E7 /* LocationDetailVC.swift */,
-				CEE129EE20A7939500814608 /* GMapVC.swift */,
-				CE57CE2020C0E8D800D779C9 /* PharmacyVC.swift */,
+				2D9EA62420D4668C00DE5037 /* GMapVC.swift */,
+				2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */,
+				2D9EA61F20D4668C00DE5037 /* LocationVC.swift */,
+				2D9EA61E20D4668C00DE5037 /* MainViewController.swift */,
+				2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */,
+				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
+				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
+				2D9EA62520D4668C00DE5037 /* MessageViewControllers */,
+				2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */,
+				2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */,
+				2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */,
+				2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */,
+				2D9EA62020D4668C00DE5037 /* QRScannerController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,12 +215,14 @@
 		CEF95B53208D385700DD523C /* ModelStore */ = {
 			isa = PBXGroup;
 			children = (
-				2DC6BE32209787CF003DA062 /* Message.swift */,
-				2DC6BE30209787C6003DA062 /* MessageHandler.swift */,
-				2D19980E20CA66030053B39D /* MessageDelegate.swift */,
-				2DD6E4D520C9D7F7002FB9D1 /* MessageQuery.swift */,
-				CEF95B60208D9B2A00DD523C /* ModelStore.swift */,
-				CEF95B62208D9BF600DD523C /* Location.swift */,
+				2D9EA60920D4667200DE5037 /* JSON.swift */,
+				2D9EA61020D4667200DE5037 /* Location.swift */,
+				2D9EA60B20D4667200DE5037 /* Message.swift */,
+				2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */,
+				2D9EA60D20D4667200DE5037 /* MessageHandler.swift */,
+				2D9EA60C20D4667200DE5037 /* MessageQuery.swift */,
+				2D9EA60A20D4667200DE5037 /* ModelStore.swift */,
+				2D9EA60E20D4667200DE5037 /* StringToDate.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -247,6 +290,7 @@
 				CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */,
 				2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */,
 				CEF95B442089805500DD523C /* Main.storyboard in Resources */,
+				2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,23 +342,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */,
-				CEE129EF20A7939500814608 /* GMapVC.swift in Sources */,
-				2D19980F20CA66030053B39D /* MessageDelegate.swift in Sources */,
-				2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */,
-				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
-				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
-				CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */,
+				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
+				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
+				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
+				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
+				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
+				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
+				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
+				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
+				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
+				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
+				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
+				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
+				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
+				2D9EA63120D4668C00DE5037 /* MainViewController.swift in Sources */,
+				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
-				2D3793E120C7AA1D00C0F130 /* MessageTableViewCell.swift in Sources */,
-				2D3793E520C7B45F00C0F130 /* MessageTableView.swift in Sources */,
-				CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */,
-				CEF95B412089805500DD523C /* NotificationViewController.swift in Sources */,
-				2DC6BE33209787CF003DA062 /* Message.swift in Sources */,
+				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
+				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
+				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
+				2D9EA63520D4668C00DE5037 /* PharmacyVC.swift in Sources */,
+				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
+				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
-				CE57CE2120C0E8D800D779C9 /* PharmacyVC.swift in Sources */,
-				CEF95B63208D9BF600DD523C /* Location.swift in Sources */,
-				2DD6E4D620C9D7F7002FB9D1 /* MessageQuery.swift in Sources */,
+				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
+				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
+				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
+				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,
+				2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
