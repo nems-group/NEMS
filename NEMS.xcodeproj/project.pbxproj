@@ -23,7 +23,6 @@
 		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
 		CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B472089805600DD523C /* LaunchScreen.storyboard */; };
 		CEF95B55208D38A500DD523C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B54208D38A500DD523C /* MainViewController.swift */; };
-		CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B56208D38C800DD523C /* MessageVC.swift */; };
 		CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B58208D3FB100DD523C /* LocationVC.swift */; };
 		CEF95B61208D9B2A00DD523C /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B60208D9B2A00DD523C /* ModelStore.swift */; };
 		CEF95B63208D9BF600DD523C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B62208D9BF600DD523C /* Location.swift */; };
@@ -302,7 +301,6 @@
 				CEF95B59208D3FB100DD523C /* LocationVC.swift in Sources */,
 				CEE129EF20A7939500814608 /* GMapVC.swift in Sources */,
 				2D19980F20CA66030053B39D /* MessageDelegate.swift in Sources */,
-				CEF95B57208D38C800DD523C /* MessageVC.swift in Sources */,
 				2DC6BE31209787C6003DA062 /* MessageHandler.swift in Sources */,
 				CE1CD54F2090477B0022E8E7 /* LocationDetailVC.swift in Sources */,
 				CEF95B65208EE9E300DD523C /* PtPortalVC.swift in Sources */,
@@ -465,7 +463,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
