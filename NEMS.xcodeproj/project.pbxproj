@@ -43,27 +43,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = messageJSON.json; path = "../../../Chrome Downloads/NEMS-master/NEMS/Temp/messageJSON.json"; sourceTree = "<group>"; };
-		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/JSON.swift"; sourceTree = "<group>"; };
-		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelStore.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/ModelStore.swift"; sourceTree = "<group>"; };
-		2D9EA60B20D4667200DE5037 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/Message.swift"; sourceTree = "<group>"; };
-		2D9EA60C20D4667200DE5037 /* MessageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageQuery.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageQuery.swift"; sourceTree = "<group>"; };
-		2D9EA60D20D4667200DE5037 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageHandler.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageHandler.swift"; sourceTree = "<group>"; };
-		2D9EA60E20D4667200DE5037 /* StringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringToDate.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/StringToDate.swift"; sourceTree = "<group>"; };
-		2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDelegate.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/MessageDelegate.swift"; sourceTree = "<group>"; };
-		2D9EA61020D4667200DE5037 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ModelStore/Location.swift"; sourceTree = "<group>"; };
-		2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewCell.swift"; sourceTree = "<group>"; };
-		2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationDetailVC.swift"; sourceTree = "<group>"; };
-		2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableView.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableView.swift"; sourceTree = "<group>"; };
-		2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/QRCodeViewController.swift"; sourceTree = "<group>"; };
-		2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PtPortalVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/PtPortalVC.swift"; sourceTree = "<group>"; };
-		2D9EA61E20D4668C00DE5037 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MainViewController.swift"; sourceTree = "<group>"; };
-		2D9EA61F20D4668C00DE5037 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationVC.swift"; sourceTree = "<group>"; };
-		2D9EA62020D4668C00DE5037 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRScannerController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/QRScannerController.swift"; sourceTree = "<group>"; };
-		2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/NotificationViewController.swift"; sourceTree = "<group>"; };
-		2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PharmacyVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/PharmacyVC.swift"; sourceTree = "<group>"; };
-		2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewController.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewController.swift"; sourceTree = "<group>"; };
-		2D9EA62420D4668C00DE5037 /* GMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapVC.swift; path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/GMapVC.swift"; sourceTree = "<group>"; };
+		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
+		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
+		2D9EA60B20D4667200DE5037 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2D9EA60C20D4667200DE5037 /* MessageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageQuery.swift; sourceTree = "<group>"; };
+		2D9EA60D20D4667200DE5037 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		2D9EA60E20D4667200DE5037 /* StringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToDate.swift; sourceTree = "<group>"; };
+		2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
+		2D9EA61020D4667200DE5037 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewCell.swift"; sourceTree = "<group>"; };
+		2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationDetailVC.swift"; sourceTree = "<group>"; };
+		2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableView.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableView.swift"; sourceTree = "<group>"; };
+		2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtPortalVC.swift; sourceTree = "<group>"; };
+		2D9EA61E20D4668C00DE5037 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MainViewController.swift"; sourceTree = "<group>"; };
+		2D9EA61F20D4668C00DE5037 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationVC.swift"; sourceTree = "<group>"; };
+		2D9EA62020D4668C00DE5037 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyVC.swift; sourceTree = "<group>"; };
+		2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewController.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewController.swift"; sourceTree = "<group>"; };
+		2D9EA62420D4668C00DE5037 /* GMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/GMapVC.swift"; sourceTree = "<group>"; };
 		2D9EA62620D4668C00DE5037 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		2D9EA62720D4668C00DE5037 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2D9EA62820D4668C00DE5037 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +113,7 @@
 				2D9EA62A20D4668C00DE5037 /* MessageCell.swift */,
 				2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */,
 			);
-			name = MessageViewControllers;
-			path = "../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageViewControllers";
+			path = MessageViewControllers;
 			sourceTree = "<group>";
 		};
 		2DC6BE34209787E5003DA062 /* Protocols */ = {
