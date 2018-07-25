@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */; };
+		2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A82108585400F0A9C1 /* MainViewController.swift */; };
+		2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482AA210858B000F0A9C1 /* apiHandler.swift */; };
+		2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3482AD2108595800F0A9C1 /* Main.storyboard */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
@@ -23,7 +27,6 @@
 		2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */; };
 		2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */; };
 		2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */; };
-		2D9EA63120D4668C00DE5037 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61E20D4668C00DE5037 /* MainViewController.swift */; };
 		2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA61F20D4668C00DE5037 /* LocationVC.swift */; };
 		2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62020D4668C00DE5037 /* QRScannerController.swift */; };
 		2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */; };
@@ -39,12 +42,15 @@
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
-		CEF95B442089805500DD523C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B422089805500DD523C /* Main.storyboard */; };
 		CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B472089805600DD523C /* LaunchScreen.storyboard */; };
 		F71DB809A1FD4C5628B0E010 /* libPods-NEMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiTestViewController.swift; sourceTree = "<group>"; };
+		2D3482A82108585400F0A9C1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../Library/Mobile Documents/PatientPortalAPI/Backup API Patient Portal App/MainViewController.swift"; sourceTree = "<group>"; };
+		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
+		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D4C8B132107DDD400C32E3F /* NEMS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NEMS.entitlements; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
@@ -57,18 +63,17 @@
 		2D9EA60E20D4667200DE5037 /* StringToDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToDate.swift; sourceTree = "<group>"; };
 		2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
 		2D9EA61020D4667200DE5037 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewCell.swift"; sourceTree = "<group>"; };
-		2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDetailVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationDetailVC.swift"; sourceTree = "<group>"; };
-		2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableView.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableView.swift"; sourceTree = "<group>"; };
+		2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailVC.swift; sourceTree = "<group>"; };
+		2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
 		2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtPortalVC.swift; sourceTree = "<group>"; };
-		2D9EA61E20D4668C00DE5037 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MainViewController.swift"; sourceTree = "<group>"; };
-		2D9EA61F20D4668C00DE5037 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/LocationVC.swift"; sourceTree = "<group>"; };
+		2D9EA61F20D4668C00DE5037 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		2D9EA62020D4668C00DE5037 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyVC.swift; sourceTree = "<group>"; };
-		2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewController.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/MessageTableViewController.swift"; sourceTree = "<group>"; };
-		2D9EA62420D4668C00DE5037 /* GMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapVC.swift; path = "../../../../Chrome Downloads/NEMS-master/NEMS/ViewControllers/GMapVC.swift"; sourceTree = "<group>"; };
+		2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		2D9EA62420D4668C00DE5037 /* GMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMapVC.swift; sourceTree = "<group>"; };
 		2D9EA62620D4668C00DE5037 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		2D9EA62720D4668C00DE5037 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2D9EA62820D4668C00DE5037 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +87,6 @@
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEF95B432089805500DD523C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEF95B482089805600DD523C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +110,15 @@
 				F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D3482AC210858C200F0A9C1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2D3482AA210858B000F0A9C1 /* apiHandler.swift */,
+				2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		2D4C8B162108162400C32E3F /* Auth */ = {
@@ -178,8 +191,8 @@
 				2D4C8B132107DDD400C32E3F /* NEMS.entitlements */,
 				CE6772AB2092DE3D0099295E /* Temp */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
+				2D3482AD2108595800F0A9C1 /* Main.storyboard */,
 				2DC61CE420C0C07B0029E797 /* Assets.xcassets */,
-				CEF95B422089805500DD523C /* Main.storyboard */,
 				2DC6BE34209787E5003DA062 /* Protocols */,
 				CEF95B53208D385700DD523C /* ModelStore */,
 				CEF95B50208D37F800DD523C /* ViewControllers */,
@@ -195,7 +208,7 @@
 				2D9EA62420D4668C00DE5037 /* GMapVC.swift */,
 				2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */,
 				2D9EA61F20D4668C00DE5037 /* LocationVC.swift */,
-				2D9EA61E20D4668C00DE5037 /* MainViewController.swift */,
+				2D3482A82108585400F0A9C1 /* MainViewController.swift */,
 				2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */,
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
@@ -206,6 +219,7 @@
 				2D9EA61D20D4668C00DE5037 /* PtPortalVC.swift */,
 				2D9EA61C20D4668B00DE5037 /* QRCodeViewController.swift */,
 				2D9EA62020D4668C00DE5037 /* QRScannerController.swift */,
+				2D3482AC210858C200F0A9C1 /* API */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -309,8 +323,8 @@
 			files = (
 				CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */,
 				2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */,
-				CEF95B442089805500DD523C /* Main.storyboard in Resources */,
 				2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */,
+				2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +379,7 @@
 				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
+				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
@@ -373,12 +388,13 @@
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
 				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
 				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
+				2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */,
 				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
 				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
 				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
-				2D9EA63120D4668C00DE5037 /* MainViewController.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
+				2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
 				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
@@ -398,14 +414,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEF95B422089805500DD523C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEF95B432089805500DD523C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEF95B472089805600DD523C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

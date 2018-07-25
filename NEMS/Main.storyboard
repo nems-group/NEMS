@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qoH-FI-59h">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -107,19 +107,81 @@
             </objects>
             <point key="canvasLocation" x="1973.5999999999999" y="1013.3433283358322"/>
         </scene>
+        <!--Api Test View Controller-->
+        <scene sceneID="aQ8-wn-iWo">
+            <objects>
+                <viewController id="MmJ-nK-Mxp" customClass="apiTestViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4i-0C-Y5h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hy6-nP-RLr">
+                                <rect key="frame" x="16" y="64" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="hideKeyboard" destination="l8b-88-OKR" eventType="touchUpOutside" id="QZT-WS-SSx"/>
+                                    <outlet property="delegate" destination="MmJ-nK-Mxp" id="zq9-5R-EvE"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01a-Ey-bz5">
+                                <rect key="frame" x="124.5" y="102" width="71" height="30"/>
+                                <state key="normal" title="API Check"/>
+                                <connections>
+                                    <action selector="apiSend:" destination="MmJ-nK-Mxp" eventType="touchUpInside" id="Ocg-xI-mc0"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="64M-L4-d6l">
+                                <rect key="frame" x="16" y="140" width="288" height="408"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="01a-Ey-bz5" firstAttribute="centerX" secondItem="ZnA-EO-pPC" secondAttribute="centerX" id="6ts-oW-idg"/>
+                            <constraint firstItem="ZnA-EO-pPC" firstAttribute="bottom" secondItem="64M-L4-d6l" secondAttribute="bottom" constant="20" id="7UT-mK-YI6"/>
+                            <constraint firstItem="hy6-nP-RLr" firstAttribute="top" secondItem="ZnA-EO-pPC" secondAttribute="top" id="UBR-ST-xzg"/>
+                            <constraint firstItem="01a-Ey-bz5" firstAttribute="top" secondItem="hy6-nP-RLr" secondAttribute="bottom" constant="8" id="VDX-Nf-nct"/>
+                            <constraint firstItem="64M-L4-d6l" firstAttribute="top" secondItem="01a-Ey-bz5" secondAttribute="bottom" constant="8" id="Xsy-YX-7ea"/>
+                            <constraint firstItem="64M-L4-d6l" firstAttribute="leading" secondItem="ZnA-EO-pPC" secondAttribute="leading" constant="16" id="qY2-xN-Oww"/>
+                            <constraint firstItem="ZnA-EO-pPC" firstAttribute="trailing" secondItem="64M-L4-d6l" secondAttribute="trailing" constant="16" id="sev-4k-Rcn"/>
+                            <constraint firstItem="hy6-nP-RLr" firstAttribute="leading" secondItem="ZnA-EO-pPC" secondAttribute="leading" constant="16" id="tmu-BR-iUY"/>
+                            <constraint firstItem="ZnA-EO-pPC" firstAttribute="trailing" secondItem="hy6-nP-RLr" secondAttribute="trailing" constant="16" id="u2c-zK-rnb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZnA-EO-pPC"/>
+                    </view>
+                    <connections>
+                        <outlet property="apiEndPoint" destination="hy6-nP-RLr" id="5Vv-Rd-Rga"/>
+                        <outlet property="apiResults" destination="64M-L4-d6l" id="TIs-YR-89N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8b-88-OKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ooa-DD-0UT">
+                    <connections>
+                        <action selector="hideKeyboard" destination="MmJ-nK-Mxp" id="7T5-lZ-hJ8"/>
+                        <outlet property="delegate" destination="V4i-0C-Y5h" id="FJx-p8-w87"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1955.625" y="-563.02816901408448"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="K5p-tc-mjy">
             <objects>
                 <viewController id="Bwn-e3-gDQ" customClass="MainViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D18-FH-ubG">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="D18-FH-ubG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEo-1n-aoP" userLabel="location box">
-                                <rect key="frame" x="15" y="305" width="290" height="71"/>
+                                <rect key="frame" x="15" y="345" width="290" height="111.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locations icons" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-I7-RcH">
-                                        <rect key="frame" x="215" y="8" width="55" height="55"/>
+                                        <rect key="frame" x="215" y="28.5" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="Ary-ZB-1TF"/>
                                             <constraint firstAttribute="width" secondItem="RWL-I7-RcH" secondAttribute="height" multiplier="1:1" id="Iqw-va-cLR"/>
@@ -127,16 +189,16 @@
                                         </constraints>
                                     </imageView>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFx-Rd-P5C" userLabel="Location Text">
-                                        <rect key="frame" x="5" y="0.0" width="200" height="71"/>
+                                        <rect key="frame" x="5" y="0.0" width="200" height="111.5"/>
                                         <subviews>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Locations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIR-EP-WNU">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Locations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIR-EP-WNU">
                                                 <rect key="frame" x="5" y="15" width="130" height="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12 locations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlt-yP-40J">
-                                                <rect key="frame" x="5" y="58.333333333333314" width="81" height="17"/>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12 locations" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlt-yP-40J">
+                                                <rect key="frame" x="5" y="79.5" width="81" height="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -170,19 +232,19 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvS-gb-srV" userLabel="pharmacy box">
-                                <rect key="frame" x="15" y="391" width="290" height="71"/>
+                                <rect key="frame" x="15" y="471.5" width="290" height="111.5"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-zO-Epv" userLabel="pharmacy text">
-                                        <rect key="frame" x="5" y="0.0" width="199" height="71"/>
+                                        <rect key="frame" x="5" y="0.0" width="199" height="111.5"/>
                                         <subviews>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pharmacy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFZ-iP-mLt">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pharmacy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFZ-iP-mLt">
                                                 <rect key="frame" x="5" y="15" width="134" height="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5 pharmacies" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgn-t1-pGd">
-                                                <rect key="frame" x="5" y="58.666666666666629" width="92" height="17"/>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5 pharmacies" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgn-t1-pGd">
+                                                <rect key="frame" x="5" y="79.5" width="92" height="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -199,7 +261,7 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RX Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-jj-C4X">
-                                        <rect key="frame" x="214" y="8" width="55" height="55"/>
+                                        <rect key="frame" x="214" y="28" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="HgN-QT-Jnd"/>
                                             <constraint firstAttribute="width" secondItem="fkP-jj-C4X" secondAttribute="height" multiplier="1:1" id="dXx-3T-AhV"/>
@@ -224,13 +286,13 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-D0-sp5" userLabel="patient portal box" customClass="UIControl">
-                                <rect key="frame" x="15" y="477" width="290" height="71"/>
+                                <rect key="frame" x="15" y="598" width="290" height="111"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbC-g2-3Pj" userLabel="patient portal text">
-                                        <rect key="frame" x="5" y="0.0" width="199" height="71"/>
+                                        <rect key="frame" x="5" y="0.0" width="199" height="111"/>
                                         <subviews>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Patient Portal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11H-c8-U8n">
-                                                <rect key="frame" x="5" y="17.5" width="174" height="36"/>
+                                                <rect key="frame" x="5" y="37.5" width="174" height="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -246,7 +308,7 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patient portal icon" translatesAutoresizingMaskIntoConstraints="NO" id="xF7-W4-EF4">
-                                        <rect key="frame" x="214" y="8" width="55" height="55"/>
+                                        <rect key="frame" x="214" y="28" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="E4K-vJ-kT3"/>
                                             <constraint firstAttribute="width" constant="55" id="NSQ-3p-31V"/>
@@ -271,35 +333,36 @@
                                     <action selector="patientPortalLaunch:" destination="Bwn-e3-gDQ" eventType="touchUpInside" id="qDC-YC-zCg"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9ne-GJ-Adu">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9ne-GJ-Adu">
                                 <rect key="frame" x="15" y="79" width="290" height="120"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
-                                </accessibility>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="isf-mK-JbN"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lVT-gv-vo0" appends="YES" id="8gO-ra-JPo"/>
+                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-Yp-opc" userLabel="Message Box">
-                                <rect key="frame" x="15" y="219" width="290" height="71"/>
+                                <rect key="frame" x="15" y="219" width="290" height="111"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messages icon" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-IS-dtZ">
-                                        <rect key="frame" x="234.5" y="17.5" width="35.5" height="36"/>
+                                        <rect key="frame" x="194" y="17.5" width="76" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LJv-IS-dtZ" secondAttribute="height" multiplier="1:1" id="380-FU-X7X"/>
                                         </constraints>
                                     </imageView>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-5X-VYH" userLabel="Messages Texts">
-                                        <rect key="frame" x="5" y="0.0" width="219.5" height="71"/>
+                                        <rect key="frame" x="5" y="0.0" width="179" height="111"/>
                                         <subviews>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Messages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeX-Ba-SJR">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Messages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SeX-Ba-SJR">
                                                 <rect key="frame" x="5" y="15" width="137" height="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No unread messages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80r-DS-zTh">
-                                                <rect key="frame" x="5" y="58.666666666666686" width="140" height="17"/>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No unread messages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80r-DS-zTh">
+                                                <rect key="frame" x="5" y="79" width="140" height="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -379,6 +442,11 @@
                 <tapGestureRecognizer id="h7N-wd-a8A" userLabel="Pharmacy Tap Gesture Recognizer">
                     <connections>
                         <segue destination="d4v-b5-buu" kind="show" id="dEo-C4-5uo"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lVT-gv-vo0" userLabel="API Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="MmJ-nK-Mxp" kind="show" id="pTh-9h-Ia2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -722,7 +790,7 @@ Closed Sun
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWt-Na-eLH">
-                                                    <rect key="frame" x="35" y="34" width="325" height="22"/>
+                                                    <rect key="frame" x="35" y="34" width="270" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -735,7 +803,7 @@ Closed Sun
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lw-ED-HIL">
-                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <rect key="frame" x="35" y="0.0" width="270" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -867,7 +935,7 @@ Closed Sun
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LF9-SX-bni">
-                                                    <rect key="frame" x="35" y="34" width="325" height="22"/>
+                                                    <rect key="frame" x="35" y="34" width="270" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -880,7 +948,7 @@ Closed Sun
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-bR-w4S">
-                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <rect key="frame" x="35" y="0.0" width="270" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -967,7 +1035,7 @@ Closed Sun
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message preview where the message will display as much information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-wc-UKm">
-                                                    <rect key="frame" x="35" y="34" width="325" height="22"/>
+                                                    <rect key="frame" x="35" y="34" width="270" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -980,7 +1048,7 @@ Closed Sun
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUu-R9-V06">
-                                                    <rect key="frame" x="35" y="0.0" width="325" height="24"/>
+                                                    <rect key="frame" x="35" y="0.0" width="270" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
