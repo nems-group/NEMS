@@ -18,7 +18,8 @@ class ModelStore {
     //**** Messsage stack
     var messageStacks: [MessageStack] = [MessageStack]()
     
-    var selectedLocation:Location!
+    var selectedLocation: Location!
+    var token: AuthToken?
     
 //    let json = """
 //        {

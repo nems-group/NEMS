@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
+		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -43,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D4C8B132107DDD400C32E3F /* NEMS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NEMS.entitlements; sourceTree = "<group>"; };
+		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
+		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -101,6 +106,14 @@
 				F605EB4D9463D4E77F9DA213 /* Pods-NEMS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D4C8B162108162400C32E3F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				2D4C8B172108163D00C32E3F /* TokenExtractor.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		2D9EA62520D4668C00DE5037 /* MessageViewControllers */ = {
@@ -162,6 +175,7 @@
 		CEF95B3D2089805500DD523C /* NEMS */ = {
 			isa = PBXGroup;
 			children = (
+				2D4C8B132107DDD400C32E3F /* NEMS.entitlements */,
 				CE6772AB2092DE3D0099295E /* Temp */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				2DC61CE420C0C07B0029E797 /* Assets.xcassets */,
@@ -185,6 +199,7 @@
 				2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */,
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
+				2D4C8B162108162400C32E3F /* Auth */,
 				2D9EA62520D4668C00DE5037 /* MessageViewControllers */,
 				2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */,
 				2D9EA62220D4668C00DE5037 /* PharmacyVC.swift */,
@@ -222,6 +237,7 @@
 				2D9EA60C20D4667200DE5037 /* MessageQuery.swift */,
 				2D9EA60A20D4667200DE5037 /* ModelStore.swift */,
 				2D9EA60E20D4667200DE5037 /* StringToDate.swift */,
+				2D4C8B142107E95B00C32E3F /* AuthToken.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -260,6 +276,11 @@
 				TargetAttributes = {
 					CEF95B3A2089805500DD523C = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -345,6 +366,8 @@
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
+				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
+				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
 				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
@@ -517,13 +540,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MacSOTest.NEMS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nems.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,13 +560,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MacSOTest.NEMS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nems.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
