@@ -20,10 +20,6 @@ class apiTestViewController: UIViewController, UITextFieldDelegate {
             }
             return
         }
-        if self.apiEndPoint.text == "vitals" {
-            let _ = VitalSigns()
-            return
-        }
         do {
             try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
                 if response?.statusCode == 200 {
