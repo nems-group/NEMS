@@ -97,7 +97,6 @@ class OAuth {
                         }
                         if httpResponse.statusCode == 200 {
                             if let data = data {
-                                print("we got data")
                                 completionHandler(nil, data)
                                 return
                             }
