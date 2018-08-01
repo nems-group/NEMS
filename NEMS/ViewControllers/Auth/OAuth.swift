@@ -24,6 +24,7 @@ class OAuth {
     let callback: String
     var sfSession: SFAuthenticationSession?
     var code: String?
+    var delegate: OAuthDelegate?
     //var asSession: ASWebAuthenticationSession?
     
     init?(base: URL, authorizeEndpoint: String, type: OAuthType, clientID: String, callback: String) {
@@ -57,7 +58,7 @@ class OAuth {
             self.init(base: url, authorizeEndpoint: authorizeEndpoint, type: .authorizationCode, clientID: clientID, callback: callback)
         }
     
-        class func getAuthCode(url: URL) throws -> String {
+        func getAuthCode(url: URL) throws -> String {
             for (key,value) in url.parameters {
                     if key == "code" {
                         print(value)
@@ -73,7 +74,7 @@ class OAuth {
     ///   - authCodeURL: the auth code with the whole url, which we will scrape with the get auth code function
     ///   - uriEndpoint: the end point we pass to Ex: /token
     ///   - completionHandler: handle the API error and pass the data object up
-    class func getToken(authCodeURL: URL, uriEndpoint: URL, completionHandler: @escaping authHandler) {
+    func getToken(authCodeURL: URL, uriEndpoint: URL, completionHandler: @escaping authHandler) {
             do {
                 let code = try getAuthCode(url: authCodeURL)
                 // add parameter
@@ -113,24 +114,24 @@ class OAuth {
         }
     
     typealias authHandler = (APIerror?,Data?)->Void
-    class func authCodeHandler(apiError: APIerror?,data: Data?) -> Void {
+    func authCodeHandler(apiError: APIerror?,data: Data?) -> Void {
         if apiError != nil {
             print(apiError)
-            print("so sad :(")
+            print("so sad :( \n there was an error in the authentication")
             return
         }
         if let data = data {
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments )
-                print(json)
                 // we need a function to create the token here and assign to Model Store
                 let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                 ModelStore.shared.token = token
+                delegate?.tokenChanged()
             } catch {
+                dump(data)
                 print(error)
             }
         }
-        
+
     }
     
     
@@ -141,7 +142,6 @@ class OAuth {
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
         self.sfSession?.start()
-            // we now will use our code
         
     }
     

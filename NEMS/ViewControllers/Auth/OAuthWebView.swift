@@ -17,15 +17,8 @@ extension OAuth {
 
     let web = SFAuthenticationSession(url: uri, callbackURLScheme: callback) { (_url, error) in
         if let url = _url {
-                OAuth.getToken(authCodeURL: url, uriEndpoint: codeProcessingServerURL) { (_apiError, _data) in
-                    if let data = _data {
-                        do {
-                            let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
-                            ModelStore.shared.token = token
-                        } catch {
-                            print(error)
-                        }
-                    }
+                self.getToken(authCodeURL: url, uriEndpoint: codeProcessingServerURL) { (_apiError, _data) in
+                    self.authCodeHandler(apiError: _apiError, data: _data)
                 }
             }
         }

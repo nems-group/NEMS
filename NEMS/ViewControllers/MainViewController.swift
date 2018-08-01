@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MessageDelegate {
+class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     var messageHandler: MessageHandler!
     var oauthHandler: OAuth?
@@ -60,6 +60,16 @@ class MainViewController: UIViewController, MessageDelegate {
             DispatchQueue.main.async {
                 self.messageReadCount.text = "No unread messages"
             }
+        }
+    }
+    
+    
+    /// This function is called when the token is updated
+    func tokenChanged() {
+        if ModelStore.shared.token != nil {
+            print("you have a token")
+        } else {
+            print("token is missing")
         }
     }
     
