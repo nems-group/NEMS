@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController, MessageDelegate {
     
     var messageHandler: MessageHandler!
+    var oauthHandler: OAuth?
     
     @IBOutlet weak var messageReadCount: UITextField!
     
@@ -34,10 +35,12 @@ class MainViewController: UIViewController, MessageDelegate {
     }
     
     func openPatientPortal() {
-        guard let url = URL(string: "https://www.nextmd.com") else {
-            return
-        }
-        UIApplication.shared.open(url,options: [:])
+        let client_id = "l7f2ac2380f849472f8092393ef83cb14f"
+        let redirectURI = "nems-app://oauthCallback"
+        self.oauthHandler = OAuth(clientID: client_id, callback: redirectURI)
+        // SFAuth
+        oauthHandler?.start()
+        //ASAuth
     }
     
     func refresh() {

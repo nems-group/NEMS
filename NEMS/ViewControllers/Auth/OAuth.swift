@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import SafariServices
+import AuthenticationServices
 
 enum OAuthError: Error {
     case noAuthCode
 }
+
 
 class OAuth {
     
@@ -19,6 +22,8 @@ class OAuth {
     let type: OAuthType
     let clientID: String
     let callback: String
+    var sfSession: SFAuthenticationSession?
+    //var asSession: ASWebAuthenticationSession?
     
     init?(base: URL, authorizeEndpoint: String, type: OAuthType, clientID: String, callback: String) {
         self.type = type
@@ -52,14 +57,12 @@ class OAuth {
         }
     
         class func getAuthCode(url: URL) throws -> String {
-            for param in url.parameters {
-                for (key,value) in param {
+            for (key,value) in url.parameters {
                     if key == "code" {
                         print(value)
                         return value
                     }
                 }
-            }
             throw OAuthError.noAuthCode
         }
     
@@ -127,6 +130,16 @@ class OAuth {
                 print(error)
             }
         }
+        
+    }
+    
+    
+    
+    func start() {
+            self.sfSession = sfAuth(uri: self.authorize, callback: self.callback)
+            self.sfSession?.start()
+        
+            // we now will use our code
         
     }
     

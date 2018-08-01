@@ -47,8 +47,8 @@ extension URL {
         let queryString = urlString[startIndex..<urlString.endIndex]
         return String(queryString)
     }
-    var parameters: [[String: String]] {
-        var queryContainer: [[String: String]] = []
+    var parameters: [String: String] {
+        var queryContainer: [String: String] = [:]
         guard let workingString = self.queryString else {
             return queryContainer
         }
@@ -56,7 +56,9 @@ extension URL {
         for component in components {
             let split = component.split(separator: "=")
             if split.count == 2 {
-                queryContainer.append([String(split[0]):String(split[1])])
+                let key = String(split[0])
+                let value = String(split[1])
+                queryContainer[key] = value
             } else {
                 print("malformed url at \(component)")
             }
