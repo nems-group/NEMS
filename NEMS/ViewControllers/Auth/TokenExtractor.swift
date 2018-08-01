@@ -8,15 +8,7 @@
 
 import Foundation
 
-func tokenizer(url: URL) -> AuthToken? {
-    guard let tokenString = url.tokenQuery else {
-        return nil
-    }
-    guard let token = Token(string: tokenString) else {
-        return nil
-    }
-    return AuthToken(token)
-}
+
 
 final class Token {
     var components: [String]
@@ -32,6 +24,7 @@ final class Token {
             return
         }
     }
+    
 }
 
 extension URL {
@@ -44,5 +37,30 @@ extension URL {
         let tokenString = urlString[indexStartTokenString..<urlString.endIndex]
         print(tokenString)
         return String(tokenString)
+    }
+    var queryString: String? {
+        let urlString = self.absoluteString
+        guard let queryIndexStart = urlString.firstIndex(of: "?") else {
+            return nil
+        }
+        let startIndex = urlString.index(after: queryIndexStart)
+        let queryString = urlString[startIndex..<urlString.endIndex]
+        return String(queryString)
+    }
+    var parameters: [[String: String]] {
+        var queryContainer: [[String: String]] = []
+        guard let workingString = self.queryString else {
+            return queryContainer
+        }
+        let components = workingString.components(separatedBy: "&")
+        for component in components {
+            let split = component.split(separator: "=")
+            if split.count == 2 {
+                queryContainer.append([String(split[0]):String(split[1])])
+            } else {
+                print("malformed url at \(component)")
+            }
+        }
+        return queryContainer
     }
 }

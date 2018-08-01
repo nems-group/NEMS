@@ -8,8 +8,15 @@
 
 import Foundation
 
-func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) -> Void ) {
-    guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.accessToken else {
+enum APIerror: Error {
+    case statusCode(_ : HTTPURLResponse)
+    case dataError
+    case noResponse
+}
+
+
+func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) rethrows {
+    guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.access_token else {
         return
     }
     let authHeader: String = "Bearer \(accessToken)"
@@ -20,27 +27,41 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
     urlRequest.httpMethod = "GET"
     
     
-    dump(urlRequest)
-    
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             
                 guard let httpResponse = response as? HTTPURLResponse else {
                     print("couldn't convert to httpURLresponse")
-                    completionHander(nil, nil)
+                    do {
+                       try completionHander(nil, nil)
+                    } catch {
+                        
+                    }
                     return
                 }
                 if httpResponse.statusCode == 200 {
                     // good going we got a successful message this should be json
                     if let data = data {
                         print("we got the data: \(data)")
-                        completionHander(httpResponse, data)
+                        do {
+                            try completionHander(httpResponse, data)
+                        } catch {
+                            
+                        }
                     } else {
                         print("no data")
-                        completionHander(httpResponse, nil)
+                        do {
+                            try completionHander(httpResponse, nil)
+                        } catch {
+                            
+                        }
                     }
                 } else {
                     print(httpResponse.statusCode)
-                    completionHander(httpResponse, nil)
+                    do {
+                        try completionHander(httpResponse, nil)
+                    } catch {
+                        
+                    }
                 }
             }
         task.resume()

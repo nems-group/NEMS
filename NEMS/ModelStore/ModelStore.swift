@@ -20,17 +20,7 @@ class ModelStore {
     
     var selectedLocation: Location!
     var token: AuthToken?
-    
-//    let json = """
-//        {
-//            "name": "Durian",
-//            "points": 600,
-//            "description": "A fruit with a distinctive scent."
-//        }
-//        """.data(using: .utf8)!
-//
-//        let decoder = JSONDecoder()
-//        //let product = try decoder.decode(GroceryProduct.self, from: json)
+    var refresh: String?
 
     deinit {
         print("deinit")

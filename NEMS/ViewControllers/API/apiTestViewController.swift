@@ -20,31 +20,39 @@ class apiTestViewController: UIViewController, UITextFieldDelegate {
             }
             return
         }
-        patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
-            if response?.statusCode == 200 {
-                DispatchQueue.main.async {
-                    
-                    if let data =  data {
-                        do {
-                            let result = try JSONSerialization.jsonObject(with: data, options: [])
-                            guard let resultText = result as? String else {
-                                print("couldn't make it a string for some dumb reason")
-                                self.apiResults.text = String(describing: result)
-                                return
+        if self.apiEndPoint.text == "vitals" {
+            let _ = VitalSigns()
+            return
+        }
+        do {
+            try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
+                if response?.statusCode == 200 {
+                    DispatchQueue.main.async {
+                        
+                        if let data =  data {
+                            do {
+                                let result = try JSONSerialization.jsonObject(with: data, options: [])
+                                guard let resultText = result as? String else {
+                                    print("couldn't make it a string for some dumb reason")
+                                    self.apiResults.text = String(describing: result)
+                                    return
+                                }
+                                self.apiResults.text = resultText
+                            } catch {
+                                print(error)
                             }
-                            self.apiResults.text = resultText
-                        } catch {
-                            print(error)
                         }
                     }
+                    
+                } else {
+                    DispatchQueue.main.async {
+                        self.apiResults.text = response.debugDescription
+                    }
+                    
                 }
-                
-            } else {
-                DispatchQueue.main.async {
-                    self.apiResults.text = response.debugDescription
-                }
-                
             }
+        } catch {
+            print(error)
         }
     }
     

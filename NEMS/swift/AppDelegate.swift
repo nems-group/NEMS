@@ -69,11 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        // retrieve token from the url
-        let token = tokenizer(url: url)
-        
-        // update the token store object with the shiny new token
-        ModelStore.shared.token = token
+        // TO-DO: If they are at NEMS we may want to redirect them to our app in the future
         
         
         

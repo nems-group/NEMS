@@ -11,6 +11,17 @@
 		2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A82108585400F0A9C1 /* MainViewController.swift */; };
 		2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482AA210858B000F0A9C1 /* apiHandler.swift */; };
 		2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3482AD2108595800F0A9C1 /* Main.storyboard */; };
+		2D3F0D602109738E00B0A470 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D572109738E00B0A470 /* Resource.swift */; };
+		2D3F0D612109738E00B0A470 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D582109738E00B0A470 /* Code.swift */; };
+		2D3F0D622109738E00B0A470 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D592109738E00B0A470 /* Category.swift */; };
+		2D3F0D632109738E00B0A470 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5A2109738E00B0A470 /* Component.swift */; };
+		2D3F0D642109738E00B0A470 /* VitalSigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5B2109738E00B0A470 /* VitalSigns.swift */; };
+		2D3F0D652109738E00B0A470 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5C2109738E00B0A470 /* Coding.swift */; };
+		2D3F0D662109738E00B0A470 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5D2109738E00B0A470 /* Entry.swift */; };
+		2D3F0D672109738E00B0A470 /* ValueQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5E2109738E00B0A470 /* ValueQuantity.swift */; };
+		2D3F0D682109738E00B0A470 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D5F2109738E00B0A470 /* Subject.swift */; };
+		2D3F0D6A2109758300B0A470 /* PatientPortalModelDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D692109758300B0A470 /* PatientPortalModelDecodingError.swift */; };
+		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
@@ -39,6 +50,7 @@
 		2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */; };
 		2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62A20D4668C00DE5037 /* MessageCell.swift */; };
 		2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */; };
+		2DB250CF21096B48005C3A6E /* PatientPortalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB250CE21096B48005C3A6E /* PatientPortalModel.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -51,6 +63,17 @@
 		2D3482A82108585400F0A9C1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../Library/Mobile Documents/PatientPortalAPI/Backup API Patient Portal App/MainViewController.swift"; sourceTree = "<group>"; };
 		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
 		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2D3F0D572109738E00B0A470 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		2D3F0D582109738E00B0A470 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		2D3F0D592109738E00B0A470 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2D3F0D5A2109738E00B0A470 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		2D3F0D5B2109738E00B0A470 /* VitalSigns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalSigns.swift; sourceTree = "<group>"; };
+		2D3F0D5C2109738E00B0A470 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ../../../../../Downloads/codegen_5b593b5323f04/Coding.swift; sourceTree = "<group>"; };
+		2D3F0D5D2109738E00B0A470 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		2D3F0D5E2109738E00B0A470 /* ValueQuantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueQuantity.swift; sourceTree = "<group>"; };
+		2D3F0D5F2109738E00B0A470 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		2D3F0D692109758300B0A470 /* PatientPortalModelDecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPortalModelDecodingError.swift; sourceTree = "<group>"; };
+		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B132107DDD400C32E3F /* NEMS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NEMS.entitlements; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
@@ -80,6 +103,7 @@
 		2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSwipes.swift; sourceTree = "<group>"; };
 		2D9EA62A20D4668C00DE5037 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoriesViewController.swift; sourceTree = "<group>"; };
+		2DB250CE21096B48005C3A6E /* PatientPortalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPortalModel.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +148,9 @@
 		2D4C8B162108162400C32E3F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				2D4C8B142107E95B00C32E3F /* AuthToken.swift */,
 				2D4C8B172108163D00C32E3F /* TokenExtractor.swift */,
+				2D3F0D6B21100F2400B0A470 /* OAuth.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -140,6 +166,32 @@
 				2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */,
 			);
 			path = MessageViewControllers;
+			sourceTree = "<group>";
+		};
+		2DB250D021096B4F005C3A6E /* PatientPortalModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DB80A5E2109733300C8FA0E /* VitalSignsModel */,
+				2DB250CE21096B48005C3A6E /* PatientPortalModel.swift */,
+				2D3F0D692109758300B0A470 /* PatientPortalModelDecodingError.swift */,
+			);
+			path = PatientPortalModel;
+			sourceTree = "<group>";
+		};
+		2DB80A5E2109733300C8FA0E /* VitalSignsModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D3F0D592109738E00B0A470 /* Category.swift */,
+				2D3F0D582109738E00B0A470 /* Code.swift */,
+				2D3F0D5C2109738E00B0A470 /* Coding.swift */,
+				2D3F0D5A2109738E00B0A470 /* Component.swift */,
+				2D3F0D5D2109738E00B0A470 /* Entry.swift */,
+				2D3F0D5B2109738E00B0A470 /* VitalSigns.swift */,
+				2D3F0D572109738E00B0A470 /* Resource.swift */,
+				2D3F0D5F2109738E00B0A470 /* Subject.swift */,
+				2D3F0D5E2109738E00B0A470 /* ValueQuantity.swift */,
+			);
+			path = VitalSignsModel;
 			sourceTree = "<group>";
 		};
 		2DC6BE34209787E5003DA062 /* Protocols */ = {
@@ -192,6 +244,7 @@
 				CE6772AB2092DE3D0099295E /* Temp */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				2D3482AD2108595800F0A9C1 /* Main.storyboard */,
+				2DB250D021096B4F005C3A6E /* PatientPortalModel */,
 				2DC61CE420C0C07B0029E797 /* Assets.xcassets */,
 				2DC6BE34209787E5003DA062 /* Protocols */,
 				CEF95B53208D385700DD523C /* ModelStore */,
@@ -251,7 +304,6 @@
 				2D9EA60C20D4667200DE5037 /* MessageQuery.swift */,
 				2D9EA60A20D4667200DE5037 /* ModelStore.swift */,
 				2D9EA60E20D4667200DE5037 /* StringToDate.swift */,
-				2D4C8B142107E95B00C32E3F /* AuthToken.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -377,7 +429,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
+				2D3F0D632109738E00B0A470 /* Component.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
+				2D3F0D652109738E00B0A470 /* Coding.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
 				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
@@ -387,13 +441,19 @@
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
 				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
+				2D3F0D6A2109758300B0A470 /* PatientPortalModelDecodingError.swift in Sources */,
 				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
+				2D3F0D602109738E00B0A470 /* Resource.swift in Sources */,
 				2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */,
 				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
+				2D3F0D682109738E00B0A470 /* Subject.swift in Sources */,
+				2D3F0D612109738E00B0A470 /* Code.swift in Sources */,
 				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
 				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
+				2D3F0D642109738E00B0A470 /* VitalSigns.swift in Sources */,
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
+				2D3F0D672109738E00B0A470 /* ValueQuantity.swift in Sources */,
 				2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
@@ -404,7 +464,11 @@
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
+				2DB250CF21096B48005C3A6E /* PatientPortalModel.swift in Sources */,
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
+				2D3F0D622109738E00B0A470 /* Category.swift in Sources */,
+				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
+				2D3F0D662109738E00B0A470 /* Entry.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
 				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,
 				2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */,
