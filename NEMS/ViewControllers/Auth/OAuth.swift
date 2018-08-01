@@ -23,6 +23,7 @@ class OAuth {
     let clientID: String
     let callback: String
     var sfSession: SFAuthenticationSession?
+    var code: String?
     //var asSession: ASWebAuthenticationSession?
     
     init?(base: URL, authorizeEndpoint: String, type: OAuthType, clientID: String, callback: String) {
@@ -136,9 +137,11 @@ class OAuth {
     
     
     func start() {
-            self.sfSession = sfAuth(uri: self.authorize, callback: self.callback)
-            self.sfSession?.start()
-        
+        guard let endPoint = URL(string: "https://ngnp:4444/token") else {
+            return
+        }
+        self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
+        self.sfSession?.start()
             // we now will use our code
         
     }
