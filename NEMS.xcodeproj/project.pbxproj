@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiTestViewController.swift; sourceTree = "<group>"; };
-		2D3482A82108585400F0A9C1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../Library/Mobile Documents/PatientPortalAPI/Backup API Patient Portal App/MainViewController.swift"; sourceTree = "<group>"; };
+		2D3482A82108585400F0A9C1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
 		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
