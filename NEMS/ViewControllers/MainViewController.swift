@@ -26,20 +26,20 @@ class MainViewController: UIViewController, MessageDelegate {
         
         
     }
-
     
-        //changed to launch safari app instead of using web-kit (in-app), this will allow users to save passwards and such as though they used the regular safari app. possibly use third party apps using settings in the future.
-        @IBAction func patientPortalLaunch(_ sender: Any) {
-                openPatientPortal()
-        }
     
-        func openPatientPortal() {
-            guard let url = URL(string: "https://www.nextmd.com") else {
-                return
-            }
-            UIApplication.shared.open(url,options: [:])
+    //changed to launch safari app instead of using web-kit (in-app), this will allow users to save passwards and such as though they used the regular safari app. possibly use third party apps using settings in the future.
+    @IBAction func patientPortalLaunch(_ sender: Any) {
+        openPatientPortal()
+    }
+    
+    func openPatientPortal() {
+        guard let url = URL(string: "https://www.nextmd.com") else {
+            return
         }
-   
+        UIApplication.shared.open(url,options: [:])
+    }
+    
     func refresh() {
         var count = 0
         guard let stacks = self.messageHandler.dataSource?.messageStacks else {

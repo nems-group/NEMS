@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D34698721121DED00FF2173 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698621121DED00FF2173 /* MainViewController.swift */; };
 		2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */; };
-		2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A82108585400F0A9C1 /* MainViewController.swift */; };
 		2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482AA210858B000F0A9C1 /* apiHandler.swift */; };
 		2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3482AD2108595800F0A9C1 /* Main.storyboard */; };
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
@@ -48,8 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiTestViewController.swift; sourceTree = "<group>"; };
-		2D3482A82108585400F0A9C1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
 		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				2D9EA62420D4668C00DE5037 /* GMapVC.swift */,
 				2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */,
 				2D9EA61F20D4668C00DE5037 /* LocationVC.swift */,
-				2D3482A82108585400F0A9C1 /* MainViewController.swift */,
+				2D34698621121DED00FF2173 /* MainViewController.swift */,
 				2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */,
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
@@ -391,13 +391,13 @@
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
 				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
 				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
+				2D34698721121DED00FF2173 /* MainViewController.swift in Sources */,
 				2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */,
 				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
 				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
 				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
-				2D3482A92108585400F0A9C1 /* MainViewController.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
 				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
