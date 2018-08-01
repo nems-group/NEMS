@@ -35,9 +35,20 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     }
     
     func openPatientPortal() {
+        do {
+            try Keyring.retrieveRefreshToken()
+            if ModelStore.shared.token?.refresh_token != nil {
+                print("we have token data")
+                return
+            }
+        } catch {
+            print(error)
+        }
+        
         let client_id = "l7f2ac2380f849472f8092393ef83cb14f"
         let redirectURI = "nems-app://oauthCallback"
         self.oauthHandler = OAuth(clientID: client_id, callback: redirectURI)
+        self.oauthHandler?.delegate = self
         // SFAuth
         oauthHandler?.start()
         //ASAuth
@@ -68,6 +79,11 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     func tokenChanged() {
         if ModelStore.shared.token != nil {
             print("you have a token")
+            do {
+                try Keyring().saveRefresh(token: ModelStore.shared.token!)
+            } catch {
+                print(error)
+            }
         } else {
             print("token is missing")
         }

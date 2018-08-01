@@ -10,6 +10,8 @@
 		2D34698721121DED00FF2173 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698621121DED00FF2173 /* MainViewController.swift */; };
 		2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698821121F9200FF2173 /* OAuthWebView.swift */; };
 		2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */; };
+		2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698C211254E100FF2173 /* KeychainWrapper.swift */; };
+		2D34698F21126E6600FF2173 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698E21126E6600FF2173 /* Calendar.swift */; };
 		2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */; };
 		2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482AA210858B000F0A9C1 /* apiHandler.swift */; };
 		2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3482AD2108595800F0A9C1 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D34698821121F9200FF2173 /* OAuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthWebView.swift; sourceTree = "<group>"; };
 		2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDelegate.swift; sourceTree = "<group>"; };
+		2D34698C211254E100FF2173 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		2D34698E21126E6600FF2173 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiTestViewController.swift; sourceTree = "<group>"; };
 		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
 		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				2D3F0D6B21100F2400B0A470 /* OAuth.swift */,
 				2D34698821121F9200FF2173 /* OAuthWebView.swift */,
 				2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */,
+				2D34698C211254E100FF2173 /* KeychainWrapper.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF95B472089805600DD523C /* LaunchScreen.storyboard */,
+				2D34698E21126E6600FF2173 /* Calendar.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
 				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
+				2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */,
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
 				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
@@ -411,6 +418,7 @@
 				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
 				2D9EA63520D4668C00DE5037 /* PharmacyVC.swift in Sources */,
 				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
+				2D34698F21126E6600FF2173 /* Calendar.swift in Sources */,
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,

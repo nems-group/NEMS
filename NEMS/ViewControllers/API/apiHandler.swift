@@ -12,10 +12,21 @@ enum APIerror: Error {
     case statusCode(_ : HTTPURLResponse)
     case dataError
     case noResponse
+    case invalidToken
+    case expiredToken
 }
 
 
-func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) rethrows {
+func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
+    
+    guard let exp = token.acccesTokenExpirationTime else {
+        throw APIerror.invalidToken
+    }
+    guard exp.minutes(from: Date()) >= 2 else {
+        print(Date().minutes(from: exp))
+        throw APIerror.expiredToken
+    }
+    
     guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.access_token else {
         return
     }

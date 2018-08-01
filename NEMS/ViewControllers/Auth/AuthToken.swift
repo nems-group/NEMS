@@ -16,6 +16,7 @@ struct AuthToken: Codable {
     var token_type: String?
     var scope: [String]? = []
     var refresh_token: String?
+    static var now: Date = Calendar.current.date(byAdding: Calendar.Component.minute, value: 0, to: Date())!
     
     
     private enum CodingKeys: String, CodingKey {
@@ -32,9 +33,10 @@ struct AuthToken: Codable {
         self.expires_in = try container.decode(Int.self, forKey: .expires_in)
         self.token_type = try container.decode(String.self, forKey: .token_type)
         let scopes = try container.decode(String.self, forKey: .scope)
-        if let expiresMinutes = self.expires_in {
-            let timeInterval = TimeInterval(expiresMinutes * 60)
-            self.acccesTokenExpirationTime = Date.init().addingTimeInterval(timeInterval)
+        if let expiresSeconds = self.expires_in {
+            print(AuthToken.now)
+            print(Date())
+            self.acccesTokenExpirationTime = Calendar.current.date(byAdding: .second, value: expiresSeconds, to: AuthToken.now)
             print(self.acccesTokenExpirationTime)
         }
         let scopeArray = scopes.split(separator: " ") //scopes can be " " seperated so we will want that data in array since that is easier to work with
@@ -43,6 +45,10 @@ struct AuthToken: Codable {
             self.scope?.append(String(scope))
         }
         self.refresh_token = try container.decodeIfPresent(String.self, forKey: .refresh_token)
+    }
+    
+    init() {
+        
     }
     
 //    struct key {
