@@ -137,7 +137,7 @@ class OAuth {
     
     
     func start() {
-        guard let endPoint = URL(string: "https://ngnp:4444/token") else {
+        guard let endPoint = URL(string: "http://ngnp:4444/token") else {
             return
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
