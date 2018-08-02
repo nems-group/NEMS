@@ -67,7 +67,6 @@ class Keyring {
         }
         dump(ModelStore.shared.token)
         ModelStore.shared.token?.refresh_token = refresh_token
-        dump(ModelStore.shared.token)
         
     }
     

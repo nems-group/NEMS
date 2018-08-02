@@ -24,6 +24,25 @@ extension OAuth {
         }
     return web
     }
+    
+    func sfRefresh(token: String, codeProcessingServerURL: URL) {
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: codeProcessingServerURL) { (_data, _urlResponse, _error) in
+            guard let response = _urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
+                return
+            }
+            
+            if let data = _data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                    return
+                }
+            }
+        }
+    }
 }
 //@available(iOS 12.0, *)
 //public func asAuth(uri: URL, callback: String?) -> ASWebAuthenticationSession? {

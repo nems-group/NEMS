@@ -79,3 +79,15 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
    
 
 }
+
+public func refreshToken(refreshToken: String) throws -> Data {
+    guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.access_token else {
+        throw APIerror.noResponse
+    }
+    let authHeader: String = "Bearer \(accessToken)"
+    let session = URLSession(configuration: .default)
+    var urlRequest = URLRequest(url: fullURI)
+    urlRequest.addValue(authHeader, forHTTPHeaderField: "Authorization")
+    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    urlRequest.httpMethod = "GET"
+}
