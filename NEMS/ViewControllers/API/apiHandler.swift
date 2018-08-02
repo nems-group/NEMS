@@ -14,13 +14,20 @@ enum APIerror: Error {
     case noResponse
     case invalidToken
     case expiredToken
+    case noRefreshToken
 }
 
 
 func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
     
     guard let exp = token.acccesTokenExpirationTime else {
-        throw APIerror.invalidToken
+        print("no expiration date")
+        guard let refreshToken = ModelStore.shared.token?.refresh_token else {
+            print("no refresh token?")
+            throw APIerror.noRefreshToken
+        }
+        OAuth.session?.refresh(token: refreshToken)
+        return
     }
     guard exp.minutes(from: Date()) >= 2 else {
         print(Date().minutes(from: exp))
@@ -80,14 +87,3 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
 
 }
 
-public func refreshToken(refreshToken: String) throws -> Data {
-    guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.access_token else {
-        throw APIerror.noResponse
-    }
-    let authHeader: String = "Bearer \(accessToken)"
-    let session = URLSession(configuration: .default)
-    var urlRequest = URLRequest(url: fullURI)
-    urlRequest.addValue(authHeader, forHTTPHeaderField: "Authorization")
-    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    urlRequest.httpMethod = "GET"
-}

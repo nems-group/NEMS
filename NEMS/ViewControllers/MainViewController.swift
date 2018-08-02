@@ -22,8 +22,11 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
+        self.oauthHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
+        self.oauthHandler = OAuth.session
         self.messageHandler?.start()
+        
         
         
     }
@@ -45,10 +48,8 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             print(error)
         }
         
-        let client_id = "l7f2ac2380f849472f8092393ef83cb14f"
-        let redirectURI = "nems-app://oauthCallback"
-        self.oauthHandler = OAuth(clientID: client_id, callback: redirectURI)
-        self.oauthHandler?.delegate = self
+        
+        
         // SFAuth
         oauthHandler?.start()
         //ASAuth

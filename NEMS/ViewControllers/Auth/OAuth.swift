@@ -17,6 +17,8 @@ enum OAuthError: Error {
 
 class OAuth {
     
+    static let session = OAuth(clientID: "l7f2ac2380f849472f8092393ef83cb14f", callback: "nems-app://oauthCallback")
+    
     let baseURL: URL
     let authorize: URL
     let type: OAuthType
@@ -149,8 +151,7 @@ class OAuth {
         guard let endPoint = URL(string: "http://ngnp:4444/token") else {
             return
         }
-        self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
-        self.sfSession?.start()
+        sfRefresh(token: token, codeProcessingServerURL: endPoint)
     }
     
 }

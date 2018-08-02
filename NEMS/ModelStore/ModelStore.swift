@@ -20,7 +20,6 @@ class ModelStore {
     
     var selectedLocation: Location!
     var token: AuthToken?
-    var refresh: String?
 
     deinit {
         print("deinit")

@@ -8,14 +8,34 @@
 
 import UIKit
 
-class apiTestViewController: UIViewController, UITextFieldDelegate {
+class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegate {
+    func tokenChanged() {
+        if ModelStore.shared.token != nil {
+            print("you have a token")
+            do {
+                try Keyring().saveRefresh(token: ModelStore.shared.token!)
+            } catch {
+                print(error)
+            }
+        } else {
+            print("token is missing")
+        }
+    }
+    
     @IBOutlet weak var apiEndPoint: UITextField!
     
+    
+    var oauthDelegate: OAuthDelegate?
+    
     @IBAction func apiSend(_ sender: Any) {
+        
         guard let authToken = ModelStore.shared.token, let endPoint = apiEndPoint.text else {
-            let alert = UIAlertController(title: "No Token", message: "Please Login", preferredStyle: .alert)
-            self.present(alert, animated: true) {
-                alert.dismiss(animated: true, completion: nil)
+            guard let refreshToken = ModelStore.shared.token?.refresh_token else {
+                let alert = UIAlertController(title: "No Token", message: "Please Login", preferredStyle: .alert)
+                self.present(alert, animated: true) {
+                    alert.dismiss(animated: true, completion: nil)
+                    return
+                }
                 return
             }
             return
@@ -56,6 +76,8 @@ class apiTestViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.oauthDelegate = self
 
         // Do any additional setup after loading the view.
     }

@@ -26,8 +26,17 @@ extension OAuth {
     }
     
     func sfRefresh(token: String, codeProcessingServerURL: URL) {
+        let params = URLQueryItem(name: "refresh_token", value: token)
+        var urlComponents = URLComponents(url: codeProcessingServerURL, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = []
+        urlComponents?.queryItems?.append(params)
+        guard let url = urlComponents?.url else {
+            print("malformed url")
+            return
+        }
+        print(url)
         let session = URLSession(configuration: .default)
-        session.dataTask(with: codeProcessingServerURL) { (_data, _urlResponse, _error) in
+        session.dataTask(with: url) { (_data, _urlResponse, _error) in
             guard let response = _urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
                 return
             }
@@ -41,7 +50,7 @@ extension OAuth {
                     return
                 }
             }
-        }
+        }.resume()
     }
 }
 //@available(iOS 12.0, *)
