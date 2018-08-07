@@ -70,4 +70,17 @@ class Keyring {
         
     }
     
+    class func removeRefreshToken() throws {
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                    kSecMatchLimit as String: kSecMatchLimitOne,
+                                    kSecReturnAttributes as String: true,
+                                    kSecReturnData as String: true]
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess else {
+            throw KeychainError.unhandledError(status: status)
+        }
+        print("key removed from keychain")
+        return
+    }
+    
 }

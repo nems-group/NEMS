@@ -127,6 +127,7 @@ class OAuth {
                 // we need a function to create the token here and assign to Model Store
                 let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                 ModelStore.shared.token = token
+                dump(token)
                 delegate?.tokenChanged()
             } catch {
                 dump(data)
@@ -148,12 +149,23 @@ class OAuth {
     }
     
     func refresh(token: String) {
-        guard let endPoint = URL(string: "http://ngnp:4444/token") else {
+        guard let endPoint = URL(string: "http://ngnp:4444/refresh_token") else {
             return
         }
         sfRefresh(token: token, codeProcessingServerURL: endPoint)
     }
     
+    func refresh() {
+            do {
+                try Keyring.retrieveRefreshToken()
+                guard let token = ModelStore.shared.token?.refresh_token else {
+                    return
+                }
+                refresh(token: token)
+            } catch {
+                print(error)
+            }
+    }
 }
 
 enum OAuthType {

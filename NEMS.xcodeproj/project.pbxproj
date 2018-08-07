@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D18485121193FB0003EA64C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18485021193FB0003EA64C /* MenuController.swift */; };
 		2D34698721121DED00FF2173 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698621121DED00FF2173 /* MainViewController.swift */; };
 		2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698821121F9200FF2173 /* OAuthWebView.swift */; };
 		2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D18485021193FB0003EA64C /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D34698821121F9200FF2173 /* OAuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthWebView.swift; sourceTree = "<group>"; };
 		2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				2D9EA61B20D4668B00DE5037 /* MessageTableView.swift */,
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
+				2D18485021193FB0003EA64C /* MenuController.swift */,
 				2D4C8B162108162400C32E3F /* Auth */,
 				2D9EA62520D4668C00DE5037 /* MessageViewControllers */,
 				2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */,
@@ -395,6 +398,7 @@
 				2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
+				2D18485121193FB0003EA64C /* MenuController.swift in Sources */,
 				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,

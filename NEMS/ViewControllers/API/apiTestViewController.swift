@@ -30,11 +30,11 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
     @IBAction func apiSend(_ sender: Any) {
         
         guard let authToken = ModelStore.shared.token, let endPoint = apiEndPoint.text else {
-            guard let refreshToken = ModelStore.shared.token?.refresh_token else {
-                let alert = UIAlertController(title: "No Token", message: "Please Login", preferredStyle: .alert)
-                self.present(alert, animated: true) {
-                    alert.dismiss(animated: true, completion: nil)
-                    return
+            guard (ModelStore.shared.token?.refresh_token) != nil else {
+                do {
+                    try Keyring.retrieveRefreshToken()
+                } catch {
+                    print(error)
                 }
                 return
             }
@@ -47,8 +47,8 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
                         
                         if let data =  data {
                             do {
-                                let result = try JSONSerialization.jsonObject(with: data, options: [])
-                                guard let resultText = result as? String else {
+                               let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                               guard let resultText = result as? String else {
                                     print("couldn't make it a string for some dumb reason")
                                     self.apiResults.text = String(describing: result)
                                     return
@@ -90,6 +90,9 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
         apiSend(self)
         self.becomeFirstResponder()
         return true
+    }
+    @IBAction func refreshToken(_ sender: Any) {
+        OAuth.session?.refresh()
     }
     /*
     // MARK: - Navigation

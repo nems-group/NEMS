@@ -43,7 +43,7 @@ extension OAuth {
             
             if let data = _data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                     print(json)
                 } catch {
                     print(error)

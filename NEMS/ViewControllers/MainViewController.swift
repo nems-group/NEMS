@@ -22,9 +22,9 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         super.viewDidLoad()
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
-        self.oauthHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
         self.oauthHandler = OAuth.session
+        OAuth.session?.delegate = self
         self.messageHandler?.start()
         
         
@@ -92,13 +92,17 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         messageHandler.sync()
         return
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @IBAction func logout() {
+        
     }
 }
