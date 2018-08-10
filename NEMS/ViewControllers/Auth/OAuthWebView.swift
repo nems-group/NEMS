@@ -43,8 +43,10 @@ extension OAuth {
             
             if let data = _data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    print(json)
+                    let authToken = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
+                    ModelStore.shared.token = authToken
+                    print("sf refresh after decode data into authtoken.self")
+                    dump(ModelStore.shared.token)
                 } catch {
                     print(error)
                     return

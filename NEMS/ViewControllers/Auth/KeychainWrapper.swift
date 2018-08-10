@@ -39,7 +39,6 @@ class Keyring {
             guard status == errSecSuccess else {
                 throw KeychainError.unhandledError(status: status)
             }
-            print(status)
         }
         
     }
@@ -65,21 +64,24 @@ class Keyring {
         if ModelStore.shared.token == nil {
             ModelStore.shared.token = AuthToken()
         }
-        dump(ModelStore.shared.token)
         ModelStore.shared.token?.refresh_token = refresh_token
         
     }
     
     class func removeRefreshToken() throws {
-        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                    kSecMatchLimit as String: kSecMatchLimitOne,
-                                    kSecReturnAttributes as String: true,
-                                    kSecReturnData as String: true]
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         let status = SecItemDelete(query as CFDictionary)
+        guard status != errSecItemNotFound  else {
+            print("not found")
+            throw KeychainError.unhandledError(status: status)
+        }
         guard status == errSecSuccess else {
+            dump(query)
             throw KeychainError.unhandledError(status: status)
         }
         print("key removed from keychain")
+        ModelStore.shared.token = nil
+        OAuth.session?.delegate?.tokenChanged()
         return
     }
     

@@ -49,7 +49,7 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
     urlRequest.addValue(authHeader, forHTTPHeaderField: "Authorization")
     urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
     urlRequest.httpMethod = "GET"
-    
+    dump(urlRequest)
     
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             

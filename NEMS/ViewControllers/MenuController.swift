@@ -9,39 +9,41 @@
 import UIKit
 
 enum LoginStatus {
-    case `in`
-    case out
+    case loggedIn
+    case loggedOut
 }
 
-class MenuController: UIViewController, OAuthDelegate {
+class MenuController: UIViewController {
     var loginStatus: LoginStatus?
+    
 
     @IBOutlet weak var loginLogoutButton: UIButton!
     override func viewDidLoad() {
-        OAuth.session?.delegate = self
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
     func tokenChanged() {
-        print("token changed")
-        guard ModelStore.shared.token != nil else {
-            self.loginStatus = .out
-            self.loginLogoutButton.titleLabel?.text = "Login"
-            return
+        DispatchQueue.main.async {
+            print("token changed")
+            guard ModelStore.shared.token?.refresh_token != nil else {
+                self.loginStatus = .loggedOut
+                self.loginLogoutButton.setTitle("Login", for: .normal)
+                return
+            }
+            self.loginStatus = .loggedIn
+            self.loginLogoutButton.setTitle("Logout", for: .normal)
         }
-        self.loginStatus = .in
-        self.loginLogoutButton.titleLabel?.text = "Logout"
     }
+    
     
     @IBAction func loginLogout(){
         guard let status = self.loginStatus else {
             return
         }
         switch status {
-        case .in: OAuth.session?.start()
-            case .out : do {
+        case .loggedOut: OAuth.session?.start()
+            case .loggedIn : do {
                 try Keyring.removeRefreshToken()
             } catch {
                 print(error)
@@ -50,15 +52,18 @@ class MenuController: UIViewController, OAuthDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         guard ModelStore.shared.token != nil else {
             // we aren't logged in.
-            self.loginStatus = .out
-            self.loginLogoutButton.titleLabel?.text = "Login"
+            self.loginStatus = .loggedOut
+            self.loginLogoutButton.setTitle("Login", for: .normal)
+            print("status of login \(self.loginStatus)")
             return
         }
-        self.loginStatus = .in
-        self.loginLogoutButton.titleLabel?.text = "Logout"
+        self.loginStatus = .loggedIn
+        self.loginLogoutButton.setTitle("Logout", for: .normal)
+        print("status of login \(self.loginStatus)")
     }
     /*
     // MARK: - Navigation

@@ -449,7 +449,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFz-Nj-UV7">
                                 <rect key="frame" x="0.0" y="675" width="414" height="61"/>
                                 <connections>
-                                    <segue destination="LA4-xu-SBq" kind="embed" id="Prw-EK-ldw"/>
+                                    <segue destination="LA4-xu-SBq" kind="embed" identifier="menuBarSegue" id="Prw-EK-ldw"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1205,7 +1205,7 @@ Closed Sun
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8U-Tp-Jll" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="593"/>
+            <point key="canvasLocation" x="2233" y="677"/>
         </scene>
     </scenes>
     <resources>

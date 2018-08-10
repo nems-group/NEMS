@@ -127,7 +127,7 @@ class OAuth {
                 // we need a function to create the token here and assign to Model Store
                 let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                 ModelStore.shared.token = token
-                dump(token)
+                //dump(token)
                 delegate?.tokenChanged()
             } catch {
                 dump(data)
@@ -140,7 +140,7 @@ class OAuth {
     
     
     func start() {
-        guard let endPoint = URL(string: "http://ngnp:4444/token") else {
+        guard let endPoint = URL(string: "http://127.0.0.1:4444/token") else {
             return
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
@@ -149,13 +149,14 @@ class OAuth {
     }
     
     func refresh(token: String) {
-        guard let endPoint = URL(string: "http://ngnp:4444/refresh_token") else {
+        guard let endPoint = URL(string: "http://127.0.0.1:4444/refresh_token") else {
             return
         }
         sfRefresh(token: token, codeProcessingServerURL: endPoint)
     }
     
     func refresh() {
+            print("refreshing oauth")
             do {
                 try Keyring.retrieveRefreshToken()
                 guard let token = ModelStore.shared.token?.refresh_token else {

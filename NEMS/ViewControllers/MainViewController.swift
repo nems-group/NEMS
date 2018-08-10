@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     var messageHandler: MessageHandler!
+    weak var menuBar: MenuController?
+    
     var oauthHandler: OAuth?
     
     @IBOutlet weak var messageReadCount: UITextField!
@@ -82,10 +84,12 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             print("you have a token")
             do {
                 try Keyring().saveRefresh(token: ModelStore.shared.token!)
+                menuBar?.tokenChanged()
             } catch {
                 print(error)
             }
         } else {
+            menuBar?.tokenChanged()
             print("token is missing")
         }
     }
@@ -102,7 +106,10 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         //self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func logout() {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "menuBarSegue" {
+            self.menuBar = segue.destination as? MenuController
+        }
     }
+    
 }
