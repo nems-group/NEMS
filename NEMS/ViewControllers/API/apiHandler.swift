@@ -20,11 +20,6 @@ enum APIerror: Error {
 
 func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
     
-    if call == "refresh_token" {
-        OAuth.session?.refresh()
-        return
-    }
-    
     guard let exp = token.acccesTokenExpirationTime else {
         print("no expiration date")
         guard (ModelStore.shared.token?.refresh_token != nil) else {

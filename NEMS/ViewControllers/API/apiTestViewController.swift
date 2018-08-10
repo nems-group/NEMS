@@ -10,16 +10,15 @@ import UIKit
 
 class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegate {
     func tokenChanged() {
-        if ModelStore.shared.token != nil {
-            print("you have a token")
             do {
-                try Keyring().saveRefresh(token: ModelStore.shared.token!)
+                guard let token = ModelStore.shared.token else {
+                    presentAlert()
+                    return
+                }
+                try Keyring().saveRefresh(token: token)
             } catch {
                 print(error)
             }
-        } else {
-            print("token is missing")
-        }
     }
     
     @IBOutlet weak var apiEndPoint: UITextField!
@@ -27,12 +26,23 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
     
     var oauthDelegate: OAuthDelegate?
     
+    func presentAlert() {
+        let action = UIAlertAction(title: "Ok", style: .default) { (action) in
+            OAuth.session?.start()
+        }
+            let alert = UIAlertController(title: "You are not logged in", message: "Please login first", preferredStyle: .alert)
+            alert.addAction(action)
+            present(alert, animated: true)
+    }
+    
     @IBAction func apiSend(_ sender: Any) {
         
         guard let authToken = ModelStore.shared.token, let endPoint = apiEndPoint.text else {
             guard (ModelStore.shared.token?.refresh_token) != nil else {
                 do {
                     try Keyring.retrieveRefreshToken()
+                } catch KeychainError.noToken {
+                    presentAlert()
                 } catch {
                     print(error)
                 }
