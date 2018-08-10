@@ -27,6 +27,7 @@ class OAuth {
     var sfSession: SFAuthenticationSession?
     var code: String?
     var delegate: OAuthDelegate?
+    var attemptsForRefresh: Int = 0
     //var asSession: ASWebAuthenticationSession?
     
     init?(base: URL, authorizeEndpoint: String, type: OAuthType, clientID: String, callback: String) {
@@ -149,6 +150,7 @@ class OAuth {
     }
     
     func refresh(token: String) {
+        
         guard let endPoint = URL(string: "http://127.0.0.1:4444/refresh_token") else {
             return
         }
@@ -156,6 +158,11 @@ class OAuth {
     }
     
     func refresh() {
+        if (self.attemptsForRefresh) > 3 {
+                print("failed")
+                ModelStore.shared.token = nil
+                return
+            }
             print("refreshing oauth")
             do {
                 try Keyring.retrieveRefreshToken()

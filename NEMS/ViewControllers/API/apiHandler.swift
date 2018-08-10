@@ -26,6 +26,12 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
             print("no refresh token?")
             throw APIerror.noRefreshToken
         }
+        guard let attempts = OAuth.session?.attemptsForRefresh else {
+            return
+        }
+        if attempts > 3 {
+            return
+        }
         OAuth.session?.refresh()
         try patientPortalAPI(call: call, authToken: token, completionHander: completionHander)
         return
