@@ -30,7 +30,7 @@ final class Token {
 extension URL {
     var tokenQuery: String? {
         let urlString = self.absoluteString
-        guard let indexStartTokenString = urlString.firstIndex(of: "#") else {
+        guard let indexStartTokenString = urlString.index(of: "#") else {
             return nil
         }
         print(urlString.endIndex)
@@ -40,7 +40,7 @@ extension URL {
     }
     var queryString: String? {
         let urlString = self.absoluteString
-        guard let queryIndexStart = urlString.firstIndex(of: "?") else {
+        guard let queryIndexStart = urlString.index(of: "?") else {
             return nil
         }
         let startIndex = urlString.index(after: queryIndexStart)
