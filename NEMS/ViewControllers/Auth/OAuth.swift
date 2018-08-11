@@ -16,8 +16,7 @@ enum OAuthError: Error {
 
 
 class OAuth {
-    
-    static let session = OAuth(clientID: "l7f2ac2380f849472f8092393ef83cb14f", callback: "nems-app://oauthCallback")
+    static let session = OAuth(clientID: Config.options.clientID, callback: Config.options.clientCallbackURI)
     
     let baseURL: URL
     let authorize: URL
@@ -141,7 +140,7 @@ class OAuth {
     
     
     func start() {
-        guard let endPoint = URL(string: "http://127.0.0.1:4444/token") else {
+        guard let endPoint = URL(string: Config.options.codeProcessURI) else {
             return
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
@@ -151,13 +150,14 @@ class OAuth {
     
     func refresh(token: String) {
         
-        guard let endPoint = URL(string: "http://127.0.0.1:4444/refresh_token") else {
+        guard let endPoint = URL(string: Config.options.refreshProccessURI) else {
             return
         }
         sfRefresh(token: token, codeProcessingServerURL: endPoint)
     }
     
     func refresh() {
+        self.attemptsForRefresh = self.attemptsForRefresh + 1
         if (self.attemptsForRefresh) > 3 {
                 print("failed")
                 ModelStore.shared.token = nil

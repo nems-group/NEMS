@@ -29,7 +29,9 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         guard let attempts = OAuth.session?.attemptsForRefresh else {
             return
         }
+        print(attempts)
         if attempts > 3 {
+            print("not above 3 tries")
             return
         }
         OAuth.session?.refresh()
