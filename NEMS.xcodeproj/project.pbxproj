@@ -219,7 +219,8 @@
 				CEF95B52208D382F00DD523C /* swift */,
 				CEF95B51208D381400DD523C /* Others */,
 			);
-			path = NEMS;
+			name = NEMS;
+			path = "../../Xcode Local (no iCloud)/NEMS/NEMS";
 			sourceTree = "<group>";
 		};
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
