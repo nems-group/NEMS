@@ -19,8 +19,6 @@
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
-		2D8CA40F211F70B000DC8E83 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8CA40E211F70B000DC8E83 /* Config.swift */; };
-		2D8CA414211F98A100DC8E83 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D8CA40C211F6FC100DC8E83 /* config.json */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -47,6 +45,8 @@
 		2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */; };
 		2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62A20D4668C00DE5037 /* MessageCell.swift */; };
 		2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */; };
+		2DA6AE20211FD37E00DF68D8 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6AE1E211FD37E00DF68D8 /* config.json */; };
+		2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6AE1F211FD37E00DF68D8 /* Config.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -67,8 +67,6 @@
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
-		2D8CA40C211F6FC100DC8E83 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
-		2D8CA40E211F70B000DC8E83 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -95,6 +93,8 @@
 		2D9EA62920D4668C00DE5037 /* MessageSwipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSwipes.swift; sourceTree = "<group>"; };
 		2D9EA62A20D4668C00DE5037 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoriesViewController.swift; sourceTree = "<group>"; };
+		2DA6AE1E211FD37E00DF68D8 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		2DA6AE1F211FD37E00DF68D8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 		2D8CA40D211F707D00DC8E83 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2D8CA40C211F6FC100DC8E83 /* config.json */,
-				2D8CA40E211F70B000DC8E83 /* Config.swift */,
+				2DA6AE1E211FD37E00DF68D8 /* config.json */,
+				2DA6AE1F211FD37E00DF68D8 /* Config.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -342,9 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D8CA414211F98A100DC8E83 /* config.json in Resources */,
 				CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */,
 				2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */,
+				2DA6AE20211FD37E00DF68D8 /* config.json in Resources */,
 				2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */,
 				2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */,
 			);
@@ -430,7 +430,7 @@
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
-				2D8CA40F211F70B000DC8E83 /* Config.swift in Sources */,
+				2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */,
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
