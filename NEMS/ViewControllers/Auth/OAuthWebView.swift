@@ -45,6 +45,7 @@ extension OAuth {
                 do {
                     let authToken = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                     ModelStore.shared.token = authToken
+                    try Keyring.saveRefresh(token: authToken)
                     print("sf refresh after decode data into authtoken.self")
                     dump(ModelStore.shared.token)
                 } catch {
@@ -53,6 +54,28 @@ extension OAuth {
                 }
             }
         }.resume()
+    }
+    
+    
+    func authCodeHandler(apiError: APIerror?,data: Data?) -> Void {
+        if apiError != nil {
+            print(apiError)
+            print("so sad :( \n there was an error in the authentication")
+            return
+        }
+        if let data = data {
+            do {
+                // we need a function to create the token here and assign to Model Store
+                let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
+                ModelStore.shared.token = token
+                try Keyring.saveRefresh(token: token)
+                delegate?.tokenChanged()
+            } catch {
+                dump(data)
+                print(error)
+            }
+        }
+        
     }
 }
 //@available(iOS 12.0, *)

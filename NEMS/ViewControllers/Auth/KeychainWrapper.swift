@@ -19,9 +19,11 @@ enum KeychainError: Error {
 class Keyring {
     
     static let tag = "com.nems.app".data(using: .utf8)!
-    var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
     
-    func saveRefresh(token initToken: AuthToken?) throws {
+    
+    class func saveRefresh(token initToken: AuthToken?) throws {
+        debugPrint("attempting to save to keychain")
+        var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         guard let token = initToken else {
             throw KeychainError.noToken
         }
@@ -33,6 +35,7 @@ class Keyring {
             guard status == errSecSuccess else {
                 throw KeychainError.unhandledError(status: status)
             }
+            debugPrint("updated keychain")
         } catch {
             query.updateValue(token.refresh_token?.data(using: .utf8), forKey: kSecValueData as String)
             let status = SecItemAdd(query as CFDictionary, nil)
@@ -44,6 +47,7 @@ class Keyring {
     }
     
     class func retrieveRefreshToken() throws {
+        debugPrint("attemping to retrieve token from keychain")
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecMatchLimit as String: kSecMatchLimitOne,
                                     kSecReturnAttributes as String: true,
@@ -62,8 +66,10 @@ class Keyring {
                 throw KeychainError.unexpectedRefreshData
         }
         if ModelStore.shared.token == nil {
+            print("value was nil so lets init a blank authToken object")
             ModelStore.shared.token = AuthToken()
         }
+        debugPrint("token retrived")
         ModelStore.shared.token?.refresh_token = refresh_token
         
     }

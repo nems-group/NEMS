@@ -80,18 +80,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     /// This function is called when the token is updated
     func tokenChanged() {
-        if ModelStore.shared.token != nil {
-            print("you have a token")
-            do {
-                try Keyring().saveRefresh(token: ModelStore.shared.token!)
-                menuBar?.tokenChanged()
-            } catch {
-                print(error)
-            }
-        } else {
-            menuBar?.tokenChanged()
-            print("token is missing")
-        }
+        menuBar?.tokenChanged()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -116,26 +116,6 @@ class OAuth {
         }
     
     typealias authHandler = (APIerror?,Data?)->Void
-    func authCodeHandler(apiError: APIerror?,data: Data?) -> Void {
-        if apiError != nil {
-            print(apiError)
-            print("so sad :( \n there was an error in the authentication")
-            return
-        }
-        if let data = data {
-            do {
-                // we need a function to create the token here and assign to Model Store
-                let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
-                ModelStore.shared.token = token
-                //dump(token)
-                delegate?.tokenChanged()
-            } catch {
-                dump(data)
-                print(error)
-            }
-        }
-
-    }
     
     
     

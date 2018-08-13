@@ -10,15 +10,10 @@ import UIKit
 
 class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegate {
     func tokenChanged() {
-            do {
-                guard let token = ModelStore.shared.token else {
-                    presentAlert()
-                    return
-                }
-                try Keyring().saveRefresh(token: token)
-            } catch {
-                print(error)
-            }
+        guard let token = ModelStore.shared.token else {
+            presentAlert()
+            return
+        }
     }
     
     @IBOutlet weak var apiEndPoint: UITextField!
