@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JSON {
+class JSONf {
     class func downloadArray(_ data: Data) -> [[String: Any]]? {
         do {
             print()
@@ -62,7 +62,7 @@ class JSON {
     
     class func loadJSONfromDrive(url path: URL) -> (json: [[String: Any]]?,success: Bool) {
         let data = path.dataRepresentation
-        let json = JSON.downloadArray(data)
+        let json = JSONf.downloadArray(data)
         if json != nil {
             return (json,true)
         } else {

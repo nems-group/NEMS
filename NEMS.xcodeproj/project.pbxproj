@@ -47,6 +47,10 @@
 		2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */; };
 		2DA6AE20211FD37E00DF68D8 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6AE1E211FD37E00DF68D8 /* config.json */; };
 		2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6AE1F211FD37E00DF68D8 /* Config.swift */; };
+		2DBFDEBB21212220008F30E0 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEBA21212220008F30E0 /* MessageController.swift */; };
+		2DBFDEBD2121261E008F30E0 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEBC2121261E008F30E0 /* Tag.swift */; };
+		2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEBE21214620008F30E0 /* TypeAlias.swift */; };
+		2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEC021214C7A008F30E0 /* Formatter.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -95,6 +99,10 @@
 		2D9EA62B20D4668C00DE5037 /* HistoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoriesViewController.swift; sourceTree = "<group>"; };
 		2DA6AE1E211FD37E00DF68D8 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		2DA6AE1F211FD37E00DF68D8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2DBFDEBA21212220008F30E0 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		2DBFDEBC2121261E008F30E0 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		2DBFDEBE21214620008F30E0 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		2DBFDEC021214C7A008F30E0 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +179,16 @@
 			path = MessageViewControllers;
 			sourceTree = "<group>";
 		};
+		2DBFDEB9212121C3008F30E0 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				2D9EA60B20D4667200DE5037 /* Message.swift */,
+				2DBFDEBA21212220008F30E0 /* MessageController.swift */,
+				2DBFDEBC2121261E008F30E0 /* Tag.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
 		880A1E6427B6213692ACE871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,10 +227,12 @@
 		CEF95B3D2089805500DD523C /* NEMS */ = {
 			isa = PBXGroup;
 			children = (
+				2DBFDEBE21214620008F30E0 /* TypeAlias.swift */,
 				CE1CD55020904C430022E8E7 /* Info.plist */,
 				2D3482AD2108595800F0A9C1 /* Main.storyboard */,
 				2DC61CE420C0C07B0029E797 /* Assets.xcassets */,
 				2D8CA40D211F707D00DC8E83 /* Configuration */,
+				2DBFDEB9212121C3008F30E0 /* Messages */,
 				CE6772AB2092DE3D0099295E /* Temp */,
 				CEF95B53208D385700DD523C /* ModelStore */,
 				CEF95B50208D37F800DD523C /* ViewControllers */,
@@ -251,6 +271,7 @@
 			children = (
 				CEF95B472089805600DD523C /* LaunchScreen.storyboard */,
 				2D34698E21126E6600FF2173 /* Calendar.swift */,
+				2DBFDEC021214C7A008F30E0 /* Formatter.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -268,7 +289,6 @@
 			children = (
 				2D9EA60920D4667200DE5037 /* JSON.swift */,
 				2D9EA61020D4667200DE5037 /* Location.swift */,
-				2D9EA60B20D4667200DE5037 /* Message.swift */,
 				2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */,
 				2D9EA60D20D4667200DE5037 /* MessageHandler.swift */,
 				2D9EA60C20D4667200DE5037 /* MessageQuery.swift */,
@@ -400,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
+				2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */,
 				2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
@@ -409,9 +430,11 @@
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
 				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
+				2DBFDEBB21212220008F30E0 /* MessageController.swift in Sources */,
 				2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */,
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
+				2DBFDEBD2121261E008F30E0 /* Tag.swift in Sources */,
 				2D9EA63720D4668C00DE5037 /* GMapVC.swift in Sources */,
 				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
 				2D34698721121DED00FF2173 /* MainViewController.swift in Sources */,
@@ -427,6 +450,7 @@
 				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
 				2D9EA63520D4668C00DE5037 /* PharmacyVC.swift in Sources */,
 				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
+				2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */,
 				2D34698F21126E6600FF2173 /* Calendar.swift in Sources */,
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,

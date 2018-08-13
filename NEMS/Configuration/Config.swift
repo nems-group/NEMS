@@ -18,7 +18,7 @@ final class Config: Codable {
             return try Config()
         } catch {
             print(error)
-            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "")
+            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "", messageServerURI: "")
         }
     }
     
@@ -27,14 +27,15 @@ final class Config: Codable {
                 throw APIerror.dataError
             }
             let options = try ModelStore.jsonDecoder.decode(Config.self, from: data)
-            self.init(clientID: options.clientID, clientCallbackURI: options.clientCallbackURI, codeProccessURI: options.codeProcessURI, refreshProcessURI: options.refreshProccessURI)
+        self.init(clientID: options.clientID, clientCallbackURI: options.clientCallbackURI, codeProccessURI: options.codeProcessURI, refreshProcessURI: options.refreshProccessURI, messageServerURI: options.messageServerURI)
     }
     
-    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String) {
+    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String, messageServerURI: String) {
         self.clientID = clientID
         self.clientCallbackURI = clientCallbackURI
         self.codeProcessURI = codeProccessURI
         self.refreshProccessURI = refreshProcessURI
+        self.messageServerURI = messageServerURI
     }
     
     class func getData() -> Data? {
@@ -55,5 +56,6 @@ final class Config: Codable {
     var clientCallbackURI: String
     var codeProcessURI: String
     var refreshProccessURI: String
+    var messageServerURI: String
     
 }

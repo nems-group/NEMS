@@ -37,6 +37,8 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         
         
         
+        
+        
     }
     
     
@@ -92,7 +94,8 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        messageHandler.sync()
+        //messageHandler.sync()
+        MessageController.register(tags: ["Hello World", "New Test"])
         return
     }
     

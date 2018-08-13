@@ -1,6 +1,7 @@
 {
     "clientID": "l7f2ac2380f849472f8092393ef83cb14f",
     "clientCallbackURI": "nems-app://oauthCallback",
-    "codeProcessURI": "http://192.168.1.83:4444/token",
-    "refreshProccessURI": "http://192.168.1.83:4444/refresh_token"
+    "codeProcessURI": "http://10.11.8.33:4444/token",
+    "refreshProccessURI": "http://10.11.8.33:4444/refresh_token",
+    "messageServerURI": "http://10.11.8.33:4444/messages"
 }
