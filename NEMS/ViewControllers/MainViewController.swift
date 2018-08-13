@@ -13,7 +13,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     var messageHandler: MessageHandler!
     weak var menuBar: MenuController?
     
-    var oauthHandler: OAuth?
+    //var oauthHandler: OAuth?
     
     @IBOutlet weak var messageReadCount: UITextField!
     
@@ -25,9 +25,15 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
-        self.oauthHandler = OAuth.session
+        //self.oauthHandler = OAuth.session
         OAuth.session?.delegate = self
         self.messageHandler?.start()
+        
+        do {
+            try OAuth.session?.checkLogin()
+        } catch {
+            print("not logged in")
+        }
         
         
         
@@ -53,7 +59,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         
         
         // SFAuth
-        oauthHandler?.start()
+        OAuth.session?.start()
         //ASAuth
     }
     

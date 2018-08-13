@@ -56,8 +56,4 @@ final class Config: Codable {
     var codeProcessURI: String
     var refreshProccessURI: String
     
-    
-    deinit {
-        print("bye")
-    }
 }

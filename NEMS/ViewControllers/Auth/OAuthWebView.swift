@@ -69,7 +69,6 @@ extension OAuth {
                 let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                 ModelStore.shared.token = token
                 try Keyring.saveRefresh(token: token)
-                delegate?.tokenChanged()
             } catch {
                 dump(data)
                 print(error)

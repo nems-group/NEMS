@@ -154,6 +154,10 @@ class OAuth {
                 print(error)
             }
     }
+    
+    func checkLogin() throws {
+        try Keyring.retrieveRefreshToken()
+    }
 }
 
 enum OAuthType {

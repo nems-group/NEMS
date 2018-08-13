@@ -22,7 +22,7 @@ class Keyring {
     
     
     class func saveRefresh(token initToken: AuthToken?) throws {
-        debugPrint("attempting to save to keychain")
+        //debugPrint("attempting to save to keychain")
         var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         guard let token = initToken else {
             throw KeychainError.noToken
@@ -35,7 +35,8 @@ class Keyring {
             guard status == errSecSuccess else {
                 throw KeychainError.unhandledError(status: status)
             }
-            debugPrint("updated keychain")
+            OAuth.session?.delegate?.tokenChanged()
+            //debugPrint("updated keychain")
         } catch {
             query.updateValue(token.refresh_token?.data(using: .utf8), forKey: kSecValueData as String)
             let status = SecItemAdd(query as CFDictionary, nil)
@@ -71,10 +72,12 @@ class Keyring {
         }
         debugPrint("token retrived")
         ModelStore.shared.token?.refresh_token = refresh_token
+        OAuth.session?.delegate?.tokenChanged()
         
     }
     
     class func removeRefreshToken() throws {
+        debugPrint("attempting to remove from keychain")
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         let status = SecItemDelete(query as CFDictionary)
         guard status != errSecItemNotFound  else {
@@ -85,7 +88,7 @@ class Keyring {
             dump(query)
             throw KeychainError.unhandledError(status: status)
         }
-        print("key removed from keychain")
+        debugPrint("key removed from keychain")
         ModelStore.shared.token = nil
         OAuth.session?.delegate?.tokenChanged()
         return
