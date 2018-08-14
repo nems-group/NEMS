@@ -17,7 +17,7 @@ class MessageController {
     
     
     /// This will send a POST to our Message Server Endpoint along with the Device ID and all the "tags" that user wishes to be informed about
-    class func register(tags: Tag) {
+    class func register(token: String, tags: Tag) {
         
         guard let url = URL(string: Config.options.messageServerURI) else {
             print("invalid url")
@@ -37,7 +37,7 @@ class MessageController {
          }
         */
         
-        let data: [String: Any] = ["deviceID": deviceUUID, "tag": tags, "timestamp": Date.now]
+        let data: [String: Any] = ["deviceID": token, "tag": tags, "timestamp": Date.now]
         do {
             let body = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
             request.httpBody = body

@@ -95,7 +95,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         super.viewWillAppear(animated)
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
-        MessageController.register(tags: ["Hello World", "New Test"])
+        //MessageController.register(tags: ["Hello World", "New Test"])
         return
     }
     

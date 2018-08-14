@@ -12,6 +12,9 @@ class ModelStore {
     static let shared = ModelStore()
     static let jsonDecoder = JSONDecoder()
     static let jsonEncoder = JSONEncoder()
+    static var deviceID: String? {
+        return AppDelegate.deviceToken
+    }
     //**** Location values
     var allLocations: [Location] = [Location]()
     
@@ -21,7 +24,4 @@ class ModelStore {
     var selectedLocation: Location!
     var token: AuthToken?
 
-    deinit {
-        print("deinit")
-    }
 }
