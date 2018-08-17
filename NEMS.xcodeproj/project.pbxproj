@@ -60,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		2D18485021193FB0003EA64C /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../../../Documents/NEMS/NEMS/ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		2D34698821121F9200FF2173 /* OAuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthWebView.swift; sourceTree = "<group>"; };
 		2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDelegate.swift; sourceTree = "<group>"; };
 		2D34698C211254E100FF2173 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -241,8 +241,7 @@
 				CEF95B52208D382F00DD523C /* swift */,
 				CEF95B51208D381400DD523C /* Others */,
 			);
-			name = NEMS;
-			path = "../../Xcode Local (no iCloud)/NEMS/NEMS";
+			path = NEMS;
 			sourceTree = "<group>";
 		};
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
@@ -608,7 +607,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NEMS/NEMS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,7 +628,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NEMS/NEMS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZ467R4AR6;
+				DEVELOPMENT_TEAM = 9RNX7B53CF;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,11 +17,23 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     @IBOutlet weak var messageReadCount: UITextField!
     
+    //****** searchOption view variables
+    var isleftMenuOpened: Bool = false
+    let leftMenuOpenConstraint: CGFloat = 0
+    var leftMenuCloseConstraint: CGFloat! // = -300
     
+    //left ViewController
+    var leftMenuViewController: UIViewController!
+    //control how far the left menu can go
+    @IBOutlet var leftMenuLeadingConstraints: NSLayoutConstraint!
+    //View that will display the left menu view controller
+    @IBOutlet var leftMenuViewRef: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        leftMenuCloseConstraint = -leftMenuViewRef.bounds.size.width
+        
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
@@ -35,10 +47,11 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             print("not logged in")
         }
         
-        
-        
-        
-        
+        //20180812 add left menu View Controller
+        self.leftMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "LeftMenuBarID")
+        //set LeftMenuBar location
+        self.leftMenuViewController.view.frame = self.leftMenuViewRef.bounds
+        self.leftMenuViewRef.addSubview(self.leftMenuViewController.view)
     }
     
     
@@ -108,6 +121,30 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         if segue.identifier == "menuBarSegue" {
             self.menuBar = segue.destination as? MenuController
         }
+    }
+    
+    @IBAction func slideOutLeftMenuBar(_ sender: Any) {
+        //slide in/out menu
+        if !isleftMenuOpened {
+            //this make a shadow line between leftMenu view and main view, range from 0 - 1
+            leftMenuViewRef.layer.shadowOpacity = 1
+            //shadowRadius needs "shadowOpacity" to show on the screen.
+            leftMenuViewRef.layer.shadowRadius = 6
+            
+            leftMenuLeadingConstraints.constant = leftMenuOpenConstraint
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        } else {
+            //this make a shadow line between leftMenu view and main view, range from 0 - 1
+            leftMenuViewRef.layer.shadowOpacity = 0
+            
+            leftMenuLeadingConstraints.constant = leftMenuCloseConstraint
+        }
+        
+        isleftMenuOpened = !isleftMenuOpened
     }
     
 }
