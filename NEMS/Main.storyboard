@@ -133,7 +133,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Z8-hE-UbU" firstAttribute="trailing" secondItem="Lep-Ln-hks" secondAttribute="trailing" constant="102" id="Kcf-jC-JBx"/>
                             <constraint firstItem="9Z8-hE-UbU" firstAttribute="top" secondItem="Lep-Ln-hks" secondAttribute="top" constant="20" id="oh6-Xm-5L1"/>
@@ -456,14 +455,14 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRw-Vl-gC8" userLabel="leftMenuViewRef">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="64" width="0.0" height="672"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZvS-gb-srV" firstAttribute="width" secondItem="gZG-Yp-opc" secondAttribute="width" id="4Um-WR-XPp"/>
                             <constraint firstItem="6yE-D0-sp5" firstAttribute="width" secondItem="gZG-Yp-opc" secondAttribute="width" id="4fX-l3-NAh"/>
-                            <constraint firstItem="TRw-Vl-gC8" firstAttribute="trailing" secondItem="obh-k0-Kxq" secondAttribute="trailing" id="78q-1i-jMF"/>
+                            <constraint firstItem="TRw-Vl-gC8" firstAttribute="trailing" secondItem="obh-k0-Kxq" secondAttribute="trailing" constant="-414" id="78q-1i-jMF"/>
                             <constraint firstItem="TRw-Vl-gC8" firstAttribute="leading" secondItem="obh-k0-Kxq" secondAttribute="leading" id="7Vd-Ij-1Au"/>
                             <constraint firstItem="6yE-D0-sp5" firstAttribute="height" secondItem="gZG-Yp-opc" secondAttribute="height" id="7rn-P0-knL"/>
                             <constraint firstItem="obh-k0-Kxq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6yE-D0-sp5" secondAttribute="bottom" constant="20" id="97w-14-Yxo"/>
@@ -500,7 +499,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="leftMenuLeadingConstraints" destination="7Vd-Ij-1Au" id="PUJ-WJ-vSk"/>
+                        <outlet property="leftMenuLeadingConstraints" destination="7Vd-Ij-1Au" id="6kx-oI-1SY"/>
+                        <outlet property="leftMenuTrailingConstraints" destination="78q-1i-jMF" id="Feu-nQ-HZt"/>
                         <outlet property="leftMenuViewRef" destination="TRw-Vl-gC8" id="fge-Hg-OKC"/>
                         <outlet property="messageReadCount" destination="80r-DS-zTh" id="5Y5-zH-NHq"/>
                     </connections>
@@ -538,13 +538,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AIb-40-cs6">
-                                <rect key="frame" x="0.0" y="64.666666666666686" width="375" height="587.33333333333326"/>
+                                <rect key="frame" x="0.0" y="64.333333333333371" width="375" height="587"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiC-K8-ei6">
-                                        <rect key="frame" x="0.0" y="0.33333333333334281" width="375" height="242.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.33333333333334281" width="375" height="242"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nf6-Gr-gC3">
-                                                <rect key="frame" x="-0.33333333333334281" y="0.6666666666666714" width="375.33333333333337" height="242.33333333333331"/>
+                                                <rect key="frame" x="-0.66666666666665719" y="0.33333333333334281" width="374.33333333333326" height="242"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="nf6-Gr-gC3" secondAttribute="height" multiplier="375:242" id="zM1-VR-pyg"/>
@@ -562,14 +562,14 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FL-sH-SQx">
-                                        <rect key="frame" x="0.0" y="242.66666666666669" width="375" height="83"/>
+                                        <rect key="frame" x="0.0" y="242.33333333333337" width="375" height="83"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS3-P7-OH2">
-                                                <rect key="frame" x="2" y="2.6666666666666288" width="371" height="79"/>
+                                                <rect key="frame" x="2" y="2.3333333333333712" width="371" height="79"/>
                                                 <gestureRecognizers/>
                                             </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znV-gf-Mas" userLabel="Tap Recognizer View">
-                                                <rect key="frame" x="0.0" y="0.66666666666662877" width="375" height="83"/>
+                                                <rect key="frame" x="0.0" y="0.33333333333337123" width="375" height="83"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -596,7 +596,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kT6-Pu-V50">
-                                        <rect key="frame" x="0.0" y="325.66666666666669" width="375" height="262.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="325.33333333333337" width="375" height="262"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kT6-Pu-V50" secondAttribute="height" multiplier="375:262" id="DG6-TJ-nMb"/>
