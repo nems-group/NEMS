@@ -32,6 +32,9 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
+        leftMenuViewRef.bounds = self.view.bounds
+        
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
@@ -44,10 +47,6 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         } catch {
             print("not logged in")
         }
-        
-        //20180812 add left menu View Controller
-        //set initial left menu open area to leading constratints
-        leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
 
     }
     
@@ -108,6 +107,10 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //20180812 add left menu View Controller
+        //set initial left menu open area to leading constratints
+        
+        leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
         //MessageController.register(tags: ["Hello World", "New Test"])
