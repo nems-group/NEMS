@@ -17,8 +17,9 @@ class MenuController: UIViewController {
     var loginStatus: LoginStatus?
 
     @IBAction func closeLeftMenuBar(_ sender: Any) {
-
+        performSegue(withIdentifier: "unwindToLeftMenuViewController", sender: self)
     }
+    
     
     @IBOutlet weak var loginLogoutButton: UIButton!
     override func viewDidLoad() {
@@ -68,5 +69,7 @@ class MenuController: UIViewController {
         print("status of login \(self.loginStatus)")
     }
 
+    
+    
 
 }

@@ -149,4 +149,11 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         isleftMenuOpened = !isleftMenuOpened
     }
     
+    
+    //unwind function to call slideOutLeftMenuBar() from Child view contorller
+    @IBAction func unwindToLeftMenuViewController(sender: UIStoryboardSegue) -> Void {
+        //if let controller = sender.source as? UIViewController, let data = controller
+        slideOutLeftMenuBar()
+    }
+    
 }
