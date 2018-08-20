@@ -16,12 +16,25 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     //var oauthHandler: OAuth?
     
     @IBOutlet weak var messageReadCount: UITextField!
+    @IBOutlet var leftMenuLeadingConstraints: NSLayoutConstraint!
+    @IBOutlet var leftMenuTrailingConstraints: NSLayoutConstraint!
     
+    //****** searchOption view variables
+    //control how far the left menu can go
+    var isleftMenuOpened: Bool = false
+    var leftMenuOpenConstraint: CGFloat = 0
+    let leftMenuCloseConstraint: CGFloat = 0
     
+    //View that will display the left menu view controller
+    @IBOutlet var leftMenuViewRef: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
+        leftMenuViewRef.bounds = self.view.bounds
+        
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
@@ -34,11 +47,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         } catch {
             print("not logged in")
         }
-        
-        
-        
-        
-        
+
     }
     
     
@@ -47,6 +56,10 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         openPatientPortal()
     }
     
+//    @IBAction func closeLeftMenuBar(_ sender: Any) {
+//        slideOutLeftMenuBar(sender)
+//    }
+//
     func openPatientPortal() {
         do {
             try Keyring.retrieveRefreshToken()
@@ -93,6 +106,11 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //20180812 add left menu View Controller
+        //set initial left menu open area to leading constratints
+        
+        leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
         //MessageController.register(tags: ["Hello World", "New Test"])
@@ -108,6 +126,37 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         if segue.identifier == "menuBarSegue" {
             self.menuBar = segue.destination as? MenuController
         }
+    }
+    
+    @IBAction func slideOutLeftMenuBar() {
+        //slide in/out menu
+        if !isleftMenuOpened {
+            //this make a shadow line between leftMenu view and main view, range from 0 - 1
+            leftMenuViewRef.layer.shadowOpacity = 1
+            //shadowRadius needs "shadowOpacity" to show on the screen.
+            leftMenuViewRef.layer.shadowRadius = 6
+            
+            leftMenuTrailingConstraints.constant = 0
+
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        } else {
+            //this make a shadow line between leftMenu view and main view, range from 0 - 1
+            leftMenuViewRef.layer.shadowOpacity = 0
+            
+            leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
+        }
+        
+        isleftMenuOpened = !isleftMenuOpened
+    }
+    
+    
+    //unwind function to call slideOutLeftMenuBar() from Child view contorller
+    @IBAction func unwindToLeftMenuViewController(sender: UIStoryboardSegue) -> Void {
+        //if let controller = sender.source as? UIViewController, let data = controller
+        slideOutLeftMenuBar()
     }
     
 }

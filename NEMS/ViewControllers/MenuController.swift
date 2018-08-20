@@ -15,14 +15,17 @@ enum LoginStatus {
 
 class MenuController: UIViewController {
     var loginStatus: LoginStatus?
-    
 
+    @IBAction func closeLeftMenuBar(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToLeftMenuViewController", sender: self)
+    }
+    
+    
     @IBOutlet weak var loginLogoutButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
     func tokenChanged() {
         DispatchQueue.main.async {
             print("token changed")
@@ -52,8 +55,8 @@ class MenuController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
+        
         guard ModelStore.shared.token != nil else {
             // we aren't logged in.
             self.loginStatus = .loggedOut
@@ -65,14 +68,8 @@ class MenuController: UIViewController {
         self.loginLogoutButton.setTitle("Logout", for: .normal)
         print("status of login \(self.loginStatus)")
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }
