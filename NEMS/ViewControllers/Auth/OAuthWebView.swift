@@ -57,10 +57,10 @@ extension OAuth {
     }
     
     
-    func authCodeHandler(apiError: APIerror?,data: Data?) -> Void {
+    func authCodeHandler(apiError: OAuthError?,data: Data?) -> Void {
         if apiError != nil {
             print(apiError)
-            print("so sad :( \n there was an error in the authentication")
+            print("so sad :( \nthere was an error in the authentication")
             return
         }
         if let data = data {

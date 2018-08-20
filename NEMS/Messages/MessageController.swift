@@ -63,6 +63,10 @@ class MessageController {
     }
     
     
+    class func pushHandler() {
+        
+    }
+    
     
     ///  This will fetch the messages from our message end point
     ///

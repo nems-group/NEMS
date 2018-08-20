@@ -12,6 +12,10 @@ import SafariServices
 
 enum OAuthError: Error {
     case noAuthCode
+    case status(code: Int)
+    case noResponseRecievedFromAuthCodeServerProcess
+    case cannotGetHTTPurlReponseObject
+    case malformedURL
 }
 
 
@@ -86,7 +90,7 @@ class OAuth {
                 components?.queryItems = []
                 components?.queryItems?.append(param)
                 guard let url = components?.url else {
-                    print("malformed url")
+                    completionHandler(.malformedURL, nil)
                     return
                 }
             
@@ -95,7 +99,7 @@ class OAuth {
                 let dataTask = task.dataTask(with: request) { (data, response, error) in
                     
                         guard let httpResponse = response as? HTTPURLResponse else {
-                            completionHandler(APIerror.dataError, nil)
+                            completionHandler(.cannotGetHTTPurlReponseObject, nil)
                             return
                         }
                         if httpResponse.statusCode == 200 {
@@ -104,18 +108,18 @@ class OAuth {
                                 return
                             }
                         } else {
-                            completionHandler(APIerror.statusCode(httpResponse), nil)
+                            completionHandler(.status(code: httpResponse.statusCode), nil)
                         }
                 }
                 dataTask.resume()
             } catch {
                 print(error)
-                completionHandler(APIerror.noResponse, nil)
+                completionHandler(.noResponseRecievedFromAuthCodeServerProcess, nil)
             }
             
         }
     
-    typealias authHandler = (APIerror?,Data?)->Void
+    typealias authHandler = (OAuthError?,Data?)->Void
     
     
     
