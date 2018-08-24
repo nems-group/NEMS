@@ -23,5 +23,5 @@ class ModelStore {
     
     var selectedLocation: Location!
     var token: AuthToken?
-
+    var memberName: String = "Hello Guest!"
 }

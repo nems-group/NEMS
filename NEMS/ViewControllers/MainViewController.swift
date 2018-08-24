@@ -104,7 +104,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         //set initial left menu open area to leading constratints
         leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
         leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
-        
+        leftMenuClose()
         
         
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -122,29 +122,38 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     @IBAction func slideOutLeftMenuBar() {
         //slide in/out menu
         if !isleftMenuOpened {
-            //this make a shadow line between leftMenu view and main view, range from 0 - 1
-            leftMenuViewRef.layer.shadowOpacity = 1
-            //shadowRadius needs "shadowOpacity" to show on the screen.
-            leftMenuViewRef.layer.shadowRadius = 6
-            
-            leftMenuLeadingConstraints.constant = 0
-            leftMenuTrailingConstraints.constant = 0
-
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
+            leftMenuOpen()
         } else {
-            //this make a shadow line between leftMenu view and main view, range from 0 - 1
-            leftMenuViewRef.layer.shadowOpacity = 0
-            
-            leftMenuLeadingConstraints.constant = -self.leftMenuOpenConstraint
-            leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
+            leftMenuClose()
         }
-        
-        isleftMenuOpened = !isleftMenuOpened
     }
     
+    func leftMenuOpen() {
+        //this make a shadow line between leftMenu view and main view, range from 0 - 1
+        leftMenuViewRef.layer.shadowOpacity = 1
+        //shadowRadius needs "shadowOpacity" to show on the screen.
+        leftMenuViewRef.layer.shadowRadius = 6
+        
+        leftMenuLeadingConstraints.constant = 0
+        leftMenuTrailingConstraints.constant = 0
+        
+        leftMenuViewRef.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        isleftMenuOpened = true
+    }
+    
+    func leftMenuClose() {
+        //this make a shadow line between leftMenu view and main view, range from 0 - 1
+        leftMenuViewRef.layer.shadowOpacity = 0
+        leftMenuViewRef.isHidden = true
+        leftMenuLeadingConstraints.constant = -self.leftMenuOpenConstraint
+        leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
+        
+        isleftMenuOpened = false
+    }
     
     //unwind function to call slideOutLeftMenuBar() from Child view contorller///////
     @IBAction func unwindToLeftMenuViewController(sender: UIStoryboardSegue) -> Void {
