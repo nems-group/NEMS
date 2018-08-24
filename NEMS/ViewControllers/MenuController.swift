@@ -26,8 +26,9 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.bounds = CGRect(x: 0, y: 0, width: 0, height: 0)
-        view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        
+//        self.view.bounds = CGRect(x: 0, y: 0, width: 0, height: 0)
+//        self.view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     }
     
     func tokenChanged() {
@@ -60,10 +61,10 @@ class MenuController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.view.frame = CGRect(x: (self.parent?.view.frame)!.minX, y: (self.parent?.view.frame)!.minY, width: -(self.parent?.view.frame)!.width, height: (self.parent?.view.frame)!.height)
-        if lblMemberName?.text == "Hello Guest" {
-            lblMemberName?.text = "Hello Guest!"
-        }
+        
+//        if lblMemberName?.text == "Hello Guest" {
+//            lblMemberName?.text = "Hello Guest!"
+//        }
         
         guard ModelStore.shared.token != nil else {
             // we aren't logged in.

@@ -17,12 +17,12 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     @IBOutlet weak var messageReadCount: UITextField!
     @IBOutlet var leftMenuTrailingConstraints: NSLayoutConstraint!
+    @IBOutlet var leftMenuLeadingConstraints: NSLayoutConstraint!
     
     //****** searchOption view variables
     //control how far the left menu can go
     var isleftMenuOpened: Bool = false
     var leftMenuOpenConstraint: CGFloat = 0
-    let leftMenuCloseConstraint: CGFloat = 0
     
     //View that will display the left menu view controller
     @IBOutlet var leftMenuViewRef: UIView!
@@ -46,6 +46,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
 
     }
     
+
     
     //changed to launch safari app instead of using web-kit (in-app), this will allow users to save passwards and such as though they used the regular safari app. possibly use third party apps using settings in the future.
     @IBAction func patientPortalLaunch(_ sender: Any) {
@@ -104,6 +105,8 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
         leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         
+        
+        
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
         //MessageController.register(tags: ["Hello World", "New Test"])
@@ -124,6 +127,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             //shadowRadius needs "shadowOpacity" to show on the screen.
             leftMenuViewRef.layer.shadowRadius = 6
             
+            leftMenuLeadingConstraints.constant = 0
             leftMenuTrailingConstraints.constant = 0
 
             UIView.animate(withDuration: 0.3, animations: {
@@ -134,6 +138,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             //this make a shadow line between leftMenu view and main view, range from 0 - 1
             leftMenuViewRef.layer.shadowOpacity = 0
             
+            leftMenuLeadingConstraints.constant = -self.leftMenuOpenConstraint
             leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         }
         
@@ -146,4 +151,6 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         //if let controller = sender.source as? UIViewController, let data = controller
         slideOutLeftMenuBar()
     }
+    
+    
 }
