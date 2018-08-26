@@ -493,7 +493,7 @@
                                     <outletCollection property="gestureRecognizers" destination="np8-z2-bvc" appends="YES" id="Qi3-8W-rr1"/>
                                 </connections>
                             </view>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dT-MC-8OD" userLabel="leftMenu Container View">
+                            <containerView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dT-MC-8OD" userLabel="leftMenu Container View">
                                 <rect key="frame" x="-414" y="64" width="414" height="672"/>
                                 <connections>
                                     <segue destination="ngn-DC-tL0" kind="embed" identifier="leftMenuSegueID" id="5Kt-qN-eT6"/>

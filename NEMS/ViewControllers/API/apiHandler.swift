@@ -17,6 +17,7 @@ enum APIerror: Error {
     case noRefreshToken
 }
 
+var url: URL?
 
 func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
     
@@ -43,7 +44,15 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         throw APIerror.expiredToken
     }
     
-    guard let fullURI = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me"), let accessToken = token.access_token else {
+    //20180825 added this URL to get patient demo
+    if call == "patient" {
+        url = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/patient/me")
+    } else {
+        url = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me")
+    }
+    
+    
+    guard let fullURI = url, let accessToken = token.access_token else {
         return
     }
     let authHeader: String = "Bearer \(accessToken)"
