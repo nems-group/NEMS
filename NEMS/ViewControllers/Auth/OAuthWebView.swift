@@ -31,10 +31,10 @@ extension OAuth {
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(params)
         guard let url = urlComponents?.url else {
-            print("malformed url")
+            print("This is in OAuthWebView.sfRefresh - malformed url")
             return
         }
-        print(url)
+        print("This is in OAuthWebView.sfRefresh: \(url)")
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { (_data, _urlResponse, _error) in
             guard let response = _urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
@@ -46,7 +46,7 @@ extension OAuth {
                     let authToken = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                     ModelStore.shared.token = authToken
                     try Keyring.saveRefresh(token: authToken)
-                    print("sf refresh after decode data into authtoken.self")
+                    print("This is in OAuthWebView.sfRefresh - sf refresh after decode data into authtoken.self")
                     dump(ModelStore.shared.token)
                 } catch {
                     print(error)
@@ -59,7 +59,7 @@ extension OAuth {
     
     func authCodeHandler(apiError: OAuthError?,data: Data?) -> Void {
         if apiError != nil {
-            print(apiError)
+            print("This is in OAuthWebView.authCodeHandler: \(apiError)")
             print("so sad :( \nthere was an error in the authentication")
             return
         }
@@ -69,13 +69,69 @@ extension OAuth {
                 let token = try ModelStore.jsonDecoder.decode(AuthToken.self, from: data)
                 ModelStore.shared.token = token
                 try Keyring.saveRefresh(token: token)
+                print("This is in OAuthWebView.authCodeHandler - token: \(token)")
+                
+                //20180826 get pt demo
+                apiSend(endPoint: "patient")
             } catch {
                 dump(data)
-                print(error)
+                print("This is in OAuthWebView.authCodeHandler Catch: \(error)")
             }
         }
         
     }
+    
+    //20180826 make pt portal api call
+    func apiSend(endPoint: String) {
+        guard let authToken = ModelStore.shared.token else {
+            guard (ModelStore.shared.token?.refresh_token) != nil else {
+                do {
+                    try Keyring.retrieveRefreshToken()
+                } catch KeychainError.noToken {
+                    print("This is in OAuthCodeHandler.apiSend - no saved Token")
+                } catch {
+                    print(error)
+                }
+                return
+            }
+            return
+        }
+        do {
+            try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
+                if response?.statusCode == 200 {
+                    DispatchQueue.main.async {
+                        //print("data: \(data)")
+                        if let data =  data {
+                            do {
+                                let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                                let prettyData = try! JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
+                                let prettyString = String(data: prettyData, encoding: String.Encoding.utf8)
+                                print(prettyString ?? "No String Available")
+                                
+                                guard let resultText = result as? String else {
+                                    print("This is in OAuthCodeHandler.apiSend - make it a string for some dumb reason")
+                                    //print("This is in OAuthCodeHandler.apiSend - result: \(String(describing: result))")
+                                    return
+                                }
+                                print("This is in OAuthCodeHandler.apiSend - resultText: \(resultText)")
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                    
+                } else {
+                    DispatchQueue.main.async {
+                        ModelStore.shared.memberName = "Hello Guest!"
+                    }
+                    
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
 }
 //@available(iOS 12.0, *)
 //public func asAuth(uri: URL, callback: String?) -> ASWebAuthenticationSession? {

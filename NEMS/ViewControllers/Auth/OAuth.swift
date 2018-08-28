@@ -67,7 +67,7 @@ class OAuth {
         func getAuthCode(url: URL) throws -> String {
             for (key,value) in url.parameters {
                     if key == "code" {
-                        print(value)
+                        print("This is in OAuth.getAuthCode: \(value)")
                         return value
                     }
                 }
@@ -113,7 +113,7 @@ class OAuth {
                 }
                 dataTask.resume()
             } catch {
-                print(error)
+                print("This is in OAuth.getToken Catch: \(error)")
                 completionHandler(.noResponseRecievedFromAuthCodeServerProcess, nil)
             }
             
@@ -129,6 +129,7 @@ class OAuth {
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
         self.sfSession?.start()
+        //print("SF Authorization started")
         
     }
     
@@ -143,11 +144,11 @@ class OAuth {
     func refresh() {
         self.attemptsForRefresh = self.attemptsForRefresh + 1
         if (self.attemptsForRefresh) > 3 {
-                print("failed")
+                print("This is in OAuth.refresh - failed")
                 ModelStore.shared.token = nil
                 return
             }
-            print("refreshing oauth")
+            print("This is in OAuth.refresh - refreshing oauth")
             do {
                 try Keyring.retrieveRefreshToken()
                 guard let token = ModelStore.shared.token?.refresh_token else {
@@ -155,13 +156,15 @@ class OAuth {
                 }
                 refresh(token: token)
             } catch {
-                print(error)
+                print("This is in OAuth.refresh Catch: \(error)")
             }
     }
     
     func checkLogin() throws {
         try Keyring.retrieveRefreshToken()
     }
+    
+    
 }
 
 enum OAuthType {
