@@ -30,7 +30,14 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //20180903 map MenuController to meunBar
+        guard let locMenuBar = childViewControllers.first as? MenuController else {
+            fatalError("This is in MainViewController - cannot find MenuController in StoreBoard")
+        }
+        menuBar = locMenuBar
+        
+        
         self.messageHandler = MessageHandler()
         self.messageHandler?.delegate = self
         self.messageHandler?.dataSource = ModelStore.shared
@@ -122,6 +129,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     @IBAction func slideOutLeftMenuBar() {
         //slide in/out menu
         if !isleftMenuOpened {
+            
             leftMenuOpen()
         } else {
             leftMenuClose()
@@ -129,6 +137,9 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     }
     
     func leftMenuOpen() {
+        //20180903 call menuBar.tokenChanged() every time menu bar is open to update the logon status
+        menuBar?.tokenChanged()
+        
         //this make a shadow line between leftMenu view and main view, range from 0 - 1
         leftMenuViewRef.layer.shadowOpacity = 1
         //shadowRadius needs "shadowOpacity" to show on the screen.

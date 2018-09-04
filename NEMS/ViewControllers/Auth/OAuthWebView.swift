@@ -104,14 +104,19 @@ extension OAuth {
                         if let data =  data {
                             do {
                                 let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                                
+                                // Pretty Print the string, for debugging
+                                //let JSONObject = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
                                 let prettyData = try! JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                                 let prettyString = String(data: prettyData, encoding: String.Encoding.utf8)
+                                print(prettyString ?? "No String Available")
                                 
                                 guard let resultText = result as? String else {
                                     //print("This is in OAuthWebView.apiSend - make it a string for some dumb reason")
                                     //print("This is in OAuthWebView.apiSend - result: \(JSONObject)")
                                     return
                                 }
+                                
                                 //print("This is in OAuthWebView.apiSend - resultText: \(resultText)")
                             } catch {
                                 print(error)

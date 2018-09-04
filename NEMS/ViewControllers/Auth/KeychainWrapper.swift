@@ -90,6 +90,8 @@ class Keyring {
         }
         debugPrint("key removed from keychain")
         ModelStore.shared.token = nil
+        //20180903 set refresh_token to nil
+        ModelStore.shared.token?.refresh_token = nil
         OAuth.session?.delegate?.tokenChanged()
         return
     }

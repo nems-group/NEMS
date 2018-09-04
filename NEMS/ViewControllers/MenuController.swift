@@ -48,9 +48,11 @@ class MenuController: UIViewController {
             return
         }
         switch status {
-        case .loggedOut: OAuth.session?.start()
+            case .loggedOut: OAuth.session?.start()
             case .loggedIn : do {
                 try Keyring.removeRefreshToken()
+                self.loginStatus = .loggedOut
+                self.loginLogoutButton.setTitle("Login", for: .normal)
             } catch {
                 print(error)
             }
@@ -59,7 +61,7 @@ class MenuController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-               
+        print("This is in MenuController viewWillAppear - ModelStore.shared.token: \(ModelStore.shared.token)")
         guard ModelStore.shared.token != nil else {
             // we aren't logged in.
             self.loginStatus = .loggedOut
