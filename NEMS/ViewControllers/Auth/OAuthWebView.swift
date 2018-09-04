@@ -88,7 +88,7 @@ extension OAuth {
                 do {
                     try Keyring.retrieveRefreshToken()
                 } catch KeychainError.noToken {
-                    print("This is in OAuthCodeHandler.apiSend - no saved Token")
+                    print("This is in OAuthWebView.apiSend - no saved Token")
                 } catch {
                     print(error)
                 }
@@ -100,20 +100,19 @@ extension OAuth {
             try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
                 if response?.statusCode == 200 {
                     DispatchQueue.main.async {
-                        //print("data: \(data)")
+                        //print("This is in OAuthWebView.apiSend - data: \(String(describing: data))" )
                         if let data =  data {
                             do {
                                 let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                                 let prettyData = try! JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                                 let prettyString = String(data: prettyData, encoding: String.Encoding.utf8)
-                                print(prettyString ?? "No String Available")
                                 
                                 guard let resultText = result as? String else {
-                                    print("This is in OAuthCodeHandler.apiSend - make it a string for some dumb reason")
-                                    //print("This is in OAuthCodeHandler.apiSend - result: \(String(describing: result))")
+                                    //print("This is in OAuthWebView.apiSend - make it a string for some dumb reason")
+                                    //print("This is in OAuthWebView.apiSend - result: \(JSONObject)")
                                     return
                                 }
-                                print("This is in OAuthCodeHandler.apiSend - resultText: \(resultText)")
+                                //print("This is in OAuthWebView.apiSend - resultText: \(resultText)")
                             } catch {
                                 print(error)
                             }
@@ -131,7 +130,7 @@ extension OAuth {
             print(error)
         }
     }
-    
+
 }
 //@available(iOS 12.0, *)
 //public func asAuth(uri: URL, callback: String?) -> ASWebAuthenticationSession? {

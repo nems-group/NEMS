@@ -20,11 +20,11 @@ enum APIerror: Error {
 var url: URL?
 
 func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
-    
+    print("This is in apiHandler - call: \(call)")
     guard let exp = token.acccesTokenExpirationTime else {
-        print("no expiration date")
+        print("This is in apiHandler - no expiration date")
         guard (ModelStore.shared.token?.refresh_token != nil) else {
-            print("no refresh token?")
+            print("This is in apiHandler - no refresh token?")
             throw APIerror.noRefreshToken
         }
         guard let attempts = OAuth.session?.attemptsForRefresh else {
@@ -32,7 +32,7 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         }
         print(attempts)
         if attempts > 3 {
-            print("not above 3 tries")
+            print("This is in apiHandler - not above 3 tries")
             return
         }
         OAuth.session?.refresh()
@@ -66,7 +66,7 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    print("couldn't convert to httpURLresponse")
+                    print("This is in apiHandler - couldn't convert to httpURLresponse")
                     do {
                        try completionHander(nil, nil)
                     } catch {
@@ -77,14 +77,14 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
                 if httpResponse.statusCode == 200 {
                     // good going we got a successful message this should be json
                     if let data = data {
-                        print("we got the data: \(data)")
+                        print("This is in apiHandler - we got the data: \(data)")
                         do {
                             try completionHander(httpResponse, data)
                         } catch {
                             
                         }
                     } else {
-                        print("no data")
+                        print("This is in apiHandler - no data")
                         do {
                             try completionHander(httpResponse, nil)
                         } catch {
