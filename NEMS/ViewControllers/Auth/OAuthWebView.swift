@@ -106,16 +106,23 @@ extension OAuth {
                                 let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                                 
                                 // Pretty Print the string, for debugging
-                                //let JSONObject = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                                let JSONObject = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
                                 let prettyData = try! JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                                 let prettyString = String(data: prettyData, encoding: String.Encoding.utf8)
-                                print(prettyString ?? "No String Available")
+                                //print("This is in OAuthWebView: \(prettyString)")
                                 
-                                guard let resultText = result as? String else {
-                                    //print("This is in OAuthWebView.apiSend - make it a string for some dumb reason")
-                                    //print("This is in OAuthWebView.apiSend - result: \(JSONObject)")
+//                                guard let resultText = result as? String else {
+//                                    //print("This is in OAuthWebView.apiSend - make it a string for some dumb reason")
+//                                    //print("This is in OAuthWebView.apiSend - result: \(JSONObject)")
+//                                    return
+//                                }
+                                
+                                guard let JSONDictionary = JSONObject as? [String: Any] else {
+                                    assertionFailure("Failed to parse data. data.length: \(data.count)")
                                     return
                                 }
+                                
+                                print("This is in OAuthWebView.apiSend - JSONDictionary: \(JSONDictionary["name"])")
                                 
                                 //print("This is in OAuthWebView.apiSend - resultText: \(resultText)")
                             } catch {
