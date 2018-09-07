@@ -53,6 +53,7 @@
 		2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEC021214C7A008F30E0 /* Formatter.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
+		CE83D9D121422AA1004DD38B /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83D9D021422AA1004DD38B /* Patient.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
 		CEF95B492089805600DD523C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF95B472089805600DD523C /* LaunchScreen.storyboard */; };
 		F71DB809A1FD4C5628B0E010 /* libPods-NEMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */; };
@@ -108,6 +109,7 @@
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6772AC2092DE620099295E /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
+		CE83D9D021422AA1004DD38B /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		CEF95B3B2089805500DD523C /* NEMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF95B3E2089805500DD523C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF95B482089805600DD523C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		CEF95B53208D385700DD523C /* ModelStore */ = {
 			isa = PBXGroup;
 			children = (
+				CE83D9D021422AA1004DD38B /* Patient.swift */,
 				2D9EA60920D4667200DE5037 /* JSON.swift */,
 				2D9EA61020D4667200DE5037 /* Location.swift */,
 				2D9EA60F20D4667200DE5037 /* MessageDelegate.swift */,
@@ -442,6 +445,7 @@
 				2D34698721121DED00FF2173 /* MainViewController.swift in Sources */,
 				2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */,
 				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
+				CE83D9D121422AA1004DD38B /* Patient.swift in Sources */,
 				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
 				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,

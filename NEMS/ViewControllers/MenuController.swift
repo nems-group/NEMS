@@ -26,7 +26,7 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblMemberName?.text = ModelStore.shared.memberName
+        lblMemberName?.text = "Hello \(ModelStore.shared.memberName)"
     }
     
     func tokenChanged() {
@@ -35,10 +35,12 @@ class MenuController: UIViewController {
             guard ModelStore.shared.token?.refresh_token != nil else {
                 self.loginStatus = .loggedOut
                 self.loginLogoutButton.setTitle("Login", for: .normal)
+                ModelStore.shared.memberName = "Guest!"
                 return
             }
             self.loginStatus = .loggedIn
             self.loginLogoutButton.setTitle("Logout", for: .normal)
+            self.lblMemberName?.text = "Hello \(ModelStore.shared.memberName)"
         }
     }
     

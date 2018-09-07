@@ -132,12 +132,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Hello Guest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46n-dC-tfc">
-                                        <rect key="frame" x="8" y="8" width="94" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="94" id="BAp-CS-4i5"/>
-                                            <constraint firstAttribute="height" constant="21" id="dCu-ig-Djk"/>
-                                            <constraint firstAttribute="width" secondItem="46n-dC-tfc" secondAttribute="height" multiplier="94:21" id="yqv-eZ-xKS"/>
-                                        </constraints>
+                                        <rect key="frame" x="8" y="8" width="296" height="21"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -146,14 +141,15 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4Kk-pb-Iqz" secondAttribute="bottom" constant="15" id="4zs-tH-psa"/>
-                                    <constraint firstItem="46n-dC-tfc" firstAttribute="top" secondItem="Lep-Ln-hks" secondAttribute="top" constant="8" id="7L1-1U-y4V"/>
+                                    <constraint firstItem="46n-dC-tfc" firstAttribute="leading" secondItem="Lep-Ln-hks" secondAttribute="leading" constant="8" id="83Q-Xe-0ZL"/>
                                     <constraint firstAttribute="trailing" secondItem="4Kk-pb-Iqz" secondAttribute="trailing" constant="85" id="FIU-WZ-esr"/>
-                                    <constraint firstItem="tyb-tA-Poo" firstAttribute="top" secondItem="46n-dC-tfc" secondAttribute="bottom" constant="8" id="I4H-Ys-Yaj"/>
                                     <constraint firstItem="4Kk-pb-Iqz" firstAttribute="top" secondItem="tyb-tA-Poo" secondAttribute="bottom" constant="8" id="Jjh-ZI-5Df"/>
-                                    <constraint firstItem="46n-dC-tfc" firstAttribute="leading" secondItem="Lep-Ln-hks" secondAttribute="leading" constant="8" id="N2d-PH-Hki"/>
+                                    <constraint firstAttribute="trailing" secondItem="46n-dC-tfc" secondAttribute="trailing" constant="8" id="T0b-Hz-CgQ"/>
                                     <constraint firstItem="tyb-tA-Poo" firstAttribute="leading" secondItem="Lep-Ln-hks" secondAttribute="leading" id="bfp-fE-4Rv"/>
+                                    <constraint firstItem="tyb-tA-Poo" firstAttribute="top" secondItem="46n-dC-tfc" secondAttribute="bottom" constant="8" id="dVa-dR-htD"/>
                                     <constraint firstItem="4Kk-pb-Iqz" firstAttribute="leading" secondItem="Lep-Ln-hks" secondAttribute="leading" constant="85" id="elL-iH-K3Y"/>
                                     <constraint firstAttribute="trailing" secondItem="tyb-tA-Poo" secondAttribute="trailing" id="iKS-lS-0hz"/>
+                                    <constraint firstItem="46n-dC-tfc" firstAttribute="top" secondItem="Lep-Ln-hks" secondAttribute="top" constant="8" id="y5v-Hv-mnx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgh-cn-gjE" userLabel="EmptySpaceView">
