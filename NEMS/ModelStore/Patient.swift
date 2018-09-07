@@ -8,14 +8,23 @@
 
 import Foundation
 struct Patient: Decodable {
-    let name: [Name]?
+    let name: [PtName]?
+    let id: String?
+    let gender: String?
 }
 
-struct Name: Decodable {
+struct PtName: Decodable {
     let given: [String]?
     let family: [String]?
 }
 
+struct PtCommunication: Decodable {
+    let language: PtLanguage?
+}
+
+struct PtLanguage: Decodable {
+    let text: String?
+}
 /*
  {
  "gender": "male",
