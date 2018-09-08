@@ -105,8 +105,9 @@ extension OAuth {
                         if let data =  data {
                             do {
                                 let patient = try JSONDecoder().decode(Patient.self, from: data)
+                                ModelStore.shared.patient = patient
                                 ModelStore.shared.memberName = patient.name![0].given![0]
-                                print("This is in OAuthWebView.apiSend - JSONDictionary: \(patient)")
+                                print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
 
                             } catch {
                                 print(error)
