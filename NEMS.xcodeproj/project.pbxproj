@@ -19,6 +19,7 @@
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
+		2D52C7C12144A7DA000437B1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52C7C02144A7DA000437B1 /* SplashViewController.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -72,6 +73,7 @@
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
+		2D52C7C02144A7DA000437B1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
 				2D18485021193FB0003EA64C /* MenuController.swift */,
+				2D52C7C02144A7DA000437B1 /* SplashViewController.swift */,
 				2D4C8B162108162400C32E3F /* Auth */,
 				2D9EA62520D4668C00DE5037 /* MessageViewControllers */,
 				2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */,
@@ -463,6 +466,7 @@
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
 				2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */,
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
+				2D52C7C12144A7DA000437B1 /* SplashViewController.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
 				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,
@@ -611,7 +615,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -632,7 +636,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNX7B53CF;
+				DEVELOPMENT_TEAM = NZ467R4AR6;
 				INFOPLIST_FILE = "$(SRCROOT)/NEMS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,6 +17,7 @@ class MenuController: UIViewController {
     var loginStatus: LoginStatus?
 
     @IBAction func closeLeftMenuBar(_ sender: Any) {
+        print("closed side menu")
         performSegue(withIdentifier: "unwindToLeftMenuViewController", sender: self)
     }
     
