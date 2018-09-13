@@ -30,7 +30,7 @@ class OAuth {
     
     typealias authHandler = (OAuthError?,Data?)->Void
     
-    static let session = OAuth(clientID: Config.options.clientID, callback: Config.options.clientCallbackURI)
+    static let session = OAuth(clientID: Config.options.webConfig.clientID, callback: Config.options.webConfig.clientCallbackURI)
     
     
     let baseURL: URL
@@ -134,7 +134,7 @@ class OAuth {
     
     /// Start the OAuth Flow
     func start() {
-        guard let endPoint = URL(string: Config.options.codeProcessURI) else {
+        guard let endPoint = URL(string: Config.options.webConfig.codeProcessURI) else {
             return
         }
         self.sfSession = sfAuth(uri: self.authorize, callback: self.callback, codeProcessingServerURL: endPoint)
@@ -147,7 +147,7 @@ class OAuth {
     ///
     /// - Parameter token: The Refresh Token to Process
     func refresh(token: String) throws {
-        guard let endPoint = URL(string: Config.options.refreshProccessURI) else {
+        guard let endPoint = URL(string: Config.options.webConfig.refreshProccessURI) else {
             throw OAuthError.malformedURL
         }
         sfRefresh(token: token, codeProcessingServerURL: endPoint) { error, token in

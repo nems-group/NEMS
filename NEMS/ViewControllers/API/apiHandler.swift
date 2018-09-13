@@ -133,16 +133,24 @@ func apiSend(endPoint: String) {
                             ModelStore.shared.memberName = patient.name![0].given![0]
                             print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
                             
-                            let dateRange = DateRange.init(start: Date(), end: Date().addingTimeInterval(TimeInterval.init(110000)))
-                            guard let person = ModelStore.shared.patient?.id else {
-                                print("personID IS POOP")
+                            let daysAvailable: [Day] = [.sun, .tues, .fri]
+                            let timeAvailable: TimeOfDay = .am
+                            
+                            
+                            let starting = Date()
+                            let numberOfDays: Int = 2
+                            let daySeconds = (60*60*24)*numberOfDays
+                            let interval = TimeInterval(daySeconds)
+                            let ending = starting.addingTimeInterval(interval)
+                            
+                            guard let appointmentSearch = AppointmentQuery(typeOfAppointment: "PEDI", starting: starting, ending: ending, available: daysAvailable, timeOfDay: timeAvailable) else {
+                                print("appointmentQuery object failed to init")
                                 return
                             }
-                            let available = Available.init(sun: "Y", mon: "N", tues: "Y", wed: "N", thur: "N", fri: "N", sat: "Y", amPM: "AM")
-                            var appointment = AppointmentQuery.init(personID: person, appointmentType: "PEDI", available: available, dateRange: dateRange)
                             
                             
-                            try Appointment.query(appointmentQuery: appointment)
+                            
+                            try Appointment.query(appointmentQuery: appointmentSearch)
                             
                         } catch {
                             print(error)

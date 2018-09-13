@@ -10,6 +10,8 @@ import Foundation
 
 enum CustomAPIError: Error {
     case invalidURL
+    case invalidJSONEncoding
+    case dataEncodingToUTF8failed
 }
 
 func customAPI(endPoint: String, body: Data, completionHandler completion: @escaping (Error?, Data?) -> Void) throws {
@@ -18,10 +20,15 @@ func customAPI(endPoint: String, body: Data, completionHandler completion: @esca
         throw CustomAPIError.invalidURL
     }
     
+    
+    
     let session = URLSession(configuration: .default)
     var urlRequest = URLRequest(url: url)
     urlRequest.httpBody = body
+    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
     urlRequest.httpMethod = "POST"
+    
+    dump(urlRequest.httpBody)
     
     let task = session.dataTask(with: urlRequest) { (data, response, error) in
         // MARK: To-Do
