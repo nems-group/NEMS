@@ -133,6 +133,17 @@ func apiSend(endPoint: String) {
                             ModelStore.shared.memberName = patient.name![0].given![0]
                             print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
                             
+                            let dateRange = DateRange.init(start: Date(), end: Date().addingTimeInterval(TimeInterval.init(110000)))
+                            guard let person = ModelStore.shared.patient?.id else {
+                                print("personID IS POOP")
+                                return
+                            }
+                            let available = Available.init(sun: "Y", mon: "N", tues: "Y", wed: "N", thur: "N", fri: "N", sat: "Y", amPM: "AM")
+                            var appointment = AppointmentQuery.init(personID: person, appointmentType: "PEDI", available: available, dateRange: dateRange)
+                            
+                            
+                            try Appointment.query(appointmentQuery: appointment)
+                            
                         } catch {
                             print(error)
                         }
