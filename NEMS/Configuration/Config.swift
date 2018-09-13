@@ -18,7 +18,7 @@ final class Config: Codable {
             return try Config()
         } catch {
             print(error)
-            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "", messageServerURI: "")
+            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "", messageServerURI: "", appointmentRequestURI: "")
         }
     }
     
@@ -27,11 +27,11 @@ final class Config: Codable {
                 throw APIerror.dataError
             }
             let options = try ModelStore.jsonDecoder.decode(Config.self, from: data)
-        self.init(clientID: options.webConfig.clientID, clientCallbackURI: options.webConfig.clientCallbackURI, codeProccessURI: options.webConfig.codeProcessURI, refreshProcessURI: options.webConfig.refreshProccessURI, messageServerURI: options.webConfig.messageServerURI)
+        self.init(clientID: options.webConfig.clientID, clientCallbackURI: options.webConfig.clientCallbackURI, codeProccessURI: options.webConfig.codeProcessURI, refreshProcessURI: options.webConfig.refreshProccessURI, messageServerURI: options.webConfig.messageServerURI, appointmentRequestURI: options.webConfig.appointmentRequestURI)
     }
     
-    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String, messageServerURI: String) {
-        let webConfig = WebConfig(clientID: clientID, clientCallbackURI: clientCallbackURI, codeProcessURI: codeProccessURI, refreshProccessURI: refreshProcessURI, messageServerURI: messageServerURI)
+    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String, messageServerURI: String, appointmentRequestURI: String) {
+        let webConfig = WebConfig(clientID: clientID, clientCallbackURI: clientCallbackURI, codeProcessURI: codeProccessURI, refreshProccessURI: refreshProcessURI, messageServerURI: messageServerURI, appointmentRequestURI: appointmentRequestURI)
         self.webConfig = webConfig
     }
     
@@ -60,6 +60,7 @@ struct WebConfig: Codable {
     var codeProcessURI: String
     var refreshProccessURI: String
     var messageServerURI: String
+    var appointmentRequestURI: String
 }
 
 

@@ -4,7 +4,8 @@
         "clientCallbackURI": "nems-app://oauthCallback",
         "codeProcessURI": "http://ngnp:4444/authCode",
         "refreshProccessURI": "http://ngnp:4444/token",
-        "messageServerURI": "http://ngnp:4444/messages"
+        "messageServerURI": "http://ngnp:4444/messages",
+        "appointmentRequestURI": "http://ngnp:4444/appointmentRequests"
     }
 }
 
