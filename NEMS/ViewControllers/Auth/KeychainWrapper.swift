@@ -21,33 +21,38 @@ class Keyring {
     static let tag = "com.nems.app".data(using: .utf8)!
     
     
-    class func saveRefresh(token initToken: AuthToken?) throws {
-        //debugPrint("attempting to save to keychain")
+    class func saveRefresh(token initToken: AuthToken?, completionHandler completion: (Error?, Bool) -> Void) {
+        debugPrint("attempting to save to keychain")
         var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
         guard let token = initToken else {
-            throw KeychainError.noToken
+            completion(KeychainError.noToken, false)
+            return
         }
         
-        do {
-            let updateQuery: [String: Any] = [kSecValueData as String: token.refresh_token?.data(using: .utf8)]
-            try Keyring.retrieveRefreshToken()
-            let status = SecItemUpdate(query as CFDictionary, updateQuery as CFDictionary)
-            guard status == errSecSuccess else {
-                throw KeychainError.unhandledError(status: status)
-            }
-            OAuth.session?.delegate?.tokenChanged()
-            //debugPrint("updated keychain")
-        } catch {
-            query.updateValue(token.refresh_token?.data(using: .utf8), forKey: kSecValueData as String)
-            let status = SecItemAdd(query as CFDictionary, nil)
-            guard status == errSecSuccess else {
-                throw KeychainError.unhandledError(status: status)
+        Keyring.retrieveRefreshToken { (error, success) in
+            if !success || error != nil {
+                query.updateValue(token.refresh_token?.data(using: .utf8), forKey: kSecValueData as String)
+                let status = SecItemAdd(query as CFDictionary, nil)
+                guard status == errSecSuccess else {
+                    completion(KeychainError.unhandledError(status: status), false)
+                    return
+                }
             }
         }
         
+        // MARK: To-Do change this from just saving the refresh token to storing the whole token object, might just make a stringified version with computed property
+        let updateQuery: [String: Any] = [kSecValueData as String: token.refresh_token?.data(using: .utf8)]
+        let status = SecItemUpdate(query as CFDictionary, updateQuery as CFDictionary)
+        guard status == errSecSuccess else {
+            completion(KeychainError.unhandledError(status: status), false)
+            return
+        }
+        print("saved to keychain")
+        completion(nil, true)
+
     }
     
-    class func retrieveRefreshToken() throws {
+    class func retrieveRefreshToken(completionHandler completion: (Error?, Bool) -> Void) {
         debugPrint("attemping to retrieve token from keychain")
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecMatchLimit as String: kSecMatchLimitOne,
@@ -56,15 +61,19 @@ class Keyring {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         guard status != errSecItemNotFound else {
-            throw KeychainError.noToken
+            completion(KeychainError.noToken, false)
+            return
         }
         guard status == errSecSuccess else {
-            throw KeychainError.unhandledError(status: status)
+            print("error")
+            completion(KeychainError.unhandledError(status: status),false)
+            return
         }
         guard let existingItem = item as? [String : Any],
             let refreshToken = existingItem[kSecValueData as String] as? Data,
             let refresh_token = String(data: refreshToken, encoding: String.Encoding.utf8) else {
-                throw KeychainError.unexpectedRefreshData
+                completion(KeychainError.unexpectedRefreshData,false)
+                return
         }
         if ModelStore.shared.token == nil {
             print("value was nil so lets init a blank authToken object")
@@ -72,7 +81,7 @@ class Keyring {
         }
         debugPrint("token retrived")
         ModelStore.shared.token?.refresh_token = refresh_token
-        OAuth.session?.delegate?.tokenChanged()
+        completion(nil, true)
         
     }
     

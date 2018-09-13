@@ -35,7 +35,9 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
             print("This is in apiHandler - not above 3 tries")
             return
         }
-        OAuth.session?.refresh()
+        try OAuth.session?.refresh {
+            print(ModelStore.shared.token)
+        }
         try patientPortalAPI(call: call, authToken: token, completionHander: completionHander)
         return
     }
@@ -103,5 +105,49 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         task.resume()
    
 
+}
+
+//20180826 make pt portal api call
+func apiSend(endPoint: String) {
+    guard let authToken = ModelStore.shared.token else {
+        guard (ModelStore.shared.token?.refresh_token) != nil else {
+            Keyring.retrieveRefreshToken { (error, success) in
+                if !success || error != nil {
+                    return
+                }
+            }
+            return
+        }
+        return
+    }
+    do {
+        try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
+            if response?.statusCode == 200 {
+                DispatchQueue.main.async {
+                    //print("This is in OAuthWebView.apiSend - data: \(String(describing: data))" )
+                    
+                    if let data =  data {
+                        do {
+                            let patient = try JSONDecoder().decode(Patient.self, from: data)
+                            ModelStore.shared.patient = patient
+                            ModelStore.shared.memberName = patient.name![0].given![0]
+                            print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
+                            
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    ModelStore.shared.memberName = "Guest!"
+                }
+                
+            }
+        }
+    } catch {
+        print(error)
+    }
 }
 

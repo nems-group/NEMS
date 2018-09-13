@@ -33,27 +33,39 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
     @IBAction func apiSend(_ sender: Any) {
         
         guard let authToken = ModelStore.shared.token, let endPoint = apiEndPoint.text else {
-            guard (ModelStore.shared.token?.refresh_token) != nil else {
-                do {
-                    try Keyring.retrieveRefreshToken()
-                } catch KeychainError.noToken {
-                    presentAlert()
-                } catch {
+            if (ModelStore.shared.token?.refresh_token) == nil {
+                // the refresh token is not in the model store lets check keychain
+                Keyring.retrieveRefreshToken { (error, success) in
                     print(error)
+                    print(success)
+                    if !success || error != nil {
+                        print(error)
+                        presentAlert()
+                        return
+                    } else {
+                        guard let token = ModelStore.shared.token, let call = apiEndPoint.text else {
+                            return
+                        }
+                        apiCall(call: call, authToken: token)
+                    }
                 }
-                return
             }
             return
         }
+        apiCall(call: endPoint, authToken: authToken)
+        
+    }
+    
+    private func apiCall(call: String, authToken: AuthToken) {
         do {
-            try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
+            try patientPortalAPI(call: call, authToken: authToken) { (response, data) in
                 if response?.statusCode == 200 {
                     DispatchQueue.main.async {
                         
                         if let data =  data {
                             do {
-                               let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                               guard let resultText = result as? String else {
+                                let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                                guard let resultText = result as? String else {
                                     print("couldn't make it a string for some dumb reason")
                                     self.apiResults.text = String(describing: result)
                                     return
@@ -97,7 +109,13 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
         return true
     }
     @IBAction func refreshToken(_ sender: Any) {
-        OAuth.session?.refresh()
+        do {
+            try OAuth.session?.refresh {
+                self.apiResults.text = ModelStore.shared.token.debugDescription
+            }
+        } catch {
+            self.apiResults.text = error.localizedDescription
+        }
     }
     /*
     // MARK: - Navigation
