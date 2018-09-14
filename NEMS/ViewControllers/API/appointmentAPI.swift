@@ -118,18 +118,4 @@ enum YesNo  {
     case no
 }
 
-enum Day {
-    case sun
-    case mon
-    case tues
-    case wed
-    case thur
-    case fri
-    case sat
-}
 
-enum TimeOfDay {
-    case am
-    case pm
-    case any
-}

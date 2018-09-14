@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppointmentCollectionViewController" customModule="NEMS" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CalendarViewCell" customModule="NEMS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvE-Aq-4E5">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-Gn-6rR">
+                            <rect key="frame" x="360.5" y="10" width="29.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="pGB-Gn-6rR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vvE-Aq-4E5" secondAttribute="leading" constant="10" id="Bzw-b1-64J"/>
+                        <constraint firstAttribute="trailing" secondItem="pGB-Gn-6rR" secondAttribute="trailing" constant="10" id="VrE-OL-3Eb"/>
+                        <constraint firstItem="pGB-Gn-6rR" firstAttribute="top" secondItem="vvE-Aq-4E5" secondAttribute="top" constant="10" id="pcX-cR-KiM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vvE-Aq-4E5" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="OmM-mE-ZZq"/>
+                <constraint firstItem="vvE-Aq-4E5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vze-TJ-CVv"/>
+                <constraint firstItem="vvE-Aq-4E5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Y7Y-qs-3L8"/>
+                <constraint firstItem="vvE-Aq-4E5" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="aUM-Cl-Ujs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dayNumber" destination="pGB-Gn-6rR" id="sP1-xf-pQI"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="-141"/>
+        </view>
+    </objects>
+</document>
