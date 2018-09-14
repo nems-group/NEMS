@@ -1,9 +1,9 @@
 //
-//  MainViewController.swift
-//  NotificationTutorial
+// MainViewController.swift
+// NotificationTutorial
 //
-//  Created by User on 4/22/18.
-//  Copyright © 2018 User. All rights reserved.
+// Created by User on 4/22/18.
+// Copyright © 2018 User. All rights reserved.
 //
 
 import UIKit
@@ -33,7 +33,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         
         //20180903 map MenuController to meunBar
         guard let locMenuBar = childViewControllers.first as? MenuController else {
-            fatalError("This is in MainViewController - cannot find MenuController in StoreBoard")
+            fatalError("This is in MainViewController - cannot find MenuController in StoryBoard")
         }
         menuBar = locMenuBar
         
@@ -55,6 +55,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
 
     
+    
     //changed to launch safari app instead of using web-kit (in-app), this will allow users to save passwards and such as though they used the regular safari app. possibly use third party apps using settings in the future.
     @IBAction func patientPortalLaunch(_ sender: Any) {
         openPatientPortal()
@@ -62,20 +63,20 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
 
     func openPatientPortal() {
-        do {
-            try Keyring.retrieveRefreshToken()
-            if ModelStore.shared.token?.refresh_token != nil {
-                print("we have token data")
-                return
+        Keyring.retrieveRefreshToken { error, success in
+            if !success || error != nil {
+                OAuth.session?.start()
+            
             }
-        } catch {
-            print(error)
+            performSegue(withIdentifier: "calendarViewSegue", sender: nil)
+            // MARK: To-Do might want to consider running the refresh logic here once it is working
+            return
         }
         
         
         
         // SFAuth
-        OAuth.session?.start()
+        
         //ASAuth
     }
     
@@ -112,8 +113,12 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
         leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         leftMenuClose()
-        
-        
+        do {
+            let c = try CalendarLayoutModel()
+            
+        } catch {
+            print(error)
+        }
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
         //MessageController.register(tags: ["Hello World", "New Test"])
