@@ -1,0 +1,12 @@
+{
+    "webConfig": {
+        "clientID": "l7f2ac2380f849472f8092393ef83cb14f",
+        "clientCallbackURI": "nems-app://oauthCallback",
+        "codeProcessURI": "http://ngnp:4444/authCode",
+        "refreshProccessURI": "http://ngnp:4444/token",
+        "messageServerURI": "http://ngnp:4444/messages",
+        "appointmentRequestURI": "http://ngnp:4444/appointmentRequests"
+    }
+}
+
+
