@@ -19,7 +19,7 @@ class MessageController {
     /// This will send a POST to our Message Server Endpoint along with the Device ID and all the "tags" that user wishes to be informed about
     class func register(token: String, tags: Tag) {
         
-        guard let url = URL(string: Config.options.messageServerURI) else {
+        guard let url = URL(string: Config.options.webConfig.messageServerURI) else {
             print("invalid url")
             return
         }
@@ -73,7 +73,7 @@ class MessageController {
     /// - Parameter completionHandler: this method is called once we retrieve the data from the server or have an error
     class func fetch(completionHandler completion: @escaping (JSON?, URLError.Code?) -> Void) {
         
-        guard let url = URL(string: Config.options.messageServerURI) else {
+        guard let url = URL(string: Config.options.webConfig.messageServerURI) else {
             completion(nil, URLError.unsupportedURL)
             return
         }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D18485121193FB0003EA64C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18485021193FB0003EA64C /* MenuController.swift */; };
 		2D34698721121DED00FF2173 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698621121DED00FF2173 /* MainViewController.swift */; };
-		2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698821121F9200FF2173 /* OAuthWebView.swift */; };
 		2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */; };
 		2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698C211254E100FF2173 /* KeychainWrapper.swift */; };
 		2D34698F21126E6600FF2173 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698E21126E6600FF2173 /* Calendar.swift */; };
@@ -19,7 +18,6 @@
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
-		2D52C7C12144A7DA000437B1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52C7C02144A7DA000437B1 /* SplashViewController.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -53,6 +51,12 @@
 		2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEBE21214620008F30E0 /* TypeAlias.swift */; };
 		2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEC021214C7A008F30E0 /* Formatter.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
+		2DE54F49214CB624008F9DBA /* appointmentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F47214CB624008F9DBA /* appointmentAPI.swift */; };
+		2DE54F4A214CB624008F9DBA /* CustomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F48214CB624008F9DBA /* CustomAPI.swift */; };
+		2DE54F50214CB651008F9DBA /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */; };
+		2DE54F51214CB651008F9DBA /* AppointmentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */; };
+		2DE54F52214CB651008F9DBA /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */; };
+		2DE54F53214CB651008F9DBA /* CalendarLayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CE83D9D121422AA1004DD38B /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83D9D021422AA1004DD38B /* Patient.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -63,7 +67,6 @@
 /* Begin PBXFileReference section */
 		2D18485021193FB0003EA64C /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../../../Documents/NEMS/NEMS/ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
-		2D34698821121F9200FF2173 /* OAuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthWebView.swift; sourceTree = "<group>"; };
 		2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDelegate.swift; sourceTree = "<group>"; };
 		2D34698C211254E100FF2173 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2D34698E21126E6600FF2173 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
-		2D52C7C02144A7DA000437B1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -107,6 +109,12 @@
 		2DBFDEBE21214620008F30E0 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		2DBFDEC021214C7A008F30E0 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DE54F47214CB624008F9DBA /* appointmentAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appointmentAPI.swift; sourceTree = "<group>"; };
+		2DE54F48214CB624008F9DBA /* CustomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAPI.swift; sourceTree = "<group>"; };
+		2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCollectionViewController.swift; sourceTree = "<group>"; };
+		2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
+		2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLayoutModel.swift; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 		2D3482AC210858C200F0A9C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2DE54F47214CB624008F9DBA /* appointmentAPI.swift */,
+				2DE54F48214CB624008F9DBA /* CustomAPI.swift */,
 				2D3482AA210858B000F0A9C1 /* apiHandler.swift */,
 				2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */,
 			);
@@ -154,7 +164,6 @@
 				2D4C8B142107E95B00C32E3F /* AuthToken.swift */,
 				2D4C8B172108163D00C32E3F /* TokenExtractor.swift */,
 				2D3F0D6B21100F2400B0A470 /* OAuth.swift */,
-				2D34698821121F9200FF2173 /* OAuthWebView.swift */,
 				2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */,
 				2D34698C211254E100FF2173 /* KeychainWrapper.swift */,
 			);
@@ -191,6 +200,17 @@
 				2DBFDEBC2121261E008F30E0 /* Tag.swift */,
 			);
 			path = Messages;
+			sourceTree = "<group>";
+		};
+		2DE54F4B214CB651008F9DBA /* AppointmentView */ = {
+			isa = PBXGroup;
+			children = (
+				2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */,
+				2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */,
+				2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */,
+				2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */,
+			);
+			path = AppointmentView;
 			sourceTree = "<group>";
 		};
 		880A1E6427B6213692ACE871 /* Frameworks */ = {
@@ -249,6 +269,7 @@
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DE54F4B214CB651008F9DBA /* AppointmentView */,
 				2D9EA62420D4668C00DE5037 /* GMapVC.swift */,
 				2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */,
 				2D9EA61F20D4668C00DE5037 /* LocationVC.swift */,
@@ -257,7 +278,6 @@
 				2D9EA61920D4668B00DE5037 /* MessageTableViewCell.swift */,
 				2D9EA62320D4668C00DE5037 /* MessageTableViewController.swift */,
 				2D18485021193FB0003EA64C /* MenuController.swift */,
-				2D52C7C02144A7DA000437B1 /* SplashViewController.swift */,
 				2D4C8B162108162400C32E3F /* Auth */,
 				2D9EA62520D4668C00DE5037 /* MessageViewControllers */,
 				2D9EA62120D4668C00DE5037 /* NotificationViewController.swift */,
@@ -375,6 +395,7 @@
 				2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */,
 				2DA6AE20211FD37E00DF68D8 /* config.json in Resources */,
 				2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */,
+				2DE54F52214CB651008F9DBA /* CalendarViewCell.xib in Resources */,
 				2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,16 +450,18 @@
 			files = (
 				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
 				2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */,
-				2D34698921121F9200FF2173 /* OAuthWebView.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
+				2DE54F49214CB624008F9DBA /* appointmentAPI.swift in Sources */,
 				2D18485121193FB0003EA64C /* MenuController.swift in Sources */,
+				2DE54F51214CB651008F9DBA /* AppointmentCollectionViewController.swift in Sources */,
 				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
 				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
 				2DBFDEBB21212220008F30E0 /* MessageController.swift in Sources */,
+				2DE54F50214CB651008F9DBA /* CalendarViewCell.swift in Sources */,
 				2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */,
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
@@ -454,6 +477,7 @@
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
+				2DE54F53214CB651008F9DBA /* CalendarLayoutModel.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
 				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
 				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
@@ -466,7 +490,7 @@
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
 				2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */,
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
-				2D52C7C12144A7DA000437B1 /* SplashViewController.swift in Sources */,
+				2DE54F4A214CB624008F9DBA /* CustomAPI.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
 				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,

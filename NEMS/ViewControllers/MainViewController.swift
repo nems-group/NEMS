@@ -113,12 +113,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
         leftMenuOpenConstraint = self.view.bounds.width //-leftMenuViewRef.bounds.size.width
         leftMenuTrailingConstraints.constant = -self.leftMenuOpenConstraint
         leftMenuClose()
-        do {
-            let c = try CalendarLayoutModel()
-            
-        } catch {
-            print(error)
-        }
+        
         //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //messageHandler.sync()
         //MessageController.register(tags: ["Hello World", "New Test"])
