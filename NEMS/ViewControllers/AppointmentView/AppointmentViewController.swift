@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AppointmentViewController: UIViewController {
+class AppointmentViewController: UIViewController, UICollectionViewDelegate {
     
-    var calendarDelegate: CalendarCollectionViewDelegate?
+    var calendar: CalendarCollectionViewController?
+    var layout: CalendarLayout?
     @IBOutlet weak var calendarLabel: UILabel!
     var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
     
@@ -51,8 +52,11 @@ class AppointmentViewController: UIViewController {
         guard let newCal = newMonth else {
             return
         }
+        dump(newCal)
         self.currentCalendar = newCal
-        self.calendarDelegate?.currentCalendarChanged(newModel: newCal)
+        self.calendar?.layout = CalendarLayout(newCal)
+        //let indexPath = IndexSet(integer: 1)
+        self.calendar?.collectionView?.reloadData()
         self.calendarLabel.text = currentCalendar?.month.description
     }
     
@@ -70,20 +74,31 @@ class AppointmentViewController: UIViewController {
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calendarContainerSegue" {
             
             print("id")
-            guard var calendarCollectionViewDelegate = segue.destination as? CalendarCollectionViewDelegate else {
-                    print("could't make delegate")
+            guard let cal = self.currentCalendar else {
                 return
             }
-            guard let currentCal = self.currentCalendar else {
-                print("current cal is nil")
+            let theLayout = CalendarLayout(cal)
+            self.layout = theLayout
+            guard let delegate = segue.destination as? CalendarCollectionViewController else {
+                print("container issue")
                 return
             }
-            self.calendarDelegate = calendarCollectionViewDelegate
-            self.calendarDelegate?.newLayout(from: currentCal)
+            delegate.collectionView?.delegate = self
+            guard let layout = self.layout else {
+                print("layout issue")
+                return
+            }
+            delegate.collectionView?.dataSource = layout
+            //delegate.collectionView?.delegate = self
+            let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
+            delegate.collectionView?.register(CalendarViewCell, forCellWithReuseIdentifier: "CalendarViewCell")
+            self.calendar = delegate
+            
         }
     }
     /*

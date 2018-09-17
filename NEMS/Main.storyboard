@@ -1353,7 +1353,7 @@ Closed Sun
         <scene sceneID="gQa-Md-9KU">
             <objects>
                 <viewController id="z7W-Yk-cXS" userLabel="CalendarContainer" customClass="CalendarCollectionViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Vnz-IS-JNW">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" id="Vnz-IS-JNW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

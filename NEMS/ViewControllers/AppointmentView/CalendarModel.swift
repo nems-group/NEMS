@@ -18,7 +18,7 @@ enum CalendarLayoutError: Error {
 class CalendarModel {
     
     var month: Month
-    var year: Int = Date.currentYear
+    var year: Int
     var numberOfWeeks: Int
     var numberOfDays: Int
     var startsOn: Day
@@ -28,6 +28,7 @@ class CalendarModel {
             guard let lastMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(-1, unit: .month) else {
                 return nil
             }
+            print(lastMonth)
             return lastMonth
         }
     }
@@ -36,6 +37,7 @@ class CalendarModel {
             guard let nextMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(1, unit: .month) else {
                 return nil
             }
+            print(nextMonth)
             return nextMonth
         }
     }
@@ -83,6 +85,7 @@ class CalendarModel {
         self.numberOfDays = days
         self.startsOn = monthStartsOn
         self.endsOn = monthEndsOn
+        self.year = year
         //self.index = [:]
         
     }
@@ -116,6 +119,7 @@ extension Date {
                 return nil
             }
             guard let object = try? CalendarModel(month: month, year: self.year) else {
+                
                 return nil
             }
             return object

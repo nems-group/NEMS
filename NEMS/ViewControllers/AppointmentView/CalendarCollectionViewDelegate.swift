@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CalendarCollectionViewDelegate {
-    func currentCalendarChanged(newModel: CalendarModel)
-    func newLayout(from dataSource: CalendarModel)
+    func currentCalendarChanged(newModel: CalendarModel, completionHandler: () -> Void)
+    func newLayout(from dataSource: CalendarModel, sender: UICollectionViewDelegate)
     var layout: CalendarLayout? { get set }
+    func reloadView()
 }
+

@@ -142,6 +142,7 @@ extension Date {
     var year: Int {
         get {
             let cal = Calendar.current.component(.year, from: self)
+            //print(cal)
             return cal
         }
     }

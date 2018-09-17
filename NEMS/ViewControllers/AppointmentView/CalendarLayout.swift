@@ -7,13 +7,92 @@
 //
 
 import Foundation
+import UIKit
+
+private let reuseIdentifier = "CalendarViewCell"
 
 enum CalendarDisplayStyle {
     case withNeighborDates
     case noNeighborDates
 }
 
-class CalendarLayout {
+@objc class CalendarLayout: NSObject, UICollectionViewDataSource {
+    
+    var view: UIView?
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 7
+        } else if section == 1 {
+            return (self.index?.count) ?? 0
+        } else {
+            return 0
+        }
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let bad = CGSize(width: 0, height: 0)
+        
+        guard let calWidth = view?.frame.width else {
+            return bad
+        }
+        
+        guard let viewHeightHalf = view?.frame.height else {
+            return bad
+        }
+        var calHeight = viewHeightHalf/CGFloat(dataSource.numberOfWeeks)
+        
+        if indexPath.section == 0 {
+            calHeight = 25
+        }
+        
+        return CGSize(width: calWidth, height: calHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let calCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CalendarViewCell else {
+            return CalendarViewCell()
+        }
+        if indexPath.section == 0 {
+            
+            //print(indexPath.row)
+            calCell.setUp(weekdayInt: indexPath.row+1)
+        } else {
+            
+            guard let index = self.index else {
+                print("no index count")
+                return calCell
+            }
+            
+            let indexRange = index.count
+            if indexPath.row >= indexRange {
+                return calCell
+            }
+            let model = index[indexPath.row]
+            calCell.setUp(date: model)
+            
+            //print("Day \(calCell.dayNumber.text)")
+            print(indexPath.row)
+            return calCell
+        }
+        
+        
+        
+        
+        // Configure the cell
+        
+        return calCell
+    }
+    
+    
     
     var style: CalendarDisplayStyle = .withNeighborDates
     var dataSource: CalendarModel
@@ -29,6 +108,8 @@ class CalendarLayout {
         self.init(style: .withNeighborDates, dataSource: dataSource)
         self.buildIndex()
     }
+    
+
     
     func buildIndex() {
         
@@ -59,7 +140,7 @@ class CalendarLayout {
         for square in initialSquare...(totalSquares) {
             //print("square: \(square)")
             //print("init: \(initialSquare)")
-            //print("totalSquares: \(totalSquares)")
+            print("totalSquares: \(totalSquares)")
             if square < priorNumberOfDays {
                 
                 //print(square)
@@ -88,12 +169,12 @@ class CalendarLayout {
                     guard let next = try? Date(year: dataSource.year, month: dataSource.month.rawValue) else {
                         continue
                     }
-                    print(next)
-                    print(square-priorNumberOfDays+1)
+                    //print(next)
+                    //print(square-priorNumberOfDays+1)
                     guard let add = next.dateAdd(square-priorNumberOfDays, unit: .day) else {
                         continue
                     }
-                    print(add)
+                    //print(add)
                     guard let monthV = Month(rawValue: add.month) else {
                         continue
                     }
