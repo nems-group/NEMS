@@ -18,6 +18,7 @@
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
+		2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -51,12 +52,14 @@
 		2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEBE21214620008F30E0 /* TypeAlias.swift */; };
 		2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFDEC021214C7A008F30E0 /* Formatter.swift */; };
 		2DC61CE520C0C07B0029E797 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC61CE420C0C07B0029E797 /* Assets.xcassets */; };
+		2DD29D7B214F17B3001E2DE4 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD29D7A214F17B3001E2DE4 /* AppointmentViewController.swift */; };
+		2DD29D7D214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD29D7C214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift */; };
 		2DE54F49214CB624008F9DBA /* appointmentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F47214CB624008F9DBA /* appointmentAPI.swift */; };
 		2DE54F4A214CB624008F9DBA /* CustomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F48214CB624008F9DBA /* CustomAPI.swift */; };
 		2DE54F50214CB651008F9DBA /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */; };
-		2DE54F51214CB651008F9DBA /* AppointmentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */; };
+		2DE54F51214CB651008F9DBA /* CalendarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4D214CB651008F9DBA /* CalendarCollectionViewController.swift */; };
 		2DE54F52214CB651008F9DBA /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */; };
-		2DE54F53214CB651008F9DBA /* CalendarLayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */; };
+		2DE54F53214CB651008F9DBA /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE54F4F214CB651008F9DBA /* CalendarModel.swift */; };
 		CE6772AD2092DE620099295E /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6772AC2092DE620099295E /* LocalData.swift */; };
 		CE83D9D121422AA1004DD38B /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83D9D021422AA1004DD38B /* Patient.swift */; };
 		CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF95B3E2089805500DD523C /* AppDelegate.swift */; };
@@ -76,6 +79,7 @@
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
+		2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLayout.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -109,12 +113,14 @@
 		2DBFDEBE21214620008F30E0 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		2DBFDEC021214C7A008F30E0 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		2DC61CE420C0C07B0029E797 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DD29D7A214F17B3001E2DE4 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
+		2DD29D7C214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		2DE54F47214CB624008F9DBA /* appointmentAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appointmentAPI.swift; sourceTree = "<group>"; };
 		2DE54F48214CB624008F9DBA /* CustomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAPI.swift; sourceTree = "<group>"; };
 		2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
-		2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCollectionViewController.swift; sourceTree = "<group>"; };
+		2DE54F4D214CB651008F9DBA /* CalendarCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewController.swift; sourceTree = "<group>"; };
 		2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
-		2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLayoutModel.swift; sourceTree = "<group>"; };
+		2DE54F4F214CB651008F9DBA /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		449D8E69B1BFBE8195A72403 /* libPods-NEMS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEMS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D139C36D58B94224ED304 /* Pods-NEMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEMS/Pods-NEMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1CD55020904C430022E8E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,9 +212,12 @@
 			isa = PBXGroup;
 			children = (
 				2DE54F4C214CB651008F9DBA /* CalendarViewCell.swift */,
-				2DE54F4D214CB651008F9DBA /* AppointmentCollectionViewController.swift */,
+				2DE54F4D214CB651008F9DBA /* CalendarCollectionViewController.swift */,
 				2DE54F4E214CB651008F9DBA /* CalendarViewCell.xib */,
-				2DE54F4F214CB651008F9DBA /* CalendarLayoutModel.swift */,
+				2DE54F4F214CB651008F9DBA /* CalendarModel.swift */,
+				2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */,
+				2DD29D7A214F17B3001E2DE4 /* AppointmentViewController.swift */,
+				2DD29D7C214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift */,
 			);
 			path = AppointmentView;
 			sourceTree = "<group>";
@@ -454,7 +463,7 @@
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,
 				2DE54F49214CB624008F9DBA /* appointmentAPI.swift in Sources */,
 				2D18485121193FB0003EA64C /* MenuController.swift in Sources */,
-				2DE54F51214CB651008F9DBA /* AppointmentCollectionViewController.swift in Sources */,
+				2DE54F51214CB651008F9DBA /* CalendarCollectionViewController.swift in Sources */,
 				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
@@ -463,6 +472,7 @@
 				2DBFDEBB21212220008F30E0 /* MessageController.swift in Sources */,
 				2DE54F50214CB651008F9DBA /* CalendarViewCell.swift in Sources */,
 				2D34698D211254E100FF2173 /* KeychainWrapper.swift in Sources */,
+				2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */,
 				2D9EA63D20D4668C00DE5037 /* HistoriesViewController.swift in Sources */,
 				2D9EA61520D4667200DE5037 /* MessageHandler.swift in Sources */,
 				2DBFDEBD2121261E008F30E0 /* Tag.swift in Sources */,
@@ -477,7 +487,7 @@
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
-				2DE54F53214CB651008F9DBA /* CalendarLayoutModel.swift in Sources */,
+				2DE54F53214CB651008F9DBA /* CalendarModel.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
 				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
 				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
@@ -485,6 +495,7 @@
 				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
 				2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */,
 				2D34698F21126E6600FF2173 /* Calendar.swift in Sources */,
+				2DD29D7B214F17B3001E2DE4 /* AppointmentViewController.swift in Sources */,
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
@@ -492,6 +503,7 @@
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
 				2DE54F4A214CB624008F9DBA /* CustomAPI.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
+				2DD29D7D214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
 				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,
 				2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */,

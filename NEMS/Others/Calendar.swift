@@ -11,6 +11,8 @@ import Foundation
 enum DateError: Error {
     case invalidString
     case invalidMonthNumber
+    case invalidDayNumber
+    case lastDayUnobtainable
 }
 
 extension Date {
@@ -45,6 +47,14 @@ extension Date {
         }
     }
     
+    var currentMonth: Month? {
+        get {
+            let cal = Calendar.current.component(.month, from: self)
+            let month = Month(rawValue: cal)
+            return month
+        }
+    }
+    
     static var thisMonth: Month? {
         get {
             return Month(rawValue: currentMonth)
@@ -53,24 +63,93 @@ extension Date {
     
     init(year: Int, month: Int) throws {
         var monthS: String
-        if month < 10 {
-            monthS = "0"+String(month)
-        } else if month > 12 || month <= 0 {
-            throw DateError.invalidMonthNumber
-        } else {
-            monthS = String(month)
-        }
         let yearS: String = String(year)
-        let yyyyMM = yearS+monthS
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMM"
         
+        if month > 12 || month <= 0 {
+            throw DateError.invalidMonthNumber
+        } else if month < 10 {
+            monthS = "0"+String(month)
+        } else {
+            monthS = String(month)
+        }
+        
+        let yyyyMM = yearS+monthS
         guard let newDate = formatter.date(from: yyyyMM) else {
             throw DateError.invalidString
         }
         self = newDate
     }
     
+    init(year: Int, month: Int, day: Int) throws {
+        var monthS: String
+        let yearS: String = String(year)
+        var dayS: String
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        if month > 12 || month <= 0 {
+            throw DateError.invalidMonthNumber
+        } else if month < 10 {
+            monthS = "0"+String(month)
+        } else {
+            monthS = String(month)
+        }
+        
+        let date = try Date(year: year, month: month)
+        let days = Calendar.current.range(of: .day, in: .month, for: date)
+        guard let lastDayOfMonth = days?.max() else {
+            throw DateError.lastDayUnobtainable
+        }
+        
+        if day > lastDayOfMonth || day <= 0 {
+            throw DateError.invalidDayNumber
+        } else if day < 10 {
+            dayS = "0"+String(day)
+        } else {
+            dayS = String(day)
+        }
+        
+        let yyyyMMdd = yearS+monthS+dayS
+        guard let newDate = formatter.date(from: yyyyMMdd) else {
+            throw DateError.invalidString
+        }
+        self = newDate
+    }
+    
+    init(year: Int, month: Month, day: Int) throws {
+        let monthInt = month.rawValue
+        try self.init(year: year, month: monthInt, day: day)
+    }
+    
+    func dateAdd(_ value: Int, unit: Calendar.Component) -> Date? {
+        
+        let cal = Calendar.current.date(byAdding: unit, value: value, to: self)
+        
+        return cal
+    }
+    
+    var month: Int {
+        get {
+            let cal = Calendar.current.component(.month, from: self)
+            return cal
+        }
+    }
+    
+    var year: Int {
+        get {
+            let cal = Calendar.current.component(.year, from: self)
+            return cal
+        }
+    }
+    
+    var day: Int {
+        let cal = Calendar.current.component(.day, from: self)
+        return cal
+    }
     
 }
 

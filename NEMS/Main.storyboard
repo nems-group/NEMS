@@ -536,7 +536,7 @@
                         <outlet property="leftMenuTrailingConstraints" destination="a1u-Eh-YZi" id="sO0-PH-v1t"/>
                         <outlet property="leftMenuViewRef" destination="4dT-MC-8OD" id="9fF-aR-mtK"/>
                         <outlet property="messageReadCount" destination="80r-DS-zTh" id="5Y5-zH-NHq"/>
-                        <segue destination="a0g-W1-1bu" kind="show" identifier="calendarViewSegue" id="yan-cl-BeI"/>
+                        <segue destination="vCj-8i-6xh" kind="show" identifier="calendarViewSegue" id="Ynb-aE-1Aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PI8-EX-bX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1124,41 +1124,91 @@ Closed Sun
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5F-rK-kdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2998" y="-695"/>
+            <point key="canvasLocation" x="3571" y="-373"/>
         </scene>
-        <!--Appointment Collection View Controller-->
-        <scene sceneID="Np6-90-R1k">
+        <!--Appointments-->
+        <scene sceneID="dJn-WM-iu1">
             <objects>
-                <collectionViewController id="a0g-W1-1bu" customClass="AppointmentCollectionViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="PTC-L2-mcO">
+                <viewController storyboardIdentifier="AppointmentScreen" title="Appointments" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vCj-8i-6xh" customClass="AppointmentViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Afn-yh-xpq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-rn-246" userLabel="CalendarContainer">
+                                <rect key="frame" x="0.0" y="99" width="414" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="IEB-Hx-Hlx"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="z7W-Yk-cXS" kind="embed" identifier="calendarContainerSegue" id="Nx9-N8-rIw"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eft-YZ-zvj" userLabel="AppointmentListContainer">
+                                <rect key="frame" x="0.0" y="429" width="414" height="307"/>
+                                <connections>
+                                    <segue destination="KVf-2Z-y44" kind="embed" id="3ad-Aw-YnH"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d06-OC-kpJ" userLabel="Calendar Picker">
+                                <rect key="frame" x="0.0" y="64" width="414" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhT-wK-I67">
+                                        <rect key="frame" x="182" y="7" width="50" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbZ-OB-ebk">
+                                        <rect key="frame" x="314" y="2.6666666666666714" width="30" height="30"/>
+                                        <state key="normal" title="&gt;"/>
+                                        <connections>
+                                            <action selector="changeMonth:" destination="vCj-8i-6xh" eventType="touchUpInside" id="yww-xM-Aw6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-qv-9ha">
+                                        <rect key="frame" x="70" y="0.6666666666666714" width="30" height="34"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMonth:" destination="vCj-8i-6xh" eventType="touchUpInside" id="x5O-gE-wtu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GhT-wK-I67" firstAttribute="centerY" secondItem="d06-OC-kpJ" secondAttribute="centerY" id="M49-A4-Pqd"/>
+                                    <constraint firstItem="GhT-wK-I67" firstAttribute="centerX" secondItem="d06-OC-kpJ" secondAttribute="centerX" id="acs-By-gym"/>
+                                    <constraint firstItem="AAA-qv-9ha" firstAttribute="leading" secondItem="d06-OC-kpJ" secondAttribute="leading" constant="70" id="awH-la-SYq"/>
+                                    <constraint firstItem="AAA-qv-9ha" firstAttribute="centerY" secondItem="d06-OC-kpJ" secondAttribute="centerY" id="e6R-U4-eXV"/>
+                                    <constraint firstAttribute="height" constant="35" id="hDU-ER-k1r"/>
+                                    <constraint firstAttribute="trailing" secondItem="KbZ-OB-ebk" secondAttribute="trailing" constant="70" id="vUE-RQ-xAL"/>
+                                    <constraint firstItem="KbZ-OB-ebk" firstAttribute="centerY" secondItem="d06-OC-kpJ" secondAttribute="centerY" id="xTl-HQ-FFH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IXU-D5-RMZ">
-                            <size key="itemSize" width="43" height="47"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Cg2-UN-1bU">
-                                <rect key="frame" x="0.0" y="0.0" width="43" height="47"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="43" height="47"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="a0g-W1-1bu" id="hAI-Hp-vgR"/>
-                            <outlet property="delegate" destination="a0g-W1-1bu" id="YTo-Kx-97C"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jfo-ES-b7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="d06-OC-kpJ" firstAttribute="top" secondItem="bRk-Tx-SGs" secondAttribute="top" id="DDL-gp-NPA"/>
+                            <constraint firstItem="d06-OC-kpJ" firstAttribute="leading" secondItem="bRk-Tx-SGs" secondAttribute="leading" id="Ebv-cT-e35"/>
+                            <constraint firstItem="pYe-rn-246" firstAttribute="trailing" secondItem="bRk-Tx-SGs" secondAttribute="trailing" id="SZD-Xs-REP"/>
+                            <constraint firstItem="bRk-Tx-SGs" firstAttribute="bottom" secondItem="eft-YZ-zvj" secondAttribute="bottom" id="TO9-1E-m18"/>
+                            <constraint firstItem="pYe-rn-246" firstAttribute="leading" secondItem="bRk-Tx-SGs" secondAttribute="leading" id="WXW-FM-MKi"/>
+                            <constraint firstItem="pYe-rn-246" firstAttribute="top" secondItem="d06-OC-kpJ" secondAttribute="bottom" id="aHb-Ku-sWv"/>
+                            <constraint firstItem="eft-YZ-zvj" firstAttribute="top" secondItem="pYe-rn-246" secondAttribute="bottom" id="o5b-MJ-T7n"/>
+                            <constraint firstItem="eft-YZ-zvj" firstAttribute="leading" secondItem="bRk-Tx-SGs" secondAttribute="leading" id="osw-P2-85X"/>
+                            <constraint firstItem="d06-OC-kpJ" firstAttribute="trailing" secondItem="bRk-Tx-SGs" secondAttribute="trailing" id="uHx-ij-qf9"/>
+                            <constraint firstItem="eft-YZ-zvj" firstAttribute="trailing" secondItem="bRk-Tx-SGs" secondAttribute="trailing" id="zEC-dA-RNd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bRk-Tx-SGs"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarLabel" destination="GhT-wK-I67" id="UCA-yO-n5k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lff-55-8ip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3792.753623188406" y="-332.60869565217394"/>
+            <point key="canvasLocation" x="3792.753623188406" y="-1663.0434782608697"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="hCc-aM-pql">
@@ -1261,6 +1311,73 @@ Closed Sun
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsg-Zb-8OP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="717" y="149"/>
+        </scene>
+        <!--AppointmentsListContainer-->
+        <scene sceneID="ji1-az-Pbf">
+            <objects>
+                <viewController id="KVf-2Z-y44" userLabel="AppointmentsListContainer" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uYl-B1-j2u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="307"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B8L-eB-fQy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="307"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0Mb-Yt-QaY">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Mb-Yt-QaY" id="ScA-6S-rhZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B8L-eB-fQy" firstAttribute="top" secondItem="uYl-B1-j2u" secondAttribute="top" id="2ME-Fm-pzg"/>
+                            <constraint firstItem="B8L-eB-fQy" firstAttribute="leading" secondItem="uYl-B1-j2u" secondAttribute="leading" id="51U-Un-U1B"/>
+                            <constraint firstAttribute="bottom" secondItem="B8L-eB-fQy" secondAttribute="bottom" id="ehJ-8f-UuN"/>
+                            <constraint firstAttribute="trailing" secondItem="B8L-eB-fQy" secondAttribute="trailing" id="vR4-6I-nrW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WM1-0i-voT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peF-nf-rzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-988"/>
+        </scene>
+        <!--CalendarContainer-->
+        <scene sceneID="gQa-Md-9KU">
+            <objects>
+                <viewController id="z7W-Yk-cXS" userLabel="CalendarContainer" customClass="CalendarCollectionViewController" customModule="NEMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Vnz-IS-JNW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JUa-l1-7du">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lSA-Nk-DeQ" customClass="CalendarViewCell" customModule="NEMS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9e-dP-nGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-2213"/>
         </scene>
     </scenes>
     <resources>

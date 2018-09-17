@@ -1,5 +1,5 @@
 //
-//  AppointmentCollectionViewController.swift
+//  CalendarCollectionViewController.swift
 //  NEMS
 //
 //  Created by Scott Eremia-Roden on 9/13/18.
@@ -10,42 +10,43 @@ import UIKit
 
 private let reuseIdentifier = "CalendarViewCell"
 
-class AppointmentCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CalendarCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CalendarCollectionViewDelegate {
+    
+    func newLayout(from dataSource: CalendarModel) {
+        self.layout = CalendarLayout(dataSource)
+        print("layout: \(self.layout), dataSource: \(dataSource), localLayout: \(CalendarLayout(dataSource))")
+        self.collectionView?.reloadData()
+    }
+    
+    
+    func currentCalendarChanged(newModel: CalendarModel) {
+        self.layout = CalendarLayout(newModel)
+        self.collectionView?.reloadData()
+    }
+    
 
-    let model = try! CalendarLayoutModel()
+    var layout: CalendarLayout?
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
-    var addBlankDaysToFirstWeek: Int = 0
+    var addPreviousMonthDaysToFirstWeek: Int = 0
+    var addNextMonthDaysToLastWeek: Int = 0
+    //var delegate: CalendarCollectionViewDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.collectionView?.dataSource = self
-        self.collectionView?.delegate = self
         
-        switch model.startsOn {
-            
-        case .sun:
-            addBlankDaysToFirstWeek = 0
-        case .mon:
-            addBlankDaysToFirstWeek = 1
-        case .tues:
-            addBlankDaysToFirstWeek = 2
-        case .wed:
-            addBlankDaysToFirstWeek = 3
-        case .thur:
-            addBlankDaysToFirstWeek = 4
-        case .fri:
-            addBlankDaysToFirstWeek = 5
-        case .sat:
-            addBlankDaysToFirstWeek = 6
-        }
-        
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        guard let model = self.layout?.dataSource else {
+            return CGSize(width: 0, height: 0)
+        }
+        
         let calWidth = view.frame.width/7
         
-        let viewHeightHalf = view.frame.height/2
+        let viewHeightHalf = view.frame.height
         var calHeight = viewHeightHalf/CGFloat(model.numberOfWeeks)
         
         if indexPath.section == 0 {
@@ -58,23 +59,29 @@ class AppointmentCollectionViewController: UICollectionViewController, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView?.dataSource = self
+        self.collectionView?.delegate = self
         
-        screenSize = UIScreen.main.bounds
-        screenWidth = screenSize.width
-        screenHeight = screenSize.height
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/7, height: screenWidth/CGFloat(model.numberOfWeeks))
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        collectionView!.collectionViewLayout = layout
+        let viewHeight = self.view.frame.height
+        let viewWidth = self.view.frame.width
+        
+        guard let model = self.layout?.dataSource else {
+            return
+        }
+        
+        let layoutGuide: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layoutGuide.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layoutGuide.itemSize = CGSize(width: viewWidth/7, height: viewHeight/CGFloat(model.numberOfWeeks))
+        layoutGuide.minimumInteritemSpacing = 0
+        layoutGuide.minimumLineSpacing = 0
+        collectionView?.collectionViewLayout = layoutGuide
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Register cell classes
         let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
-        self.collectionView!.register(CalendarViewCell, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.register(CalendarViewCell, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -105,10 +112,12 @@ class AppointmentCollectionViewController: UICollectionViewController, UICollect
         if section == 0 {
             return 7
         } else {
-            
-            
-            print(model.numberOfDays)
-            return model.numberOfDays+addBlankDaysToFirstWeek
+            guard let count = layout?.index?.count else {
+                print("no layout")
+                return 0
+            }
+            print(count)
+            return count
         }
     }
 
@@ -116,24 +125,30 @@ class AppointmentCollectionViewController: UICollectionViewController, UICollect
         guard let calCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CalendarViewCell else {
             return CalendarViewCell()
         }
-        calCell.month = model.month.rawValue
         if indexPath.section == 0 {
-            for i in indexPath {
-                calCell.dayNumber.text = Day(rawValue: i+1)?.shortDescription
-                calCell.dayNumber.font = calCell.dayNumber.font.withSize(12.0)
-            }
+            print(indexPath.row)
+            calCell.setUp(weekdayInt: indexPath.row+1)
         } else {
-        
-            for i in indexPath {
-                if i < addBlankDaysToFirstWeek {
-                    calCell.dayNumber.text = ""
-                    calCell.day = 0
-                } else {
-                    calCell.dayNumber.text = String((i+1)-addBlankDaysToFirstWeek)
-                    calCell.day = (i+1)-addBlankDaysToFirstWeek
-                }
+            guard let layout = self.layout else {
+                print("no layout")
+                return calCell
             }
+            guard let indexCount = layout.index?.count, let index = layout.index else {
+                print("no index count")
+                return calCell
+            }
+            let indexRange = indexCount+1
+            if indexPath.row > indexRange {
+                return calCell
+            }
+            let model = index[indexPath.row]
+            calCell.setUp(date: model)
+            return calCell
         }
+        
+        
+        
+        
         // Configure the cell
         
         return calCell
@@ -141,18 +156,22 @@ class AppointmentCollectionViewController: UICollectionViewController, UICollect
 
     // MARK: UICollectionViewDelegate
 
-    /*
+    
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        
         return true
     }
-    */
+    
 
     
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        print(model.month.description)
-        print((indexPath.row+1)-addBlankDaysToFirstWeek)
+        //collectionView.collectionViewLayout
+        //collectionView.frame = CGRect(x: 20, y: 20, width: 20, height: 20)
+        //print(model.month.description)
+        //print((indexPath.row+1)-addBlankDaysToFirstWeek)
+        print(layout?.index?[indexPath.row]?.month)
         return true
     }
  

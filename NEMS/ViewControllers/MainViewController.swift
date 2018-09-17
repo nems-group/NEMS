@@ -53,6 +53,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
 
     }
     
+   
 
     
     
@@ -69,6 +70,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             
             }
             performSegue(withIdentifier: "calendarViewSegue", sender: nil)
+            
             // MARK: To-Do might want to consider running the refresh logic here once it is working
             return
         }

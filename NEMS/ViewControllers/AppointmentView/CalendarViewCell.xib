@@ -25,12 +25,23 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bI-Sk-RaA">
+                            <rect key="frame" x="172.5" y="192" width="55" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="pGB-Gn-6rR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vvE-Aq-4E5" secondAttribute="leading" constant="10" id="Bzw-b1-64J"/>
+                        <constraint firstItem="0bI-Sk-RaA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vvE-Aq-4E5" secondAttribute="leading" constant="5" id="Nvj-JY-4Ry"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0bI-Sk-RaA" secondAttribute="trailing" constant="5" id="QtW-9G-AUq"/>
                         <constraint firstAttribute="trailing" secondItem="pGB-Gn-6rR" secondAttribute="trailing" constant="10" id="VrE-OL-3Eb"/>
+                        <constraint firstItem="0bI-Sk-RaA" firstAttribute="centerX" secondItem="vvE-Aq-4E5" secondAttribute="centerX" id="b37-1w-vSy"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0bI-Sk-RaA" secondAttribute="bottom" constant="2" id="gXD-Nf-K7F"/>
+                        <constraint firstItem="0bI-Sk-RaA" firstAttribute="centerY" secondItem="vvE-Aq-4E5" secondAttribute="centerY" id="jgs-5E-3vr"/>
                         <constraint firstItem="pGB-Gn-6rR" firstAttribute="top" secondItem="vvE-Aq-4E5" secondAttribute="top" constant="10" id="pcX-cR-KiM"/>
+                        <constraint firstItem="0bI-Sk-RaA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vvE-Aq-4E5" secondAttribute="top" constant="2" id="vsM-Ak-xhx"/>
                     </constraints>
                 </view>
             </subviews>
@@ -45,6 +56,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="dayNumber" destination="pGB-Gn-6rR" id="sP1-xf-pQI"/>
+                <outlet property="weekday" destination="0bI-Sk-RaA" id="Of6-Lr-wt8"/>
             </connections>
             <point key="canvasLocation" x="24" y="-141"/>
         </view>

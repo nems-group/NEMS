@@ -1,5 +1,5 @@
 //
-//  CalendarLayoutModel.swift
+//  CalendarModel.swift
 //  NEMS
 //
 //  Created by Scott Eremia-Roden on 9/13/18.
@@ -15,14 +15,33 @@ enum CalendarLayoutError: Error {
     case monthInvalid
 }
 
-class CalendarLayoutModel {
+class CalendarModel {
     
     var month: Month
     var year: Int = Date.currentYear
     var numberOfWeeks: Int
     var numberOfDays: Int
     var startsOn: Day
+    var endsOn: Day
+    var previousMonth: Date? {
+        get {
+            guard let lastMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(-1, unit: .month) else {
+                return nil
+            }
+            return lastMonth
+        }
+    }
+    var nextMonth: Date? {
+        get {
+            guard let nextMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(1, unit: .month) else {
+                return nil
+            }
+            return nextMonth
+        }
+    }
     
+    
+    //var today: Int
     convenience init() throws {
         guard let month = Date.thisMonth else {
             throw CalendarLayoutError.monthInvalid
@@ -30,8 +49,7 @@ class CalendarLayoutModel {
         try self.init(month: month, year: Date.currentYear)
     }
     
-    
-    
+
     /// Setup the Layout Model with the all the values need to configure the Calendar view.
     ///
     /// - Parameters:
@@ -54,14 +72,54 @@ class CalendarLayoutModel {
             throw CalendarLayoutError.weekdayError
         }
         
+        let lastDate = try Date(year: year, month: month, day: days)
+        let lastDay = current.component(.weekday, from: lastDate)
+        guard let monthEndsOn = Day(rawValue: lastDay) else {
+            throw CalendarLayoutError.weekdayError
+        }
+        
         self.month = month
         self.numberOfWeeks = weeks
         self.numberOfDays = days
         self.startsOn = monthStartsOn
+        self.endsOn = monthEndsOn
+        //self.index = [:]
         
-        
-        return
-        
+    }
+
+    
+}
+
+struct CalendarDate {
+    var month: Month
+    var day: Int
+    var year: Int
+    
+    var weekday: Day? {
+        get {
+            guard let date = try? Date(year: self.year, month: self.month, day: self.day) else {
+                return nil
+            }
+            let weekdayValue = Calendar.current.component(.weekday, from: date)
+            let day = Day(rawValue: weekdayValue)
+            return day
+            
+        }
     }
     
 }
+
+extension Date {
+    var calObject: CalendarModel? {
+        get {
+            guard let month = self.currentMonth else {
+                return nil
+            }
+            guard let object = try? CalendarModel(month: month, year: self.year) else {
+                return nil
+            }
+            return object
+        }
+    }
+}
+
