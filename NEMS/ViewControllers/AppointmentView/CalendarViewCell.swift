@@ -13,24 +13,34 @@ class CalendarViewCell: UICollectionViewCell {
     @IBOutlet weak var dayNumber: UILabel!
     @IBOutlet weak var weekday: UILabel!
     
-    var day: Int = 1
-    var month: Int = 1
+    var typeOfDisplay: CalendarDisplay = .date
     
-    func setUp(date cal: CalendarDate?) {
-        guard let date = cal else {
-            return
+    func setUp(cellDisplay: CalendarCellDisplay) {
+        
+        if let _ = cellDisplay.day  {
+            self.dayNumber.text = cellDisplay.display
         }
-        self.day = date.day
-        self.month = date.month.rawValue
-        dayNumber.text = String(self.day)
-        self.weekday.isHidden = true
+        if let _ =  cellDisplay.weekday {
+            self.typeOfDisplay = .weekday
+            self.weekday.text = cellDisplay.display
+        }
+        
+        switch typeOfDisplay {
+        case .date:
+            self.weekday.isHidden = true
+            self.dayNumber.isHidden = false
+        case .weekday:
+            self.weekday.isHidden = false
+            self.dayNumber.isHidden = true
+        }
+        
         return
     }
     
-    func setUp(weekdayInt: Int) {
-        self.weekday.text = Day(rawValue: weekdayInt)?.description
-        self.dayNumber.isHidden = true
-    }
     
-    
+}
+
+enum CalendarDisplay {
+    case date
+    case weekday
 }

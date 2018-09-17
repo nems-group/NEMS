@@ -19,6 +19,7 @@ class CalendarModel {
     
     var month: Month
     var year: Int
+    var days: [CalendarDate]
     var numberOfWeeks: Int
     var numberOfDays: Int
     var startsOn: Day
@@ -28,7 +29,7 @@ class CalendarModel {
             guard let lastMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(-1, unit: .month) else {
                 return nil
             }
-            print(lastMonth)
+            //print(lastMonth)
             return lastMonth
         }
     }
@@ -37,7 +38,7 @@ class CalendarModel {
             guard let nextMonth = try? Date(year: self.year, month: month, day: 1).dateAdd(1, unit: .month) else {
                 return nil
             }
-            print(nextMonth)
+            //print(nextMonth)
             return nextMonth
         }
     }
@@ -79,13 +80,18 @@ class CalendarModel {
         guard let monthEndsOn = Day(rawValue: lastDay) else {
             throw CalendarLayoutError.weekdayError
         }
-        
+        var daysArray = [CalendarDate]()
+        for day in 1...days {
+            let calDate = CalendarDate(month: month, day: day, year: year)
+            daysArray.append(calDate)
+        }
         self.month = month
         self.numberOfWeeks = weeks
         self.numberOfDays = days
         self.startsOn = monthStartsOn
         self.endsOn = monthEndsOn
         self.year = year
+        self.days = daysArray
         //self.index = [:]
         
     }
@@ -110,6 +116,25 @@ struct CalendarDate {
         }
     }
     
+    
+}
+
+struct CalendarCellDisplay {
+    var month: Month?
+    var day: Int?
+    var year: Int?
+    var weekday: Day?
+    var display: String {
+        get {
+            if let day = self.day {
+                return String(day)
+            }
+            if let weekday = self.weekday?.description {
+                return weekday
+            }
+            return ""
+        }
+    }
 }
 
 extension Date {
