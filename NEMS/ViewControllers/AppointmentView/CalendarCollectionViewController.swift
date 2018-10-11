@@ -68,10 +68,9 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let dateCount = self.dates?.count {
-            if indexPath.row == dateCount-8 && self.newDataFinished {
+            if indexPath.row <= dateCount-8 && self.newDataFinished {
                 self.newDataFinished = false
                 self.calendarCollectionView.performBatchUpdates({
-                    print("add a week")
                     var newWeek = [IndexPath]()
                     while self.dates!.count < dateCount+7 {
                         let index = IndexPath(row: dateCount - 1 , section: 0)
