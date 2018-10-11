@@ -11,30 +11,14 @@ import UIKit
 class CalendarViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dayNumber: UILabel!
-    @IBOutlet weak var weekday: UILabel!
+    @IBOutlet weak var view: UIView!
     
     var typeOfDisplay: CalendarDisplay = .date
     
-    func setUp(cellDisplay: CalendarCellDisplay) {
-        
-        if let _ = cellDisplay.day  {
-            self.dayNumber.text = cellDisplay.display
-        }
-        if let _ =  cellDisplay.weekday {
-            self.typeOfDisplay = .weekday
-            self.weekday.text = cellDisplay.display
-        }
-        
-        switch typeOfDisplay {
-        case .date:
-            self.weekday.isHidden = true
-            self.dayNumber.isHidden = false
-        case .weekday:
-            self.weekday.isHidden = false
-            self.dayNumber.isHidden = true
-        }
-        
-        return
+    func setDate(date: CalendarDate) {
+        self.dayNumber.text = String(date.day)
+        //self.contentView.layer.shadowRadius = 3
+       // self.contentView.layer.shadowOpacity = 0.5
     }
     
     

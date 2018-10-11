@@ -42,7 +42,7 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         return
     }
     guard exp.minutes(from: Date()) >= 2 else {
-        print(Date().minutes(from: exp))
+        print("expired: \(Date().minutes(from: exp))")
         throw APIerror.expiredToken
     }
     

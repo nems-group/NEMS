@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AppointmentViewController: UIViewController, UICollectionViewDelegate {
+class AppointmentViewController: UIViewController {
     
-    var calendar: CalendarCollectionViewController?
-    var layout: CalendarLayout?
+    //var calendar: CalendarCollectionViewController?
+    var calendar: Cal?
     @IBOutlet weak var calendarLabel: UILabel!
-    var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
+    //var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
     
     
     
@@ -28,79 +28,33 @@ class AppointmentViewController: UIViewController, UICollectionViewDelegate {
             calendarDirection = .backward
         }
         
-        changeDate(calendarDirection)
-        
-    }
-    
-    func changeDate(_ movement: MovementDirection) {
-        let newMonth: CalendarModel?
-        switch movement {
-        case .backward: do {
-            guard let lastMonth = self.currentCalendar?.previousMonth?.calObject else {
-                return
-            }
-            newMonth = lastMonth
-            }
-        case .forward: do {
-            guard let nextMonth = self.currentCalendar?.nextMonth?.calObject else {
-                return
-            }
-            newMonth = nextMonth
-            }
-        }
-        
-        guard let newCal = newMonth else {
-            return
-        }
-        //dump(newCal)
-        print("refresh")
-        self.currentCalendar = newCal
-        self.layout = CalendarLayout(self.currentCalendar!)
-        self.calendarLabel.text = currentCalendar?.month.description
-        self.calendar?.collectionView?.delegate = self
-        self.calendar?.collectionView?.dataSource = self.layout
-        self.calendar?.collectionView?.reloadData()
-        
-       
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("viewDIdload")
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.calendarLabel.text = self.currentCalendar?.month.description
-        
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calendarContainerSegue" {
-            
-            print("id")
-            guard let cal = self.currentCalendar else {
-                return
-            }
-            self.layout = CalendarLayout(cal)
-            guard let layout = self.layout else {
-                print("layout issue")
-                return
-            }
-            guard let delegate = segue.destination as? CalendarCollectionViewController else {
+        
+            guard let destination = segue.destination as? CalendarCollectionViewController else {
                 print("container issue")
                 return
             }
+//            //destination.calendarCollectionView.frame = calendarContainer.frame
+//            print("segueFrom: \(segue.source.description)")
+////            let collectionLayout = UICollectionViewFlowLayout()
+////            collectionLayout.scrollDirection = .vertical
+           self.calendar = Cal()
+//            print(calendarContainer.frame)
+////
+////
+////            destination.collectionView?.setCollectionViewLayout(collectionLayout, animated: true)
+////            print("calendarDate on appointmentView \(self.calendar?.dates)")
+           destination.calendar = self.calendar
+//            destination.calendarDelegate = CalendarLayout()
+//
+//            let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
+//            destination.collectionView?.register(CalendarViewCell, forCellWithReuseIdentifier: "CalendarViewCell")
             
-            delegate.collectionView!.delegate = self
-            delegate.collectionView!.dataSource = layout
-            let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
-            delegate.collectionView!.register(CalendarViewCell, forCellWithReuseIdentifier: "CalendarViewCell")
-            self.calendar = delegate
+            //self.calendar = delegate
             
         }
     }
