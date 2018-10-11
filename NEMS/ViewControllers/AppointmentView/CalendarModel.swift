@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+
 struct CalendarDate {
     var month: Month
     var day: Int
@@ -137,8 +139,23 @@ class Cal {
                 continue
             }
             let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: date.year)
-            print(newCalendar)
+            //print(newCalendar)
             self.dates.append(newCalendar)
         }
     }
+    
+    func addDay() throws {
+            let lastValue = self.dates.endIndex-1
+            let calDate = self.dates[lastValue]
+            guard let date = calDate.asDate, let newDate = date.dateAdd(1, unit: .day), let newMonth = newDate.currentMonth else {
+                throw CalendarError.date
+            }
+            let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: date.year)
+            //print(newCalendar)
+            self.dates.append(newCalendar)
+    }
+}
+
+enum CalendarError: Error {
+    case date
 }

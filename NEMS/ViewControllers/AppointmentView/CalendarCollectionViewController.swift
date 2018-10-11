@@ -28,14 +28,14 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         self.collectionView?.delegate = self
         
         let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
-        self.collectionView?.register(CalendarViewCell, forCellWithReuseIdentifier: cellIdentifier)
+        self.calendarCollectionView.register(CalendarViewCell, forCellWithReuseIdentifier: cellIdentifier)
         
         
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        print(collectionView.description)
+        //print(collectionView.description)
         return 0.00
     }
     
@@ -68,11 +68,25 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //self.dates?[indexPath.row]
         if let dateCount = self.dates?.count {
-            //print(indexPath.row)
-            if indexPath.row == dateCount-1 {
-                print("add a week")
-                self.calendar?.addWeek()
-                self.collectionView?.reloadSections(IndexSet.init(integersIn: indexPath.section...indexPath.section))
+            if indexPath.row == dateCount-8 {
+                self.calendarCollectionView.performBatchUpdates({
+                    print("add a week")
+                    var newWeek = [IndexPath]()
+                    while self.dates!.count < dateCount+7 {
+                            let index = IndexPath(row: dateCount - 1 , section: 0)
+                            newWeek.append(index)
+                        do {
+                            try self.calendar?.addDay()
+                        } catch {
+                            print(error)
+                            break
+                        }
+                    }
+                    self.calendarCollectionView.insertItems(at: newWeek)
+                }) { (finished) in
+                    print(finished)
+                }
+                
             }
         }
         guard let calendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CalendarViewCell else {
