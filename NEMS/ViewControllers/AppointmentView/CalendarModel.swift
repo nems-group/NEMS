@@ -138,7 +138,7 @@ class Cal {
             guard let date = calDate.asDate, let newDate = date.dateAdd(1, unit: .day), let newMonth = newDate.currentMonth else {
                 continue
             }
-            let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: date.year)
+            let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: newDate.year)
             //print(newCalendar)
             self.dates.append(newCalendar)
         }
@@ -150,7 +150,7 @@ class Cal {
             guard let date = calDate.asDate, let newDate = date.dateAdd(1, unit: .day), let newMonth = newDate.currentMonth else {
                 throw CalendarError.date
             }
-            let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: date.year)
+            let newCalendar = CalendarDate(month: newMonth, day: newDate.day, year: newDate.year)
             //print(newCalendar)
             self.dates.append(newCalendar)
     }
