@@ -1379,6 +1379,7 @@ Closed Sun
                         <viewLayoutGuide key="safeArea" id="bRk-Tx-SGs"/>
                     </view>
                     <connections>
+                        <outlet property="calendarHeight" destination="oGo-bU-gQq" id="kNN-JD-2GV"/>
                         <outlet property="calendarLabel" destination="GhT-wK-I67" id="UCA-yO-n5k"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,8 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     @IBOutlet var calendarCollectionView: UICollectionView!
     
     var newDataFinished: Bool = true
+    var calendarDisplay: DisplayStatus = .large
+    var container: AppointmentViewController?
     var calendar: Cal?
     var dates: [CalendarDate]? {
         get {
@@ -47,8 +49,12 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let frame = self.view.frame
         let width = frame.width/7.0
-        let height = frame.height/5.0
-        
+        var height = frame.height/2.0
+        if self.calendarDisplay == .large {
+            height = frame.height/5.0
+        } else {
+            height = frame.height/2.0
+        }
         let itemSize = CGSize(width: width, height: height)
         
         return itemSize
@@ -62,8 +68,17 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // this is the method call to the api
+        if self.calendarDisplay == .large {
+            self.toggleCalendar()
+        }
         print(self.dates?[indexPath.row])
         
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.calendarDisplay == .small {
+            self.toggleCalendar()
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -95,6 +110,25 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         }
     }
     
+    func toggleCalendar() {
+        switch self.calendarDisplay {
+        case .small:
+                UIView.animate(withDuration: 0.75) {
+                    self.container?.calendarHeight.constant = 330
+                    self.container?.view.layoutSubviews()
+                }
+                self.calendarDisplay = .large
+                return
+        case .large:
+                UIView.animate(withDuration: 0.75) {
+                    self.container?.calendarHeight.constant = 120
+                    self.container?.view.layoutSubviews()
+                }
+                self.calendarDisplay = .small
+                return
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //self.dates?[indexPath.row]
         
@@ -119,6 +153,11 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     
     
 
+}
+
+enum DisplayStatus {
+    case small
+    case large
 }
 
 struct AppointmentSearchQuery: Codable {

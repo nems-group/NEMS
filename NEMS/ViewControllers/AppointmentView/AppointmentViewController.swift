@@ -14,6 +14,7 @@ class AppointmentViewController: UIViewController {
     var calendar: Cal?
     @IBOutlet weak var calendarLabel: UILabel!
     //var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
+    @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     
     
     
@@ -42,6 +43,7 @@ class AppointmentViewController: UIViewController {
 //            print("segueFrom: \(segue.source.description)")
 ////            let collectionLayout = UICollectionViewFlowLayout()
 ////            collectionLayout.scrollDirection = .vertical
+           destination.container = self
            self.calendar = Cal()
 //            print(calendarContainer.frame)
 ////
