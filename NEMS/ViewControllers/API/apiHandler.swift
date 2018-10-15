@@ -108,65 +108,65 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
 }
 
 //20180826 make pt portal api call
-func apiSend(endPoint: String) {
-    guard let authToken = ModelStore.shared.token else {
-        guard (ModelStore.shared.token?.refresh_token) != nil else {
-            Keyring.retrieveRefreshToken { (error, success) in
-                if !success || error != nil {
-                    return
-                }
-            }
-            return
-        }
-        return
-    }
-    do {
-        try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
-            if response?.statusCode == 200 {
-                DispatchQueue.main.async {
-                    //print("This is in OAuthWebView.apiSend - data: \(String(describing: data))" )
-                    
-                    if let data =  data {
-                        do {
-                            let patient = try JSONDecoder().decode(Patient.self, from: data)
-                            ModelStore.shared.patient = patient
-                            ModelStore.shared.memberName = patient.name![0].given![0]
-                            print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
-                            
-                            let daysAvailable: [Day] = [.sun, .tues, .fri]
-                            let timeAvailable: TimeOfDay = .am
-                            
-                            
-                            let starting = Date()
-                            let numberOfDays: Int = 2
-                            let daySeconds = (60*60*24)*numberOfDays
-                            let interval = TimeInterval(daySeconds)
-                            let ending = starting.addingTimeInterval(interval)
-                            
-                            guard let appointmentSearch = AppointmentQuery(typeOfAppointment: "PEDI", starting: starting, ending: ending, available: daysAvailable, timeOfDay: timeAvailable) else {
-                                print("appointmentQuery object failed to init")
-                                return
-                            }
-                            
-                            
-                            
-                            try Appointment.query(appointmentQuery: appointmentSearch)
-                            
-                        } catch {
-                            print(error)
-                        }
-                    }
-                }
-                
-            } else {
-                DispatchQueue.main.async {
-                    ModelStore.shared.memberName = "Guest!"
-                }
-                
-            }
-        }
-    } catch {
-        print(error)
-    }
-}
+//func apiSend(endPoint: String) {
+//    guard let authToken = ModelStore.shared.token else {
+//        guard (ModelStore.shared.token?.refresh_token) != nil else {
+//            Keyring.retrieveRefreshToken { (error, success) in
+//                if !success || error != nil {
+//                    return
+//                }
+//            }
+//            return
+//        }
+//        return
+//    }
+//    do {
+//        try patientPortalAPI(call: endPoint, authToken: authToken) { (response, data) in
+//            if response?.statusCode == 200 {
+//                DispatchQueue.main.async {
+//                    //print("This is in OAuthWebView.apiSend - data: \(String(describing: data))" )
+//
+//                    if let data =  data {
+//                        do {
+//                            let patient = try JSONDecoder().decode(Patient.self, from: data)
+//                            ModelStore.shared.patient = patient
+//                            ModelStore.shared.memberName = patient.name![0].given![0]
+//                            print("This is in OAuthWebView.apiSend - JSONDictionary: \(ModelStore.shared.patient)")
+//
+//                            let daysAvailable: [Day] = [.sun, .tues, .fri]
+//                            let timeAvailable: TimeOfDay = .am
+//
+//
+//                            let starting = Date()
+//                            let numberOfDays: Int = 2
+//                            let daySeconds = (60*60*24)*numberOfDays
+//                            let interval = TimeInterval(daySeconds)
+//                            let ending = starting.addingTimeInterval(interval)
+//
+//                            guard let appointmentSearch = AppointmentQuery(type ) else {
+//                                print("appointmentQuery object failed to init")
+//                                return
+//                            }
+//
+//
+//
+//                            try Appointment.query(appointmentQuery: appointmentSearch)
+//
+//                        } catch {
+//                            print(error)
+//                        }
+//                    }
+//                }
+//
+//            } else {
+//                DispatchQueue.main.async {
+//                    ModelStore.shared.memberName = "Guest!"
+//                }
+//
+//            }
+//        }
+//    } catch {
+//        print(error)
+//    }
+//}
 

@@ -281,7 +281,7 @@ class OAuth {
                 print("This is in OAuthWebView.authCodeHandler - token: \(token)")
                 
                 //20180826 get pt demo
-                apiSend(endPoint: "patient")
+                //apiSend(endPoint: "patient")
             } catch {
                 dump(data)
                 print("This is in OAuthWebView.authCodeHandler Catch: \(error)")

@@ -23,7 +23,11 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
             return self.calendar?.dates
         }
     }
-    var selectParameters: AppointmentSearchQuery?
+    
+    var reasonForAppointment: String?
+    var selectedDate: CalendarDate?
+    var selectedLocation: String?
+    var appointmentRequest: AppointmentQuery?
     
     override func viewDidLoad() {
         //super.viewDidLoad()
@@ -71,6 +75,13 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         if self.calendarDisplay == .large {
             self.toggleCalendar()
         }
+        if self.calendarDisplay == .small {
+            indexPath
+        }
+        
+        self.selectedDate = self.dates?[indexPath.row]
+        self.appointmentRequest = AppointmentQuery(typeOfAppointment: self.reasonForAppointment ?? "", location: self.selectedLocation ?? "", starting: selectedDate?.asDate ?? Date(), ending: Date().dateAdd(1, unit: .year) ?? Date(), available: [.sun, .mon, .tues, .wed, .thur, .fri, .sat], timeOfDay: .any)
+        print(self.appointmentRequest?.search())
         print(self.dates?[indexPath.row])
         
     }
@@ -122,6 +133,7 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         case .large:
                 UIView.animate(withDuration: 0.75) {
                     self.container?.calendarHeight.constant = 120
+                    self.calendarCollectionView.reloadSections(IndexSet(integer: 0))
                     self.container?.view.layoutSubviews()
                 }
                 self.calendarDisplay = .small
@@ -160,19 +172,4 @@ enum DisplayStatus {
     case large
 }
 
-struct AppointmentSearchQuery: Codable {
-    
-    var event_id: String
-    var location_id: String
-    var startDate: String = Date.now
-    var start_time: String = "0000"
-    var end_time: String = "2359"
-    var pi_sun: Int = 1
-    var pi_mon: Int = 2
-    var pi_tue: Int = 3
-    var pi_wed: Int = 4
-    var pi_thu: Int = 5
-    var pi_fri: Int = 6
-    var pi_sat: Int = 7
-    
-}
+

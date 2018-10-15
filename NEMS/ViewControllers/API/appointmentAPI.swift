@@ -14,7 +14,7 @@ enum AppointmentError {
 
 class Appointment {
     
-    class func query(appointmentQuery: AppointmentQuery) throws {
+    class func query(appointmentQuery: AppointmentSearchQuery) throws {
         let data = try ModelStore.jsonEncoder.encode(appointmentQuery)
         
         try customAPI(endPoint: Config.options.webConfig.appointmentRequestURI, body: data) { (error, data) in
@@ -33,14 +33,16 @@ struct AppointmentQuery: Codable {
     var daysAvailable: DaysAvailable
     var dateRange: DateRange
     var timeRange: TimeRange
+    var location: String
     
-    init?(typeOfAppointment type: String, starting: Date, ending: Date, available: [Day], timeOfDay: TimeOfDay) {
+    init?(typeOfAppointment type: String, location: String, starting: Date, ending: Date, available: [Day], timeOfDay: TimeOfDay) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
     
         let start = formatter.string(from: starting)
         let end = formatter.string(from: ending)
         self.dateRange = DateRange(start: start, end: end)
+        self.location = location
         
         var sun: Int = 0
         var mon: Int = 0
@@ -83,11 +85,27 @@ struct AppointmentQuery: Codable {
         self.timeRange = timeRange
         
         self.daysAvailable = DaysAvailable(sun: sun, mon: mon, tue: tue, wed: wed, thr: thr, fri: fri, sat: sat)
-        guard let personID = ModelStore.shared.patient?.id else {
-            return nil
-        }
+        let pID = ""
+//        guard let pID = ModelStore.shared.patient?.id else {
+//            return nil
+//        }
         self.appointmentType = type
-        self.personID = personID
+        self.personID = pID
+    }
+    
+    func search() -> Bool {
+        
+        print("search")
+        let searchQuery = AppointmentSearchQuery(event_id: self.appointmentType, location_id: self.location, startDate: self.dateRange.start, start_time: self.timeRange.start, end_time: self.timeRange.end, pi_sun: self.daysAvailable.sun, pi_mon: self.daysAvailable.mon, pi_tue: self.daysAvailable.tue, pi_wed: self.daysAvailable.wed, pi_thu: self.daysAvailable.thr, pi_fri: self.daysAvailable.fri, pi_sat: self.daysAvailable.sat)
+            guard let codedParameters = try? URLQueryEncoder.encode(searchQuery) else {
+                print("error encoding")
+                return false
+            }
+            print(codedParameters)
+            try? customAPI(endPoint: Config.options.webConfig.appointmentRequestURI, parameters: codedParameters) { (data, response, error) in
+                print(response)
+            }
+            return false
     }
 }
 
@@ -119,3 +137,20 @@ enum YesNo  {
 }
 
 
+struct AppointmentSearchQuery: Codable {
+    
+    var event_id: String
+    var location_id: String
+    var startDate: String = Date.now
+    var start_time: String = "0000"
+    var end_time: String = "2359"
+    var pi_sun: Int = 1
+    var pi_mon: Int = 2
+    var pi_tue: Int = 3
+    var pi_wed: Int = 4
+    var pi_thu: Int = 5
+    var pi_fri: Int = 6
+    var pi_sat: Int = 7
+    
+    
+}

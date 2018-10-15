@@ -13,12 +13,13 @@ class CalendarViewCell: UICollectionViewCell {
     @IBOutlet weak var dayNumber: UILabel!
     @IBOutlet weak var view: UIView!
     
+    
     var typeOfDisplay: CalendarDisplay = .date
     
     func setDate(date: CalendarDate) {
         self.dayNumber.text = String(date.day)
-        //self.contentView.layer.shadowRadius = 3
-       // self.contentView.layer.shadowOpacity = 0.5
+        self.view.layer.borderColor = UIColor.gray.cgColor
+        self.view.layer.borderWidth = 0.5
     }
     
     
