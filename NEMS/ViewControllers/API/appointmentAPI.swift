@@ -45,7 +45,10 @@ struct AppointmentQuery: Codable {
         for l in self.locations {
             locations.append(l.location_id)
         }
-        let para = ParamatizedAppointmentQuery(patient: patient_id, resources: resource, events: events, daysAvailable: days, startFrom: startFrom, locations: locations, timeOfDay: timeOfDay.rawValue)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYYMMdd"
+        let startDate = formatter.string(from: self.startFrom)
+        let para = ParamatizedAppointmentQuery(patient: patient_id, resources: resource, events: events, daysAvailable: days, startFrom: startDate, locations: locations, timeOfDay: timeOfDay.rawValue)
         return para
     }
     
@@ -84,7 +87,7 @@ struct ParamatizedAppointmentQuery: Codable {
     var resources: [String]
     var events: [String]
     var daysAvailable: [String]
-    var startFrom: Date
+    var startFrom: String
     var locations: [String]
     var timeOfDay: String
 }

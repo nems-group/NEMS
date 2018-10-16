@@ -28,8 +28,4 @@ class ModelStore {
     var apptSelection: Selection?
 }
 
-struct Selection {
-    var resources: [Resource]?
-    var clinicLocation: [ClinicLocation]?
-    var events: [Event]?
-}
+

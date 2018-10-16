@@ -1,0 +1,39 @@
+{
+    "selectionTest": {
+        "clinicLocations": [
+            {
+                "description": "Lundy",
+                "location_id": "123214"
+            },{
+                "description": "Clement",
+                "location_id": "12j4012"
+            },{
+                "description": "Walmart",
+                "location_id": "1241012940"
+            }
+        ],"resources": [
+            {
+                "description": "Dr. Diaz",
+                "resource_id": "159022890u09rj"
+            },{
+                "description": "Superman",
+                "resource_id": "34905239405"
+            },{
+                "description": "Golf Bot",
+                "resource_id": "0194u91240"
+            }
+        ],"events": [
+            {
+                "description": "hanging out",
+                "event_id": "24124123523"
+            },{
+                "description": "physical",
+                "event_id": "3290432094902"
+            },{
+                "description": "elevator music",
+                "event_id": "423523985829"
+            }
+            
+        ]
+    }
+}

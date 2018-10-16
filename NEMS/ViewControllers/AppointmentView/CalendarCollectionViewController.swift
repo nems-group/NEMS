@@ -82,7 +82,7 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         guard let selectedDate = self.dates?[indexPath.row].asDate else {
             return
         }
-        guard let apptInfo = ModelStore.shared.apptSelection, let resources = apptInfo.resources, let locations = apptInfo.clinicLocation, let events = apptInfo.events else {
+        guard let apptInfo = ModelStore.shared.apptSelection, let resources = apptInfo.resources, let locations = apptInfo.clinicLocations, let events = apptInfo.events else {
             return
         }
         self.appointmentQuery = AppointmentQuery(patient: patient, resources: resources, events: events, daysAvailable: [.sun, .mon, .tues, .wed], startFrom: selectedDate, locations: locations, timeOfDay: .any)

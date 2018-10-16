@@ -22,7 +22,6 @@ func customAPI(endPoint: String, body: Data, completionHandler completion: @esca
     }
     
     
-    
     let session = URLSession(configuration: .default)
     var urlRequest = URLRequest(url: url)
     urlRequest.httpBody = body
@@ -42,15 +41,16 @@ func customAPI(endPoint: String, body: Data, completionHandler completion: @esca
 }
 
 func customAPI<T: Encodable>(endPoint: String, encodableParameter parameters: T, completionHandler completion: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
+    
     let queryString = try URLQueryEncoder.encode(parameters)
     
-    print("endPoint: \(endPoint)")
+    //print("endPoint: \(Substring(endPoint).count)")
     
     guard let url = URL(string: endPoint+queryString) else {
         throw CustomAPIError.invalidURL
     }
     
-    print("url: \(url)")
+    print("urlCharSize: \(Substring(url.absoluteString).count)")
     
     let session = URLSession(configuration: .default)
     var urlRequest = URLRequest(url: url)
@@ -150,8 +150,9 @@ enum HTTPParameter: Decodable {
 enum URLQueryEncoder {
     static func encode<T: Encodable>(_ encodable: T) throws -> String {
         //let i = HTTPParameter.bool(true)
-        dump(encodable)
+        
         let parametersData = try JSONEncoder().encode(encodable)
+        dump(try? JSONDecoder().decode([String: HTTPParameter].self, from: parametersData))
         //print(try? JSONSerialization.jsonObject(with: parametersData, options: .allowFragments))
         let parameters = try JSONDecoder().decode([String: HTTPParameter].self, from: parametersData)
         var queryString = parameters.map( { key, value in
@@ -167,6 +168,7 @@ enum URLQueryEncoder {
             case .date(let value):
                 let formatter = DateFormatter()
                 formatter.dateFormat = "YYYYMMdd"
+                print(formatter.string(from: value))
                 string = formatter.string(from: value)
             case .stringArray(let value):
                 string = value.description

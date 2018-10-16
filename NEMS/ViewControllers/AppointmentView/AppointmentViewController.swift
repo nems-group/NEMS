@@ -44,11 +44,8 @@ class AppointmentViewController: UIViewController {
 ////            let collectionLayout = UICollectionViewFlowLayout()
 ////            collectionLayout.scrollDirection = .vertical
            destination.container = self
-            ModelStore.shared.apptSelection = Selection()
-            ModelStore.shared.apptSelection?.clinicLocation = [ClinicLocation(description: "Lundy", location_id: "1239041")]
-            ModelStore.shared.apptSelection?.events = [Event(description: "Urgent", event_id: "1029432190"), Event(description: "Physical", event_id: "13220210")]
-            ModelStore.shared.apptSelection?.resources = [Resource(description: "Dr. Lynn Liu", resource_id: "12409042")]
-            
+            ModelStore.shared.apptSelection = TestSelection.options.selectionTest
+            dump(TestSelection.options.selectionTest)
            self.calendar = Cal()
 //            print(calendarContainer.frame)
 ////
