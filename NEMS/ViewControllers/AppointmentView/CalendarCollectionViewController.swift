@@ -27,7 +27,7 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     var reasonForAppointment: String?
     var selectedDate: CalendarDate?
     var selectedLocation: String?
-    var appointmentRequest: AppointmentQuery?
+    var appointmentQuery: AppointmentQuery?
     
     override func viewDidLoad() {
         //super.viewDidLoad()
@@ -76,13 +76,22 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
             self.toggleCalendar()
         }
         if self.calendarDisplay == .small {
-            indexPath
+            // don't do anything
         }
+        let patient = ModelStore.shared.patient ?? Patient()
+        guard let selectedDate = self.dates?[indexPath.row].asDate else {
+            return
+        }
+        guard let apptInfo = ModelStore.shared.apptSelection, let resources = apptInfo.resources, let locations = apptInfo.clinicLocation, let events = apptInfo.events else {
+            return
+        }
+        self.appointmentQuery = AppointmentQuery(patient: patient, resources: resources, events: events, daysAvailable: [.sun, .mon, .tues, .wed], startFrom: selectedDate, locations: locations, timeOfDay: .any)
         
-        self.selectedDate = self.dates?[indexPath.row]
-        self.appointmentRequest = AppointmentQuery(typeOfAppointment: self.reasonForAppointment ?? "", location: self.selectedLocation ?? "", starting: selectedDate?.asDate ?? Date(), ending: Date().dateAdd(1, unit: .year) ?? Date(), available: [.sun, .mon, .tues, .wed, .thur, .fri, .sat], timeOfDay: .any)
-        print(self.appointmentRequest?.search())
-        print(self.dates?[indexPath.row])
+        do {
+            try self.appointmentQuery?.search()
+        } catch {
+            print(error)
+        }
         
     }
     

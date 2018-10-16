@@ -186,7 +186,7 @@ enum Month: Int, CustomStringConvertible {
     }
 }
 
-enum Day: Int {
+enum Day: Int, Codable {
     case sun = 1
     case mon = 2
     case tues = 3
@@ -227,7 +227,7 @@ enum Day: Int {
     }
 }
 
-enum TimeOfDay {
+enum TimeOfDay: String, Codable {
     case am
     case pm
     case any

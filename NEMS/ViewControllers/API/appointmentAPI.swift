@@ -8,107 +8,86 @@
 
 import Foundation
 
-enum AppointmentError {
+enum AppointmentError: Error {
     case invalidChoice
-}
-
-class Appointment {
-    
-    class func query(appointmentQuery: AppointmentSearchQuery) throws {
-        let data = try ModelStore.jsonEncoder.encode(appointmentQuery)
-        
-        try customAPI(endPoint: Config.options.webConfig.appointmentRequestURI, body: data) { (error, data) in
-            // MARK: To-Do
-            print(error)
-            print(data)
-        }
-        
-    }
+    case noResourcesAvaliable
+    case noPersonID
+    case noJSONdatas
 }
 
 struct AppointmentQuery: Codable {
     
-    var personID: String
-    var appointmentType: String
-    var daysAvailable: DaysAvailable
-    var dateRange: DateRange
-    var timeRange: TimeRange
-    var location: String
+    var patient: Patient
+    var resources: [Resource]
+    var events: [Event]
+    var daysAvailable: [Day]
+    var startFrom: Date
+    var locations: [ClinicLocation]
+    var timeOfDay: TimeOfDay
     
-    init?(typeOfAppointment type: String, location: String, starting: Date, ending: Date, available: [Day], timeOfDay: TimeOfDay) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-    
-        let start = formatter.string(from: starting)
-        let end = formatter.string(from: ending)
-        self.dateRange = DateRange(start: start, end: end)
-        self.location = location
-        
-        var sun: Int = 0
-        var mon: Int = 0
-        var tue: Int = 0
-        var wed: Int = 0
-        var thr: Int = 0
-        var fri: Int = 0
-        var sat: Int = 0
-        
-        for day in available {
-            switch day {
-                case .sun: sun = 1
-                case .mon: mon = 2
-                case .tues: tue = 3
-                case .wed: wed = 4
-                case .thur: thr = 5
-                case .fri: fri = 6
-                case .sat: sat = 7
-            }
+    var paramatized: ParamatizedAppointmentQuery? {
+        guard let patient_id = self.patient.id else  {
+            return nil
         }
-        
-        var startTime: String = "0000"
-        var endTime: String = "2359"
-        
-        switch timeOfDay {
-            case .am: do {
-                startTime = "0700"
-                endTime = "1200"
-            }
-            case .pm: do {
-                startTime = "1200"
-                endTime = "2100"
-            }
-            case .any: do {
-                break
-            }
+        var resource = [String]()
+        for r in self.resources {
+            resource.append(r.resource_id)
         }
-        
-        let timeRange = TimeRange(start: startTime, end: endTime)
-        self.timeRange = timeRange
-        
-        self.daysAvailable = DaysAvailable(sun: sun, mon: mon, tue: tue, wed: wed, thr: thr, fri: fri, sat: sat)
-        let pID = ""
-//        guard let pID = ModelStore.shared.patient?.id else {
-//            return nil
-//        }
-        self.appointmentType = type
-        self.personID = pID
+        var events = [String]()
+        for e in self.events {
+            events.append(e.event_id)
+        }
+        var days = [String]()
+        for d in self.daysAvailable {
+            days.append(d.description)
+        }
+        var locations = [String]()
+        for l in self.locations {
+            locations.append(l.location_id)
+        }
+        let para = ParamatizedAppointmentQuery(patient: patient_id, resources: resource, events: events, daysAvailable: days, startFrom: startFrom, locations: locations, timeOfDay: timeOfDay.rawValue)
+        return para
     }
     
-    func search() -> Bool {
+    
+    func search() throws -> Bool {
+        var success = false
+        try customAPI(endPoint: Config.options.webConfig.appointmentQueryURI, encodableParameter: self.paramatized) { (data, response, error) in
+//            print(data)
+//            print(response)
+//            print(error)
+            success = true
+            return
+        }
         
-        print("search")
-        let searchQuery = AppointmentSearchQuery(event_id: self.appointmentType, location_id: self.location, startDate: self.dateRange.start, start_time: self.timeRange.start, end_time: self.timeRange.end, pi_sun: self.daysAvailable.sun, pi_mon: self.daysAvailable.mon, pi_tue: self.daysAvailable.tue, pi_wed: self.daysAvailable.wed, pi_thu: self.daysAvailable.thr, pi_fri: self.daysAvailable.fri, pi_sat: self.daysAvailable.sat)
-            guard let codedParameters = try? URLQueryEncoder.encode(searchQuery) else {
-                print("error encoding")
-                return false
-            }
-            print(codedParameters)
-            try? customAPI(endPoint: Config.options.webConfig.appointmentRequestURI, parameters: codedParameters) { (data, response, error) in
-                print(response)
-            }
-            return false
+        return success
     }
+    
+    func schedule() throws {
+        let data = try ModelStore.jsonEncoder.encode(self)
+        
+        try customAPI(endPoint: Config.options.webConfig.appointmentScheduleURI, body: data) { (data, response, error) in
+            // MARK: To-Do
+            print(error)
+            print(data)
+            return
+        }
+        
+    }
+    
+    
 }
 
+
+struct ParamatizedAppointmentQuery: Codable {
+    var patient: String
+    var resources: [String]
+    var events: [String]
+    var daysAvailable: [String]
+    var startFrom: Date
+    var locations: [String]
+    var timeOfDay: String
+}
 
 struct DaysAvailable: Codable {
     var sun: Int
@@ -136,21 +115,3 @@ enum YesNo  {
     case no
 }
 
-
-struct AppointmentSearchQuery: Codable {
-    
-    var event_id: String
-    var location_id: String
-    var startDate: String = Date.now
-    var start_time: String = "0000"
-    var end_time: String = "2359"
-    var pi_sun: Int = 1
-    var pi_mon: Int = 2
-    var pi_tue: Int = 3
-    var pi_wed: Int = 4
-    var pi_thu: Int = 5
-    var pi_fri: Int = 6
-    var pi_sat: Int = 7
-    
-    
-}

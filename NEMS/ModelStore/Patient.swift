@@ -7,22 +7,48 @@
 //
 
 import Foundation
-struct Patient: Decodable {
+struct Patient: Codable {
     let name: [PtName]?
     let id: String?
     let gender: String?
+    
+    init() {
+        self.name = [PtName(given: ["Test"], family: ["Family Name"])]
+        self.id = UUID().uuidString
+        self.gender = nil
+    }
+    
+    func getResources() throws -> [Resource] {
+        
+        guard let person_id = self.id else {
+            throw AppointmentError.noPersonID
+        }
+        try customAPI(endPoint: Config.options.webConfig.appointmentResourcesURI, parameters: ["Person_id": person_id]) { (data, response, error) in
+            if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 {
+                guard let data = data else {
+                    return
+                }
+                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                
+            }
+            
+        }
+        throw AppointmentError.noResourcesAvaliable
+        
+    }
+    
 }
 
-struct PtName: Decodable {
+struct PtName: Codable {
     let given: [String]?
     let family: [String]?
 }
 
-struct PtCommunication: Decodable {
+struct PtCommunication: Codable {
     let language: PtLanguage?
 }
 
-struct PtLanguage: Decodable {
+struct PtLanguage: Codable {
     let text: String?
 }
 /*

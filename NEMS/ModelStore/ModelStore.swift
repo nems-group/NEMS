@@ -25,4 +25,11 @@ class ModelStore {
     var token: AuthToken?
     var memberName: String = "Guest!"
     var patient: Patient?
+    var apptSelection: Selection?
+}
+
+struct Selection {
+    var resources: [Resource]?
+    var clinicLocation: [ClinicLocation]?
+    var events: [Event]?
 }

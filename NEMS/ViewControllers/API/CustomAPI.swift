@@ -15,7 +15,7 @@ enum CustomAPIError: Error {
     case parameterEncodingError
 }
 
-func customAPI(endPoint: String, body: Data, completionHandler completion: @escaping (Error?, Data?) -> Void) throws {
+func customAPI(endPoint: String, body: Data, completionHandler completion: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
     
     guard let url = URL(string: endPoint) else {
         throw CustomAPIError.invalidURL
@@ -35,10 +35,34 @@ func customAPI(endPoint: String, body: Data, completionHandler completion: @esca
         // MARK: To-Do
         //dump(data)
         //dump(response)
-        dump(response)
-        completion(error, data)
+        //
+        completion(data, response, error)
     }
     task.resume()
+}
+
+func customAPI<T: Encodable>(endPoint: String, encodableParameter parameters: T, completionHandler completion: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
+    let queryString = try URLQueryEncoder.encode(parameters)
+    
+    print("endPoint: \(endPoint)")
+    
+    guard let url = URL(string: endPoint+queryString) else {
+        throw CustomAPIError.invalidURL
+    }
+    
+    print("url: \(url)")
+    
+    let session = URLSession(configuration: .default)
+    var urlRequest = URLRequest(url: url)
+    urlRequest.httpMethod = "GET"
+    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = session.dataTask(with: urlRequest) { (data, response, error) in
+        completion(data, response, error)
+    }
+    task.resume()
+    
+    
 }
 
 
@@ -88,6 +112,12 @@ enum HTTPParameter: Decodable {
     case bool(Bool)
     case int(Int)
     case double(Double)
+    case date(Date)
+    case stringArray([String])
+    case boolArray([Bool])
+    case intArray([Int])
+    case doubleArray([Double])
+    case dateArray([Date])
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let string = try? container.decode(String.self) {
@@ -98,6 +128,18 @@ enum HTTPParameter: Decodable {
             self = .int(int)
         } else if let double = try? container.decode(Double.self) {
             self = .double(double)
+        } else if let date = try? container.decode(Date.self) {
+            self = .date(date)
+        } else if let stringArray = try? container.decode([String].self) {
+            self = .stringArray(stringArray)
+        } else if let boolArray = try? container.decode([Bool].self) {
+            self = .boolArray(boolArray)
+        } else if let intArray = try? container.decode([Int].self) {
+            self = .intArray(intArray)
+        } else if let doubleArray = try? container.decode([Double].self) {
+            self = .doubleArray(doubleArray)
+        } else if let dateArray = try? container.decode([Date].self) {
+            self = .dateArray(dateArray)
         } else {
             throw CustomAPIError.parameterEncodingError
         }
@@ -108,9 +150,9 @@ enum HTTPParameter: Decodable {
 enum URLQueryEncoder {
     static func encode<T: Encodable>(_ encodable: T) throws -> String {
         //let i = HTTPParameter.bool(true)
-        //print(i)
+        dump(encodable)
         let parametersData = try JSONEncoder().encode(encodable)
-        print(try? JSONSerialization.jsonObject(with: parametersData, options: .allowFragments))
+        //print(try? JSONSerialization.jsonObject(with: parametersData, options: .allowFragments))
         let parameters = try JSONDecoder().decode([String: HTTPParameter].self, from: parametersData)
         var queryString = parameters.map( { key, value in
             var string = String()
@@ -122,11 +164,32 @@ enum URLQueryEncoder {
                 string = String(value)
             case .double(let value):
                 string = String(value)
+            case .date(let value):
+                let formatter = DateFormatter()
+                formatter.dateFormat = "YYYYMMdd"
+                string = formatter.string(from: value)
+            case .stringArray(let value):
+                string = value.description
+            case .boolArray(let value):
+                string = value.description
+            case .intArray(let value):
+                string = value.description
+            case .doubleArray(let value):
+                string = value.description
+            case .dateArray(let value):
+                var array = [String]()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "YYYYMMdd"
+                for v in value {
+                    let stringDate = formatter.string(from: v)
+                    array.append(stringDate)
+                }
+                string = array.description
             }
-            return "\(key)='\(string)'"
+            return "\(key)=\(string)"
         })
-            .joined(separator: "&")
-            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        return queryString ?? ""
+        .joined(separator: "&")
+        .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return "?\(queryString ?? "")"
     }
 }

@@ -15,6 +15,9 @@
 		2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */; };
 		2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3482AA210858B000F0A9C1 /* apiHandler.swift */; };
 		2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3482AD2108595800F0A9C1 /* Main.storyboard */; };
+		2D3755BD2175287E00D9680A /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755BC2175287E00D9680A /* Resource.swift */; };
+		2D3755BF21752D0500D9680A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755BE21752D0500D9680A /* Event.swift */; };
+		2D3755C121752EF200D9680A /* ClinicLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755C021752EF200D9680A /* ClinicLocation.swift */; };
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
@@ -76,6 +79,9 @@
 		2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiTestViewController.swift; sourceTree = "<group>"; };
 		2D3482AA210858B000F0A9C1 /* apiHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apiHandler.swift; sourceTree = "<group>"; };
 		2D3482AD2108595800F0A9C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2D3755BC2175287E00D9680A /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		2D3755BE21752D0500D9680A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		2D3755C021752EF200D9680A /* ClinicLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClinicLocation.swift; path = NEMS/ModelStore/ClinicLocation.swift; sourceTree = SOURCE_ROOT; };
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 		CEF95B53208D385700DD523C /* ModelStore */ = {
 			isa = PBXGroup;
 			children = (
+				2D3755C021752EF200D9680A /* ClinicLocation.swift */,
 				CE83D9D021422AA1004DD38B /* Patient.swift */,
 				2D9EA60920D4667200DE5037 /* JSON.swift */,
 				2D9EA61020D4667200DE5037 /* Location.swift */,
@@ -328,6 +335,8 @@
 				2D9EA60C20D4667200DE5037 /* MessageQuery.swift */,
 				2D9EA60A20D4667200DE5037 /* ModelStore.swift */,
 				2D9EA60E20D4667200DE5037 /* StringToDate.swift */,
+				2D3755BC2175287E00D9680A /* Resource.swift */,
+				2D3755BE21752D0500D9680A /* Event.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -480,11 +489,14 @@
 				2D9EA63A20D4668C00DE5037 /* MessageDetailViewController.swift in Sources */,
 				2D34698721121DED00FF2173 /* MainViewController.swift in Sources */,
 				2D3482A5210857CF00F0A9C1 /* apiTestViewController.swift in Sources */,
+				2D3755BF21752D0500D9680A /* Event.swift in Sources */,
 				2D9EA63320D4668C00DE5037 /* QRScannerController.swift in Sources */,
 				CE83D9D121422AA1004DD38B /* Patient.swift in Sources */,
+				2D3755BD2175287E00D9680A /* Resource.swift in Sources */,
 				2D9EA61120D4667200DE5037 /* JSON.swift in Sources */,
 				2D9EA62C20D4668C00DE5037 /* MessageTableViewCell.swift in Sources */,
 				2D9EA63920D4668C00DE5037 /* FavoritesViewController.swift in Sources */,
+				2D3755C121752EF200D9680A /* ClinicLocation.swift in Sources */,
 				2D9EA63220D4668C00DE5037 /* LocationVC.swift in Sources */,
 				CE6772AD2092DE620099295E /* LocalData.swift in Sources */,
 				2DE54F53214CB651008F9DBA /* CalendarModel.swift in Sources */,
