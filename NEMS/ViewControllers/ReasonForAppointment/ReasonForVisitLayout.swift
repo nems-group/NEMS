@@ -82,11 +82,12 @@ class ReasonForVisitLayout: UICollectionViewLayout {
             let height: CGFloat
             
             if let lastAttribute = cache.last {
-                height = lastAttribute.frame.maxY
+                height = lastAttribute.frame.maxY + CGFloat(collectionView.frame.height * 0.05)
             } else {
                 height = 0
             }
             print(height)
+            
             return CGSize(width: width, height: height)
             
         }
