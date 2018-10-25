@@ -30,7 +30,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ModelStore.shared.patient = Patient()
         //20180903 map MenuController to meunBar
         guard let locMenuBar = childViewControllers.first as? MenuController else {
             fatalError("This is in MainViewController - cannot find MenuController in StoryBoard")
@@ -69,7 +69,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
                 OAuth.session?.start()
             
             }
-            performSegue(withIdentifier: "calendarViewSegue", sender: nil)
+            performSegue(withIdentifier: "reasonForAppointment", sender: nil)
             
             // MARK: To-Do might want to consider running the refresh logic here once it is working
             return
@@ -172,6 +172,32 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     @IBAction func unwindToLeftMenuViewController(sender: UIStoryboardSegue) -> Void {
         //if let controller = sender.source as? UIViewController, let data = controller
         slideOutLeftMenuBar()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "reasonForAppointment" {
+            guard let reasonForVisitVC = segue.destination as? ReasonForAppointmentVC else {
+                return
+            }
+            //MARK: To-Do, need to make API call here to pull the list of appointment and then update the ModelStore with the available events
+            do {
+                print("checking for reasons")
+                try ModelStore.shared.patient?.getReasonsForVisit { possibleEvents in
+                    guard let events = possibleEvents else {
+                        print(possibleEvents)
+                        return
+                    }
+                    reasonForVisitVC.reasonForVisit = events
+                    DispatchQueue.main.async {
+                        reasonForVisitVC.reasonForVisitCollectionView.reloadData()
+                    }
+                    
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
     }
     
     

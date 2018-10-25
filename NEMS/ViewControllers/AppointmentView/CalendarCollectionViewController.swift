@@ -10,8 +10,7 @@ import UIKit
 
 private let cellIdentifier: String = "CalendarViewCell"
 
-class CalendarCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout
-{
+class CalendarCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     @IBOutlet var calendarCollectionView: UICollectionView!
     
     var newDataFinished: Bool = true
@@ -27,6 +26,7 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     var reasonForAppointment: String?
     var selectedDate: CalendarDate?
     var selectedLocation: String?
+    var selectedEvent: Event?
     var appointmentQuery: AppointmentQuery?
     
     override func viewDidLoad() {

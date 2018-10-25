@@ -216,7 +216,7 @@ class OAuth {
     
     func sfAuth(uri: URL, callback: String?, codeProcessingServerURL: URL) -> SFAuthenticationSession? {
         
-        
+        print(uri)
         let web = SFAuthenticationSession(url: uri, callbackURLScheme: callback) { (_url, error) in
             if let url = _url {
                 self.getToken(authCodeURL: url, uriEndpoint: codeProcessingServerURL) { (_apiError, _data) in

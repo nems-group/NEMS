@@ -18,7 +18,7 @@ final class Config: Codable {
             return try Config()
         } catch {
             print("error: \(error)")
-            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "", messageServerURI: "", appointmentResourcesURI: "", appointmentQueryURI: "", appointmentScheduleURI: "")
+            return Config(clientID: "", clientCallbackURI: "", codeProccessURI: "", refreshProcessURI: "", messageServerURI: "", appointmentEventsURI: "", appointmentQueryURI: "", appointmentScheduleURI: "")
         }
     }
     
@@ -27,11 +27,11 @@ final class Config: Codable {
                 throw APIerror.dataError
             }
             let options = try ModelStore.jsonDecoder.decode(Config.self, from: data)
-        self.init(clientID: options.webConfig.clientID, clientCallbackURI: options.webConfig.clientCallbackURI, codeProccessURI: options.webConfig.codeProcessURI, refreshProcessURI: options.webConfig.refreshProccessURI, messageServerURI: options.webConfig.messageServerURI, appointmentResourcesURI: options.webConfig.appointmentResourcesURI, appointmentQueryURI: options.webConfig.appointmentQueryURI, appointmentScheduleURI: options.webConfig.appointmentScheduleURI)
+        self.init(clientID: options.webConfig.clientID, clientCallbackURI: options.webConfig.clientCallbackURI, codeProccessURI: options.webConfig.codeProcessURI, refreshProcessURI: options.webConfig.refreshProccessURI, messageServerURI: options.webConfig.messageServerURI, appointmentEventsURI: options.webConfig.appointmentEventsURI, appointmentQueryURI: options.webConfig.appointmentQueryURI, appointmentScheduleURI: options.webConfig.appointmentScheduleURI)
     }
     
-    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String, messageServerURI: String, appointmentResourcesURI: String, appointmentQueryURI: String, appointmentScheduleURI: String) {
-        let webConfig = WebConfig(clientID: clientID, clientCallbackURI: clientCallbackURI, codeProcessURI: codeProccessURI, refreshProccessURI: refreshProcessURI, messageServerURI: messageServerURI, appointmentScheduleURI: appointmentScheduleURI, appointmentQueryURI: appointmentQueryURI, appointmentResourcesURI: appointmentResourcesURI)
+    init(clientID: String, clientCallbackURI: String, codeProccessURI: String, refreshProcessURI: String, messageServerURI: String, appointmentEventsURI: String, appointmentQueryURI: String, appointmentScheduleURI: String) {
+        let webConfig = WebConfig(clientID: clientID, clientCallbackURI: clientCallbackURI, codeProcessURI: codeProccessURI, refreshProccessURI: refreshProcessURI, messageServerURI: messageServerURI, appointmentScheduleURI: appointmentScheduleURI, appointmentQueryURI: appointmentQueryURI, appointmentEventsURI: appointmentEventsURI)
         self.webConfig = webConfig
     }
     
@@ -62,7 +62,7 @@ struct WebConfig: Codable {
     var messageServerURI: String
     var appointmentScheduleURI: String
     var appointmentQueryURI: String
-    var appointmentResourcesURI: String
+    var appointmentEventsURI: String
 }
 
 

@@ -44,13 +44,10 @@ func customAPI<T: Encodable>(endPoint: String, encodableParameter parameters: T,
     
     let queryString = try URLQueryEncoder.encode(parameters)
     
-    //print("endPoint: \(Substring(endPoint).count)")
-    
     guard let url = URL(string: endPoint+queryString) else {
         throw CustomAPIError.invalidURL
     }
     
-    print("urlCharSize: \(Substring(url.absoluteString).count)")
     
     let session = URLSession(configuration: .default)
     var urlRequest = URLRequest(url: url)
@@ -88,7 +85,7 @@ func customAPI(endPoint: String, parameters: [String: String], completionHandler
     }
     var param = [URLQueryItem]()
     for (k, v) in parameters {
-        let item = URLQueryItem(name: k, value: v)
+        let item = URLQueryItem(name: k.lowercased(), value: v)
         param.append(item)
     }
     uri.queryItems = param
@@ -100,6 +97,7 @@ func customAPI(endPoint: String, parameters: [String: String], completionHandler
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = "GET"
     urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
     
     let task = session.dataTask(with: urlRequest) { (data, response, error) in
         completion(data, response, error)
@@ -152,8 +150,6 @@ enum URLQueryEncoder {
         //let i = HTTPParameter.bool(true)
         
         let parametersData = try JSONEncoder().encode(encodable)
-        dump(try? JSONDecoder().decode([String: HTTPParameter].self, from: parametersData))
-        //print(try? JSONSerialization.jsonObject(with: parametersData, options: .allowFragments))
         let parameters = try JSONDecoder().decode([String: HTTPParameter].self, from: parametersData)
         var queryString = parameters.map( { key, value in
             var string = String()
@@ -188,10 +184,12 @@ enum URLQueryEncoder {
                 }
                 string = array.description
             }
-            return "\(key)=\(string)"
+            return "\(key.lowercased())=\(string.lowercased())"
         })
         .joined(separator: "&")
         .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        print(queryString)
         return "?\(queryString ?? "")"
     }
 }

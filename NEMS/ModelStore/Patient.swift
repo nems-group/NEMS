@@ -13,27 +13,34 @@ struct Patient: Codable {
     let gender: String?
     
     init() {
-        self.name = [PtName(given: ["Test"], family: ["Family Name"])]
-        self.id = UUID().uuidString
-        self.gender = nil
+        self.name = [PtName(given: ["HQM Only1"], family: ["Test"])]
+        self.id = "23D8BD42-B748-411B-9BCF-685028F634DF"
+        self.gender = "M"
     }
     
-    func getResources() throws -> [Resource] {
-        
+    func getReasonsForVisit(completionHandler completion: @escaping ([Event]?) -> Void ) throws {
+        var events = [Event]()
         guard let person_id = self.id else {
             throw AppointmentError.noPersonID
         }
-        try customAPI(endPoint: Config.options.webConfig.appointmentResourcesURI, parameters: ["Person_id": person_id]) { (data, response, error) in
+        try customAPI(endPoint: Config.options.webConfig.appointmentEventsURI, parameters: ["Person_id": person_id]) { (data, response, error) in
             if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 {
                 guard let data = data else {
                     return
                 }
                 let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                
+                print("size of data: \(json)")
             }
-            
+            guard let newEvents = TestSelection.options.selectionTest.events else {
+                completion(nil)
+                return
+            }
+            events = newEvents
+            if events.count == 0 {
+                completion(nil)
+            }
+            completion(events)
         }
-        throw AppointmentError.noResourcesAvaliable
         
     }
     

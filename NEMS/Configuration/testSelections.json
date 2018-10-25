@@ -2,36 +2,63 @@
     "selectionTest": {
         "clinicLocations": [
             {
-                "description": "Lundy",
-                "location_id": "123214"
+                "description": "1400Noriega Adult NEMS",
+                "location_id": "C379015F-1829-4581-9CC3-B8136B295349"
             },{
-                "description": "Clement",
-                "location_id": "12j4012"
+                "description": "1870Lundy Adult NEMS",
+                "location_id": "5BFD63C5-EA1E-4856-86D9-FDBB6C080436"
             },{
-                "description": "Walmart",
-                "location_id": "1241012940"
+                "description": "3F Adult Stockton NEMS",
+                "location_id": "BC5089A6-499B-4A6D-83CF-A08CA82C9DF0"
             }
         ],"resources": [
             {
-                "description": "Dr. Diaz",
-                "resource_id": "159022890u09rj"
+                "description": "MD Jackie Lam",
+                "resource_id": "0A808494-23E3-420A-AEC6-01E6A447A426"
             },{
-                "description": "Superman",
-                "resource_id": "34905239405"
+                "description": "MD Kenneth Tai - Stockton",
+                "resource_id": "D93B2075-9F16-4493-9A1A-B0A3D7693724"
             },{
-                "description": "Golf Bot",
-                "resource_id": "0194u91240"
+                "description": "MD Lynn Liu",
+                "resource_id": "7E6F9D60-93A3-45B8-B2B4-5969AC7DEAAC"
             }
         ],"events": [
             {
-                "description": "hanging out",
-                "event_id": "24124123523"
+                "description": "Follow Up 15 Min",
+                "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF"
             },{
-                "description": "physical",
-                "event_id": "3290432094902"
+                "description": "Physical Exam",
+                "event_id": "AB5CF451-64E3-4DFF-AC2F-B8668DC92393"
             },{
-                "description": "elevator music",
-                "event_id": "423523985829"
+                "description": "Walk In 15 Min",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Dental Appointment",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Gyn Visit",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "OB Follow-up",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Pumpkin Carving",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Hunted Houses",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Physical Therapy",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Sick Call",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Mental Health Day",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
+            },{
+                "description": "Refill Walk-in",
+                "event_id": "63A4BAC7-6535-45F6-A009-3A09778DA6C2"
             }
             
         ]

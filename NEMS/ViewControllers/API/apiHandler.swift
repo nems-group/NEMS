@@ -50,7 +50,7 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
     if call == "patient" {
         url = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/patient/me")
     } else {
-        url = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=me")
+        url = URL(string: "https://fhir.nextgen.com/mu3api/dstu2/v1.0/\(call)?patient=23D8BD42-B748-411B-9BCF-685028F634DF")
     }
     
     

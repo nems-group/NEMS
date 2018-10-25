@@ -20,6 +20,11 @@
 		2D3755C121752EF200D9680A /* ClinicLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755C021752EF200D9680A /* ClinicLocation.swift */; };
 		2D3755C3217593AF00D9680A /* testSelections.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D3755C2217593AF00D9680A /* testSelections.json */; };
 		2D3755C52175948900D9680A /* TestSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755C42175948900D9680A /* TestSelection.swift */; };
+		2D3755C721769D8200D9680A /* Paramatizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755C621769D8200D9680A /* Paramatizable.swift */; };
+		2D3755CA2177F91500D9680A /* ReasonForAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755C92177F91500D9680A /* ReasonForAppointmentVC.swift */; };
+		2D3755CC2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755CB2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift */; };
+		2D3755D0217994D500D9680A /* ReasonForVisitLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */; };
+		2D3755D2217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */; };
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
@@ -86,6 +91,11 @@
 		2D3755C021752EF200D9680A /* ClinicLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClinicLocation.swift; path = NEMS/ModelStore/ClinicLocation.swift; sourceTree = SOURCE_ROOT; };
 		2D3755C2217593AF00D9680A /* testSelections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testSelections.json; sourceTree = "<group>"; };
 		2D3755C42175948900D9680A /* TestSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelection.swift; sourceTree = "<group>"; };
+		2D3755C621769D8200D9680A /* Paramatizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paramatizable.swift; sourceTree = "<group>"; };
+		2D3755C92177F91500D9680A /* ReasonForAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForAppointmentVC.swift; sourceTree = "<group>"; };
+		2D3755CB2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitLayout.swift; sourceTree = "<group>"; };
+		2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitLayoutEngine.swift; sourceTree = "<group>"; };
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
@@ -170,8 +180,20 @@
 				2DE54F48214CB624008F9DBA /* CustomAPI.swift */,
 				2D3482AA210858B000F0A9C1 /* apiHandler.swift */,
 				2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */,
+				2D3755C621769D8200D9680A /* Paramatizable.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2D3755C82177F90600D9680A /* ReasonForAppointment */ = {
+			isa = PBXGroup;
+			children = (
+				2D3755C92177F91500D9680A /* ReasonForAppointmentVC.swift */,
+				2D3755CB2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift */,
+				2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */,
+				2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */,
+			);
+			path = ReasonForAppointment;
 			sourceTree = "<group>";
 		};
 		2D4C8B162108162400C32E3F /* Auth */ = {
@@ -290,6 +312,7 @@
 		CEF95B50208D37F800DD523C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D3755C82177F90600D9680A /* ReasonForAppointment */,
 				2DE54F4B214CB651008F9DBA /* AppointmentView */,
 				2D9EA62420D4668C00DE5037 /* GMapVC.swift */,
 				2D9EA61A20D4668B00DE5037 /* LocationDetailVC.swift */,
@@ -481,6 +504,7 @@
 				2D18485121193FB0003EA64C /* MenuController.swift in Sources */,
 				2DE54F51214CB651008F9DBA /* CalendarCollectionViewController.swift in Sources */,
 				2D3482AB210858B100F0A9C1 /* apiHandler.swift in Sources */,
+				2D3755CA2177F91500D9680A /* ReasonForAppointmentVC.swift in Sources */,
 				2D9EA63820D4668C00DE5037 /* InboxViewController.swift in Sources */,
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
@@ -510,18 +534,22 @@
 				2DE54F53214CB651008F9DBA /* CalendarModel.swift in Sources */,
 				2D9EA61620D4667200DE5037 /* StringToDate.swift in Sources */,
 				2D9EA63420D4668C00DE5037 /* NotificationViewController.swift in Sources */,
+				2D3755CC2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift in Sources */,
 				2D9EA63620D4668C00DE5037 /* MessageTableViewController.swift in Sources */,
 				2D9EA63520D4668C00DE5037 /* PharmacyVC.swift in Sources */,
 				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
 				2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */,
+				2D3755D0217994D500D9680A /* ReasonForVisitLayout.swift in Sources */,
 				2D34698F21126E6600FF2173 /* Calendar.swift in Sources */,
 				2DD29D7B214F17B3001E2DE4 /* AppointmentViewController.swift in Sources */,
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,
 				CEF95B3F2089805500DD523C /* AppDelegate.swift in Sources */,
 				2D9EA61320D4667200DE5037 /* Message.swift in Sources */,
 				2DA6AE21211FD37E00DF68D8 /* Config.swift in Sources */,
+				2D3755D2217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift in Sources */,
 				2D9EA62F20D4668C00DE5037 /* QRCodeViewController.swift in Sources */,
 				2DE54F4A214CB624008F9DBA /* CustomAPI.swift in Sources */,
+				2D3755C721769D8200D9680A /* Paramatizable.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
 				2DD29D7D214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,

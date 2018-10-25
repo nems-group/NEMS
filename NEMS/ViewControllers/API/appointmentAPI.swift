@@ -15,7 +15,8 @@ enum AppointmentError: Error {
     case noJSONdatas
 }
 
-struct AppointmentQuery: Codable {
+struct AppointmentQuery: Codable, Paramatizable {
+    
     
     var patient: Patient
     var resources: [Resource]
@@ -56,9 +57,7 @@ struct AppointmentQuery: Codable {
     func search() throws -> Bool {
         var success = false
         try customAPI(endPoint: Config.options.webConfig.appointmentQueryURI, encodableParameter: self.paramatized) { (data, response, error) in
-//            print(data)
-//            print(response)
-//            print(error)
+            
             success = true
             return
         }

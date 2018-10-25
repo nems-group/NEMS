@@ -12,6 +12,7 @@ class AppointmentViewController: UIViewController {
     
     //var calendar: CalendarCollectionViewController?
     var calendar: Cal?
+    var event: Event?
     @IBOutlet weak var calendarLabel: UILabel!
     //var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
@@ -45,7 +46,7 @@ class AppointmentViewController: UIViewController {
 ////            collectionLayout.scrollDirection = .vertical
            destination.container = self
             ModelStore.shared.apptSelection = TestSelection.options.selectionTest
-            dump(TestSelection.options.selectionTest)
+            //dump(TestSelection.options.selectionTest)
            self.calendar = Cal()
 //            print(calendarContainer.frame)
 ////

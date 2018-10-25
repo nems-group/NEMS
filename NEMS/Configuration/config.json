@@ -6,7 +6,7 @@
         "refreshProccessURI": "http://ngnp:4444/token",
         "messageServerURI": "http://ngnp:4444/messages",
         "appointmentQueryURI": "http://ngnp:4444/appointmentQuery",
-        "appointmentResourcesURI": "http://ngnp:4444/appointmentResources",
+        "appointmentEventsURI": "http://ngnp:4444/appointmentEvents",
         "appointmentScheduleURI": "http://ngnp:4444/appointmentSchedule"
     }
 }
