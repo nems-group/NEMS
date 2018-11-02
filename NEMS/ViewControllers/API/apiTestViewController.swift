@@ -67,10 +67,10 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
                                 let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                                 guard let resultText = result as? String else {
                                     print("couldn't make it a string for some dumb reason")
-                                    self.apiResults.text = String(describing: result)
+                                    self.apiResults.text = String(describing: result)+" AuthToken: "+(authToken.access_token ?? "nil")
                                     return
                                 }
-                                self.apiResults.text = resultText
+                                self.apiResults.text = resultText+" AuthToken: "+(authToken.access_token ?? "nil")
                             } catch {
                                 print(error)
                             }
@@ -79,7 +79,7 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
                     
                 } else {
                     DispatchQueue.main.async {
-                        self.apiResults.text = response.debugDescription
+                        self.apiResults.text = response.debugDescription+" AuthToken: "+(authToken.access_token ?? "nil")
                     }
                     
                 }
