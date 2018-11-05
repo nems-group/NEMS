@@ -146,23 +146,26 @@ class OAuth {
     /// Send a Refresh Token to the Config Refresh Process URI
     ///
     /// - Parameter token: The Refresh Token to Process
-    func refresh(token: String) throws {
+    func refresh(token: String, completionHandler completion: @escaping (Error?, AuthToken?) -> Void) {
         guard let endPoint = URL(string: Config.options.webConfig.refreshProccessURI) else {
-            throw OAuthError.malformedURL
+            completion(OAuthError.malformedURL, nil)
+            return
         }
         sfRefresh(token: token, codeProcessingServerURL: endPoint) { error, token in
-            guard let token = token else {
-                print(error)
+            guard let authToken = token else {
+                completion(error, token)
                 return
             }
             Keyring.saveRefresh(token: token) { (error, success) in
                     if error != nil {
-                        print(error)
+                        completion(error, token)
                         return
                     }
                     if success {
                         OAuth.session?.delegate?.tokenChanged()
                         self.attemptsForRefresh = 0
+                        completion(nil, token)
+                        return
                     }
             }
         }
@@ -176,13 +179,14 @@ class OAuth {
      * OAuthError.refreshTokenIsNil: If the retrieveRefreshToken call fails to retrieve the refreshToken from the Keychain and does not map to the model store object
      * Error: If retrieveRefreshToken call raises any error
      */
-    func refresh(completionHandler completion: () -> Void) throws {
+    func refresh(completionHandler completion: @escaping (Error?, AuthToken?) -> Void) {
         
         self.attemptsForRefresh = self.attemptsForRefresh + 1
         
         if (self.attemptsForRefresh) >= 3 {
                 ModelStore.shared.token = nil
-                throw OAuthError.tooManyAttempts
+                completion(OAuthError.tooManyAttempts, nil)
+            return
         }
         print("This is in OAuth.refresh - refreshing oauth")
         do {
@@ -194,12 +198,13 @@ class OAuth {
             guard let token = ModelStore.shared.token?.refresh_token else {
                 throw OAuthError.refreshTokenIsNil
             }
-            try refresh(token: token)
-            completion()
+            try refresh(token: token) { error, authToken in
+                completion(error, authToken)
+            }
             
         } catch let error {
-            completion()
-            throw error
+            completion(error, nil)
+            return
         }
     }
     

@@ -17,9 +17,10 @@ enum APIerror: Error {
     case noRefreshToken
 }
 
-var url: URL?
 
-func patientPortalAPI(call: String, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
+func patientPortalAPI(endpoint: PatientPortalEndpoint, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
+    var url: URL?
+    let call = endpoint.rawValue
     print("This is in apiHandler - call: \(call)")
     guard let exp = token.acccesTokenExpirationTime else {
         print("This is in apiHandler - no expiration date")
@@ -30,15 +31,20 @@ func patientPortalAPI(call: String, authToken token: AuthToken, completionHander
         guard let attempts = OAuth.session?.attemptsForRefresh else {
             return
         }
-        print(attempts)
         if attempts > 3 {
             print("This is in apiHandler - not above 3 tries")
             return
         }
-        try OAuth.session?.refresh {
-            print(ModelStore.shared.token)
+        print("refresh??")
+        OAuth.session?.refresh { error, authToken in
+            guard let token = authToken else {
+                print(error)
+                print("some the auth token is nil")
+                return
+            }
+            ModelStore.shared.token = token
+            try! patientPortalAPI(endpoint: endpoint, authToken: token, completionHander: completionHander)
         }
-        try patientPortalAPI(call: call, authToken: token, completionHander: completionHander)
         return
     }
     guard exp.minutes(from: Date()) >= 2 else {

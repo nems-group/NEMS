@@ -11,11 +11,27 @@ struct Patient: Codable {
     let name: [PtName]?
     let id: String?
     let gender: String?
+    var fullName: String {
+        get {
+            guard let firstname = self.name?.first?.given?.first, let lastname = self.name?.first?.family?.first else {
+                return ""
+            }
+            return "\(firstname) \(lastname)"
+        }
+    }
     
     init() {
-        self.name = [PtName(given: ["HQM Only1"], family: ["Test"])]
-        self.id = "23D8BD42-B748-411B-9BCF-685028F634DF"
-        self.gender = "M"
+        do {
+            let patient = try Patient.load()
+            self.name = patient.name
+            self.id = patient.id
+            self.gender = patient.gender
+            return
+        } catch {
+            self.name = nil
+            self.id = nil
+            self.gender = nil
+        }
     }
     
     func getReasonsForVisit(completionHandler completion: @escaping ([Event]?) -> Void ) throws {
@@ -42,6 +58,27 @@ struct Patient: Codable {
             completion(events)
         }
         
+    }
+    
+    private static func load() throws -> Patient {
+        var patient: Patient?
+        guard let authToken = ModelStore.shared.token else {
+            throw APIerror.invalidToken
+        }
+        var finished = false
+        try patientPortalAPI(endpoint: .patient, authToken: authToken) { (response, data) in
+            if let data = data {
+                patient = try ModelStore.jsonDecoder.decode(Patient.self, from: data)
+                finished = true
+            }
+        }
+        while !finished {
+            continue
+        }
+        guard let pt = patient else {
+            throw APIerror.dataError
+        }
+        return pt
     }
     
 }

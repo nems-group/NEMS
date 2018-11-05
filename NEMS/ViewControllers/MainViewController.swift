@@ -30,7 +30,6 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ModelStore.shared.patient = Patient()
         //20180903 map MenuController to meunBar
         guard let locMenuBar = childViewControllers.first as? MenuController else {
             fatalError("This is in MainViewController - cannot find MenuController in StoryBoard")

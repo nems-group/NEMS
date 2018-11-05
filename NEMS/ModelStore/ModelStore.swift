@@ -6,9 +6,11 @@
 //  Copyright © 2018 User. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ModelStore {
+    
+    
     static let shared = ModelStore()
     static let jsonDecoder = JSONDecoder()
     static let jsonEncoder = JSONEncoder()

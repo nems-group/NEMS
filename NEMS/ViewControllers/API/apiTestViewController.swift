@@ -57,8 +57,11 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
     }
     
     private func apiCall(call: String, authToken: AuthToken) {
+        guard let endpoint = PatientPortalEndpoint(rawValue: call) else {
+            return
+        }
         do {
-            try patientPortalAPI(call: call, authToken: authToken) { (response, data) in
+            try patientPortalAPI(endpoint: endpoint, authToken: authToken) { (response, data) in
                 if response?.statusCode == 200 {
                     DispatchQueue.main.async {
                         
@@ -110,8 +113,11 @@ class apiTestViewController: UIViewController, UITextFieldDelegate, OAuthDelegat
     }
     @IBAction func refreshToken(_ sender: Any) {
         do {
-            try OAuth.session?.refresh {
-                self.apiResults.text = ModelStore.shared.token.debugDescription
+            try OAuth.session?.refresh { _, token in
+                DispatchQueue.main.async {
+                    ModelStore.shared.token = token
+                    self.apiResults.text = ModelStore.shared.token.debugDescription
+                }
             }
         } catch {
             self.apiResults.text = error.localizedDescription

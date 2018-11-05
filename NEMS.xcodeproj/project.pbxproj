@@ -26,6 +26,7 @@
 		2D3755D0217994D500D9680A /* ReasonForVisitLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */; };
 		2D3755D2217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */; };
 		2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F0D6B21100F2400B0A470 /* OAuth.swift */; };
+		2D47B0EE218FB20F00831111 /* PatientPortalEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47B0ED218FB20F00831111 /* PatientPortalEndpoint.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
 		2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */; };
@@ -97,6 +98,7 @@
 		2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitLayout.swift; sourceTree = "<group>"; };
 		2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitLayoutEngine.swift; sourceTree = "<group>"; };
 		2D3F0D6B21100F2400B0A470 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		2D47B0ED218FB20F00831111 /* PatientPortalEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPortalEndpoint.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
 		2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLayout.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				2D3482AA210858B000F0A9C1 /* apiHandler.swift */,
 				2D3482A4210857CF00F0A9C1 /* apiTestViewController.swift */,
 				2D3755C621769D8200D9680A /* Paramatizable.swift */,
+				2D47B0ED218FB20F00831111 /* PatientPortalEndpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				2D9EA61820D4667200DE5037 /* Location.swift in Sources */,
 				2DBFDEBF21214620008F30E0 /* TypeAlias.swift in Sources */,
 				2D3755D0217994D500D9680A /* ReasonForVisitLayout.swift in Sources */,
+				2D47B0EE218FB20F00831111 /* PatientPortalEndpoint.swift in Sources */,
 				2D34698F21126E6600FF2173 /* Calendar.swift in Sources */,
 				2DD29D7B214F17B3001E2DE4 /* AppointmentViewController.swift in Sources */,
 				2D9EA63020D4668C00DE5037 /* PtPortalVC.swift in Sources */,

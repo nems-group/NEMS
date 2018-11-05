@@ -27,10 +27,18 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblMemberName?.text = "Hello \(ModelStore.shared.memberName)"
+        lblMemberName?.text = "Hello \(ModelStore.shared.patient?.fullName ?? "Guest")"
     }
     
     func tokenChanged() {
+        DispatchQueue.init(label: "patient").async {
+            print("patient thread")
+            print(ModelStore.shared.patient)
+            if ModelStore.shared.patient == nil && ModelStore.shared.token != nil {
+                ModelStore.shared.patient = Patient()
+            }
+        }
+        
         DispatchQueue.main.async {
             print("token changed")
             guard ModelStore.shared.token?.refresh_token != nil else {
@@ -41,7 +49,7 @@ class MenuController: UIViewController {
             }
             self.loginStatus = .loggedIn
             self.loginLogoutButton.setTitle("Logout", for: .normal)
-            self.lblMemberName?.text = "Hello \(ModelStore.shared.memberName)"
+            self.lblMemberName?.text = "Hello \(ModelStore.shared.patient?.fullName ?? "Guest")"
         }
     }
     
@@ -54,12 +62,14 @@ class MenuController: UIViewController {
             case .loggedOut: OAuth.session?.start()
             case .loggedIn : do {
                 try Keyring.removeRefreshToken()
+                ModelStore.shared.patient = nil
                 self.loginStatus = .loggedOut
                 self.loginLogoutButton.setTitle("Login", for: .normal)
             } catch {
                 print(error)
             }
         }
+        self.tokenChanged()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -6,7 +6,7 @@
 //  Copyright © 2018 User. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol OAuthDelegate {
     
