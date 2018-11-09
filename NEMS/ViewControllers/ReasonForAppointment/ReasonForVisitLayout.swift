@@ -103,15 +103,15 @@ extension UICollectionView {
     var indexPathForAllItems: [IndexPath] {
         var indexPaths = [IndexPath]()
         print(self.numberOfSections)
-        for section in 0...self.numberOfSections-1 {
+        for section in 0..<self.numberOfSections {
             print("indexPathForAllItems: \(section)")
-            var sectionTotal = self.numberOfItems(inSection: section)-1
+            var sectionTotal = self.numberOfItems(inSection: section)
             print("sectionTotal \(sectionTotal)")
             if sectionTotal < 0 {
                 sectionTotal = 0
             }
             if sectionTotal > 0 {
-                for item in 0...sectionTotal {
+                for item in 0..<sectionTotal {
                     print("item: \(item)")
                     let indexPath = IndexPath(item: item, section: section)
                     indexPaths.append(indexPath)

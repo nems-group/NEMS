@@ -30,6 +30,7 @@
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
 		2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */; };
+		2D7D97B52194F91400ACBDA2 /* Reasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D97B42194F91400ACBDA2 /* Reasons.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -102,6 +103,7 @@
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
 		2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLayout.swift; sourceTree = "<group>"; };
+		2D7D97B42194F91400ACBDA2 /* Reasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reasons.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -238,8 +240,8 @@
 		2DBFDEB9212121C3008F30E0 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
-				2D9EA60B20D4667200DE5037 /* Message.swift */,
 				2DBFDEBA21212220008F30E0 /* MessageController.swift */,
+				2D9EA60B20D4667200DE5037 /* Message.swift */,
 				2DBFDEBC2121261E008F30E0 /* Tag.swift */,
 			);
 			path = Messages;
@@ -369,6 +371,7 @@
 				2D9EA60E20D4667200DE5037 /* StringToDate.swift */,
 				2D3755BC2175287E00D9680A /* Resource.swift */,
 				2D3755BE21752D0500D9680A /* Event.swift */,
+				2D7D97B42194F91400ACBDA2 /* Reasons.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */,
 				2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */,
 				2D9EA62D20D4668C00DE5037 /* LocationDetailVC.swift in Sources */,
+				2D7D97B52194F91400ACBDA2 /* Reasons.swift in Sources */,
 				2D3755C52175948900D9680A /* TestSelection.swift in Sources */,
 				2DBFDEBB21212220008F30E0 /* MessageController.swift in Sources */,
 				2DE54F50214CB651008F9DBA /* CalendarViewCell.swift in Sources */,

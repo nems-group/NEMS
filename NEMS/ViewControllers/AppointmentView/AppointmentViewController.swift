@@ -13,6 +13,10 @@ class AppointmentViewController: UIViewController {
     //var calendar: CalendarCollectionViewController?
     var calendar: Cal?
     var event: Event?
+    var resource: Resource?
+    var selectedDays: [Day]?
+    var selectedDate: Date?
+    var selectedTime: TimeOfDay = .any
     @IBOutlet weak var calendarLabel: UILabel!
     //var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
@@ -32,6 +36,10 @@ class AppointmentViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calendarContainerSegue" {
@@ -40,26 +48,9 @@ class AppointmentViewController: UIViewController {
                 print("container issue")
                 return
             }
-//            //destination.calendarCollectionView.frame = calendarContainer.frame
-//            print("segueFrom: \(segue.source.description)")
-////            let collectionLayout = UICollectionViewFlowLayout()
-////            collectionLayout.scrollDirection = .vertical
            destination.container = self
-            ModelStore.shared.apptSelection = TestSelection.options.selectionTest
-            //dump(TestSelection.options.selectionTest)
            self.calendar = Cal()
-//            print(calendarContainer.frame)
-////
-////
-////            destination.collectionView?.setCollectionViewLayout(collectionLayout, animated: true)
-////            print("calendarDate on appointmentView \(self.calendar?.dates)")
            destination.calendar = self.calendar
-//            destination.calendarDelegate = CalendarLayout()
-//
-//            let CalendarViewCell = UINib(nibName: "CalendarViewCell", bundle: nil)
-//            destination.collectionView?.register(CalendarViewCell, forCellWithReuseIdentifier: "CalendarViewCell")
-            
-            //self.calendar = delegate
             
         }
     }

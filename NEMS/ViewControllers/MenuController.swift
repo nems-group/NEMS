@@ -33,7 +33,7 @@ class MenuController: UIViewController {
     func tokenChanged() {
         DispatchQueue.init(label: "patient").async {
             print("patient thread")
-            print(ModelStore.shared.patient)
+            print("modelStorepatient: \(ModelStore.shared.patient)")
             if ModelStore.shared.patient == nil && ModelStore.shared.token != nil {
                 ModelStore.shared.patient = Patient()
             }

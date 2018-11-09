@@ -10,5 +10,5 @@ import Foundation
 
 struct ClinicLocation: Codable {
     var description: String
-    var location_id: String
+    var locationId: String
 }

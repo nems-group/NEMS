@@ -27,7 +27,7 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     var selectedDate: CalendarDate?
     var selectedLocation: String?
     var selectedEvent: Event?
-    var appointmentQuery: AppointmentQuery?
+    //var appointmentQuery: AppointmentQuery?
     
     override func viewDidLoad() {
         //super.viewDidLoad()
@@ -84,13 +84,6 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         }
         guard let apptInfo = ModelStore.shared.apptSelection, let resources = apptInfo.resources, let locations = apptInfo.clinicLocations, let events = apptInfo.events else {
             return
-        }
-        self.appointmentQuery = AppointmentQuery(patient: patient, resources: resources, events: events, daysAvailable: [.sun, .mon, .tues, .wed], startFrom: selectedDate, locations: locations, timeOfDay: .any)
-        
-        do {
-            try self.appointmentQuery?.search()
-        } catch {
-            print(error)
         }
         
     }

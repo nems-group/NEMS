@@ -41,7 +41,7 @@ func customAPI(endPoint: String, body: Data, completionHandler completion: @esca
 }
 
 func customAPI<T: Encodable>(endPoint: String, encodableParameter parameters: T, completionHandler completion: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
-    
+    print("custom api call \(endPoint)")
     let queryString = try URLQueryEncoder.encode(parameters)
     
     guard let url = URL(string: endPoint+queryString) else {

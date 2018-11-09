@@ -13,10 +13,13 @@ class ReasonForVisitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var reasonLabel: UILabel!
     
     var event: Event?
+    var resource: Resource?
     
-    func setupFor(_ event: Event) {
+    func setup(_ event: Event, for resource: Resource) {
         self.event = event
-        reasonLabel.text = event.description
+        self.resource = resource
+        reasonLabel.text = event.displayName
+        
     }
     
     

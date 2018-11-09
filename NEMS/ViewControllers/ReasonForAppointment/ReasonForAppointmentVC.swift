@@ -11,22 +11,37 @@ import UIKit
 
 class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var reasonForVisit: [Event]?
-    var selectedEvent: Event?
+    var reasonForVisit: [Reasons]?
+    var selectedCell: ReasonForVisitCollectionViewCell?
+    
     @IBOutlet weak var reasonForVisitCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("numberOfItemsInSection \(reasonForVisit?.count)")
         return reasonForVisit?.count ?? 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        let count = 0
+        guard let reasons = self.reasonForVisit else {
+            return count
+        }
+        var providerType = [String]()
+        for reason in reasons {
+            
+        }
+        print("number of sections: \(providerType.count)")
+        return providerType.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonForAppointment", for: indexPath) as? ReasonForVisitCollectionViewCell else {
             return UICollectionViewCell()
         }
-        guard let event = self.reasonForVisit, indexPath.row <= event.count-1 else {
+        guard let reasons = self.reasonForVisit else {
             return cell
         }
-        cell.setupFor(event[indexPath.row])
         return cell
     }
     
@@ -34,7 +49,7 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
         guard let cell = collectionView.cellForItem(at: indexPath) as? ReasonForVisitCollectionViewCell else {
             return
         }
-        self.selectedEvent = cell.event
+        self.selectedCell = cell
         
     }
     
@@ -59,7 +74,8 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
             guard let appointmentVC = segue.destination as? AppointmentViewController, let reason = sender as? ReasonForVisitCollectionViewCell else {
                 return
             }
-            appointmentVC.event = reason.event
+            appointmentVC.event = selectedCell?.event
+            appointmentVC.resource = selectedCell?.resource
         }
     }
 }

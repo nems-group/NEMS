@@ -21,41 +21,49 @@ struct Patient: Codable {
     }
     
     init() {
+        print("init patient")
         do {
             let patient = try Patient.load()
             self.name = patient.name
             self.id = patient.id
             self.gender = patient.gender
+            
             return
         } catch {
             self.name = nil
             self.id = nil
             self.gender = nil
         }
+        ModelStore.shared.patient = self
     }
     
-    func getReasonsForVisit(completionHandler completion: @escaping ([Event]?) -> Void ) throws {
-        var events = [Event]()
+    func getReasonsForVisit(completionHandler completion: @escaping ([Reasons]?) -> Void ) throws {
+        print("get reason for visit")
         guard let person_id = self.id else {
             throw AppointmentError.noPersonID
         }
         try customAPI(endPoint: Config.options.webConfig.appointmentEventsURI, parameters: ["Person_id": person_id]) { (data, response, error) in
             if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 {
                 guard let data = data else {
+                    print("couldn't map data",error, response)
                     return
                 }
-                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print("size of data: \(json)")
+                print("status code: \(statusCode)")
+                do {
+                    let events = try ModelStore.jsonDecoder.decode([Reasons].self, from: data)
+                    dump(events)
+                    completion(events)
+                    return
+                } catch {
+                    print(error)
+                    completion(nil)
+                    return
+                }
+                
             }
-            guard let newEvents = TestSelection.options.selectionTest.events else {
-                completion(nil)
-                return
-            }
-            events = newEvents
-            if events.count == 0 {
-                completion(nil)
-            }
-            completion(events)
+            print( response, error)
+            completion(nil)
+            return
         }
         
     }

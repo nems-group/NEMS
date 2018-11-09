@@ -181,7 +181,12 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             //MARK: To-Do, need to make API call here to pull the list of appointment and then update the ModelStore with the available events
             do {
                 print("checking for reasons")
-                try ModelStore.shared.patient?.getReasonsForVisit { possibleEvents in
+                guard let patient = ModelStore.shared.patient else {
+                    return
+                    
+                }
+                try patient.getReasonsForVisit { possibleEvents in
+                    print("possible events?")
                     guard let events = possibleEvents else {
                         print(possibleEvents)
                         return

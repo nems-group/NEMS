@@ -15,13 +15,16 @@ enum APIerror: Error {
     case invalidToken
     case expiredToken
     case noRefreshToken
+    case patientIsNil
 }
 
+var patientCallTimes: Int = 0
 
 func patientPortalAPI(endpoint: PatientPortalEndpoint, authToken token: AuthToken, completionHander: @escaping (HTTPURLResponse?, Data?) throws -> Void ) throws {
     var url: URL?
+    patientCallTimes = patientCallTimes + 1
     let call = endpoint.rawValue
-    print("This is in apiHandler - call: \(call)")
+    print("This is in apiHandler - call: \(call) #\(patientCallTimes)")
     guard let exp = token.acccesTokenExpirationTime else {
         print("This is in apiHandler - no expiration date")
         guard (ModelStore.shared.token?.refresh_token != nil) else {

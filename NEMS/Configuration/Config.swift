@@ -54,6 +54,9 @@ final class Config: Codable {
 }
 
 
+
+
+
 struct WebConfig: Codable {
     var clientID: String
     var clientCallbackURI: String
@@ -63,6 +66,7 @@ struct WebConfig: Codable {
     var appointmentScheduleURI: String
     var appointmentQueryURI: String
     var appointmentEventsURI: String
+    
 }
 
 
