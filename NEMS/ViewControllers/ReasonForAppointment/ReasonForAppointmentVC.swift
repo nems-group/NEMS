@@ -11,28 +11,17 @@ import UIKit
 
 class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var reasonForVisit: [Reasons]?
+    var reasonForVisit: [Reasons] = []
     var selectedCell: ReasonForVisitCollectionViewCell?
     
     @IBOutlet weak var reasonForVisitCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("numberOfItemsInSection \(reasonForVisit?.count)")
-        return reasonForVisit?.count ?? 0
+        return reasonForVisit.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        let count = 0
-        guard let reasons = self.reasonForVisit else {
-            return count
-        }
-        var providerType = [String]()
-        for reason in reasons {
-            
-        }
-        print("number of sections: \(providerType.count)")
-        return providerType.count
+        return reasonForVisit.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
