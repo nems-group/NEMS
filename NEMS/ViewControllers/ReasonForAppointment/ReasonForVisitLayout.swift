@@ -24,7 +24,7 @@ class ReasonForVisitLayout: UICollectionViewLayout {
     override func prepare() {
         print("prepare")
         print("engine: \(engine)")
-        
+        engine?.collectionView = self.collectionView
         if cache.isEmpty {
             guard let indexPaths = self.collectionView?.indexPathForAllItems else {
                 return
@@ -48,7 +48,7 @@ class ReasonForVisitLayout: UICollectionViewLayout {
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        attributes.bounds.size = engine?.sizeForCell(for: self.collectionView) ?? .zero
+        attributes.bounds.size = engine?.itemSize ?? .zero
         return attributes
         
     }

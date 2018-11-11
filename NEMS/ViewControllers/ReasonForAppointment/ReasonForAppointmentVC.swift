@@ -17,10 +17,15 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var reasonForVisitCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return reasonForVisit.count
+        if (reasonForVisit.startIndex != reasonForVisit.endIndex) && section <= reasonForVisit.endIndex {
+            let resouce = reasonForVisit[section].resource
+            return resouce.events.count
+        }
+        return 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print(reasonForVisit.count, "sections")
         return reasonForVisit.count
     }
     
@@ -28,9 +33,8 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonForAppointment", for: indexPath) as? ReasonForVisitCollectionViewCell else {
             return UICollectionViewCell()
         }
-        guard let reasons = self.reasonForVisit else {
-            return cell
-        }
+        cell.dataSource = self.reasonForVisit
+        cell.setup(for: indexPath)
         return cell
     }
     
@@ -38,6 +42,7 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
         guard let cell = collectionView.cellForItem(at: indexPath) as? ReasonForVisitCollectionViewCell else {
             return
         }
+        
         self.selectedCell = cell
         
     }

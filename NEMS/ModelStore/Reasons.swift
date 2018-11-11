@@ -10,17 +10,21 @@ import Foundation
 
 struct Reasons: Codable {
     var providerType: String
-    var resources: [Resource]
+    var resource: Resource
     
     private enum CodingKeys: String, CodingKey {
         case providerType = "provider_type"
-        case resources = "resources"
+        case resource = "resource"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.providerType = try container.decode(String.self, forKey: .providerType)
-        self.resources = try container.decode([Resource].self, forKey: .resources)
+        let resources = try container.decode([Resource].self, forKey: .resource)
+        guard let first = resources.first else {
+            throw APIerror.dataError
+        }
+        self.resource = first
         return
     }
     
