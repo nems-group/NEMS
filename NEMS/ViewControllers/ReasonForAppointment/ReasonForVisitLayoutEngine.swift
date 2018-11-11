@@ -54,7 +54,7 @@ class ReasonForVisitLayoutEngine {
         let numberOfSections = CGFloat(indexPath.section)
         let heightFromSections = numberOfSections * self.sectionHeight
         var totalItems: CGFloat = 0.00
-        for section in 1..<indexPath.section {
+        for section in 0..<indexPath.section {
             let numberOfItems = collectionView!.numberOfItems(inSection: section)
             totalItems = totalItems + CGFloat(numberOfItems)
         }

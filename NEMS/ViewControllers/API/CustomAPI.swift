@@ -97,7 +97,7 @@ func customAPI(endPoint: String, parameters: [String: String], completionHandler
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = "GET"
     urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    
+    dump(urlRequest)
     
     let task = session.dataTask(with: urlRequest) { (data, response, error) in
         completion(data, response, error)
