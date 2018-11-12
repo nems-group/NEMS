@@ -50,7 +50,7 @@ class ReasonForVisitLayoutEngine {
     }
     private var sectionHeight: CGFloat {
         get {
-            return 25.0
+            return 20
         }
     }
     var itemSize: CGSize {
@@ -64,6 +64,12 @@ class ReasonForVisitLayoutEngine {
         return size
     }
     
+    var spaceBetweenSections: CGFloat {
+        get {
+            return 30.0
+        }
+    }
+    
     private func yPositionOfSectionHeader(for index: IndexPath) -> CGFloat {
         var numberOfItemsPrevious = 0
         guard let collectionView = collectionView else {
@@ -72,7 +78,12 @@ class ReasonForVisitLayoutEngine {
         for section in 0..<index.section {
             numberOfItemsPrevious += collectionView.numberOfItems(inSection: section)
         }
-        let heightFromPreviousSections = (self.sectionHeight * CGFloat(index.section))
+        var heightFromPreviousSections = (self.sectionHeight * CGFloat(index.section))
+        if index.section > 0 {
+            heightFromPreviousSections = heightFromPreviousSections + spaceBetweenSections
+        } else {
+            heightFromPreviousSections = heightFromPreviousSections + topSpacing
+        }
         let heightFromPreviousItems = self.itemHeight * CGFloat(numberOfItemsPrevious)
         let totalHeight = heightFromPreviousItems + heightFromPreviousSections
         print("numberOfPreviousItems: \(numberOfItemsPrevious), so total y: \(totalHeight)")
@@ -83,7 +94,12 @@ class ReasonForVisitLayoutEngine {
     private func yPosition(for indexPath: IndexPath) -> CGFloat {
         
         let numberOfSections = CGFloat(indexPath.section+1)
-        let heightFromSections = (numberOfSections * self.sectionHeight)
+        var heightFromSections = (numberOfSections * self.sectionHeight)
+        if indexPath.section > 0 {
+            heightFromSections = heightFromSections + spaceBetweenSections
+        } else {
+            heightFromSections = heightFromSections + topSpacing
+        }
         var totalItems: CGFloat = 0.00
         for section in 0..<indexPath.section {
             //print("section: \(section), indexPathSection: \(indexPath.section)")
