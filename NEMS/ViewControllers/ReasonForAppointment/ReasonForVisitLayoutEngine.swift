@@ -45,12 +45,13 @@ class ReasonForVisitLayoutEngine {
     
     private var itemSpacing: CGFloat {
         get {
-            return 5.00
+            return 10.00
         }
     }
     private var sectionHeight: CGFloat {
         get {
-            return 20
+            let uiFontSize = UIFont.systemFontSize + (UIFont.systemFontSize * 0.50)
+            return uiFontSize
         }
     }
     var itemSize: CGSize {
@@ -66,7 +67,7 @@ class ReasonForVisitLayoutEngine {
     
     var spaceBetweenSections: CGFloat {
         get {
-            return 30.0
+            return 45.0
         }
     }
     
