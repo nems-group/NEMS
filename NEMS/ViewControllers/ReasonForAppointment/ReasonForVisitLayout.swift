@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReasonForVisitLayout: UICollectionViewLayout {
+class ReasonForVisitLayout: UICollectionViewFlowLayout {
     
     var engine: ReasonForVisitLayoutEngine? = ReasonForVisitLayoutEngine()
     private var cache = [UICollectionViewLayoutAttributes]()
@@ -24,7 +24,9 @@ class ReasonForVisitLayout: UICollectionViewLayout {
     override func prepare() {
         print("prepare")
         print("engine: \(engine)")
+        
         engine?.collectionView = self.collectionView
+        
         if cache.isEmpty {
             guard let indexPaths = self.collectionView?.indexPathForAllItems else {
                 return
@@ -34,6 +36,11 @@ class ReasonForVisitLayout: UICollectionViewLayout {
                     return
                 }
                 let attribute = UICollectionViewLayoutAttributes(forCellWith: index)
+                if index.row == 0 {
+                    let sectionA = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: index)
+                    print("sectionA \(sectionA)")
+                    cache.append(sectionA)
+                }
                 attribute.frame = cellRect
                 cache.append(attribute)
             }
@@ -43,15 +50,28 @@ class ReasonForVisitLayout: UICollectionViewLayout {
     
     }
     
-    
-    
-    
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        print("indexPath: \(indexPath)")
+        
+        let sectionA = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
+        sectionA.bounds.size = engine?.sectionSize ?? .zero
+        print("sectionA attributes: \(sectionA)")
         let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        attributes.representedElementCategory
         attributes.bounds.size = engine?.itemSize ?? .zero
+        
         return attributes
         
     }
+    
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        print(elementKind, "layoutAttributesForSupplementaryView")
+        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, with: indexPath)
+        attributes.bounds.size = engine?.sectionSize ?? .zero
+        return attributes
+    }
+    
+    
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var elementsInRect = [UICollectionViewLayoutAttributes]()
@@ -63,6 +83,14 @@ class ReasonForVisitLayout: UICollectionViewLayout {
                 continue
             }
             if rect.intersects(cellRect) {
+                if index.row == 0 {
+                    let sectionA = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: index)
+                    guard let sectionRect = engine?.placementOfHeader(for: self.collectionView, indexPath: index)  else {
+                        continue
+                    }
+                    sectionA.frame = sectionRect
+                    elementsInRect.append(sectionA)
+                }
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: index)
                 attributes.frame = cellRect
                 elementsInRect.append(attributes)
@@ -92,6 +120,10 @@ class ReasonForVisitLayout: UICollectionViewLayout {
             
         }
     }
+    
+    
+
+
     
     
 }

@@ -29,6 +29,8 @@
 		2D47B0EE218FB20F00831111 /* PatientPortalEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47B0ED218FB20F00831111 /* PatientPortalEndpoint.swift */; };
 		2D4C8B152107E95B00C32E3F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B142107E95B00C32E3F /* AuthToken.swift */; };
 		2D4C8B182108163D00C32E3F /* TokenExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8B172108163D00C32E3F /* TokenExtractor.swift */; };
+		2D6CEF7C2198D75B002B3D41 /* Reasons.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D6CEF7B2198D75B002B3D41 /* Reasons.json */; };
+		2D6CEF7E2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CEF7D2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift */; };
 		2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */; };
 		2D7D97B52194F91400ACBDA2 /* Reasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D97B42194F91400ACBDA2 /* Reasons.swift */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
@@ -102,6 +104,8 @@
 		2D47B0ED218FB20F00831111 /* PatientPortalEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPortalEndpoint.swift; sourceTree = "<group>"; };
 		2D4C8B142107E95B00C32E3F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		2D4C8B172108163D00C32E3F /* TokenExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtractor.swift; sourceTree = "<group>"; };
+		2D6CEF7B2198D75B002B3D41 /* Reasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Reasons.json; sourceTree = "<group>"; };
+		2D6CEF7D2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitHeaderCRV.swift; sourceTree = "<group>"; };
 		2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLayout.swift; sourceTree = "<group>"; };
 		2D7D97B42194F91400ACBDA2 /* Reasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reasons.swift; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				2D3755CB2177FFD600D9680A /* ReasonForVisitCollectionViewCell.swift */,
 				2D3755CF217994D500D9680A /* ReasonForVisitLayout.swift */,
 				2D3755D1217D9A5700D9680A /* ReasonForVisitLayoutEngine.swift */,
+				2D6CEF7D2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift */,
 			);
 			path = ReasonForAppointment;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA6AE1E211FD37E00DF68D8 /* config.json */,
+				2D6CEF7B2198D75B002B3D41 /* Reasons.json */,
 				2DA6AE1F211FD37E00DF68D8 /* Config.swift */,
 				2D3755C2217593AF00D9680A /* testSelections.json */,
 				2D3755C42175948900D9680A /* TestSelection.swift */,
@@ -451,6 +457,7 @@
 				2DE54F52214CB651008F9DBA /* CalendarViewCell.xib in Resources */,
 				2D3755C3217593AF00D9680A /* testSelections.json in Resources */,
 				2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */,
+				2D6CEF7C2198D75B002B3D41 /* Reasons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9EA62E20D4668C00DE5037 /* MessageTableView.swift in Sources */,
+				2D6CEF7E2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift in Sources */,
 				2DBFDEC121214C7A008F30E0 /* Formatter.swift in Sources */,
 				2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */,
 				2D9EA61720D4667200DE5037 /* MessageDelegate.swift in Sources */,

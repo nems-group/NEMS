@@ -1,0 +1,46 @@
+[
+    {
+        "provider_type": "Dental",
+        "resource": [
+            {
+                "provider_name": "Helen Yu DDS",
+                "provider_id": "25D05797-5F9C-4F87-B573-47010BC75C9F",
+                "resource_ids": "324191F6-D5F9-4DE6-9B7E-37E31D9B0F76",
+                "location_ids": "2F42C110-CA80-45D8-9000-4DE150A38660",
+                "events": [
+                    {
+                        "event_name": "D - Dental Walk In",
+                        "event_display_name": "Walk In",
+                        "event_id": "374EA0D2-5E4C-4D2D-9BE3-EF812EE98739",
+                        "duration": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "provider_type": "Primary Care",
+        "resource": [
+            {
+                "provider_name": "Jackie Wai-Hang Lam MD",
+                "provider_id": "6AF22F68-7AE8-456E-95BB-404C2839836C",
+                "resource_ids": "09F80653-28A0-409B-8FB5-B249293257F9,E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+                "location_ids": "ED9100BD-AE45-4154-AAEC-D076B14D179B,8756D516-2C66-478B-9B61-27C62B8ADF4D",
+                "events": [
+                    {
+                        "event_name": "Follow Up 15 Min",
+                        "event_display_name": "Follow Up",
+                        "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+                        "duration": 15
+                    },
+                    {
+                        "event_name": "Follow Up 15 Min",
+                        "event_display_name": "Follow Up 15 Min",
+                        "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+                        "duration": 15
+                    }
+                ]
+            }
+        ]
+    }
+]

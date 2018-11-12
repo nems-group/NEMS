@@ -61,9 +61,8 @@ struct Patient: Codable {
                 }
                 
             }
-            print( response, error)
-            completion(nil)
-            return
+            print(response, error)
+            
         }
         
     }

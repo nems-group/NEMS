@@ -182,7 +182,7 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
             do {
                 print("checking for reasons")
                 guard let patient = ModelStore.shared.patient else {
-                    return
+                    throw APIerror.patientIsNil
                     
                 }
                 try patient.getReasonsForVisit { possibleEvents in
@@ -198,7 +198,24 @@ class MainViewController: UIViewController, MessageDelegate, OAuthDelegate {
                     
                 }
             } catch {
-                print(error)
+                print("catching")
+                let uri = Bundle.main.url(forResource: "Reasons", withExtension: "json")
+                let session = URLSession(configuration: .default)
+                session.dataTask(with: uri!, completionHandler: { (_data, _response, _error) in
+                    if let data = _data {
+                        do {
+                            let events = try ModelStore.jsonDecoder.decode([Reasons].self, from: data)
+                            reasonForVisitVC.reasonForVisit = events
+                            DispatchQueue.main.sync {
+                                reasonForVisitVC.reasonForVisitCollectionView.reloadData()
+                            }
+                        } catch {
+                            print(error)
+                            return
+                        }
+                    }
+                }).resume()
+                return
             }
             
         }

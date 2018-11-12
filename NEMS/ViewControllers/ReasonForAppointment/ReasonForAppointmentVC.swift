@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 
-class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var reasonForVisit: [Reasons] = []
     var selectedCell: ReasonForVisitCollectionViewCell?
+    
+    
     
     @IBOutlet weak var reasonForVisitCollectionView: UICollectionView!
     
@@ -30,6 +32,7 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("cellForItemAt: \(indexPath)")
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonForAppointment", for: indexPath) as? ReasonForVisitCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -38,8 +41,37 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        print("collectionviewSupplementaryElement")
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            guard let rv = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as? ReasonForVisitHeaderCRV else {
+                return UICollectionReusableView()
+            }
+            rv.dataSource = self.reasonForVisit
+            rv.setup(for: indexPath)
+            return rv
+        default:
+            print(kind)
+            return UICollectionReusableView()
+        }
+       
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        print("referenceSize")
+        guard let layout = collectionViewLayout as? ReasonForVisitLayout else {
+            return .zero
+        }
+        return layout.engine?.sectionSize ?? .zero
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? ReasonForVisitCollectionViewCell else {
+            
             return
         }
         
@@ -47,19 +79,19 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    
+    
     override func viewDidLoad() {
         self.reasonForVisitCollectionView.delegate = self
         self.reasonForVisitCollectionView.dataSource = self
+        
         self.reasonForVisitCollectionView.collectionViewLayout.invalidateLayout()
-        let layout = ReasonForVisitLayout()
-        self.reasonForVisitCollectionView.setCollectionViewLayout(layout, animated: true)
-    }
-    
-   
-    
-    override func viewWillAppear(_ animated: Bool) {
+       let layout = ReasonForVisitLayout()
+       self.reasonForVisitCollectionView.setCollectionViewLayout(layout, animated: true)
+       
         
     }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
