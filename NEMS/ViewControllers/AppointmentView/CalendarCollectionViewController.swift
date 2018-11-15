@@ -27,6 +27,8 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
     var selectedDate: CalendarDate?
     var selectedLocation: String?
     var selectedEvent: Event?
+    var selectedResource: Resource?
+    
     //var appointmentQuery: AppointmentQuery?
     
     override func viewDidLoad() {
@@ -78,12 +80,38 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         if self.calendarDisplay == .small {
             // don't do anything
         }
-        let patient = ModelStore.shared.patient ?? Patient()
-        guard let selectedDate = self.dates?[indexPath.row].asDate else {
+        var timeout = 1000
+        while ModelStore.shared.patient == nil && timeout != 0 {
+            timeout = timeout - 1
+            continue
+        }
+        guard ModelStore.shared.patient != nil else {
+            print("modelstore patient is nil")
             return
         }
-        guard let apptInfo = ModelStore.shared.apptSelection, let resources = apptInfo.resources, let locations = apptInfo.clinicLocations, let events = apptInfo.events else {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarViewCell else {
+            print("cell is not a CalendarViewCell")
             return
+        }
+        cell.isHighlighted = true
+        self.selectedDate = cell.calendarDate
+        guard let event = self.selectedEvent, let resource = self.selectedResource else {
+            print("selected items are nil - event: \(selectedEvent) -resource: \(selectedResource)")
+            return
+        }
+        let providerName = resource.providerName
+        let providerId = resource.providerId
+        let duration = event.duration
+        do {
+            let query = try AppointmentQuery(resource: resource, event: event, providerName: providerName, providerId: providerId, duration: duration)
+            try query.search { error, appointments in
+                if error == nil && appointments != nil {
+                    self.container?.appointments = appointments
+                }
+            }
+        } catch {
+            print(error)
         }
         
     }
@@ -163,9 +191,6 @@ class CalendarCollectionViewController: UICollectionViewController, UICollection
         }
         return calendarCell
     }
-    
-    
-    
 
 }
 

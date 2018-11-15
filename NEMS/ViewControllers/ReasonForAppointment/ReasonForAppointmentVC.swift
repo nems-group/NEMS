@@ -68,10 +68,10 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("selected, at: \(indexPath)")
         
         guard let cell = collectionView.cellForItem(at: indexPath) as? ReasonForVisitCollectionViewCell else {
-            
+            print("no!!!!!!!!!!!")
             return
         }
         
@@ -97,11 +97,13 @@ class ReasonForAppointmentVC: UIViewController, UICollectionViewDelegate, UIColl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "calendarViewSegue" {
-            guard let appointmentVC = segue.destination as? AppointmentViewController, let reason = sender as? ReasonForVisitCollectionViewCell else {
+            guard let appointmentVC = segue.destination as? AppointmentViewController, let cell = sender as? ReasonForVisitCollectionViewCell else {
+                print(sender, "not cool")
                 return
             }
-            appointmentVC.event = selectedCell?.event
-            appointmentVC.resource = selectedCell?.resource
+            appointmentVC.event = cell.event
+            appointmentVC.resource = cell.resource
+            
         }
     }
 }

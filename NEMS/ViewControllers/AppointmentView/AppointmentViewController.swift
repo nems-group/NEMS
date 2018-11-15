@@ -17,6 +17,26 @@ class AppointmentViewController: UIViewController {
     var selectedDays: [Day]?
     var selectedDate: Date?
     var selectedTime: TimeOfDay = .any
+    var providerName: String?
+    var providerId: String?
+    var duration: Int?
+    var appointmentTable: AppointmentListTableViewController?
+    var appointments: [Appointment]? {
+        didSet {
+            var checkAppt: Appointment?
+            let appointmentByDate = appointments?.map { (appointment) -> Appointment in
+                if checkAppt != nil {
+                    if checkAppt!.apptDateTime >= appointment.apptDateTime {
+                        return checkAppt!
+                    }
+                    
+                }
+                checkAppt = appointment
+                return appointment
+            }
+
+        }
+    }
     @IBOutlet weak var calendarLabel: UILabel!
     //var currentCalendar: CalendarModel? = try! CalendarModel(month: Date.thisMonth!, year: Date.currentYear)
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
@@ -51,8 +71,12 @@ class AppointmentViewController: UIViewController {
            destination.container = self
            self.calendar = Cal()
            destination.calendar = self.calendar
+           destination.selectedEvent = self.event
+           destination.selectedResource = self.resource
+           print("cal: \(destination.calendar), event: \(destination.selectedEvent), resource: \(destination.selectedResource) \(self.event), \(self.resource)")
             
         }
+        
     }
     /*
     // MARK: - Navigation

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D050127219A476200586364 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D050126219A476200586364 /* Appointment.swift */; };
+		2D050129219B876400586364 /* AppointmentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D050128219B876400586364 /* AppointmentListTableViewController.swift */; };
 		2D18485121193FB0003EA64C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18485021193FB0003EA64C /* MenuController.swift */; };
 		2D34698721121DED00FF2173 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698621121DED00FF2173 /* MainViewController.swift */; };
 		2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */; };
@@ -33,6 +35,7 @@
 		2D6CEF7E2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CEF7D2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift */; };
 		2D78BE0D214DAE420006FD70 /* CalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */; };
 		2D7D97B52194F91400ACBDA2 /* Reasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D97B42194F91400ACBDA2 /* Reasons.swift */; };
+		2D8D0F17219C7C3B001D1D04 /* Appointments.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D8D0F16219C7C3B001D1D04 /* Appointments.json */; };
 		2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9EA5F720D4662D00DE5037 /* messageJSON.json */; };
 		2D9EA61120D4667200DE5037 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60920D4667200DE5037 /* JSON.swift */; };
 		2D9EA61220D4667200DE5037 /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EA60A20D4667200DE5037 /* ModelStore.swift */; };
@@ -82,6 +85,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D050126219A476200586364 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		2D050128219B876400586364 /* AppointmentListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListTableViewController.swift; sourceTree = "<group>"; };
 		2D18485021193FB0003EA64C /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		2D34698621121DED00FF2173 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../../../Documents/NEMS/NEMS/ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		2D34698A21124D3D00FF2173 /* OAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		2D6CEF7D2198DF98002B3D41 /* ReasonForVisitHeaderCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForVisitHeaderCRV.swift; sourceTree = "<group>"; };
 		2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLayout.swift; sourceTree = "<group>"; };
 		2D7D97B42194F91400ACBDA2 /* Reasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reasons.swift; sourceTree = "<group>"; };
+		2D8D0F16219C7C3B001D1D04 /* Appointments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Appointments.json; sourceTree = "<group>"; };
 		2D9EA5F720D4662D00DE5037 /* messageJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageJSON.json; sourceTree = "<group>"; };
 		2D9EA60920D4667200DE5037 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2D9EA60A20D4667200DE5037 /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 				2DA6AE1F211FD37E00DF68D8 /* Config.swift */,
 				2D3755C2217593AF00D9680A /* testSelections.json */,
 				2D3755C42175948900D9680A /* TestSelection.swift */,
+				2D8D0F16219C7C3B001D1D04 /* Appointments.json */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 				2D78BE0C214DAE420006FD70 /* CalendarLayout.swift */,
 				2DD29D7A214F17B3001E2DE4 /* AppointmentViewController.swift */,
 				2DD29D7C214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift */,
+				2D050128219B876400586364 /* AppointmentListTableViewController.swift */,
 			);
 			path = AppointmentView;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 				2D3755BC2175287E00D9680A /* Resource.swift */,
 				2D3755BE21752D0500D9680A /* Event.swift */,
 				2D7D97B42194F91400ACBDA2 /* Reasons.swift */,
+				2D050126219A476200586364 /* Appointment.swift */,
 			);
 			path = ModelStore;
 			sourceTree = "<group>";
@@ -456,6 +465,7 @@
 				2D9EA5F820D4662D00DE5037 /* messageJSON.json in Resources */,
 				2DE54F52214CB651008F9DBA /* CalendarViewCell.xib in Resources */,
 				2D3755C3217593AF00D9680A /* testSelections.json in Resources */,
+				2D8D0F17219C7C3B001D1D04 /* Appointments.json in Resources */,
 				2D3482AE2108595900F0A9C1 /* Main.storyboard in Resources */,
 				2D6CEF7C2198D75B002B3D41 /* Reasons.json in Resources */,
 			);
@@ -568,8 +578,10 @@
 				2D3755C721769D8200D9680A /* Paramatizable.swift in Sources */,
 				2D3F0D6C21100F2400B0A470 /* OAuth.swift in Sources */,
 				2DD29D7D214F197C001E2DE4 /* CalendarCollectionViewDelegate.swift in Sources */,
+				2D050127219A476200586364 /* Appointment.swift in Sources */,
 				2D9EA63B20D4668C00DE5037 /* MessageSwipes.swift in Sources */,
 				2D9EA61420D4667200DE5037 /* MessageQuery.swift in Sources */,
+				2D050129219B876400586364 /* AppointmentListTableViewController.swift in Sources */,
 				2D34698B21124D3D00FF2173 /* OAuthDelegate.swift in Sources */,
 				2D9EA63C20D4668C00DE5037 /* MessageCell.swift in Sources */,
 			);

@@ -1,0 +1,681 @@
+[{
+    "appt_datetime": "2018-12-26T16:45:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T17:00:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T17:15:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T17:30:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T17:45:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T18:00:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T18:15:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T18:30:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T18:45:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T19:00:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T19:15:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T19:30:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T19:45:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T22:00:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T22:15:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T22:30:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T22:45:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T23:00:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T23:15:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-12-26T23:30:00Z",
+    "duration": 15,
+    "resource_id": "09F80653-28A0-409B-8FB5-B249293257F9",
+    "location_id": "ED9100BD-AE45-4154-AAEC-D076B14D179B",
+    "location_name": "2308 Taraval Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "2308 Taraval Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941162252
+    }]
+}, {
+    "appt_datetime": "2018-11-13T22:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T22:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T22:30:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T22:45:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T23:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T23:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T23:30:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-13T23:45:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T00:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T00:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T00:30:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T16:45:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T17:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T17:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T18:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T18:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T18:30:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T18:45:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T19:00:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}, {
+    "appt_datetime": "2018-11-14T19:15:00Z",
+    "duration": 15,
+    "resource_id": "E611AE76-7BF8-41AF-BC59-E4E708549BAA",
+    "location_id": "8756D516-2C66-478B-9B61-27C62B8ADF4D",
+    "location_name": "1450 Noriega Street",
+    "provider_id": "6af22f68-7ae8-456e-95bb-404c2839836c",
+    "provider_name": "jackie wai-hang lam md",
+    "event_id": "79C7E354-8743-47ED-B8CA-66C4308C55FF",
+    "event_display_name": "null",
+    "address": [{
+        "address_line_1": "1450 Noriega Street",
+        "address_line_2": null,
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": 941224432
+    }]
+}]

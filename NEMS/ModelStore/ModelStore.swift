@@ -26,7 +26,11 @@ class ModelStore {
     var selectedLocation: Location!
     var token: AuthToken?
     var memberName: String = "Guest!"
-    var patient: Patient?
+    var patient: Patient? {
+        didSet {
+            print("patient assigned: \(patient)")
+        }
+    }
     var apptSelection: Selection?
 }
 
